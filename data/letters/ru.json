@@ -1,0 +1,955 @@
+[
+  {
+    "letter": "А",
+    "lower": "а",
+    "slug": "bukva-a",
+    "word": "авокадо",
+    "article": null,
+    "emoji": "🥑",
+    "character": "avokado",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#44B034",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "авокадо",
+        "image": "objectAvocado"
+      },
+      {
+        "text": "автобус",
+        "image": "objectBus"
+      },
+      {
+        "text": "аквариум",
+        "image": "objectAquarium"
+      }
+    ],
+    "source": "app",
+    "coloring": "avocado"
+  },
+  {
+    "letter": "Б",
+    "lower": "б",
+    "slug": "bukva-b",
+    "word": "белка",
+    "article": null,
+    "emoji": "🐿️",
+    "character": "squirrel_static",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#3FC5FF",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "белка",
+        "image": "objectSquirrel"
+      },
+      {
+        "text": "бабочка",
+        "image": "objectButterfly"
+      },
+      {
+        "text": "бананы",
+        "image": "objectBananas"
+      },
+      {
+        "text": "бобр",
+        "image": "objectBeaver"
+      }
+    ],
+    "source": "app",
+    "coloring": "squirrel"
+  },
+  {
+    "letter": "В",
+    "lower": "в",
+    "slug": "bukva-v",
+    "word": "волк",
+    "article": null,
+    "emoji": "🐺",
+    "character": "wolf",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#FFF09F",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "волк",
+        "image": "objectWolf"
+      },
+      {
+        "text": "вулкан",
+        "image": "objectVolcano"
+      },
+      {
+        "text": "вишня",
+        "image": "objectCherry"
+      }
+    ],
+    "source": "app",
+    "coloring": "wolf"
+  },
+  {
+    "letter": "Г",
+    "lower": "г",
+    "slug": "bukva-g",
+    "word": "гриб",
+    "article": null,
+    "emoji": "🍄",
+    "character": "mushroom",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#EF4B5F",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "гриб",
+        "image": "objectMushroom"
+      },
+      {
+        "text": "гнездо",
+        "image": "objectNest"
+      }
+    ],
+    "source": "app",
+    "coloring": "mushroom"
+  },
+  {
+    "letter": "Д",
+    "lower": "д",
+    "slug": "bukva-d",
+    "word": "дятел",
+    "article": null,
+    "emoji": "🪶",
+    "character": "woodpecker",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#F31B55",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "дятел",
+        "image": "objectWoodpecker"
+      },
+      {
+        "text": "дерево",
+        "image": "objectTree"
+      },
+      {
+        "text": "джойстик",
+        "image": "objectJoystick"
+      }
+    ],
+    "source": "app",
+    "coloring": "woodpecker"
+  },
+  {
+    "letter": "Е",
+    "lower": "е",
+    "slug": "bukva-e",
+    "word": "енот",
+    "article": null,
+    "emoji": "🦝",
+    "character": "raccoon_static",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#FFE143",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "енот",
+        "image": "objectRaccoon"
+      },
+      {
+        "text": "единорог",
+        "image": "objectUnicorn"
+      }
+    ],
+    "source": "app",
+    "coloring": "raccoon"
+  },
+  {
+    "letter": "Ё",
+    "lower": "ё",
+    "slug": "bukva-yo",
+    "word": "ёж",
+    "article": null,
+    "emoji": "🦔",
+    "character": "hedgehog_static",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#FF6915",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "ёж",
+        "image": "objectHedgehog"
+      }
+    ],
+    "source": "app",
+    "coloring": "hedgehog"
+  },
+  {
+    "letter": "Ж",
+    "lower": "ж",
+    "slug": "bukva-zh",
+    "word": "жираф",
+    "article": null,
+    "emoji": "🦒",
+    "character": "giraffe_static",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#FFCF25",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "жираф",
+        "image": "objectGiraffe"
+      },
+      {
+        "text": "желе",
+        "image": "objectJelly"
+      }
+    ],
+    "source": "app",
+    "coloring": "giraffe"
+  },
+  {
+    "letter": "З",
+    "lower": "з",
+    "slug": "bukva-z",
+    "word": "зебра",
+    "article": null,
+    "emoji": "🦓",
+    "character": "zebra",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#FFFFFF",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "зебра",
+        "image": "objectZebra"
+      },
+      {
+        "text": "завод",
+        "image": "objectFactory"
+      }
+    ],
+    "source": "app",
+    "coloring": "zebra"
+  },
+  {
+    "letter": "И",
+    "lower": "и",
+    "slug": "bukva-i",
+    "word": "индюк",
+    "article": null,
+    "emoji": "🦃",
+    "character": "turkey_static",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#F151B0",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "индюк",
+        "image": "objectTurkey"
+      },
+      {
+        "text": "идея",
+        "image": "objectIdea"
+      }
+    ],
+    "source": "app",
+    "coloring": "turkey"
+  },
+  {
+    "letter": "Й",
+    "lower": "й",
+    "slug": "bukva-y-kratkoe",
+    "word": "йог",
+    "article": null,
+    "emoji": "🥛",
+    "character": "yogi",
+    "characterImage": null,
+    "color": "#1FAFAF",
+    "letterColor": "#EF3536",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "йог",
+        "image": "objectYogi"
+      },
+      {
+        "text": "йогурт",
+        "image": "objectYogurt"
+      }
+    ],
+    "source": "app",
+    "coloring": "yogi"
+  },
+  {
+    "letter": "К",
+    "lower": "к",
+    "slug": "bukva-k",
+    "word": "кот",
+    "article": null,
+    "emoji": "🐈",
+    "character": "cat_static",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#00CEE7",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "кошка",
+        "image": "objectCat"
+      },
+      {
+        "text": "ксилофон",
+        "image": "objectXylophone"
+      },
+      {
+        "text": "кролик",
+        "image": "objectRabbit"
+      },
+      {
+        "text": "корова",
+        "image": "objectCow"
+      },
+      {
+        "text": "кенгуру",
+        "image": "objectKangaroo"
+      }
+    ],
+    "source": "app",
+    "coloring": "cat"
+  },
+  {
+    "letter": "Л",
+    "lower": "л",
+    "slug": "bukva-l",
+    "word": "лиса",
+    "article": null,
+    "emoji": "🦊",
+    "character": "fox_static",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#FF2B1E",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "лось",
+        "image": "objectMoose"
+      },
+      {
+        "text": "лиса",
+        "image": "objectFox"
+      },
+      {
+        "text": "лимон",
+        "image": "objectLemon"
+      },
+      {
+        "text": "лягушка",
+        "image": "objectFrog"
+      }
+    ],
+    "source": "app",
+    "coloring": "fox"
+  },
+  {
+    "letter": "М",
+    "lower": "м",
+    "slug": "bukva-m",
+    "word": "мышь",
+    "article": null,
+    "emoji": "🐭",
+    "character": "mouse_static",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#FFF26B",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "мышь",
+        "image": "objectMouse"
+      },
+      {
+        "text": "мыло",
+        "image": "objectSoap"
+      },
+      {
+        "text": "морковь",
+        "image": "objectCarrot"
+      },
+      {
+        "text": "миксер",
+        "image": "objectMixer"
+      }
+    ],
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "Н",
+    "lower": "н",
+    "slug": "bukva-n",
+    "word": "неваляшка",
+    "article": null,
+    "emoji": "🤖",
+    "character": "tumbler",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#F64F93",
+    "freeInApp": false,
+    "outline": true,
+    "words": [],
+    "source": "app",
+    "coloring": "tumbler"
+  },
+  {
+    "letter": "О",
+    "lower": "о",
+    "slug": "bukva-o",
+    "word": "обезьяна",
+    "article": null,
+    "emoji": "🐒",
+    "character": "monkey_static",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#FFE04C",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "обезьяна",
+        "image": "objectMonkey"
+      },
+      {
+        "text": "овца",
+        "image": "objectSheep"
+      },
+      {
+        "text": "осёл",
+        "image": "objectDonkey"
+      },
+      {
+        "text": "объятия",
+        "image": "objectHugs"
+      }
+    ],
+    "source": "app",
+    "coloring": "monkey"
+  },
+  {
+    "letter": "П",
+    "lower": "п",
+    "slug": "bukva-p",
+    "word": "пингвин",
+    "article": null,
+    "emoji": "🐧",
+    "character": "penguin_static",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#FF6C00",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "пингвин",
+        "image": "objectPenguin"
+      },
+      {
+        "text": "пицца",
+        "image": "objectPizza"
+      },
+      {
+        "text": "пазл",
+        "image": "objectPuzzle"
+      },
+      {
+        "text": "паук",
+        "image": "objectSpider"
+      }
+    ],
+    "source": "app",
+    "coloring": "penguin"
+  },
+  {
+    "letter": "Р",
+    "lower": "р",
+    "slug": "bukva-r",
+    "word": "ракета",
+    "article": null,
+    "emoji": "🚀",
+    "character": "rocket_static",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#FF0026",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "ракета",
+        "image": "objectRocket"
+      },
+      {
+        "text": "рыба",
+        "image": "objectFish"
+      }
+    ],
+    "source": "app",
+    "coloring": "rocket"
+  },
+  {
+    "letter": "С",
+    "lower": "с",
+    "slug": "bukva-s",
+    "word": "самолет",
+    "article": null,
+    "emoji": "✈️",
+    "character": null,
+    "characterImage": "airplane",
+    "color": "#5C36A4",
+    "letterColor": "#FF4200",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "сыр",
+        "image": "objectCheese"
+      },
+      {
+        "text": "самолёт",
+        "image": "objectAirplane"
+      },
+      {
+        "text": "слон",
+        "image": "objectElephant"
+      },
+      {
+        "text": "сова",
+        "image": "objectOwl"
+      },
+      {
+        "text": "солнце",
+        "image": "objectSun"
+      }
+    ],
+    "source": "app",
+    "coloring": "plane"
+  },
+  {
+    "letter": "Т",
+    "lower": "т",
+    "slug": "bukva-t",
+    "word": "торт",
+    "article": null,
+    "emoji": "🎂",
+    "character": "cake_static",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#FF3A1A",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "торт",
+        "image": "objectCake"
+      }
+    ],
+    "source": "app",
+    "coloring": "cake"
+  },
+  {
+    "letter": "У",
+    "lower": "у",
+    "slug": "bukva-u",
+    "word": "улитка",
+    "article": null,
+    "emoji": "🐌",
+    "character": "snail_static",
+    "characterImage": null,
+    "color": "#1FAFAF",
+    "letterColor": "#FF4399",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "улитка",
+        "image": "objectSnail"
+      },
+      {
+        "text": "утюг",
+        "image": "objectIron"
+      },
+      {
+        "text": "утка",
+        "image": "objectDuck"
+      }
+    ],
+    "source": "app",
+    "coloring": "snail"
+  },
+  {
+    "letter": "Ф",
+    "lower": "ф",
+    "slug": "bukva-f",
+    "word": "фонарь",
+    "article": null,
+    "emoji": "🔦",
+    "character": null,
+    "characterImage": "flashlightOn",
+    "color": "#FFD236",
+    "letterColor": "#97A4A6",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "фонарь",
+        "image": "objectFlashlight"
+      }
+    ],
+    "source": "app",
+    "coloring": "flashlight"
+  },
+  {
+    "letter": "Х",
+    "lower": "х",
+    "slug": "bukva-h",
+    "word": "хамелеон",
+    "article": null,
+    "emoji": "🦎",
+    "character": "chameleon1",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#DBEA49",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "хамелеон",
+        "image": "objectChameleon"
+      },
+      {
+        "text": "хомяк",
+        "image": "objectHamster"
+      }
+    ],
+    "source": "app",
+    "coloring": "chameleon"
+  },
+  {
+    "letter": "Ц",
+    "lower": "ц",
+    "slug": "bukva-ts",
+    "word": "цапля",
+    "article": null,
+    "emoji": "🪶",
+    "character": "heron_static",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#FF611E",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "цыплёнок",
+        "image": "objectChick"
+      },
+      {
+        "text": "цветы",
+        "image": "objectFlowers"
+      },
+      {
+        "text": "цапля",
+        "image": "objectHeron"
+      }
+    ],
+    "source": "app",
+    "coloring": "heron"
+  },
+  {
+    "letter": "Ч",
+    "lower": "ч",
+    "slug": "bukva-ch",
+    "word": "часы",
+    "article": null,
+    "emoji": "⌚️",
+    "character": "clock",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#FFDB5B",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "часы",
+        "image": "objectClock"
+      },
+      {
+        "text": "черепаха",
+        "image": "objectTurtle"
+      }
+    ],
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "Ш",
+    "lower": "ш",
+    "slug": "bukva-sh",
+    "word": "шмель",
+    "article": null,
+    "emoji": "🐝",
+    "character": "bumblebee",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#FFC900",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "шмель",
+        "image": "objectBumblebee"
+      }
+    ],
+    "source": "app",
+    "coloring": "bumblebee"
+  },
+  {
+    "letter": "Щ",
+    "lower": "щ",
+    "slug": "bukva-shch",
+    "word": "щетка",
+    "article": null,
+    "emoji": "🪥",
+    "character": "brush",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#FB3D97",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "щётка",
+        "image": "objectBrush"
+      },
+      {
+        "text": "щука",
+        "image": "objectPike"
+      },
+      {
+        "text": "щенок",
+        "image": "objectPuppy"
+      }
+    ],
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "Ъ",
+    "lower": "ъ",
+    "slug": "bukva-tverdyy-znak",
+    "word": "объятия",
+    "article": null,
+    "emoji": "🤗",
+    "character": "hug",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#FF3D62",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "объятия",
+        "image": "objectHugs"
+      }
+    ],
+    "source": "app",
+    "coloring": "huggle"
+  },
+  {
+    "letter": "Ы",
+    "lower": "ы",
+    "slug": "bukva-y",
+    "word": "сыр",
+    "article": null,
+    "emoji": "🧀",
+    "character": "cheese",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#FFD833",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "сыр",
+        "image": "objectCheese"
+      },
+      {
+        "text": "цыплёнок",
+        "image": "objectChick"
+      },
+      {
+        "text": "часы",
+        "image": "objectClock"
+      },
+      {
+        "text": "цветы",
+        "image": "objectFlowers"
+      },
+      {
+        "text": "мышь",
+        "image": "objectMouse"
+      },
+      {
+        "text": "мыло",
+        "image": "objectSoap"
+      },
+      {
+        "text": "бананы",
+        "image": "objectBananas"
+      },
+      {
+        "text": "рыба",
+        "image": "objectFish"
+      }
+    ],
+    "source": "app",
+    "coloring": "cheese"
+  },
+  {
+    "letter": "Ь",
+    "lower": "ь",
+    "slug": "bukva-myagkiy-znak",
+    "word": "лось",
+    "article": null,
+    "emoji": "🦌",
+    "character": "moose_static",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#62D9FF",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "шмель",
+        "image": "objectBumblebee"
+      },
+      {
+        "text": "лось",
+        "image": "objectMoose"
+      },
+      {
+        "text": "фонарь",
+        "image": "objectFlashlight"
+      },
+      {
+        "text": "обезьяна",
+        "image": "objectMonkey"
+      },
+      {
+        "text": "мышь",
+        "image": "objectMouse"
+      },
+      {
+        "text": "морковь",
+        "image": "objectCarrot"
+      }
+    ],
+    "source": "app",
+    "coloring": "moose"
+  },
+  {
+    "letter": "Э",
+    "lower": "э",
+    "slug": "bukva-e-oborotnoe",
+    "word": "эскимо",
+    "article": null,
+    "emoji": "🍦",
+    "character": "popsicle_static",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#ED3A3A",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "эскимо",
+        "image": "objectPopsicle"
+      },
+      {
+        "text": "эму",
+        "image": "objectEmu"
+      },
+      {
+        "text": "эклер",
+        "image": "objectEclair"
+      }
+    ],
+    "source": "app",
+    "coloring": "eskimo"
+  },
+  {
+    "letter": "Ю",
+    "lower": "ю",
+    "slug": "bukva-yu",
+    "word": "юла",
+    "article": null,
+    "emoji": "🪀",
+    "character": "yula",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#FFD439",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "юла",
+        "image": "objectWhirligig"
+      }
+    ],
+    "source": "app",
+    "coloring": "whirligig"
+  },
+  {
+    "letter": "Я",
+    "lower": "я",
+    "slug": "bukva-ya",
+    "word": "яблоко",
+    "article": null,
+    "emoji": "🍎",
+    "character": "apple",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#F4000F",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "яблоко",
+        "image": "objectApple"
+      }
+    ],
+    "source": "app",
+    "coloring": "apple"
+  }
+]

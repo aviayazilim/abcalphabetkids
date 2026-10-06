@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: withastro/action@v6
+        with:
+          node-version: 22
+          # PDFs are rendered with the runner's preinstalled Google Chrome, then the site is built.
+          build-cmd: npm run build:ci
+        env:
+          PUBLIC_APPSTORE_PROVIDER_TOKEN: ${{ vars.PUBLIC_APPSTORE_PROVIDER_TOKEN }}
+          PUBLIC_PINTEREST_VERIFY: ${{ vars.PUBLIC_PINTEREST_VERIFY }}
+          PUBLIC_CF_BEACON_TOKEN: ${{ vars.PUBLIC_CF_BEACON_TOKEN }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

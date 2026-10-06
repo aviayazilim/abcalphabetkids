@@ -1,0 +1,28 @@
+{
+  "name": "abcalphabetkids",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "data": "node scripts/extract-app-data.mjs && node scripts/render-characters.mjs",
+    "pdf": "node scripts/make-pdf.mjs",
+    "check": "node scripts/check-seo.mjs",
+    "build:ci": "node scripts/make-pdf.mjs && astro build && node scripts/check-seo.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/nunito": "^5.3.0",
+    "@fontsource/andika": "^5.3.0",
+    "astro": "^7.3.6"
+  },
+  "devDependencies": {
+    "lottie-web": "^5.13.0",
+    "playwright": "^1.63.0",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.5"
+  }
+}

@@ -1,0 +1,153 @@
+---
+import fs from 'node:fs';
+import Base from '../../../layouts/Base.astro';
+import StoreButtons from '../../../components/StoreButtons.astro';
+import LetterTile from '../../../components/LetterTile.astro';
+import AppBlock from '../../../components/AppBlock.astro';
+import { appStoreUrl, playUrl } from '../../../site';
+import { t } from '../../../i18n';
+import { LANGS, SECTIONS, LETTERS, path, type Lang, type SectionKind } from '../../../lib/routes';
+import { fgFor } from '../../../lib/color';
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    Object.entries(SECTIONS[lang]).map(([kind, section]) => ({ params: { lang, section }, props: { kind } })),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const kind = Astro.props.kind as SectionKind;
+const tr = t(lang);
+const letters = LETTERS[lang];
+const bySymbol = new Map(letters.map((l) => [l.letter, l]));
+
+// QR codes on the sheets and Pinterest pins land on the app page with ?c=…;
+// only these known campaigns are honoured.
+const redirects = {
+  pdf: { ios: appStoreUrl(`pdf_${lang}`), android: playUrl(`pdf_${lang}`, 'pdf') },
+  pinterest: { ios: appStoreUrl(`pinterest_${lang}`), android: playUrl(`pinterest_${lang}`, 'pinterest') },
+};
+const content = kind === 'privacy' ? tr.privacy : kind === 'imprint' ? tr.imprint! : null;
+const screens = kind === 'app'
+  ? fs.readdirSync(`public/img/screens/${lang}`).filter((f) => f.endsWith('-360.webp')).sort().map((f) => f.replace('-360.webp', ''))
+  : [];
+---
+{kind === 'tracing' && (
+  <Base lang={lang} title={tr.tracing.title} description={tr.tracing.description} page={{ kind }} nav="tracing">
+    <section class="section">
+      <div class="wrap">
+        <h1>{tr.tracing.h1}</h1>
+        <p class="lead">{tr.tracing.lead}</p>
+        <div class="dl">
+          <a class="btn" href={path.pdfAll(lang)} download>{tr.tracing.downloadAll}</a>
+          <a class="btn btn-quiet" href={path.pdfAll(lang, 'letter')} download>US Letter</a>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <h2>{tr.tracing.gridTitle}</h2>
+        <div class="grid letters">
+          {letters.map((l) => <LetterTile letter={l} href={path.letter(lang, l.slug)} alt={tr.letter.characterAlt(l)} />)}
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <h2>{tr.tracing.setsTitle}</h2>
+        <div class="grid sets">
+          {tr.tracing.sets.map((s) => (
+            <div class="card">
+              <h3>{s.title}</h3>
+              <p class="set-letters">
+                {s.letters.map((x) => bySymbol.get(x)).filter(Boolean).map((l) => (
+                  <a href={path.letter(lang, l!.slug)} style={`--c:${l!.color};--fg:${fgFor(l!.color)}`}>{l!.letter}</a>
+                ))}
+              </p>
+              <p class="muted">{s.note}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap prose">
+        <h2>{tr.tracing.guideTitle}</h2>
+        <Fragment set:html={tr.tracing.guide} />
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_tracing`} /></div>
+    </section>
+  </Base>
+)}
+
+{kind === 'app' && (
+  <Base lang={lang} title={tr.app.title} description={tr.app.description} page={{ kind }} nav="app">
+    <section class="section">
+      <div class="wrap">
+        <h1>{tr.app.h1}</h1>
+        <p class="lead">{tr.app.lead}</p>
+        <p class="redirecting muted" hidden>{tr.app.redirecting}</p>
+        <StoreButtons lang={lang} campaign={`site_${lang}_app`} />
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <ol class="how">
+          {tr.home.how.map((x, i) => <li><span class="num">{i + 1}</span><h2 class="h3">{x.title}</h2><p>{x.text}</p></li>)}
+        </ol>
+        <div class="screens">
+          {screens.map((s) => (
+            <img src={`/img/screens/${lang}/${s}-360.webp`} srcset={`/img/screens/${lang}/${s}-360.webp 360w, /img/screens/${lang}/${s}-720.webp 720w`}
+              sizes="(max-width: 600px) 60vw, 220px" width="360" height="779" alt={tr.home.screensAlt} loading="lazy" decoding="async" />
+          ))}
+        </div>
+      </div>
+    </section>
+    <script is:inline define:vars={{ redirects }}>
+      (function () {
+        var c = new URLSearchParams(location.search).get('c');
+        var target = redirects[c];
+        if (!target) return;
+        var ua = navigator.userAgent;
+        var android = /Android/i.test(ua);
+        var ios = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        if (!android && !ios) return;
+        document.querySelector('.redirecting').hidden = false;
+        location.replace(android ? target.android : target.ios);
+      })();
+    </script>
+  </Base>
+)}
+
+{content && (
+  <Base lang={lang} title={content.title} description={content.description} page={{ kind }}>
+    <section class="section">
+      <div class="wrap prose">
+        <h1>{content.h1}</h1>
+        <Fragment set:html={content.body} />
+      </div>
+    </section>
+  </Base>
+)}
+
+<style>
+  .dl { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .letters { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
+  .sets { grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .sets { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } }
+  .set-letters { display: flex; flex-wrap: wrap; gap: 8px; }
+  .set-letters a {
+    display: grid; place-items: center; width: 48px; height: 52px; border-radius: 10px;
+    background: var(--c); color: var(--fg); font-weight: 900; font-size: 1.5rem; text-decoration: none;
+  }
+  .set-letters a:hover { outline: 3px solid var(--ink); outline-offset: 2px; }
+  .how { list-style: none; padding: 0; margin: 0 0 32px; display: grid; gap: 24px; }
+  @media (min-width: 760px) { .how { grid-template-columns: repeat(3, 1fr); } }
+  .how p { color: var(--muted); }
+  .h3 { font-size: 1.2rem; }
+  .num { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: #fff; font-weight: 800; margin-bottom: 12px; }
+  .screens { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+  .screens img { flex: none; width: min(60vw, 220px); border-radius: 18px; scroll-snap-align: start; border: 1px solid var(--line); }
+</style>

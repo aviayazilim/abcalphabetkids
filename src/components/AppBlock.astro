@@ -1,0 +1,28 @@
+---
+import StoreButtons from './StoreButtons.astro';
+import { t } from '../i18n';
+import type { Lang, Letter } from '../lib/routes';
+
+interface Props { lang: Lang; campaign: string; letter?: Letter }
+const { lang, campaign, letter } = Astro.props;
+const a = t(lang).appBlock;
+---
+<aside class="app-block" style={letter?.color ? `--c:${letter.color}` : undefined}>
+  <img class="app-icon" src="/img/icon.webp" alt="" width="72" height="72" loading="lazy" />
+  <div>
+    <h2>{a.title(letter)}</h2>
+    <p>{a.text}</p>
+    <StoreButtons lang={lang} campaign={campaign} />
+  </div>
+</aside>
+<style>
+  .app-block {
+    display: grid; gap: 20px; align-items: start;
+    background: var(--card); border: 1px solid var(--line); border-left: 8px solid var(--c, var(--accent));
+    border-radius: var(--radius); padding: 28px;
+  }
+  @media (min-width: 640px) { .app-block { grid-template-columns: 72px 1fr; } }
+  .app-icon { border-radius: 18px; }
+  h2 { font-size: 1.5rem; }
+  p { color: var(--muted); max-width: 40em; }
+</style>

@@ -1,0 +1,151 @@
+---
+import fs from 'node:fs';
+import Base from '../../../../layouts/Base.astro';
+import AppBlock from '../../../../components/AppBlock.astro';
+import LetterOutline from '../../../../components/LetterOutline.astro';
+import { SITE } from '../../../../site';
+import { t } from '../../../../i18n';
+import { LANGS, SECTIONS, LETTERS, path, type Lang, type Letter } from '../../../../lib/routes';
+import { fgFor } from '../../../../lib/color';
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    LETTERS[lang].map((letter, i, all) => ({
+      params: { lang, section: SECTIONS[lang].tracing, letter: letter.slug },
+      props: { letter, prev: all[i - 1] ?? null, next: all[i + 1] ?? null },
+    })),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const { letter: l, prev, next } = Astro.props as { letter: Letter; prev: Letter | null; next: Letter | null };
+const tr = t(lang);
+const L = tr.letter;
+const tracing = path.section(lang, 'tracing')!;
+const img = l.character ?? l.characterImage;
+const inside = ['Ъ', 'Ы', 'Ь', 'Ä', 'Ö', 'Ü', 'ß'].includes(l.letter);
+const preview = `/img/sheets/${lang}/${l.slug}.webp`;
+const hasPreview = fs.existsSync('public' + preview);
+const og = `/og/${lang}/${l.slug}.png`;
+const pageUrl = new URL(path.letter(lang, l.slug), SITE.url).href;
+
+const highlight = (word: string) => {
+  const i = word.toLocaleLowerCase(lang).indexOf(l.lower);
+  return i < 0 ? [word, '', ''] : [word.slice(0, i), word.slice(i, i + l.lower.length), word.slice(i + l.lower.length)];
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'ABC Alphabet', item: new URL(path.home(lang), SITE.url).href },
+    { '@type': 'ListItem', position: 2, name: tr.nav.tracing, item: new URL(tracing, SITE.url).href },
+    { '@type': 'ListItem', position: 3, name: l.letter, item: pageUrl },
+  ],
+};
+---
+<Base lang={lang} title={L.title(l)} description={L.description(l)} page={{ kind: 'letter', lang, slug: l.slug }}
+  ogImage={fs.existsSync('public' + og) ? og : undefined} nav="tracing">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <section class="section">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href={path.home(lang)}>ABC Alphabet</a> <span aria-hidden="true">›</span>
+        <a href={tracing}>{tr.nav.tracing}</a> <span aria-hidden="true">›</span>
+        <span aria-current="page">{l.letter}</span>
+      </nav>
+      <h1>{L.h1(l)}</h1>
+      <p class="lead">{L.lead(l)}</p>
+
+      <div class="letter-grid">
+        <figure class="sheet card">
+          {hasPreview
+            ? <img src={preview} alt={L.previewAlt(l)} width="595" height="842" />
+            : <LetterOutline letter={l.letter} label={L.previewAlt(l)} />}
+          {l.coloring && <figcaption class="muted">{L.sheetPage}</figcaption>}
+        </figure>
+
+        <div class="side">
+          <div class="dl">
+            <a class="btn" href={path.pdf(lang, l.slug)} download>
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>
+              {L.download} · A4
+            </a>
+            <a class="btn btn-quiet" href={path.pdf(lang, l.slug, 'letter')} download>{L.downloadLetter}</a>
+          </div>
+
+          <div class="hero-char" style={`--c:${l.color};--fg:${fgFor(l.color)}`}>
+            <span class="big">{l.letter}{l.letter !== l.lower && <span class="small">{l.lower}</span>}</span>
+            {img && <img src={`/img/characters/${img}.webp`} alt={L.characterAlt(l)} width="240" height="240" />}
+            <p class="hero-word">{l.article && <span class="article">{l.article} </span>}{l.word}</p>
+          </div>
+
+          <h2 class="h3">{L.howTitle}</h2>
+          <ol class="steps">{L.how.map((s) => <li>{s}</li>)}</ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {l.words.length > 0 && (
+    <section class="section">
+      <div class="wrap">
+        <h2>{inside ? L.wordsInsideTitle(l) : L.wordsTitle(l)}</h2>
+        <ul class="words">
+          {l.words.slice(0, 8).map((w) => {
+            const [a, b, c] = highlight(w.text);
+            return (
+              <li>
+                <img src={`/img/words/${w.image}.webp`} alt={L.wordAlt(w.text)} width="120" height="120" loading="lazy" decoding="async" />
+                <span>{a}<mark style={`--c:${l.letterColor ?? l.color}`}>{b}</mark>{c}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="wrap">
+      <nav class="pager" aria-label={L.all}>
+        {prev ? <a href={path.letter(lang, prev.slug)} rel="prev">← {L.prev}: <b>{prev.letter}</b></a> : <span />}
+        <a href={tracing}>{L.all}</a>
+        {next ? <a href={path.letter(lang, next.slug)} rel="next">{L.next}: <b>{next.letter}</b> →</a> : <span />}
+      </nav>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_letter`} letter={l} /></div>
+  </section>
+</Base>
+
+<style>
+  .crumbs { font-size: 0.95rem; color: var(--muted); margin-bottom: 16px; }
+  .crumbs a { color: var(--muted); }
+  .letter-grid { display: grid; gap: 28px; margin-top: 28px; align-items: start; }
+  @media (min-width: 860px) { .letter-grid { grid-template-columns: 1fr 1fr; gap: 44px; } }
+  .sheet { margin: 0; padding: 20px; }
+  .sheet img { width: 100%; border: 1px solid var(--line); }
+  .sheet figcaption { margin-top: 12px; font-size: 0.9rem; text-align: center; }
+  .dl { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+  .hero-char {
+    display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 12px 20px;
+    background: var(--c); color: var(--fg); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 28px;
+  }
+  .hero-char .big { font-weight: 900; font-size: 5.5rem; line-height: 1; }
+  .hero-char .small { font-size: 0.6em; margin-left: 4px; }
+  .hero-char img { width: 100%; max-width: 200px; justify-self: end; }
+  .hero-word { grid-column: 1 / -1; margin: 0; font-weight: 800; font-size: 1.4rem; }
+  .article { font-weight: 600; opacity: 0.85; }
+  .steps { padding-left: 1.3em; margin: 0; }
+  .steps li { margin-bottom: 6px; }
+  .h3 { font-size: 1.2rem; }
+  .words { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .words li { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; text-align: center; font-weight: 800; font-size: 1.15rem; }
+  .words img { width: 100%; aspect-ratio: 1; object-fit: contain; margin-bottom: 8px; }
+  mark { background: none; color: inherit; text-decoration: underline 4px var(--c); text-underline-offset: 4px; }
+  .pager { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-weight: 700; }
+</style>

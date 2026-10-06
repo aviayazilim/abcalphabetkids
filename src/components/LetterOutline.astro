@@ -1,0 +1,22 @@
+---
+// The app's own letter outline (from the tracing game), drawn dashed for tracing.
+import outlines from '../../data/letter-outlines.json';
+
+interface Props { letter: string; label: string }
+const { letter, label } = Astro.props;
+const o = (outlines as Record<string, { d: string; box: number[] }>)[letter];
+const pad = 12;
+const box = o && [o.box[0] - pad, o.box[1] - pad, o.box[2] + pad * 2, o.box[3] + pad * 2].join(' ');
+---
+{o ? (
+  <svg class="outline" viewBox={box} role="img" aria-label={label}>
+    <path d={o.d} fill="none" stroke="#1f2330" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+) : (
+  <svg class="outline" viewBox="0 0 200 220" role="img" aria-label={label}>
+    <text x="100" y="180" text-anchor="middle" font-size="200" font-family="Andika, sans-serif" fill="none" stroke="#1f2330" stroke-width="2.5" stroke-dasharray="7 6">{letter}</text>
+  </svg>
+)}
+<style>
+  .outline { width: 100%; max-height: 460px; display: block; }
+</style>

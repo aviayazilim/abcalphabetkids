@@ -1,0 +1,860 @@
+[
+  {
+    "letter": "A",
+    "lower": "a",
+    "slug": "a",
+    "word": "Apfel",
+    "article": "der",
+    "emoji": "🍎",
+    "character": "apple",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#F4000F",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "apfel",
+        "image": "objectApple"
+      },
+      {
+        "text": "avocado",
+        "image": "objectAvocado"
+      },
+      {
+        "text": "affe",
+        "image": "objectMonkey"
+      },
+      {
+        "text": "aquarium",
+        "image": "objectAquarium"
+      }
+    ],
+    "source": "app",
+    "coloring": "apple"
+  },
+  {
+    "letter": "B",
+    "lower": "b",
+    "slug": "b",
+    "word": "Blumen",
+    "article": "die",
+    "emoji": "🌸",
+    "character": "flowers",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#B6E0FF",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "bürste",
+        "image": "objectBrush"
+      },
+      {
+        "text": "blumen",
+        "image": "objectFlowers"
+      },
+      {
+        "text": "bus",
+        "image": "objectBus"
+      },
+      {
+        "text": "baum",
+        "image": "objectTree"
+      },
+      {
+        "text": "biber",
+        "image": "objectBeaver"
+      },
+      {
+        "text": "box",
+        "image": "objectBox"
+      }
+    ],
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "C",
+    "lower": "c",
+    "slug": "c",
+    "word": "Chamäleon",
+    "article": "das",
+    "emoji": "🦎",
+    "character": "chameleon1",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#DBEA49",
+    "freeInApp": true,
+    "outline": true,
+    "words": [],
+    "source": "app",
+    "coloring": "chameleon"
+  },
+  {
+    "letter": "D",
+    "lower": "d",
+    "slug": "d",
+    "word": "Delfin",
+    "article": "der",
+    "emoji": "🐬",
+    "character": "dolphin_static",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#60CAF4",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "delfin",
+        "image": "objectDolphin"
+      },
+      {
+        "text": "dame",
+        "image": "objectQueen"
+      }
+    ],
+    "source": "app",
+    "coloring": "dolphin"
+  },
+  {
+    "letter": "E",
+    "lower": "e",
+    "slug": "e",
+    "word": "Elefant",
+    "article": "der",
+    "emoji": "🐘",
+    "character": "elephant_static",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#FFE143",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "elch",
+        "image": "objectMoose"
+      },
+      {
+        "text": "eskimo",
+        "image": "objectPopsicle"
+      },
+      {
+        "text": "elefant",
+        "image": "objectElephant"
+      },
+      {
+        "text": "eule",
+        "image": "objectOwl"
+      },
+      {
+        "text": "einhorn",
+        "image": "objectUnicorn"
+      },
+      {
+        "text": "ente",
+        "image": "objectDuck"
+      },
+      {
+        "text": "esel",
+        "image": "objectDonkey"
+      },
+      {
+        "text": "emu",
+        "image": "emuObject"
+      },
+      {
+        "text": "eclair",
+        "image": "objectEclair"
+      }
+    ],
+    "source": "app",
+    "coloring": "elephant"
+  },
+  {
+    "letter": "F",
+    "lower": "f",
+    "slug": "f",
+    "word": "Fuchs",
+    "article": "der",
+    "emoji": "🦊",
+    "character": "fox_static",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#FF2B1E",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "fuchs",
+        "image": "objectFox"
+      },
+      {
+        "text": "flugzeug",
+        "image": "objectAirplane"
+      },
+      {
+        "text": "fisch",
+        "image": "objectFish"
+      },
+      {
+        "text": "fabrik",
+        "image": "objectFactory"
+      },
+      {
+        "text": "frosch",
+        "image": "objectFrog"
+      }
+    ],
+    "source": "app",
+    "coloring": "fox"
+  },
+  {
+    "letter": "G",
+    "lower": "g",
+    "slug": "g",
+    "word": "Giraffe",
+    "article": "die",
+    "emoji": "🦒",
+    "character": "giraffe_static",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#FFCF25",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "giraffe",
+        "image": "objectGiraffe"
+      }
+    ],
+    "source": "app",
+    "coloring": "giraffe"
+  },
+  {
+    "letter": "H",
+    "lower": "h",
+    "slug": "h",
+    "word": "Hummel",
+    "article": "die",
+    "emoji": "🐝",
+    "character": "bumblebee",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#FFC900",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "hummel",
+        "image": "objectBumblebee"
+      },
+      {
+        "text": "hase",
+        "image": "objectRabbit"
+      },
+      {
+        "text": "hamster",
+        "image": "objectHamster"
+      }
+    ],
+    "source": "app",
+    "coloring": "bumblebee"
+  },
+  {
+    "letter": "I",
+    "lower": "i",
+    "slug": "i",
+    "word": "Igel",
+    "article": "der",
+    "emoji": "🦔",
+    "character": "hedgehog_static",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#FF6915",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "igel",
+        "image": "objectHedgehog"
+      },
+      {
+        "text": "idee",
+        "image": "objectIdea"
+      }
+    ],
+    "source": "app",
+    "coloring": "hedgehog"
+  },
+  {
+    "letter": "J",
+    "lower": "j",
+    "slug": "j",
+    "word": "Junge",
+    "article": "der",
+    "emoji": "🧒",
+    "character": "popsicle_static",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#ED3A3A",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "joghurt",
+        "image": "objectYogurt"
+      },
+      {
+        "text": "jaguar",
+        "image": "objectJaguar"
+      },
+      {
+        "text": "joystick",
+        "image": "objectJoystick"
+      }
+    ],
+    "source": "app",
+    "coloring": "eskimo"
+  },
+  {
+    "letter": "K",
+    "lower": "k",
+    "slug": "k",
+    "word": "Katze",
+    "article": "die",
+    "emoji": "🐱",
+    "character": "cat_static",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#00CEE7",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "katze",
+        "image": "objectCat"
+      },
+      {
+        "text": "käse",
+        "image": "objectCheese"
+      },
+      {
+        "text": "küken",
+        "image": "objectChick"
+      },
+      {
+        "text": "kirsche",
+        "image": "objectCherry"
+      },
+      {
+        "text": "kuh",
+        "image": "objectCow"
+      },
+      {
+        "text": "karotte",
+        "image": "objectCarrot"
+      },
+      {
+        "text": "känguru",
+        "image": "objectKangaroo"
+      }
+    ],
+    "source": "app",
+    "coloring": "cat"
+  },
+  {
+    "letter": "L",
+    "lower": "l",
+    "slug": "l",
+    "word": "Laterne",
+    "article": "die",
+    "emoji": "🏮",
+    "character": null,
+    "characterImage": "flashlightOn",
+    "color": "#6587FF",
+    "letterColor": "#97A4A6",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "laterne",
+        "image": "objectFlashlight"
+      },
+      {
+        "text": "löwe",
+        "image": "objectLion"
+      }
+    ],
+    "source": "app",
+    "coloring": "flashlight"
+  },
+  {
+    "letter": "M",
+    "lower": "m",
+    "slug": "m",
+    "word": "Maus",
+    "article": "die",
+    "emoji": "🐭",
+    "character": "mouse_static",
+    "characterImage": null,
+    "color": "#1FAFAF",
+    "letterColor": "#FFF26B",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "maus",
+        "image": "objectMouse"
+      },
+      {
+        "text": "mischer",
+        "image": "objectMixer"
+      }
+    ],
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "N",
+    "lower": "n",
+    "slug": "n",
+    "word": "Nashorn",
+    "article": "das",
+    "emoji": "🦏",
+    "character": "rhinoceros_static",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#FFE143",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "nest",
+        "image": "objectNest"
+      },
+      {
+        "text": "nashorn",
+        "image": "objectRhinoceros"
+      }
+    ],
+    "source": "app",
+    "coloring": "rhinoceros"
+  },
+  {
+    "letter": "O",
+    "lower": "o",
+    "slug": "o",
+    "word": "Orange",
+    "article": "die",
+    "emoji": "🍊",
+    "character": "orange",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#FF6915",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "orange",
+        "image": "objectOrange"
+      }
+    ],
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "P",
+    "lower": "p",
+    "slug": "p",
+    "word": "Pinguin",
+    "article": "der",
+    "emoji": "🐧",
+    "character": "penguin_static",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#FF6C00",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "pilz",
+        "image": "objectMushroom"
+      },
+      {
+        "text": "pinguin",
+        "image": "objectPenguin"
+      },
+      {
+        "text": "pizza",
+        "image": "objectPizza"
+      }
+    ],
+    "source": "app",
+    "coloring": "penguin"
+  },
+  {
+    "letter": "Q",
+    "lower": "q",
+    "slug": "q",
+    "word": "Qualle",
+    "article": "die",
+    "emoji": "🪼",
+    "character": "jellyfish_static",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#FBCFF2",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "qualle",
+        "image": "objectJellyfish"
+      }
+    ],
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "R",
+    "lower": "r",
+    "slug": "r",
+    "word": "Rakete",
+    "article": "die",
+    "emoji": "🚀",
+    "character": "rocket_static",
+    "characterImage": null,
+    "color": "#1FAFAF",
+    "letterColor": "#FF0026",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "rakete",
+        "image": "objectRocket"
+      }
+    ],
+    "source": "app",
+    "coloring": "rocket"
+  },
+  {
+    "letter": "S",
+    "lower": "s",
+    "slug": "s",
+    "word": "Schaf",
+    "article": "das",
+    "emoji": "🐑",
+    "character": "sheep_static",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#FFF645",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "storch",
+        "image": "objectHeron"
+      },
+      {
+        "text": "schnecke",
+        "image": "objectSnail"
+      },
+      {
+        "text": "specht",
+        "image": "objectWoodpecker"
+      },
+      {
+        "text": "schaf",
+        "image": "objectSheep"
+      },
+      {
+        "text": "seife",
+        "image": "objectSoap"
+      },
+      {
+        "text": "spinne",
+        "image": "objectSpider"
+      },
+      {
+        "text": "sonne",
+        "image": "objectSun"
+      }
+    ],
+    "source": "app",
+    "coloring": "sheep"
+  },
+  {
+    "letter": "T",
+    "lower": "t",
+    "slug": "t",
+    "word": "Truthahn",
+    "article": "der",
+    "emoji": "🦃",
+    "character": "turkey_static",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#F151B0",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "torte",
+        "image": "objectCake"
+      },
+      {
+        "text": "truthahn",
+        "image": "objectTurkey"
+      },
+      {
+        "text": "trommeln",
+        "image": "objectDrums"
+      }
+    ],
+    "source": "app",
+    "coloring": "turkey"
+  },
+  {
+    "letter": "U",
+    "lower": "u",
+    "slug": "u",
+    "word": "Uhr",
+    "article": "die",
+    "emoji": "⌚️",
+    "character": "clock",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#FFDB5B",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "uhr",
+        "image": "objectClock"
+      },
+      {
+        "text": "umarmung",
+        "image": "objectHugs"
+      }
+    ],
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "V",
+    "lower": "v",
+    "slug": "v",
+    "word": "Vulkan",
+    "article": "der",
+    "emoji": "🌋",
+    "character": "volcano",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#FFF645",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "vulkan",
+        "image": "objectVolcano"
+      }
+    ],
+    "source": "app",
+    "coloring": "volcano"
+  },
+  {
+    "letter": "W",
+    "lower": "w",
+    "slug": "w",
+    "word": "Wolf",
+    "article": "der",
+    "emoji": "🐺",
+    "character": "wolf",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#FFF09F",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "waschbär",
+        "image": "objectRaccoon"
+      },
+      {
+        "text": "wolf",
+        "image": "objectWolf"
+      },
+      {
+        "text": "welpe",
+        "image": "objectPuppy"
+      }
+    ],
+    "source": "app",
+    "coloring": "wolf"
+  },
+  {
+    "letter": "X",
+    "lower": "x",
+    "slug": "x",
+    "word": "Xylophon",
+    "article": "das",
+    "emoji": "🎼",
+    "character": null,
+    "characterImage": "xylophoneBase",
+    "color": "#1FAFAF",
+    "letterColor": "#FFF645",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "xylophon",
+        "image": "objectXylophone"
+      }
+    ],
+    "source": "app",
+    "coloring": "xylophone"
+  },
+  {
+    "letter": "Y",
+    "lower": "y",
+    "slug": "y",
+    "word": "Yogi",
+    "article": "der",
+    "emoji": "🧘",
+    "character": "yogi",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#EF3536",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "yogi",
+        "image": "objectYogi"
+      }
+    ],
+    "source": "app",
+    "coloring": "yogi"
+  },
+  {
+    "letter": "Z",
+    "lower": "z",
+    "slug": "z",
+    "word": "Zebra",
+    "article": "das",
+    "emoji": "🦓",
+    "character": "zebra",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#FFFFFF",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "zebra",
+        "image": "objectZebra"
+      },
+      {
+        "text": "zitrone",
+        "image": "objectLemon"
+      }
+    ],
+    "source": "app",
+    "coloring": "zebra"
+  },
+  {
+    "letter": "Ä",
+    "lower": "ä",
+    "slug": "ae",
+    "word": "Känguru",
+    "article": "das",
+    "emoji": "🦘",
+    "character": "kangaroo_static",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#FF6C00",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "käse",
+        "image": "objectCheese"
+      },
+      {
+        "text": "waschbär",
+        "image": "objectRaccoon"
+      },
+      {
+        "text": "känguru",
+        "image": "objectKangaroo"
+      }
+    ],
+    "source": "app",
+    "coloring": "kangaroo"
+  },
+  {
+    "letter": "Ö",
+    "lower": "ö",
+    "slug": "oe",
+    "word": "Löwe",
+    "article": "der",
+    "emoji": "🦁",
+    "character": "lion_static",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#F9375D",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "löwe",
+        "image": "objectLion"
+      }
+    ],
+    "source": "app",
+    "coloring": "lion"
+  },
+  {
+    "letter": "Ü",
+    "lower": "ü",
+    "slug": "ue",
+    "word": "Küken",
+    "article": "das",
+    "emoji": "🐥",
+    "character": "chick",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#FFE143",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "bürste",
+        "image": "objectBrush"
+      },
+      {
+        "text": "küken",
+        "image": "objectChick"
+      }
+    ],
+    "source": "app",
+    "coloring": "chick"
+  },
+  {
+    "letter": "ß",
+    "lower": "ß",
+    "slug": "eszett",
+    "word": "Strauß",
+    "article": "der",
+    "emoji": "🪶",
+    "character": "ostrich_static",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#F9375D",
+    "freeInApp": false,
+    "outline": false,
+    "words": [],
+    "source": "app",
+    "coloring": "ostrich"
+  }
+]

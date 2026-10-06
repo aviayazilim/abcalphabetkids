@@ -1,0 +1,55 @@
+---
+// Static hosting can't redirect by Accept-Language, so the root is a plain
+// language picker and doubles as the hreflang x-default.
+import '../styles/global.css';
+import { SITE } from '../site';
+import { t } from '../i18n';
+import { LANGS, HREFLANG, path } from '../lib/routes';
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ABC Alphabet — choose your language</title>
+  <meta name="description" content="ABC Alphabet: alphabet app for kids aged 3–6 and free printable letter tracing worksheets. Азбука и прописи · ABC-App und Arbeitsblätter." />
+  <link rel="canonical" href={SITE.url + '/'} />
+  {LANGS.map((l) => <link rel="alternate" hreflang={HREFLANG[l]} href={SITE.url + path.home(l)} />)}
+  <link rel="alternate" hreflang="x-default" href={SITE.url + '/'} />
+  <meta name="apple-itunes-app" content={`app-id=${SITE.appStoreId}`} />
+  {SITE.pinterestVerify && <meta name="p:domain_verify" content={SITE.pinterestVerify} />}
+  <meta property="og:image" content={SITE.url + '/og/default.png'} />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+</head>
+<body>
+  <main class="picker wrap">
+    <img src="/img/icon.webp" alt="ABC Alphabet" width="96" height="96" />
+    <h1>ABC Alphabet</h1>
+    <ul>
+      {LANGS.map((l) => (
+        <li><a href={path.home(l)} hreflang={l} lang={l}><img src={`/img/flags/${l}.webp`} alt="" width="40" height="40" />{t(l).langName}</a></li>
+      ))}
+    </ul>
+  </main>
+  <script is:inline>
+    // Send returning visitors straight to their browser language when we have it.
+    (function () {
+      var have = ['ru', 'de'];
+      var langs = navigator.languages || [navigator.language];
+      for (var i = 0; i < langs.length; i++) {
+        var code = (langs[i] || '').slice(0, 2).toLowerCase();
+        if (have.indexOf(code) >= 0) { location.replace('/' + code + '/'); return; }
+      }
+    })();
+  </script>
+</body>
+</html>
+<style>
+  .picker { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px; }
+  .picker > img { border-radius: 24px; }
+  ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; width: min(320px, 100%); }
+  li a { display: flex; align-items: center; gap: 14px; padding: 12px 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); color: var(--ink); text-decoration: none; font-weight: 800; font-size: 1.15rem; }
+  li a:hover { border-color: var(--ink); }
+  li img { border-radius: 50%; }
+</style>

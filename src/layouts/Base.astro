@@ -1,0 +1,114 @@
+---
+import '../styles/global.css';
+import { SITE } from '../site';
+import { t } from '../i18n';
+import { LANGS, HREFLANG, alternates, path, type Lang, type PageRef } from '../lib/routes';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  page: PageRef;
+  ogImage?: string;
+  noindex?: boolean;
+  nav?: 'tracing' | 'app';
+}
+const { lang, title, description, page, ogImage = '/og/default.png', noindex = false, nav } = Astro.props;
+const tr = t(lang);
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const alts = alternates(page);
+const xDefault = page.kind === 'home' ? new URL('/', SITE.url).href : null;
+const tracing = path.section(lang, 'tracing')!;
+const app = path.section(lang, 'app')!;
+const privacy = path.section(lang, 'privacy')!;
+const imprint = path.section(lang, 'imprint');
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex" />}
+  {Object.entries(alts).map(([l, href]) => <link rel="alternate" hreflang={HREFLANG[l as Lang]} href={new URL(href, SITE.url).href} />)}
+  {xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={SITE.name} />
+  <meta property="og:locale" content={tr.locale} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={new URL(ogImage, SITE.url).href} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="apple-itunes-app" content={`app-id=${SITE.appStoreId}`} />
+  {SITE.pinterestVerify && <meta name="p:domain_verify" content={SITE.pinterestVerify} />}
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#fbf8f3" />
+  <slot name="head" />
+</head>
+<body>
+  <a class="skip" href="#main">{tr.skip}</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href={path.home(lang)}>
+        <img src="/img/icon.webp" alt="" width="36" height="36" />
+        <span>ABC Alphabet</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href={tracing} aria-current={nav === 'tracing' ? 'page' : undefined}>{tr.nav.tracing}</a>
+        <a href={app} aria-current={nav === 'app' ? 'page' : undefined}>{tr.nav.app}</a>
+        <a class="btn nav-download" href={app}>{tr.nav.download}</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main"><slot /></main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <p class="footer-title">ABC Alphabet</p>
+        <p>{tr.footer.about}</p>
+        <p>© {new Date().getFullYear()} {SITE.company}</p>
+      </div>
+      <div>
+        <p class="footer-title">{tr.footer.contact}</p>
+        <ul>
+          <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+          <li><a href={SITE.instagram} rel="noopener">Instagram</a></li>
+          <li><a href={privacy}>{tr.footer.privacy}</a></li>
+          {imprint && <li><a href={imprint}>{tr.footer.imprint}</a></li>}
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">{tr.footer.language}</p>
+        <ul>
+          {LANGS.map((l) => (
+            <li><a href={alts[l] ?? path.home(l)} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>{t(l).langName}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script is:inline>
+    // On a phone, put that phone's store first; desktop keeps both.
+    (function () {
+      var ua = navigator.userAgent;
+      var android = /Android/i.test(ua);
+      var ios = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      if (!android && !ios) return;
+      document.querySelectorAll('[data-stores]').forEach(function (box) {
+        var first = box.querySelector(android ? '[data-store=android]' : '[data-store=ios]');
+        if (first) box.prepend(first);
+      });
+    })();
+  </script>
+  {SITE.cfBeaconToken && (
+    <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: SITE.cfBeaconToken })}></script>
+  )}
+</body>
+</html>

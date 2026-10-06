@@ -1,0 +1,13 @@
+---
+import type { Letter } from '../lib/routes';
+import { fgFor } from '../lib/color';
+
+interface Props { letter: Letter; href?: string; alt?: string; eager?: boolean }
+const { letter, href, alt = '', eager = false } = Astro.props;
+const img = letter.character ?? letter.characterImage;
+const Tag = href ? 'a' : 'div';
+---
+<Tag class="tile" href={href} style={`--c:${letter.color};--fg:${fgFor(letter.color)}`} aria-label={href ? `${letter.letter} — ${letter.word}` : undefined}>
+  <span class="tile-letter" aria-hidden={href ? 'true' : undefined}>{letter.letter}</span>
+  {img && <img src={`/img/characters/${img}.webp`} alt={alt} width="160" height="160" loading={eager ? 'eager' : 'lazy'} decoding="async" />}
+</Tag>

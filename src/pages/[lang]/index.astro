@@ -1,0 +1,147 @@
+---
+import fs from 'node:fs';
+import Base from '../../layouts/Base.astro';
+import StoreButtons from '../../components/StoreButtons.astro';
+import LetterTile from '../../components/LetterTile.astro';
+import AppBlock from '../../components/AppBlock.astro';
+import { SITE } from '../../site';
+import { t } from '../../i18n';
+import { LANGS, LETTERS, path, type Lang } from '../../lib/routes';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const h = tr.home;
+const letters = LETTERS[lang];
+const hero = letters.slice(0, 6);
+const tracing = path.section(lang, 'tracing')!;
+const screens = fs.readdirSync(`public/img/screens/${lang}`).filter((f) => f.endsWith('-360.webp')).sort()
+  .map((f) => f.replace('-360.webp', ''));
+const appLangs = ['ru', 'en', 'de', 'fr', 'es', 'pt', 'pl', 'tr'];
+const campaign = `site_${lang}_home`;
+---
+<Base lang={lang} title={h.title} description={h.description} page={{ kind: 'home' }}>
+  <section class="section hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>{h.h1}</h1>
+        <p class="hero-sub">{h.sub(SITE.languageCount, SITE.gameCount)}</p>
+        <StoreButtons lang={lang} campaign={campaign} />
+        <p class="muted hero-note">{h.heroNote}</p>
+      </div>
+      <div class="grid hero-tiles">
+        {hero.map((l, i) => <LetterTile letter={l} href={path.letter(lang, l.slug)} alt={tr.letter.characterAlt(l)} eager={i < 6} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>{h.freeTitle}</h2>
+      <p class="lead">{h.freeLead}</p>
+      <div class="grid free-grid">
+        <a class="card free-card" href={tracing}>
+          <div class="mini-row" aria-hidden="true">
+            {letters.slice(6, 10).map((l) => <span>{l.letter}</span>)}
+          </div>
+          <h3>{h.tracingCard.title}</h3>
+          <p>{h.tracingCard.text}</p>
+          <span class="btn">{h.tracingCard.cta}</span>
+        </a>
+        <div class="card free-card is-soon">
+          <span class="soon">{h.coloringCard.soon}</span>
+          <h3>{h.coloringCard.title}</h3>
+          <p>{h.coloringCard.text}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>{h.howTitle}</h2>
+      <ol class="how">
+        {h.how.map((x, i) => (
+          <li><span class="num">{i + 1}</span><h3>{x.title}</h3><p>{x.text}</p></li>
+        ))}
+      </ol>
+      <div class="screens" tabindex="0" aria-label={h.screensAlt}>
+        {screens.map((s) => (
+          <img src={`/img/screens/${lang}/${s}-360.webp`} srcset={`/img/screens/${lang}/${s}-360.webp 360w, /img/screens/${lang}/${s}-720.webp 720w`}
+            sizes="(max-width: 600px) 60vw, 220px" width="360" height="779" alt={h.screensAlt} loading="lazy" decoding="async" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap langs-grid">
+      <div>
+        <h2>{h.langsTitle}</h2>
+        <ul class="flags">
+          {appLangs.map((l) => <li><img src={`/img/flags/${l}.webp`} alt={l.toUpperCase()} width="48" height="48" loading="lazy" /></li>)}
+        </ul>
+        <p>{h.langsText}</p>
+      </div>
+      <div class="card">
+        <h3>{h.abroadTitle}</h3>
+        <p>{h.abroadText}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>{h.trustTitle}</h2>
+      <ul class="trust">
+        {h.trust.map((x) => <li>{x}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap"><AppBlock lang={lang} campaign={campaign} /></div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-top: 40px; }
+  .hero-grid { display: grid; gap: 32px; align-items: center; }
+  @media (min-width: 880px) { .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 56px; } }
+  .hero-sub { font-size: 1.25rem; font-weight: 700; margin-bottom: 24px; }
+  .hero-note { margin-top: 12px; font-size: 0.95rem; }
+  .hero-tiles { grid-template-columns: repeat(3, 1fr); }
+
+  .free-grid { grid-template-columns: 1fr; margin-top: 24px; }
+  @media (min-width: 720px) { .free-grid { grid-template-columns: 1fr 1fr; } }
+  .free-card { display: flex; flex-direction: column; align-items: flex-start; color: var(--ink); text-decoration: none; }
+  .free-card p { color: var(--muted); flex: 1; }
+  a.free-card:hover { border-color: var(--ink); }
+  .mini-row { display: flex; gap: 8px; margin-bottom: 18px; }
+  .mini-row span {
+    width: 52px; height: 60px; display: grid; place-items: center; border-radius: 10px;
+    font-weight: 900; font-size: 1.8rem; color: var(--ink); border: 2px dashed var(--ink); background: #fff;
+  }
+  .is-soon { background: transparent; border-style: dashed; }
+  .soon { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 10px; }
+
+  .how { list-style: none; padding: 0; margin: 24px 0 32px; display: grid; gap: 24px; }
+  @media (min-width: 760px) { .how { grid-template-columns: repeat(3, 1fr); } }
+  .how p { color: var(--muted); }
+  .num { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: #fff; font-weight: 800; margin-bottom: 12px; }
+  .screens { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+  .screens img { flex: none; width: min(60vw, 220px); border-radius: 18px; scroll-snap-align: start; border: 1px solid var(--line); }
+
+  .langs-grid { display: grid; gap: 28px; align-items: start; }
+  @media (min-width: 860px) { .langs-grid { grid-template-columns: 1.3fr 1fr; } }
+  .flags { list-style: none; padding: 0; margin: 8px 0 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .flags img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+
+  .trust { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  @media (min-width: 760px) { .trust { grid-template-columns: repeat(3, 1fr); } }
+  .trust li { padding-left: 32px; position: relative; font-weight: 700; }
+  .trust li::before { content: ''; position: absolute; left: 0; top: 4px; width: 18px; height: 10px; border-left: 3px solid var(--start); border-bottom: 3px solid var(--start); transform: rotate(-45deg); }
+</style>
