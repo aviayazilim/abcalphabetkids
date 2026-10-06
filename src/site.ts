@@ -9,7 +9,8 @@ export const SITE = {
   instagram: 'https://www.instagram.com/aviayazilim/',
   appStoreId: '6465174410',
   playId: 'com.abc.avia.yazilim',
-  appStoreProviderToken: import.meta.env.PUBLIC_APPSTORE_PROVIDER_TOKEN ?? '',
+  // App Store Connect provider token (the `pt` in campaign links); public, same for every campaign.
+  appStoreProviderToken: import.meta.env.PUBLIC_APPSTORE_PROVIDER_TOKEN || '126619153',
   pinterestVerify: import.meta.env.PUBLIC_PINTEREST_VERIFY ?? '',
   cfBeaconToken: import.meta.env.PUBLIC_CF_BEACON_TOKEN ?? '',
   // Facts checked against the app sources (Language.swift, GameEnum.swift).
@@ -20,8 +21,6 @@ export const SITE = {
 // Campaign names: site_<lang>_<page>, pdf_<lang>, pinterest_<lang>.
 export function appStoreUrl(campaign: string) {
   const base = `https://apps.apple.com/app/apple-store/id${SITE.appStoreId}`;
-  // TODO: until the provider token arrives, links go to the plain store page.
-  if (!SITE.appStoreProviderToken) return base;
   return `${base}?pt=${SITE.appStoreProviderToken}&ct=${encodeURIComponent(campaign)}&mt=8`;
 }
 
