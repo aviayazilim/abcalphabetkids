@@ -6,8 +6,8 @@ import LetterTile from '../../../components/LetterTile.astro';
 import AppBlock from '../../../components/AppBlock.astro';
 import { appStoreUrl, playUrl } from '../../../site';
 import { t } from '../../../i18n';
-import { LANGS, SECTIONS, LETTERS, path, type Lang, type SectionKind } from '../../../lib/routes';
-import { fgFor } from '../../../lib/color';
+import { LANGS, SECTIONS, LETTERS, PAPER, path, type Lang, type SectionKind } from '../../../lib/routes';
+import { tileStyle } from '../../../lib/color';
 
 export function getStaticPaths() {
   return LANGS.flatMap((lang) =>
@@ -40,7 +40,7 @@ const screens = kind === 'app'
         <p class="lead">{tr.tracing.lead}</p>
         <div class="dl">
           <a class="btn" href={path.pdfAll(lang)} download>{tr.tracing.downloadAll}</a>
-          <a class="btn btn-quiet" href={path.pdfAll(lang, 'letter')} download>US Letter</a>
+          {PAPER[lang].includes('letter') && <a class="btn btn-quiet" href={path.pdfAll(lang, 'letter')} download>US Letter</a>}
         </div>
       </div>
     </section>
@@ -61,7 +61,7 @@ const screens = kind === 'app'
               <h3>{s.title}</h3>
               <p class="set-letters">
                 {s.letters.map((x) => bySymbol.get(x)).filter(Boolean).map((l) => (
-                  <a href={path.letter(lang, l!.slug)} style={`--c:${l!.color};--fg:${fgFor(l!.color)}`}>{l!.letter}</a>
+                  <a href={path.letter(lang, l!.slug)} style={tileStyle(l!.color)}>{l!.letter}</a>
                 ))}
               </p>
               <p class="muted">{s.note}</p>

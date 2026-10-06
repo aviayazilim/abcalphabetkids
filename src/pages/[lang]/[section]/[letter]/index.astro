@@ -5,8 +5,8 @@ import AppBlock from '../../../../components/AppBlock.astro';
 import LetterOutline from '../../../../components/LetterOutline.astro';
 import { SITE } from '../../../../site';
 import { t } from '../../../../i18n';
-import { LANGS, SECTIONS, LETTERS, path, type Lang, type Letter } from '../../../../lib/routes';
-import { fgFor } from '../../../../lib/color';
+import { LANGS, SECTIONS, LETTERS, PAPER, path, type Lang, type Letter } from '../../../../lib/routes';
+import { tileStyle } from '../../../../lib/color';
 
 export function getStaticPaths() {
   return LANGS.flatMap((lang) =>
@@ -70,12 +70,12 @@ const jsonLd = {
           <div class="dl">
             <a class="btn" href={path.pdf(lang, l.slug)} download>
               <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>
-              {L.download} · A4
+              {L.download}
             </a>
-            <a class="btn btn-quiet" href={path.pdf(lang, l.slug, 'letter')} download>{L.downloadLetter}</a>
+            {PAPER[lang].includes('letter') && <a class="btn btn-quiet" href={path.pdf(lang, l.slug, 'letter')} download>US Letter</a>}
           </div>
 
-          <div class="hero-char" style={`--c:${l.color};--fg:${fgFor(l.color)}`}>
+          <div class="hero-char" style={tileStyle(l.color)}>
             <span class="big">{l.letter}{l.letter !== l.lower && <span class="small">{l.lower}</span>}</span>
             {img && <img src={`/img/characters/${img}.webp`} alt={L.characterAlt(l)} width="240" height="240" />}
             <p class="hero-word">{l.article && <span class="article">{l.article} </span>}{l.word}</p>

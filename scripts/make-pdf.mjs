@@ -1,5 +1,5 @@
 // Builds printable letter sheets from data/letters/*.json:
-//   page 1 — tracing (app letter outline + ruled rows), page 2 — colouring (app outline art).
+// A4 (US Letter where PAPER lists it). Page 1 — tracing (app letter outline + ruled rows), page 2 — colouring (app outline art).
 // Also writes a preview image for the letter page and a 1200×630 Open Graph card.
 //
 //   npm run pdf                    all letters + whole alphabet, all languages
@@ -17,6 +17,8 @@ const { values: args } = parseArgs({ options: { lang: { type: 'string' }, only: 
 const LANGS = args.lang ? [args.lang] : ['ru', 'de'];
 const SITE = 'abcalphabetkids.com';
 const APP_PAGE = { ru: '/ru/prilozhenie/', de: '/de/app/' };
+// Keep in sync with PAPER in src/lib/routes.ts.
+const PAPER = { ru: ['a4'], de: ['a4'] };
 
 const TEXT = {
   ru: {
@@ -270,7 +272,7 @@ for (const lang of LANGS) {
   for (const l of selected) {
     const html = await sheetPages(l, lang, qrSvg);
     all.push(html);
-    await render(html, 'letter', path.join(ROOT, `public/pdf/${lang}/${l.slug}-letter.pdf`));
+    if (PAPER[lang].includes('letter')) await render(html, 'letter', path.join(ROOT, `public/pdf/${lang}/${l.slug}-letter.pdf`));
     await render(html, 'a4', path.join(ROOT, `public/pdf/${lang}/${l.slug}.pdf`));
     const shot = await preview(path.join(ROOT, `public/img/sheets/${lang}/${l.slug}.webp`));
     await ogCard(l, lang, shot, path.join(ROOT, `public/og/${lang}/${l.slug}.png`));
@@ -279,7 +281,7 @@ for (const lang of LANGS) {
   }
   if (!args.only) {
     await render(all.join(''), 'a4', path.join(ROOT, `public/pdf/${lang}/alphabet.pdf`));
-    await render(all.join(''), 'letter', path.join(ROOT, `public/pdf/${lang}/alphabet-letter.pdf`));
+    if (PAPER[lang].includes('letter')) await render(all.join(''), 'letter', path.join(ROOT, `public/pdf/${lang}/alphabet-letter.pdf`));
     console.log(`${lang} alphabet → ${Math.round(fs.statSync(path.join(ROOT, `public/pdf/${lang}/alphabet.pdf`)).size / 1024)} KB`);
   }
 }

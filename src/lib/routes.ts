@@ -4,6 +4,9 @@ import deLetters from '../../data/letters/de.json';
 export const LANGS = ['ru', 'de'] as const;
 export type Lang = (typeof LANGS)[number];
 
+// US Letter only where that paper is used (EN later); RU/DE print on A4.
+export const PAPER: Record<Lang, ('a4' | 'letter')[]> = { ru: ['a4'], de: ['a4'] };
+
 export const HREFLANG: Record<Lang, string> = { ru: 'ru', de: 'de' };
 
 // Section slugs are written in the page's language because search reads them too.

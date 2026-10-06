@@ -52,7 +52,6 @@ export default {
     h1: 'Buchstaben nachspuren: kostenlose Arbeitsblätter A–Z',
     lead: 'Ein Blatt für jeden Buchstaben des deutschen Alphabets, inklusive Umlaute und ß. Darauf: ein großer Buchstabe zum Nachspuren, Linien zum Nachspuren, ein Wort mit Bild und ein Ausmalbild mit der Figur aus der App ABC Alphabet.',
     downloadAll: 'Ganzes Alphabet laden (PDF)',
-    formats: 'A4 · US Letter',
     gridTitle: 'Buchstaben wählen',
     setsTitle: 'Zusammenstellungen',
     sets: [
@@ -80,11 +79,10 @@ export default {
 
   letter: {
     title: (l: Letter) => `Buchstabe ${l.letter} nachspuren: Arbeitsblatt als PDF`,
-    description: (l: Letter) => `Arbeitsblatt zum Buchstaben ${l.letter} für Kinder von 4 bis 6: ${l.letter} und ${l.lower} nachspuren, Wort „${l.word}“ mit Bild${l.coloring ? ', Ausmalbild' : ''}. PDF in A4 und US Letter.`,
+    description: (l: Letter) => `Arbeitsblatt zum Buchstaben ${l.letter} für Kinder von 4 bis 6: ${l.letter} und ${l.lower} nachspuren, Wort „${l.word}“ mit Bild${l.coloring ? ', Ausmalbild' : ''}. PDF zum Ausdrucken auf A4.`,
     h1: (l: Letter) => `Buchstabe ${l.letter}: ${l.coloring ? 'Nachspuren und Ausmalen' : 'Arbeitsblatt zum Nachspuren'}`,
     lead: (l: Letter) => `${l.letter} wie ${l.word}. Blatt ausdrucken und den Buchstaben auf der gestrichelten Linie nachspuren.`,
     download: 'PDF laden',
-    downloadLetter: 'US Letter',
     previewAlt: (l: Letter) => `Arbeitsblatt Buchstabe ${l.letter} mit ${withArticle(l)}`,
     characterAlt: (l: Letter) => `${withArticle(l)} – Figur für den Buchstaben ${l.letter} aus der App ABC Alphabet`,
     wordsTitle: (l: Letter) => `Wörter mit ${l.letter} am Anfang`,

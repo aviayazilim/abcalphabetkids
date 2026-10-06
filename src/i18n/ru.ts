@@ -50,7 +50,6 @@ export default {
     h1: 'Прописи для дошкольников: буквы А–Я распечатать бесплатно',
     lead: 'Отдельный лист на каждую букву русского алфавита. На листе — крупная буква для обводки, строки для обводки, слово на эту букву и раскраска с персонажем из приложения ABC Alphabet.',
     downloadAll: 'Скачать весь алфавит (PDF)',
-    formats: 'A4 · US Letter',
     gridTitle: 'Выберите букву',
     setsTitle: 'Подборки',
     sets: [
@@ -77,11 +76,10 @@ export default {
 
   letter: {
     title: (l: Letter) => `Буква ${l.letter}: пропись для дошкольников, распечатать PDF`,
-    description: (l: Letter) => `Пропись буквы ${l.letter} для детей 4–6 лет: обводка заглавной и строчной ${l.letter}${l.lower}, слово «${l.word}»${l.coloring ? ' и раскраска' : ''}. PDF, A4 и US Letter.`,
+    description: (l: Letter) => `Пропись буквы ${l.letter} для детей 4–6 лет: обводка заглавной и строчной ${l.letter}${l.lower}, слово «${l.word}»${l.coloring ? ' и раскраска' : ''}. PDF для печати на A4.`,
     h1: (l: Letter) => `Буква ${l.letter}: пропись${l.coloring ? ' и раскраска' : ''}`,
     lead: (l: Letter) => `${l.letter} — как ${l.word}. Распечатайте лист и обведите букву по пунктиру.`,
     download: 'Скачать PDF',
-    downloadLetter: 'US Letter',
     previewAlt: (l: Letter) => `Пропись буквы ${l.letter} с персонажем «${l.word}»`,
     characterAlt: (l: Letter) => `${cap(l.word ?? '')} — персонаж буквы ${l.letter} из приложения ABC Alphabet`,
     wordsTitle: (l: Letter) => `Слова на букву ${l.letter}`,
