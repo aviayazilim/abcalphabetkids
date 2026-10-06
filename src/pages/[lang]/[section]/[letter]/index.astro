@@ -5,8 +5,9 @@ import AppBlock from '../../../../components/AppBlock.astro';
 import LetterOutline from '../../../../components/LetterOutline.astro';
 import { SITE } from '../../../../site';
 import { t } from '../../../../i18n';
-import { LANGS, SECTIONS, LETTERS, PAPER, path, type Lang, type Letter } from '../../../../lib/routes';
+import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, path, type Lang, type Letter } from '../../../../lib/routes';
 import { tileStyle } from '../../../../lib/color';
+import { splitAt } from '../../../../lib/text';
 
 export function getStaticPaths() {
   return LANGS.flatMap((lang) =>
@@ -22,17 +23,15 @@ const { letter: l, prev, next } = Astro.props as { letter: Letter; prev: Letter 
 const tr = t(lang);
 const L = tr.letter;
 const tracing = path.section(lang, 'tracing')!;
+const [primary, ...others] = PAPER[lang];
 const img = l.character ?? l.characterImage;
-const inside = ['Ъ', 'Ы', 'Ь', 'Ä', 'Ö', 'Ü', 'ß'].includes(l.letter);
+const inside = l.wordsMatch === 'inside';
 const preview = `/img/sheets/${lang}/${l.slug}.webp`;
 const hasPreview = fs.existsSync('public' + preview);
 const og = `/og/${lang}/${l.slug}.png`;
 const pageUrl = new URL(path.letter(lang, l.slug), SITE.url).href;
 
-const highlight = (word: string) => {
-  const i = word.toLocaleLowerCase(lang).indexOf(l.lower);
-  return i < 0 ? [word, '', ''] : [word.slice(0, i), word.slice(i, i + l.lower.length), word.slice(i + l.lower.length)];
-};
+const highlight = (word: string) => splitAt(lang, word, l.lower);
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -58,11 +57,11 @@ const jsonLd = {
       <h1>{L.h1(l)}</h1>
       <p class="lead">{L.lead(l)}</p>
       <div class="dl">
-        <a class="btn" href={path.pdf(lang, l.slug)} download>
+        <a class="btn" href={path.pdf(lang, l.slug, primary)} download>
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>
-          {L.download}
+          {L.download}{others.length > 0 && ` · ${PAPER_LABEL[primary]}`}
         </a>
-        {PAPER[lang].includes('letter') && <a class="btn btn-quiet" href={path.pdf(lang, l.slug, 'letter')} download>US Letter</a>}
+        {others.map((size) => <a class="btn btn-quiet" href={path.pdf(lang, l.slug, size)} download>{PAPER_LABEL[size]}</a>)}
       </div>
 
       <div class="letter-grid">

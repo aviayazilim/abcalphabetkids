@@ -1,0 +1,822 @@
+[
+  {
+    "letter": "A",
+    "lower": "a",
+    "slug": "litera-a",
+    "word": "awokado",
+    "article": null,
+    "emoji": "🥑",
+    "character": "avokado",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#44B034",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "awokado",
+        "image": "objectAvocado"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "avocado"
+  },
+  {
+    "letter": "Ą",
+    "lower": "ą",
+    "slug": "litera-a-ogonek",
+    "word": "zając",
+    "article": null,
+    "emoji": "🐇",
+    "character": "rabbit_static",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#FF6915",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "zając",
+        "image": "objectRabbit"
+      },
+      {
+        "text": "pająk",
+        "image": "objectSpider"
+      }
+    ],
+    "wordsMatch": "inside",
+    "source": "app",
+    "coloring": "rabbit"
+  },
+  {
+    "letter": "B",
+    "lower": "b",
+    "slug": "litera-b",
+    "word": "banan",
+    "article": null,
+    "emoji": "🍌",
+    "character": "banana",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#FFE143",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "banan",
+        "image": "objectBananas"
+      },
+      {
+        "text": "bęben",
+        "image": "objectDrums"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "banana"
+  },
+  {
+    "letter": "C",
+    "lower": "c",
+    "slug": "litera-c",
+    "word": "cytryna",
+    "article": null,
+    "emoji": "🍋",
+    "character": "lemon",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#99ECF4",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "cytryna",
+        "image": "objectLemon"
+      },
+      {
+        "text": "część",
+        "image": "objectPuzzle"
+      },
+      {
+        "text": "chomik",
+        "image": "objectHamster"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "lemon"
+  },
+  {
+    "letter": "Ć",
+    "lower": "ć",
+    "slug": "litera-c-kreska",
+    "word": "miłość",
+    "article": null,
+    "emoji": "🫶",
+    "character": "hug",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#FF3D62",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "miłość",
+        "image": "objectHugs"
+      },
+      {
+        "text": "część",
+        "image": "objectPuzzle"
+      }
+    ],
+    "wordsMatch": "inside",
+    "source": "app",
+    "coloring": "huggle"
+  },
+  {
+    "letter": "D",
+    "lower": "d",
+    "slug": "litera-d",
+    "word": "delfin",
+    "article": null,
+    "emoji": "🐬",
+    "character": "dolphin_static",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#60CAF4",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "delfin",
+        "image": "objectDolphin"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "dolphin"
+  },
+  {
+    "letter": "E",
+    "lower": "e",
+    "slug": "litera-e",
+    "word": "emu",
+    "article": null,
+    "emoji": "🦤",
+    "character": "ostrich_static",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#F9375D",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "emu",
+        "image": "emuObject"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "ostrich"
+  },
+  {
+    "letter": "Ę",
+    "lower": "ę",
+    "slug": "litera-e-ogonek",
+    "word": "bęben",
+    "article": null,
+    "emoji": "🥁",
+    "character": null,
+    "characterImage": "drumStand",
+    "color": "#FF6914",
+    "letterColor": "#FF3A1A",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "część",
+        "image": "objectPuzzle"
+      },
+      {
+        "text": "bęben",
+        "image": "objectDrums"
+      },
+      {
+        "text": "źrebię",
+        "image": "horseObject"
+      }
+    ],
+    "wordsMatch": "inside",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "F",
+    "lower": "f",
+    "slug": "litera-f",
+    "word": "fabryka",
+    "article": null,
+    "emoji": "🏭",
+    "character": "factory",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#A7EBFC",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "fabryka",
+        "image": "objectFactory"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "G",
+    "lower": "g",
+    "slug": "litera-g",
+    "word": "grzyb",
+    "article": null,
+    "emoji": "🍄",
+    "character": "mushroom",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#EF4B5F",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "grzyb",
+        "image": "objectMushroom"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "mushroom"
+  },
+  {
+    "letter": "H",
+    "lower": "h",
+    "slug": "litera-h",
+    "word": "hipopotam",
+    "article": null,
+    "emoji": "🦛",
+    "character": "hipo_static",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#FFE143",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "hipopotam",
+        "image": "hipoObject"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "I",
+    "lower": "i",
+    "slug": "litera-i",
+    "word": "indyk",
+    "article": null,
+    "emoji": "🦃",
+    "character": "turkey_static",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#F151B0",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "indyk",
+        "image": "objectTurkey"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "turkey"
+  },
+  {
+    "letter": "J",
+    "lower": "j",
+    "slug": "litera-j",
+    "word": "jabłko",
+    "article": null,
+    "emoji": "🍎",
+    "character": "apple",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#F4000F",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "jabłko",
+        "image": "objectApple"
+      },
+      {
+        "text": "jaguar",
+        "image": "objectJaguar"
+      },
+      {
+        "text": "jeż",
+        "image": "objectHedgehog"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "apple"
+  },
+  {
+    "letter": "K",
+    "lower": "k",
+    "slug": "litera-k",
+    "word": "kot",
+    "article": null,
+    "emoji": "🐱",
+    "character": "cat_static",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#00CEE7",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "kot",
+        "image": "objectCat"
+      },
+      {
+        "text": "koala",
+        "image": "objectKoala"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "cat"
+  },
+  {
+    "letter": "L",
+    "lower": "l",
+    "slug": "litera-l",
+    "word": "lew",
+    "article": null,
+    "emoji": "🦁",
+    "character": "lion_static",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#F9375D",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "lew",
+        "image": "objectLion"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "lion"
+  },
+  {
+    "letter": "Ł",
+    "lower": "ł",
+    "slug": "litera-l-kreska",
+    "word": "łoś",
+    "article": null,
+    "emoji": "🫎",
+    "character": "moose_static",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#62D9FF",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "łoś",
+        "image": "objectMoose"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "moose"
+  },
+  {
+    "letter": "M",
+    "lower": "m",
+    "slug": "litera-m",
+    "word": "małpa",
+    "article": null,
+    "emoji": "🐒",
+    "character": "monkey_static",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#FFE04C",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "miłość",
+        "image": "objectHugs"
+      },
+      {
+        "text": "małpa",
+        "image": "objectMonkey"
+      },
+      {
+        "text": "mysz",
+        "image": "objectMouse"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "monkey"
+  },
+  {
+    "letter": "N",
+    "lower": "n",
+    "slug": "litera-n",
+    "word": "nosorożec",
+    "article": null,
+    "emoji": "🦏",
+    "character": "rhinoceros_static",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#FFE143",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "nosorożec",
+        "image": "objectRhinoceros"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "rhinoceros"
+  },
+  {
+    "letter": "Ń",
+    "lower": "ń",
+    "slug": "litera-n-kreska",
+    "word": "słoń",
+    "article": null,
+    "emoji": "🐘",
+    "character": "elephant_static",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#FFE143",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "słoń",
+        "image": "objectElephant"
+      }
+    ],
+    "wordsMatch": "inside",
+    "source": "app",
+    "coloring": "elephant"
+  },
+  {
+    "letter": "O",
+    "lower": "o",
+    "slug": "litera-o",
+    "word": "owca",
+    "article": null,
+    "emoji": "🐑",
+    "character": "sheep_static",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#FFF645",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "owca",
+        "image": "objectSheep"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "sheep"
+  },
+  {
+    "letter": "Ó",
+    "lower": "ó",
+    "slug": "litera-o-kreska",
+    "word": "góra",
+    "article": null,
+    "emoji": "⛰️",
+    "character": "mountain",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#F9FCFF",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "żółw",
+        "image": "objectTurtle"
+      },
+      {
+        "text": "wiewiórka",
+        "image": "objectSquirrel"
+      }
+    ],
+    "wordsMatch": "inside",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "P",
+    "lower": "p",
+    "slug": "litera-p",
+    "word": "pingwin",
+    "article": null,
+    "emoji": "🐧",
+    "character": "penguin_static",
+    "characterImage": null,
+    "color": "#1FAFAF",
+    "letterColor": "#FF6C00",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "pająk",
+        "image": "objectSpider"
+      },
+      {
+        "text": "pingwin",
+        "image": "objectPenguin"
+      },
+      {
+        "text": "pizza",
+        "image": "objectPizza"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "penguin"
+  },
+  {
+    "letter": "R",
+    "lower": "r",
+    "slug": "litera-r",
+    "word": "rakieta",
+    "article": null,
+    "emoji": "🚀",
+    "character": "rocket_static",
+    "characterImage": null,
+    "color": "#1FAFAF",
+    "letterColor": "#FF0026",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "rakieta",
+        "image": "objectRocket"
+      },
+      {
+        "text": "ryba",
+        "image": "objectFish"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "rocket"
+  },
+  {
+    "letter": "S",
+    "lower": "s",
+    "slug": "litera-s",
+    "word": "sowa",
+    "article": null,
+    "emoji": "🦉",
+    "character": "owl",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#FFE04C",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "szczotka",
+        "image": "objectBrush"
+      },
+      {
+        "text": "słoń",
+        "image": "objectElephant"
+      },
+      {
+        "text": "sowa",
+        "image": "objectOwl"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "owl"
+  },
+  {
+    "letter": "Ś",
+    "lower": "ś",
+    "slug": "litera-s-kreska",
+    "word": "ślimak",
+    "article": null,
+    "emoji": "🐌",
+    "character": "snail_static",
+    "characterImage": null,
+    "color": "#1FAFAF",
+    "letterColor": "#FF4399",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "ślimak",
+        "image": "objectSnail"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "snail"
+  },
+  {
+    "letter": "T",
+    "lower": "t",
+    "slug": "litera-t",
+    "word": "tygrys",
+    "article": null,
+    "emoji": "🐅",
+    "character": "tiger_static",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#FF9B3E",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "tygrys",
+        "image": "objectTiger"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "U",
+    "lower": "u",
+    "slug": "litera-u",
+    "word": "urodziny",
+    "article": null,
+    "emoji": "🎂",
+    "character": "cake_static",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#FF3A1A",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "urodziny",
+        "image": "objectCake"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "cake"
+  },
+  {
+    "letter": "W",
+    "lower": "w",
+    "slug": "litera-w",
+    "word": "wilk",
+    "article": null,
+    "emoji": "🐺",
+    "character": "wolf",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#FFF09F",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "wiewiórka",
+        "image": "objectSquirrel"
+      },
+      {
+        "text": "wilk",
+        "image": "objectWolf"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "wolf"
+  },
+  {
+    "letter": "Y",
+    "lower": "y",
+    "slug": "litera-y",
+    "word": "mysz",
+    "article": null,
+    "emoji": "🐭",
+    "character": "mouse_static",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#FFF26B",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "yeti",
+        "image": "objectYeti"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "Z",
+    "lower": "z",
+    "slug": "litera-z",
+    "word": "zebra",
+    "article": null,
+    "emoji": "🦓",
+    "character": "zebra",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#FFFFFF",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "zając",
+        "image": "objectRabbit"
+      },
+      {
+        "text": "zebra",
+        "image": "objectZebra"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "zebra"
+  },
+  {
+    "letter": "Ź",
+    "lower": "ź",
+    "slug": "litera-z-kreska",
+    "word": "źrebię",
+    "article": null,
+    "emoji": "🐴",
+    "character": "horse_st",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#FF6915",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "źrebię",
+        "image": "horseObject"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "Ż",
+    "lower": "ż",
+    "slug": "litera-z-kropka",
+    "word": "żyrafa",
+    "article": null,
+    "emoji": "🦒",
+    "character": "giraffe_static",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#FFCF25",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "żółw",
+        "image": "objectTurtle"
+      },
+      {
+        "text": "żyrafa",
+        "image": "objectGiraffe"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "giraffe"
+  }
+]

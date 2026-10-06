@@ -1,5 +1,5 @@
 // Builds printable letter sheets from data/letters/*.json:
-// A4 (US Letter where PAPER lists it). Page 1 — tracing (app letter outline + ruled rows), page 2 — colouring (app outline art).
+// Paper sizes per language come from data/languages.json. Page 1 — tracing (app letter outline + ruled rows), page 2 — colouring (app outline art).
 // Also writes a preview image for the letter page and a 1200×630 Open Graph card.
 //
 //   npm run pdf                    all letters + whole alphabet, all languages
@@ -14,22 +14,10 @@ import sharp from 'sharp';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const { values: args } = parseArgs({ options: { lang: { type: 'string' }, only: { type: 'string' } } });
-const LANGS = args.lang ? [args.lang] : ['ru', 'de'];
 const SITE = 'abcalphabetkids.com';
-const APP_PAGE = { ru: '/ru/prilozhenie/', de: '/de/app/' };
-// Keep in sync with PAPER in src/lib/routes.ts.
-const PAPER = { ru: ['a4'], de: ['a4'] };
-
-const TEXT = {
-  ru: {
-    name: 'Имя', date: 'Дата', color: (w) => `Раскрась: ${w}`, qr: 'Услышь, как звучит буква, в приложении ABC Alphabet',
-    scan: 'Наведите камеру телефона на код', ogTitle: (l) => `Буква ${l.letter}`, ogSub: 'Пропись и раскраска · PDF',
-  },
-  de: {
-    name: 'Name', date: 'Datum', color: (w) => `Ausmalen: ${w}`, qr: 'Hör dir den Buchstaben in der App ABC Alphabet an',
-    scan: 'Code mit der Handykamera scannen', ogTitle: (l) => `Buchstabe ${l.letter}`, ogSub: 'Nachspuren und Ausmalen · PDF',
-  },
-};
+const LANGUAGES = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/languages.json'), 'utf8'));
+const LANGS = args.lang ? [args.lang] : Object.keys(LANGUAGES).filter((l) => LANGUAGES[l].enabled);
+const fill = (tpl, vars) => tpl.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? '');
 
 const read = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const outlines = read('data/letter-outlines.json');
@@ -87,15 +75,18 @@ const isLight = (hex) => {
   return 0.299 * r + 0.587 * g + 0.114 * b > 170;
 };
 
+// Same rule as src/lib/text.ts: é counts as e in French, Spanish and Portuguese.
+const fold = (lang, ch) => (['fr', 'es', 'pt'].includes(lang) && ch !== 'ñ' ? ch.normalize('NFD').replace(/\p{M}/gu, '') : ch);
+
 const wordMarkup = (l, lang) => {
-  const w = l.word ?? '';
-  const i = w.toLocaleLowerCase(lang).indexOf(l.lower);
-  if (i < 0) return esc(w);
-  return `${esc(w.slice(0, i))}<b style="color:${isLight(l.color) ? '#1f2330' : l.color}">${esc(w.slice(i, i + l.lower.length))}</b>${esc(w.slice(i + l.lower.length))}`;
+  const chars = [...(l.word ?? '')];
+  const i = chars.findIndex((c) => fold(lang, c.toLocaleLowerCase(lang)) === fold(lang, l.lower));
+  if (i < 0) return esc(chars.join(''));
+  return `${esc(chars.slice(0, i).join(''))}<b style="color:${isLight(l.color) ? '#1f2330' : l.color}">${esc(chars[i])}</b>${esc(chars.slice(i + 1).join(''))}`;
 };
 
 async function sheetPages(l, lang, qrSvg) {
-  const T = TEXT[lang];
+  const T = LANGUAGES[lang].sheet;
   const img = await printImage(l);
   const hasUpper = l.letter !== l.lower;
   // Rows are filled in the browser, where glyph widths can be measured.
@@ -133,7 +124,7 @@ async function sheetPages(l, lang, qrSvg) {
   const page2 = l.coloring ? `
   <section class="page">
     <header class="head"><span>${esc(T.name)}: <i></i></span><span>${esc(T.date)}: <i class="short"></i></span></header>
-    <h2 class="color-title">${esc(T.color(l.word))}</h2>
+    <h2 class="color-title">${esc(fill(T.color, { word: l.word }))}</h2>
     <div class="color-wrap">
       <div class="color-letter">${outlineSvg(l.letter, { dashed: false })}</div>
       <div class="color-art">${coloringSvg(l.coloring)}</div>
@@ -238,7 +229,7 @@ async function preview(out, scale = 1) {
 }
 
 async function ogCard(l, lang, sheetPng, out) {
-  const T = TEXT[lang];
+  const T = LANGUAGES[lang].sheet;
   const img = await printImage(l);
   const html = `<!doctype html><html><head><meta charset="utf-8"><style>${CSS}
     body { width: 1200px; height: 630px; background: #fbf8f3; display: grid; grid-template-columns: 1fr 430px; align-items: center; padding: 0 60px; gap: 40px; overflow: hidden; }
@@ -250,7 +241,7 @@ async function ogCard(l, lang, sheetPng, out) {
     .brand { margin-top: 40px; font-size: 28px; font-weight: 800; color: #1f2330; }
     .sheet { width: 430px; transform: rotate(3deg); box-shadow: 0 0 0 1px #e2ddd2; background: #fff; }
   </style></head><body>
-    <div><h1>${esc(T.ogTitle(l))}</h1><p class="sub">${esc(T.ogSub)}</p>
+    <div><h1>${esc(fill(T.ogTitle, { letter: l.letter }))}</h1><p class="sub">${esc(T.ogSub)}</p>
       <div class="chip">${img ? `<img src="${img}">` : ''}<span>${esc(l.word ?? '')}</span></div>
       <p class="brand">ABC Alphabet · ${SITE}</p></div>
     <img class="sheet" src="data:image/png;base64,${sheetPng.toString('base64')}">
@@ -266,13 +257,13 @@ async function ogCard(l, lang, sheetPng, out) {
 
 for (const lang of LANGS) {
   const letters = read(`data/letters/${lang}.json`);
-  const qrSvg = await QRCode.toString(`https://${SITE}${APP_PAGE[lang]}?c=pdf`, { type: 'svg', margin: 0, errorCorrectionLevel: 'M', color: { dark: '#1f2330', light: '#ffffff' } });
+  const qrSvg = await QRCode.toString(`https://${SITE}/${lang}/${LANGUAGES[lang].sections.app}/?c=pdf`, { type: 'svg', margin: 0, errorCorrectionLevel: 'M', color: { dark: '#1f2330', light: '#ffffff' } });
   const selected = args.only ? letters.filter((l) => l.slug === args.only) : letters;
   const all = [];
   for (const l of selected) {
     const html = await sheetPages(l, lang, qrSvg);
     all.push(html);
-    if (PAPER[lang].includes('letter')) await render(html, 'letter', path.join(ROOT, `public/pdf/${lang}/${l.slug}-letter.pdf`));
+    if (LANGUAGES[lang].paper.includes('letter')) await render(html, 'letter', path.join(ROOT, `public/pdf/${lang}/${l.slug}-letter.pdf`));
     await render(html, 'a4', path.join(ROOT, `public/pdf/${lang}/${l.slug}.pdf`));
     const shot = await preview(path.join(ROOT, `public/img/sheets/${lang}/${l.slug}.webp`));
     await ogCard(l, lang, shot, path.join(ROOT, `public/og/${lang}/${l.slug}.png`));
@@ -281,7 +272,7 @@ for (const lang of LANGS) {
   }
   if (!args.only) {
     await render(all.join(''), 'a4', path.join(ROOT, `public/pdf/${lang}/alphabet.pdf`));
-    if (PAPER[lang].includes('letter')) await render(all.join(''), 'letter', path.join(ROOT, `public/pdf/${lang}/alphabet-letter.pdf`));
+    if (LANGUAGES[lang].paper.includes('letter')) await render(all.join(''), 'letter', path.join(ROOT, `public/pdf/${lang}/alphabet-letter.pdf`));
     console.log(`${lang} alphabet → ${Math.round(fs.statSync(path.join(ROOT, `public/pdf/${lang}/alphabet.pdf`)).size / 1024)} KB`);
   }
 }

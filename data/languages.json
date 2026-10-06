@@ -1,0 +1,174 @@
+{
+  "ru": {
+    "enabled": true,
+    "hreflang": "ru",
+    "sections": {
+      "tracing": "propisi",
+      "app": "prilozhenie",
+      "privacy": "konfidentsialnost"
+    },
+    "paper": [
+      "a4"
+    ],
+    "sheet": {
+      "name": "Имя",
+      "date": "Дата",
+      "color": "Раскрась: {word}",
+      "qr": "Услышь, как звучит буква, в приложении ABC Alphabet",
+      "scan": "Наведите камеру телефона на код",
+      "ogTitle": "Буква {letter}",
+      "ogSub": "Пропись и раскраска · PDF"
+    }
+  },
+  "de": {
+    "enabled": true,
+    "hreflang": "de",
+    "sections": {
+      "tracing": "buchstaben-nachspuren",
+      "app": "app",
+      "privacy": "datenschutz",
+      "imprint": "impressum"
+    },
+    "paper": [
+      "a4"
+    ],
+    "sheet": {
+      "name": "Name",
+      "date": "Datum",
+      "color": "Ausmalen: {word}",
+      "qr": "Hör dir den Buchstaben in der App ABC Alphabet an",
+      "scan": "Code mit der Handykamera scannen",
+      "ogTitle": "Buchstabe {letter}",
+      "ogSub": "Nachspuren und Ausmalen · PDF"
+    }
+  },
+  "en": {
+    "enabled": true,
+    "hreflang": "en",
+    "sections": {
+      "tracing": "letter-tracing",
+      "app": "app",
+      "privacy": "privacy"
+    },
+    "paper": [
+      "letter",
+      "a4"
+    ],
+    "sheet": {
+      "name": "Name",
+      "date": "Date",
+      "color": "Color: {word}",
+      "qr": "Hear this letter in the ABC Alphabet app",
+      "scan": "Point your phone camera at the code",
+      "ogTitle": "Letter {letter}",
+      "ogSub": "Tracing and coloring worksheet · PDF"
+    }
+  },
+  "tr": {
+    "enabled": true,
+    "hreflang": "tr",
+    "sections": {
+      "tracing": "harf-yazma-calismasi",
+      "app": "uygulama",
+      "privacy": "gizlilik"
+    },
+    "paper": [
+      "a4"
+    ],
+    "sheet": {
+      "name": "Ad",
+      "date": "Tarih",
+      "color": "Boya: {word}",
+      "qr": "Harfin sesini ABC Alphabet uygulamasında dinle",
+      "scan": "Telefon kamerasını koda tutun",
+      "ogTitle": "{letter} harfi",
+      "ogSub": "Yazma ve boyama sayfası · PDF"
+    }
+  },
+  "es": {
+    "enabled": false,
+    "hreflang": "es",
+    "sections": {
+      "tracing": "fichas-abecedario",
+      "app": "app",
+      "privacy": "privacidad"
+    },
+    "paper": [
+      "a4",
+      "letter"
+    ],
+    "sheet": {
+      "name": "Nombre",
+      "date": "Fecha",
+      "color": "Colorea: {word}",
+      "qr": "Escucha esta letra en la app ABC Alphabet",
+      "scan": "Apunta la cámara del móvil al código",
+      "ogTitle": "Letra {letter}",
+      "ogSub": "Ficha para repasar y colorear · PDF"
+    }
+  },
+  "pt": {
+    "enabled": false,
+    "hreflang": "pt",
+    "sections": {
+      "tracing": "alfabeto-pontilhado",
+      "app": "aplicativo",
+      "privacy": "privacidade"
+    },
+    "paper": [
+      "a4"
+    ],
+    "sheet": {
+      "name": "Nome",
+      "date": "Data",
+      "color": "Pinte: {word}",
+      "qr": "Ouça esta letra no aplicativo ABC Alphabet",
+      "scan": "Aponte a câmera do celular para o código",
+      "ogTitle": "Letra {letter}",
+      "ogSub": "Atividade pontilhada e para colorir · PDF"
+    }
+  },
+  "pl": {
+    "enabled": false,
+    "hreflang": "pl",
+    "sections": {
+      "tracing": "karty-pracy-litery",
+      "app": "aplikacja",
+      "privacy": "prywatnosc"
+    },
+    "paper": [
+      "a4"
+    ],
+    "sheet": {
+      "name": "Imię",
+      "date": "Data",
+      "color": "Pokoloruj: {word}",
+      "qr": "Posłuchaj tej litery w aplikacji ABC Alphabet",
+      "scan": "Skieruj aparat telefonu na kod",
+      "ogTitle": "Litera {letter}",
+      "ogSub": "Karta pracy do pisania i kolorowania · PDF"
+    }
+  },
+  "fr": {
+    "enabled": false,
+    "hreflang": "fr",
+    "sections": {
+      "tracing": "fiches-alphabet",
+      "app": "application",
+      "privacy": "confidentialite",
+      "imprint": "mentions-legales"
+    },
+    "paper": [
+      "a4"
+    ],
+    "sheet": {
+      "name": "Prénom",
+      "date": "Date",
+      "color": "Colorie : {word}",
+      "qr": "Écoute cette lettre dans l’application ABC Alphabet",
+      "scan": "Visez le code avec l’appareil photo du téléphone",
+      "ogTitle": "Lettre {letter}",
+      "ogSub": "Fiche d’écriture et coloriage · PDF"
+    }
+  }
+}

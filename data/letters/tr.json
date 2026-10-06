@@ -1,0 +1,885 @@
+[
+  {
+    "letter": "A",
+    "lower": "a",
+    "slug": "a-harfi",
+    "word": "ağaç",
+    "article": null,
+    "emoji": "🌳",
+    "character": "tree",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#F4000F",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "avokado",
+        "image": "objectAvocado"
+      },
+      {
+        "text": "ağaç",
+        "image": "objectTree"
+      },
+      {
+        "text": "akvaryum",
+        "image": "objectAquarium"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "tree"
+  },
+  {
+    "letter": "B",
+    "lower": "b",
+    "slug": "b-harfi",
+    "word": "balık",
+    "article": null,
+    "emoji": "🐟",
+    "character": "fish",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#60CAF4",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "baykuş",
+        "image": "objectOwl"
+      },
+      {
+        "text": "balık",
+        "image": "objectFish"
+      },
+      {
+        "text": "bulmaca",
+        "image": "objectPuzzle"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "C",
+    "lower": "c",
+    "slug": "c-harfi",
+    "word": "civciv",
+    "article": null,
+    "emoji": "🐥",
+    "character": "chick",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#FFE143",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "civciv",
+        "image": "objectChick"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "chick"
+  },
+  {
+    "letter": "Ç",
+    "lower": "ç",
+    "slug": "ch-harfi",
+    "word": "çiçekler",
+    "article": null,
+    "emoji": "🌸",
+    "character": "flowers",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#B6E0FF",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "çiçekler",
+        "image": "objectFlowers"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "D",
+    "lower": "d",
+    "slug": "d-harfi",
+    "word": "dağ",
+    "article": null,
+    "emoji": "⛰️",
+    "character": "mountain",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#F9FCFF",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "dondurma",
+        "image": "objectPopsicle"
+      },
+      {
+        "text": "davul",
+        "image": "objectDrums"
+      },
+      {
+        "text": "devekuşu",
+        "image": "objectOstrich"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "E",
+    "lower": "e",
+    "slug": "e-harfi",
+    "word": "eşek",
+    "article": null,
+    "emoji": "🐴",
+    "character": "donkey_static",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#FF6915",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "elma",
+        "image": "objectApple"
+      },
+      {
+        "text": "eşek",
+        "image": "objectDonkey"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "donkey"
+  },
+  {
+    "letter": "F",
+    "lower": "f",
+    "slug": "f-harfi",
+    "word": "fabrika",
+    "article": null,
+    "emoji": "🏭",
+    "character": "factory",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#A7EBFC",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "fırça",
+        "image": "objectBrush"
+      },
+      {
+        "text": "fare",
+        "image": "objectMouse"
+      },
+      {
+        "text": "fil",
+        "image": "objectElephant"
+      },
+      {
+        "text": "fikir",
+        "image": "objectIdea"
+      },
+      {
+        "text": "fabrika",
+        "image": "objectFactory"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "G",
+    "lower": "g",
+    "slug": "g-harfi",
+    "word": "gergedan",
+    "article": null,
+    "emoji": "🦏",
+    "character": "rhinoceros_static",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#FFE143",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "gergedan",
+        "image": "objectRhinoceros"
+      },
+      {
+        "text": "güneş",
+        "image": "objectSun"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "rhinoceros"
+  },
+  {
+    "letter": "Ğ",
+    "lower": "ğ",
+    "slug": "yumusak-g-harfi",
+    "word": "kurbağa",
+    "article": null,
+    "emoji": "🐸",
+    "character": "frog",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#F870CE",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "sığın",
+        "image": "objectMoose"
+      },
+      {
+        "text": "ağaç",
+        "image": "objectTree"
+      },
+      {
+        "text": "kurbağa",
+        "image": "objectFrog"
+      },
+      {
+        "text": "yoğurt",
+        "image": "objectYogurt"
+      }
+    ],
+    "wordsMatch": "inside",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "H",
+    "lower": "h",
+    "slug": "h-harfi",
+    "word": "havuç",
+    "article": null,
+    "emoji": "🥕",
+    "character": "carrot",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#DAE951",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "hindi",
+        "image": "objectTurkey"
+      },
+      {
+        "text": "havuç",
+        "image": "objectCarrot"
+      },
+      {
+        "text": "hamster",
+        "image": "objectHamster"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "carrot"
+  },
+  {
+    "letter": "I",
+    "lower": "ı",
+    "slug": "noktasiz-i-harfi",
+    "word": "ırmak",
+    "article": null,
+    "emoji": "🏞️",
+    "character": "river",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#C5ECFF",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "fırça",
+        "image": "objectBrush"
+      },
+      {
+        "text": "sığın",
+        "image": "objectMoose"
+      },
+      {
+        "text": "balık",
+        "image": "objectFish"
+      }
+    ],
+    "wordsMatch": "inside",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "İ",
+    "lower": "i",
+    "slug": "i-harfi",
+    "word": "inek",
+    "article": null,
+    "emoji": "🐄",
+    "character": "cow_static",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#FFE143",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "inek",
+        "image": "objectCow"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "cow"
+  },
+  {
+    "letter": "J",
+    "lower": "j",
+    "slug": "j-harfi",
+    "word": "jeneratör",
+    "article": null,
+    "emoji": "⚡️",
+    "character": "generator",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#FFE143",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "jöle",
+        "image": "objectJelly"
+      },
+      {
+        "text": "joystick",
+        "image": "objectJoystick"
+      },
+      {
+        "text": "jaguar",
+        "image": "objectJaguar"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "K",
+    "lower": "k",
+    "slug": "k-harfi",
+    "word": "kirpi",
+    "article": null,
+    "emoji": "🦔",
+    "character": "hedgehog_static",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#FF6915",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "kedi",
+        "image": "objectCat"
+      },
+      {
+        "text": "kirpi",
+        "image": "objectHedgehog"
+      },
+      {
+        "text": "kurt",
+        "image": "objectWolf"
+      },
+      {
+        "text": "koyun",
+        "image": "objectSheep"
+      },
+      {
+        "text": "ksilofon",
+        "image": "objectXylophone"
+      },
+      {
+        "text": "kurbağa",
+        "image": "objectFrog"
+      },
+      {
+        "text": "kutu",
+        "image": "objectBox"
+      },
+      {
+        "text": "kunduz",
+        "image": "objectBeaver"
+      },
+      {
+        "text": "kanguru",
+        "image": "objectKangaroo"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "hedgehog"
+  },
+  {
+    "letter": "L",
+    "lower": "l",
+    "slug": "l-harfi",
+    "word": "limon",
+    "article": null,
+    "emoji": "🍋",
+    "character": "lemon",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#99ECF4",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "limon",
+        "image": "objectLemon"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "lemon"
+  },
+  {
+    "letter": "M",
+    "lower": "m",
+    "slug": "m-harfi",
+    "word": "muz",
+    "article": null,
+    "emoji": "🍌",
+    "character": "banana",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#FFE143",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "maymun",
+        "image": "objectMonkey"
+      },
+      {
+        "text": "mantar",
+        "image": "objectMushroom"
+      },
+      {
+        "text": "muz",
+        "image": "objectBananas"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "banana"
+  },
+  {
+    "letter": "N",
+    "lower": "n",
+    "slug": "n-harfi",
+    "word": "nota",
+    "article": null,
+    "emoji": "🎵",
+    "character": "notes",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#FFFFFF",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "peynir",
+        "image": "objectCheese"
+      },
+      {
+        "text": "sığın",
+        "image": "objectMoose"
+      },
+      {
+        "text": "dondurma",
+        "image": "objectPopsicle"
+      },
+      {
+        "text": "maymun",
+        "image": "objectMonkey"
+      },
+      {
+        "text": "mantar",
+        "image": "objectMushroom"
+      },
+      {
+        "text": "penguen",
+        "image": "objectPenguin"
+      }
+    ],
+    "wordsMatch": "inside",
+    "source": "app",
+    "coloring": "notes"
+  },
+  {
+    "letter": "O",
+    "lower": "o",
+    "slug": "o-harfi",
+    "word": "otobüs",
+    "article": null,
+    "emoji": "🚌",
+    "character": "bus",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#FFE143",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "otobüs",
+        "image": "objectBus"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "bus"
+  },
+  {
+    "letter": "Ö",
+    "lower": "ö",
+    "slug": "oe-harfi",
+    "word": "ördek",
+    "article": null,
+    "emoji": "🦆",
+    "character": "duck_static",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#FF5050",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "ördek",
+        "image": "objectDuck"
+      },
+      {
+        "text": "örümcek",
+        "image": "objectSpider"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "duck"
+  },
+  {
+    "letter": "P",
+    "lower": "p",
+    "slug": "p-harfi",
+    "word": "penguen",
+    "article": null,
+    "emoji": "🐧",
+    "character": "penguin_static",
+    "characterImage": null,
+    "color": "#1FAFAF",
+    "letterColor": "#FF6C00",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "pasta",
+        "image": "objectCake"
+      },
+      {
+        "text": "peynir",
+        "image": "objectCheese"
+      },
+      {
+        "text": "penguen",
+        "image": "objectPenguin"
+      },
+      {
+        "text": "pizza",
+        "image": "objectPizza"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "penguin"
+  },
+  {
+    "letter": "R",
+    "lower": "r",
+    "slug": "r-harfi",
+    "word": "roket",
+    "article": null,
+    "emoji": "🚀",
+    "character": "rocket_static",
+    "characterImage": null,
+    "color": "#1FAFAF",
+    "letterColor": "#FF0026",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "rakun",
+        "image": "objectRaccoon"
+      },
+      {
+        "text": "roket",
+        "image": "objectRocket"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "rocket"
+  },
+  {
+    "letter": "S",
+    "lower": "s",
+    "slug": "s-harfi",
+    "word": "sabun",
+    "article": null,
+    "emoji": "🧼",
+    "character": "soap",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#FF3C66",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "saat",
+        "image": "objectClock"
+      },
+      {
+        "text": "sığın",
+        "image": "objectMoose"
+      },
+      {
+        "text": "sincap",
+        "image": "objectSquirrel"
+      },
+      {
+        "text": "sabun",
+        "image": "objectSoap"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "Ş",
+    "lower": "ş",
+    "slug": "sh-harfi",
+    "word": "şamdan",
+    "article": null,
+    "emoji": "🕯️",
+    "character": "chandelier",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#FFE143",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "baykuş",
+        "image": "objectOwl"
+      },
+      {
+        "text": "vişne",
+        "image": "objectCherry"
+      },
+      {
+        "text": "tavşan",
+        "image": "objectRabbit"
+      },
+      {
+        "text": "eşek",
+        "image": "objectDonkey"
+      },
+      {
+        "text": "güneş",
+        "image": "objectSun"
+      },
+      {
+        "text": "devekuşu",
+        "image": "objectOstrich"
+      }
+    ],
+    "wordsMatch": "inside",
+    "source": "app",
+    "coloring": "chandelier"
+  },
+  {
+    "letter": "T",
+    "lower": "t",
+    "slug": "t-harfi",
+    "word": "tavşan",
+    "article": null,
+    "emoji": "🐇",
+    "character": "rabbit_static",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#FF6915",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "tilki",
+        "image": "objectFox"
+      },
+      {
+        "text": "tavşan",
+        "image": "objectRabbit"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "rabbit"
+  },
+  {
+    "letter": "U",
+    "lower": "u",
+    "slug": "u-harfi",
+    "word": "uçak",
+    "article": null,
+    "emoji": "✈️",
+    "character": null,
+    "characterImage": "airplane",
+    "color": "#FF6914",
+    "letterColor": "#FF4200",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "uçak",
+        "image": "objectAirplane"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "plane"
+  },
+  {
+    "letter": "Ü",
+    "lower": "ü",
+    "slug": "ue-harfi",
+    "word": "ütü",
+    "article": null,
+    "emoji": "🧺",
+    "character": "iron",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#CBF3FD",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "ütü",
+        "image": "objectIron"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "V",
+    "lower": "v",
+    "slug": "v-harfi",
+    "word": "vişne",
+    "article": null,
+    "emoji": "🍒",
+    "character": "cherry",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#FFFFFD",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "volkan",
+        "image": "objectVolcano"
+      },
+      {
+        "text": "vişne",
+        "image": "objectCherry"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "Y",
+    "lower": "y",
+    "slug": "y-harfi",
+    "word": "yogi",
+    "article": null,
+    "emoji": "🧘",
+    "character": "yogi",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#EF3536",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "yuva",
+        "image": "objectNest"
+      },
+      {
+        "text": "yogi",
+        "image": "objectYogi"
+      },
+      {
+        "text": "yoğurt",
+        "image": "objectYogurt"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "yogi"
+  },
+  {
+    "letter": "Z",
+    "lower": "z",
+    "slug": "z-harfi",
+    "word": "zebra",
+    "article": null,
+    "emoji": "🦓",
+    "character": "zebra",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#FFFFFF",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "zürafa",
+        "image": "objectGiraffe"
+      },
+      {
+        "text": "zebra",
+        "image": "objectZebra"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "zebra"
+  }
+]

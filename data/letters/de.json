@@ -30,6 +30,7 @@
         "image": "objectAquarium"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "apple"
   },
@@ -72,6 +73,7 @@
         "image": "objectBox"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": null
   },
@@ -88,7 +90,33 @@
     "letterColor": "#DBEA49",
     "freeInApp": true,
     "outline": true,
-    "words": [],
+    "words": [
+      {
+        "text": "avocado",
+        "image": "objectAvocado"
+      },
+      {
+        "text": "elch",
+        "image": "objectMoose"
+      },
+      {
+        "text": "fuchs",
+        "image": "objectFox"
+      },
+      {
+        "text": "storch",
+        "image": "objectHeron"
+      },
+      {
+        "text": "waschbär",
+        "image": "objectRaccoon"
+      },
+      {
+        "text": "schnecke",
+        "image": "objectSnail"
+      }
+    ],
+    "wordsMatch": "inside",
     "source": "app",
     "coloring": "chameleon"
   },
@@ -115,6 +143,7 @@
         "image": "objectQueen"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "dolphin"
   },
@@ -169,6 +198,7 @@
         "image": "objectEclair"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "elephant"
   },
@@ -207,6 +237,7 @@
         "image": "objectFrog"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "fox"
   },
@@ -229,6 +260,7 @@
         "image": "objectGiraffe"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "giraffe"
   },
@@ -259,6 +291,7 @@
         "image": "objectHamster"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "bumblebee"
   },
@@ -285,6 +318,7 @@
         "image": "objectIdea"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "hedgehog"
   },
@@ -315,6 +349,7 @@
         "image": "objectJoystick"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "eskimo"
   },
@@ -361,6 +396,7 @@
         "image": "objectKangaroo"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "cat"
   },
@@ -387,6 +423,7 @@
         "image": "objectLion"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "flashlight"
   },
@@ -413,6 +450,7 @@
         "image": "objectMixer"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": null
   },
@@ -439,6 +477,7 @@
         "image": "objectRhinoceros"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "rhinoceros"
   },
@@ -461,6 +500,7 @@
         "image": "objectOrange"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": null
   },
@@ -491,6 +531,7 @@
         "image": "objectPizza"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "penguin"
   },
@@ -513,6 +554,7 @@
         "image": "objectJellyfish"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": null
   },
@@ -535,6 +577,7 @@
         "image": "objectRocket"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "rocket"
   },
@@ -581,6 +624,7 @@
         "image": "objectSun"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "sheep"
   },
@@ -611,6 +655,7 @@
         "image": "objectDrums"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "turkey"
   },
@@ -637,6 +682,7 @@
         "image": "objectHugs"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": null
   },
@@ -659,6 +705,7 @@
         "image": "objectVolcano"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "volcano"
   },
@@ -689,6 +736,7 @@
         "image": "objectPuppy"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "wolf"
   },
@@ -711,6 +759,7 @@
         "image": "objectXylophone"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "xylophone"
   },
@@ -733,6 +782,7 @@
         "image": "objectYogi"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "yogi"
   },
@@ -759,6 +809,7 @@
         "image": "objectLemon"
       }
     ],
+    "wordsMatch": "start",
     "source": "app",
     "coloring": "zebra"
   },
@@ -789,6 +840,7 @@
         "image": "objectKangaroo"
       }
     ],
+    "wordsMatch": "inside",
     "source": "app",
     "coloring": "kangaroo"
   },
@@ -811,6 +863,7 @@
         "image": "objectLion"
       }
     ],
+    "wordsMatch": "inside",
     "source": "app",
     "coloring": "lion"
   },
@@ -837,6 +890,7 @@
         "image": "objectChick"
       }
     ],
+    "wordsMatch": "inside",
     "source": "app",
     "coloring": "chick"
   },
@@ -854,6 +908,7 @@
     "freeInApp": false,
     "outline": false,
     "words": [],
+    "wordsMatch": "inside",
     "source": "app",
     "coloring": "ostrich"
   }

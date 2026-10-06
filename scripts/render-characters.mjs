@@ -20,8 +20,18 @@ const names = new Set(letterRows().map((x) => x.character).filter(Boolean));
 // still off-screen, hatching or empty), so the app's words-game picture is used instead.
 const USE_OBJECT_IMAGE = {
   brush: 'objectBrush', wolf: 'objectWolf', hedgehog_static: 'objectHedgehog', chick: 'objectChick',
-  xylophoneBase: 'objectXylophone', clock: 'objectClock',
+  xylophoneBase: 'objectXylophone', clock: 'objectClock', cherry: 'objectCherry', drumStand: 'objectDrums',
+  owl: 'objectOwl',
 };
+// The river animation only draws splashes; the river itself is the card background,
+// so the app's river picture is used as a rounded card.
+const USE_SCENE = { river: 'PuzzleImages/FullImages/puzzleRiverFullImage.imageset/puzzleRiverFullImage.jpeg' };
+async function sceneCard(file) {
+  const size = 600, r = 90;
+  const mask = Buffer.from(`<svg width="${size}" height="${size}"><rect width="${size}" height="${size}" rx="${r}"/></svg>`);
+  return sharp(path.join(APP, 'Assets.xcassets', file)).resize(size, size, { fit: 'cover' })
+    .composite([{ input: mask, blend: 'dest-in' }]).png().toBuffer();
+}
 const objectPng = (asset) => {
   const dir = path.join(APP, 'Assets.xcassets/ObjectsImages', asset + '.imageset');
   return path.join(dir, fs.readdirSync(dir).find((f) => f.endsWith('.png')));
@@ -35,6 +45,12 @@ await page.setContent('<html><body style="margin:0;background:transparent"><div 
 await page.addScriptTag({ content: lottieJs });
 
 for (const name of names) {
+  if (USE_SCENE[name]) {
+    const card = await sceneCard(USE_SCENE[name]);
+    await sharp(card).resize(480).webp({ quality: 85 }).toFile(path.join(OUT, name + '.webp'));
+    await sharp(card).png().toFile(path.join(PRINT, name + '.png'));
+    continue;
+  }
   if (USE_OBJECT_IMAGE[name]) {
     const trimmed = await sharp(objectPng(USE_OBJECT_IMAGE[name])).trim().toBuffer();
     await sharp(trimmed).resize(480, 480, { fit: 'inside' }).webp({ quality: 85 }).toFile(path.join(OUT, name + '.webp'));

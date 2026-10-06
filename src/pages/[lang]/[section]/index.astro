@@ -6,7 +6,7 @@ import LetterTile from '../../../components/LetterTile.astro';
 import AppBlock from '../../../components/AppBlock.astro';
 import { appStoreUrl, playUrl } from '../../../site';
 import { t } from '../../../i18n';
-import { LANGS, SECTIONS, LETTERS, PAPER, path, type Lang, type SectionKind } from '../../../lib/routes';
+import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, path, type Lang, type SectionKind } from '../../../lib/routes';
 import { tileStyle } from '../../../lib/color';
 
 export function getStaticPaths() {
@@ -29,7 +29,7 @@ const redirects = {
 };
 const content = kind === 'privacy' ? tr.privacy : kind === 'imprint' ? tr.imprint! : null;
 const screens = kind === 'app'
-  ? fs.readdirSync(`public/img/screens/${lang}`).filter((f) => f.endsWith('-360.webp')).sort().map((f) => f.replace('-360.webp', ''))
+  ? (fs.existsSync(`public/img/screens/${lang}`) ? fs.readdirSync(`public/img/screens/${lang}`) : []).filter((f) => f.endsWith('-360.webp')).sort().map((f) => f.replace('-360.webp', ''))
   : [];
 ---
 {kind === 'tracing' && (
@@ -39,8 +39,8 @@ const screens = kind === 'app'
         <h1>{tr.tracing.h1}</h1>
         <p class="lead">{tr.tracing.lead}</p>
         <div class="dl">
-          <a class="btn" href={path.pdfAll(lang)} download>{tr.tracing.downloadAll}</a>
-          {PAPER[lang].includes('letter') && <a class="btn btn-quiet" href={path.pdfAll(lang, 'letter')} download>US Letter</a>}
+          <a class="btn" href={path.pdfAll(lang, PAPER[lang][0])} download>{tr.tracing.downloadAll}</a>
+          {PAPER[lang].slice(1).map((size) => <a class="btn btn-quiet" href={path.pdfAll(lang, size)} download>{PAPER_LABEL[size]}</a>)}
         </div>
       </div>
     </section>
@@ -97,12 +97,14 @@ const screens = kind === 'app'
         <ol class="how">
           {tr.home.how.map((x, i) => <li><span class="num">{i + 1}</span><h2 class="h3">{x.title}</h2><p>{x.text}</p></li>)}
         </ol>
+        {screens.length > 0 && (
         <div class="screens">
           {screens.map((s) => (
             <img src={`/img/screens/${lang}/${s}-360.webp`} srcset={`/img/screens/${lang}/${s}-360.webp 360w, /img/screens/${lang}/${s}-720.webp 720w`}
               sizes="(max-width: 600px) 60vw, 220px" width="360" height="779" alt={tr.home.screensAlt} loading="lazy" decoding="async" />
           ))}
         </div>
+        )}
       </div>
     </section>
     <script is:inline define:vars={{ redirects }}>

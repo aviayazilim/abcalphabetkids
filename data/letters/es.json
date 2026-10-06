@@ -1,0 +1,839 @@
+[
+  {
+    "letter": "A",
+    "lower": "a",
+    "slug": "letra-a",
+    "word": "aguacate",
+    "article": null,
+    "emoji": "🥑",
+    "character": "avokado",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#44B034",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "aguacate",
+        "image": "objectAvocado"
+      },
+      {
+        "text": "abejorro",
+        "image": "objectBumblebee"
+      },
+      {
+        "text": "alce",
+        "image": "objectMoose"
+      },
+      {
+        "text": "avión",
+        "image": "objectAirplane"
+      },
+      {
+        "text": "ardilla",
+        "image": "objectSquirrel"
+      },
+      {
+        "text": "autobús",
+        "image": "objectBus"
+      },
+      {
+        "text": "árbol",
+        "image": "objectTree"
+      },
+      {
+        "text": "araña",
+        "image": "objectSpider"
+      },
+      {
+        "text": "acuario",
+        "image": "objectAquarium"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "avocado"
+  },
+  {
+    "letter": "B",
+    "lower": "b",
+    "slug": "letra-b",
+    "word": "banana",
+    "article": null,
+    "emoji": "🍌",
+    "character": "banana",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#FFE143",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "búho",
+        "image": "objectOwl"
+      },
+      {
+        "text": "burro",
+        "image": "objectDonkey"
+      },
+      {
+        "text": "batidora",
+        "image": "objectMixer"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "banana"
+  },
+  {
+    "letter": "C",
+    "lower": "c",
+    "slug": "letra-c",
+    "word": "caracol",
+    "article": null,
+    "emoji": "🐌",
+    "character": "snail_static",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#FF4399",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "cepillo",
+        "image": "objectBrush"
+      },
+      {
+        "text": "camaleón",
+        "image": "objectChameleon"
+      },
+      {
+        "text": "cohete",
+        "image": "objectRocket"
+      },
+      {
+        "text": "caracol",
+        "image": "objectSnail"
+      },
+      {
+        "text": "cebra",
+        "image": "objectZebra"
+      },
+      {
+        "text": "cereza",
+        "image": "objectCherry"
+      },
+      {
+        "text": "conejo",
+        "image": "objectRabbit"
+      },
+      {
+        "text": "castor",
+        "image": "objectBeaver"
+      },
+      {
+        "text": "cachorro",
+        "image": "objectPuppy"
+      },
+      {
+        "text": "caja",
+        "image": "objectBox"
+      },
+      {
+        "text": "canguro",
+        "image": "objectKangaroo"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "snail"
+  },
+  {
+    "letter": "D",
+    "lower": "d",
+    "slug": "letra-d",
+    "word": "delfín",
+    "article": null,
+    "emoji": "🐬",
+    "character": "dolphin_static",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#60CAF4",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "delfín",
+        "image": "objectDolphin"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "dolphin"
+  },
+  {
+    "letter": "E",
+    "lower": "e",
+    "slug": "letra-e",
+    "word": "erizo",
+    "article": null,
+    "emoji": "🦔",
+    "character": "hedgehog_static",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#FF6915",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "erizo",
+        "image": "objectHedgehog"
+      },
+      {
+        "text": "elefante",
+        "image": "objectElephant"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "hedgehog"
+  },
+  {
+    "letter": "F",
+    "lower": "f",
+    "slug": "letra-f",
+    "word": "flor",
+    "article": null,
+    "emoji": "🌸",
+    "character": "flowers",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#B6E0FF",
+    "freeInApp": true,
+    "outline": true,
+    "words": [
+      {
+        "text": "flores",
+        "image": "objectFlowers"
+      },
+      {
+        "text": "fábrica",
+        "image": "objectFactory"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "G",
+    "lower": "g",
+    "slug": "letra-g",
+    "word": "gato",
+    "article": null,
+    "emoji": "🐱",
+    "character": "cat_static",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#00CEE7",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "gato",
+        "image": "objectCat"
+      },
+      {
+        "text": "garza",
+        "image": "objectHeron"
+      },
+      {
+        "text": "gelatina",
+        "image": "objectJelly"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "cat"
+  },
+  {
+    "letter": "H",
+    "lower": "h",
+    "slug": "letra-h",
+    "word": "hongo",
+    "article": null,
+    "emoji": "🍄",
+    "character": "mushroom",
+    "characterImage": null,
+    "color": "#FC8BB9",
+    "letterColor": "#EF4B5F",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "helado",
+        "image": "objectPopsicle"
+      },
+      {
+        "text": "hongo",
+        "image": "objectMushroom"
+      },
+      {
+        "text": "hámster",
+        "image": "objectHamster"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "mushroom"
+  },
+  {
+    "letter": "I",
+    "lower": "i",
+    "slug": "letra-i",
+    "word": "idea",
+    "article": null,
+    "emoji": "💡",
+    "character": "idea_static",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#FF3D62",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "idea",
+        "image": "objectIdea"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "idea"
+  },
+  {
+    "letter": "J",
+    "lower": "j",
+    "slug": "letra-j",
+    "word": "jirafa",
+    "article": null,
+    "emoji": "🦒",
+    "character": "giraffe_static",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#FFCF25",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "jirafa",
+        "image": "objectGiraffe"
+      },
+      {
+        "text": "jabón",
+        "image": "objectSoap"
+      },
+      {
+        "text": "jaguar",
+        "image": "objectJaguar"
+      },
+      {
+        "text": "joystick",
+        "image": "objectJoystick"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "giraffe"
+  },
+  {
+    "letter": "K",
+    "lower": "k",
+    "slug": "letra-k",
+    "word": "koala",
+    "article": null,
+    "emoji": "🐨",
+    "character": "koala_static",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#F285AB",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "koala",
+        "image": "objectKoala"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "L",
+    "lower": "l",
+    "slug": "letra-l",
+    "word": "león",
+    "article": null,
+    "emoji": "🦁",
+    "character": "lion_static",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#F9375D",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "linterna",
+        "image": "objectFlashlight"
+      },
+      {
+        "text": "lobo",
+        "image": "objectWolf"
+      },
+      {
+        "text": "limón",
+        "image": "objectLemon"
+      },
+      {
+        "text": "león",
+        "image": "objectLion"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "lion"
+  },
+  {
+    "letter": "M",
+    "lower": "m",
+    "slug": "letra-m",
+    "word": "manzana",
+    "article": null,
+    "emoji": "🍎",
+    "character": "apple",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#F4000F",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "manzana",
+        "image": "objectApple"
+      },
+      {
+        "text": "mono",
+        "image": "objectMonkey"
+      },
+      {
+        "text": "mapache",
+        "image": "objectRaccoon"
+      },
+      {
+        "text": "mariposa",
+        "image": "objectButterfly"
+      },
+      {
+        "text": "mariquita",
+        "image": "objectLadybug"
+      },
+      {
+        "text": "medusa",
+        "image": "objectJellyfish"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "apple"
+  },
+  {
+    "letter": "N",
+    "lower": "n",
+    "slug": "letra-n",
+    "word": "nido",
+    "article": null,
+    "emoji": "🪺",
+    "character": "nest",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#FFE04C",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "nido",
+        "image": "objectNest"
+      },
+      {
+        "text": "naranja",
+        "image": "objectOrange"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "nest"
+  },
+  {
+    "letter": "Ñ",
+    "lower": "ñ",
+    "slug": "letra-enie",
+    "word": "ñandú",
+    "article": null,
+    "emoji": "🪶",
+    "character": "ostrich_static",
+    "characterImage": null,
+    "color": "#FFD236",
+    "letterColor": "#F9375D",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "ñandú",
+        "image": "objectOstrich"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "ostrich"
+  },
+  {
+    "letter": "O",
+    "lower": "o",
+    "slug": "letra-o",
+    "word": "oveja",
+    "article": null,
+    "emoji": "🐑",
+    "character": "sheep_static",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#FFF645",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "oveja",
+        "image": "objectSheep"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "sheep"
+  },
+  {
+    "letter": "P",
+    "lower": "p",
+    "slug": "letra-p",
+    "word": "pingüino",
+    "article": null,
+    "emoji": "🐧",
+    "character": "penguin_static",
+    "characterImage": null,
+    "color": "#1FAFAF",
+    "letterColor": "#FF6C00",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "pollito",
+        "image": "objectChick"
+      },
+      {
+        "text": "pingüino",
+        "image": "objectPenguin"
+      },
+      {
+        "text": "pavo",
+        "image": "objectTurkey"
+      },
+      {
+        "text": "plancha",
+        "image": "objectIron"
+      },
+      {
+        "text": "pato",
+        "image": "objectDuck"
+      },
+      {
+        "text": "plátanos",
+        "image": "objectBananas"
+      },
+      {
+        "text": "pez",
+        "image": "objectFish"
+      },
+      {
+        "text": "pizza",
+        "image": "objectPizza"
+      },
+      {
+        "text": "paraguas",
+        "image": "umbrellaOpened"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "penguin"
+  },
+  {
+    "letter": "Q",
+    "lower": "q",
+    "slug": "letra-q",
+    "word": "queso",
+    "article": null,
+    "emoji": "🧀",
+    "character": "cheese",
+    "characterImage": null,
+    "color": "#13AAFF",
+    "letterColor": "#FFD833",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "queso",
+        "image": "objectCheese"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "cheese"
+  },
+  {
+    "letter": "R",
+    "lower": "r",
+    "slug": "letra-r",
+    "word": "ratón",
+    "article": null,
+    "emoji": "🐭",
+    "character": "mouse_static",
+    "characterImage": null,
+    "color": "#1FAFAF",
+    "letterColor": "#FFF26B",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "reloj",
+        "image": "objectClock"
+      },
+      {
+        "text": "ratón",
+        "image": "objectMouse"
+      },
+      {
+        "text": "rana",
+        "image": "objectFrog"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "S",
+    "lower": "s",
+    "slug": "letra-s",
+    "word": "sombrilla",
+    "article": null,
+    "emoji": "☂️",
+    "character": "cat_umbrella_static",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#F285AB",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "sol",
+        "image": "objectSun"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "T",
+    "lower": "t",
+    "slug": "letra-t",
+    "word": "tigre",
+    "article": null,
+    "emoji": "🐯",
+    "character": "tiger_static",
+    "characterImage": null,
+    "color": "#6587FF",
+    "letterColor": "#FF9B3E",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "tarta",
+        "image": "objectCake"
+      },
+      {
+        "text": "tambor",
+        "image": "objectDrums"
+      },
+      {
+        "text": "tortuga",
+        "image": "objectTurtle"
+      },
+      {
+        "text": "tigre",
+        "image": "objectTiger"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "U",
+    "lower": "u",
+    "slug": "letra-u",
+    "word": "unicornio",
+    "article": null,
+    "emoji": "🦄",
+    "character": "unicorn_static",
+    "characterImage": null,
+    "color": "#FF6914",
+    "letterColor": "#B9CAF9",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "unicornio",
+        "image": "objectUnicorn"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "unicorn"
+  },
+  {
+    "letter": "V",
+    "lower": "v",
+    "slug": "letra-v",
+    "word": "volcán",
+    "article": null,
+    "emoji": "🌋",
+    "character": "volcano",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#FFF645",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "volcán",
+        "image": "objectVolcano"
+      },
+      {
+        "text": "vaca",
+        "image": "objectCow"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "volcano"
+  },
+  {
+    "letter": "W",
+    "lower": "w",
+    "slug": "letra-w",
+    "word": "wombat",
+    "article": null,
+    "emoji": "🐻",
+    "character": "wombat_static",
+    "characterImage": null,
+    "color": "#FE1A1A",
+    "letterColor": "#E86830",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "wombat",
+        "image": "objectWombat"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": null
+  },
+  {
+    "letter": "X",
+    "lower": "x",
+    "slug": "letra-x",
+    "word": "xilófono",
+    "article": null,
+    "emoji": "🎼",
+    "character": null,
+    "characterImage": "xylophoneBase",
+    "color": "#1FAFAF",
+    "letterColor": "#FFF645",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "xilófono",
+        "image": "objectXylophone"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "xylophone"
+  },
+  {
+    "letter": "Y",
+    "lower": "y",
+    "slug": "letra-y",
+    "word": "yogui",
+    "article": null,
+    "emoji": "🧘",
+    "character": "yogi",
+    "characterImage": null,
+    "color": "#6CAA3C",
+    "letterColor": "#EF3536",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "yogui",
+        "image": "objectYogi"
+      },
+      {
+        "text": "yogur",
+        "image": "objectYogurt"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "yogi"
+  },
+  {
+    "letter": "Z",
+    "lower": "z",
+    "slug": "letra-z",
+    "word": "zorro",
+    "article": null,
+    "emoji": "🦊",
+    "character": "fox_static",
+    "characterImage": null,
+    "color": "#5C36A4",
+    "letterColor": "#FF2B1E",
+    "freeInApp": false,
+    "outline": true,
+    "words": [
+      {
+        "text": "zorro",
+        "image": "objectFox"
+      },
+      {
+        "text": "zanahoria",
+        "image": "objectCarrot"
+      }
+    ],
+    "wordsMatch": "start",
+    "source": "app",
+    "coloring": "fox"
+  }
+]

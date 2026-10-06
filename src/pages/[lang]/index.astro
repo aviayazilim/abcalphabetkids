@@ -18,7 +18,7 @@ const h = tr.home;
 const letters = LETTERS[lang];
 const hero = letters.slice(0, 6);
 const tracing = path.section(lang, 'tracing')!;
-const screens = fs.readdirSync(`public/img/screens/${lang}`).filter((f) => f.endsWith('-360.webp')).sort()
+const screens = (fs.existsSync(`public/img/screens/${lang}`) ? fs.readdirSync(`public/img/screens/${lang}`) : []).filter((f) => f.endsWith('-360.webp')).sort()
   .map((f) => f.replace('-360.webp', ''));
 const appLangs = ['ru', 'en', 'de', 'fr', 'es', 'pt', 'pl', 'tr'];
 const campaign = `site_${lang}_home`;
@@ -68,12 +68,14 @@ const campaign = `site_${lang}_home`;
           <li><span class="num">{i + 1}</span><h3>{x.title}</h3><p>{x.text}</p></li>
         ))}
       </ol>
-      <div class="screens" tabindex="0" aria-label={h.screensAlt}>
+      {screens.length > 0 && (
+        <div class="screens" tabindex="0" aria-label={h.screensAlt}>
         {screens.map((s) => (
           <img src={`/img/screens/${lang}/${s}-360.webp`} srcset={`/img/screens/${lang}/${s}-360.webp 360w, /img/screens/${lang}/${s}-720.webp 720w`}
             sizes="(max-width: 600px) 60vw, 220px" width="360" height="779" alt={h.screensAlt} loading="lazy" decoding="async" />
         ))}
       </div>
+        )}
     </div>
   </section>
 

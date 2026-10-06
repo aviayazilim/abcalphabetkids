@@ -15,8 +15,8 @@ const writeJson = (p, data) => {
 };
 
 const LANGS = {
-  ru: { model: 'RussianAlphabet', lang: 'ru' },
-  de: { model: 'GermanAlphabet', lang: 'de' },
+  ru: 'RussianAlphabet', de: 'GermanAlphabet', en: 'EnglishAlphabet', tr: 'TurkishAlphabet',
+  es: 'SpanishAlphabet', pt: 'PortugueseAlphabet', pl: 'PolishAlphabet', fr: 'FrenchAlphabet',
 };
 
 // ---------- helpers ----------
@@ -82,13 +82,20 @@ for (const [keys, val] of switchCases(imageBody)) {
   if (img) for (const k of keys) wordImage.set(norm(k), img);
 }
 const textBody = block(wordsSrc, 'func text(for language: Language)');
+// Enum cases with an explicit raw value, e.g. `vışne = "vïşne"`.
+const rawValues = new Map([...wordsSrc.matchAll(/([\p{L}]+) = "([^"]+)"/gu)].map((m) => [norm(m[1]), m[2]]));
 function wordText(lang, key) {
+  const text = wordTextRaw(lang, key);
+  // In the app font, Turkish ï stands for the ordinary dotted i.
+  return lang === 'tr' ? text.replace(/ï/g, 'i') : text;
+}
+function wordTextRaw(lang, key) {
   const langBlock = textBody.match(new RegExp(`case \\.${lang}:\\s*switch self \\{([\\s\\S]*?)default:`));
   if (langBlock) {
     const m = langBlock[1].match(new RegExp(`case \\.${key}: return "([^"]+)"`));
     if (m) return m[1];
   }
-  return key;
+  return rawValues.get(key) ?? key;
 }
 const wordsBody = block(langWordsSrc, 'var words: [LetterGameWords]');
 function wordsFor(lang) {
@@ -104,7 +111,9 @@ const outlineMap = caseMap(block(pathsSrc, 'var letterPathString: String'));
 const circlesMap = caseMap(block(pathsSrc, 'var circlesPathStrings'));
 const modelSrc = read('Scenes/Games/LetterGame/Models/LetterModel.swift');
 const modelPaths = caseMap(block(modelSrc, 'var paths: LetterPaths'));
-const strings = (s) => [...(s ?? '').matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+// String literals in Swift source, minus locale identifiers, with \u{…} escapes decoded.
+const strings = (s) => [...(s ?? '').replace(/Locale\(identifier:\s*"[^"]*"\)/g, '').matchAll(/"([^"]+)"/g)]
+  .map((m) => m[1].replace(/\\u\{([0-9a-fA-F]+)\}/g, (_, h) => String.fromCodePoint(parseInt(h, 16))));
 
 function outlineFor(letter) {
   // LetterModel maps both Cyrillic and Latin letters onto shared outlines.
@@ -137,34 +146,81 @@ const translit = {
   м: 'm', н: 'n', о: 'o', п: 'p', р: 'r', с: 's', т: 't', у: 'u', ф: 'f', х: 'h', ц: 'ts', ч: 'ch', ш: 'sh',
   щ: 'shch', ъ: 'tverdyy-znak', ы: 'y', ь: 'myagkiy-znak', э: 'e', ю: 'yu', я: 'ya',
 };
-// Distinct slugs where transliteration collides (е/э, й/ы).
-const ruSlug = { е: 'bukva-e', э: 'bukva-e-oborotnoe', й: 'bukva-y-kratkoe', ы: 'bukva-y' };
-const deSlug = { ä: 'ae', ö: 'oe', ü: 'ue', ß: 'eszett' };
+// Letter page slugs, written the way people of that language would read them.
+const SLUG = {
+  ru: (l) => ({ е: 'bukva-e', э: 'bukva-e-oborotnoe', й: 'bukva-y-kratkoe', ы: 'bukva-y' })[l] ?? 'bukva-' + translit[l],
+  de: (l) => ({ ä: 'ae', ö: 'oe', ü: 'ue', ß: 'eszett' })[l] ?? l,
+  en: (l) => 'letter-' + l,
+  tr: (l) => (({ ç: 'ch', ğ: 'yumusak-g', ı: 'noktasiz-i', ö: 'oe', ş: 'sh', ü: 'ue' })[l] ?? l) + '-harfi',
+  es: (l) => 'letra-' + (({ ñ: 'enie' })[l] ?? l),
+  pt: (l) => 'letra-' + l,
+  pl: (l) => 'litera-' + (({ ą: 'a-ogonek', ć: 'c-kreska', ę: 'e-ogonek', ł: 'l-kreska', ń: 'n-kreska',
+    ó: 'o-kreska', ś: 's-kreska', ź: 'z-kreska', ż: 'z-kropka' })[l] ?? l),
+  fr: (l) => 'lettre-' + l,
+};
+
+// Parsed alphabet models, shared because Polish borrows from the others.
+const models = new Map();
+function model(name) {
+  if (models.has(name)) return models.get(name);
+  const src = read(`Models/Alphabets/${name}.swift`);
+  const m = {
+    src,
+    order: src.match(/enum \w+: String, BaseAlpahbet \{\s*case ([^}]*?)\n\s*\n/)[1]
+      .split(/[,\s]+/).filter((x) => x && x !== 'case').map(norm),
+    words: caseMap(block(src, 'var wordStyle: WordStyle') ?? ''),
+    cards: caseMap(block(src, 'var card: BaseCardView') ?? ''),
+    lotties: caseMap(block(src, 'var startLottie: String') ?? ''),
+    bg: caseMap(block(src, 'var backgroundColor: UIColor') ?? ''),
+    fill: caseMap(block(src, 'var bigLetterFillColor: UIColor') ?? ''),
+    emoji: caseMap(block(src, 'var emoji: String') ?? ''),
+    prototype: caseMap(block(src, 'private var prototype: any BaseAlpahbet') ?? ''),
+    polishWord: caseMap(block(src, 'private var polishWord: String') ?? ''),
+  };
+  models.set(name, m);
+  return m;
+}
+const get = (map, k) => map.get(k) ?? [...map].find(([kk]) => norm(kk) === k)?.[1] ?? '';
+
+// Property of a letter, following Polish-style `prototype` delegation.
+function prop(m, key, l) {
+  const own = get(m[key], l);
+  if (own) return own;
+  const proto = get(m.prototype, l).match(/(\w+Alphabet)\.(\S+)/);
+  return proto ? prop(model(proto[1]), key, norm(proto[2])) : '';
+}
+
+// French, Spanish and Portuguese accents don't make separate letters (é counts as e),
+// except Spanish ñ. Everywhere else diacritics are letters of their own.
+function fold(code, text) {
+  if (!['fr', 'es', 'pt'].includes(code)) return text;
+  return [...text].map((ch) => (ch === 'ñ' ? ch : ch.normalize('NFD').replace(/\p{M}/gu, ''))).join('');
+}
+
+// Case forms: Turkish has both dotless ı/I and dotted i/İ (Ï in the app).
+function glyphs(code, raw) {
+  if (code === 'tr' && raw === 'Ï') return { upper: 'İ', lower: 'i' };
+  if (raw === 'ß') return { upper: 'ß', lower: 'ß' };
+  return { upper: raw.toLocaleUpperCase(code), lower: raw.toLocaleLowerCase(code) };
+}
 
 const usedImages = new Set();
 const allOutlines = {};
 
-for (const [code, { model }] of Object.entries(LANGS)) {
-  const src = read(`Models/Alphabets/${model}.swift`);
-  const order = src.match(/enum \w+: String, BaseAlpahbet \{\s*case ([^}]*?)\n\s*\n/)[1]
-    .split(/[,\s]+/).filter((s) => s && s !== 'case').map(norm);
-  const words = caseMap(block(src, 'var wordStyle: WordStyle'));
-  const cards = caseMap(block(src, 'var card: BaseCardView'));
-  const lotties = caseMap(block(src, 'var startLottie: String'));
-  const bg = caseMap(block(src, 'var backgroundColor: UIColor'));
-  const fill = caseMap(block(src, 'var bigLetterFillColor: UIColor'));
-  const free = caseMap(block(src, 'var free: Bool'));
-  const emoji = caseMap(block(src, 'var emoji: String') ?? '');
+for (const [code, name] of Object.entries(LANGS)) {
+  const m = model(name);
   const vocab = wordsFor(code);
-  const get = (map, k) => map.get(k) ?? [...map].find(([kk]) => norm(kk) === k)?.[1] ?? '';
 
-  const letters = order.map((l) => {
-    const ws = get(words, l);
-    const wordParts = strings(ws.slice(ws.indexOf('word:')));
+  const letters = m.order.map((raw) => {
+    const { upper, lower } = glyphs(code, raw);
+    // Polish spells its own words but borrows everything else from a prototype letter.
+    const ws = get(m.polishWord, raw) ? '' : prop(m, 'words', raw);
+    const wordParts = ws ? strings(ws.slice(ws.indexOf('word:'))) : strings(get(m.polishWord, raw));
     const article = wordParts.length > 1 ? wordParts[0].trim() : null;
-    const word = norm(wordParts.at(-1) ?? '');
-    const card = get(cards, l).match(/(\w+CardView)/)?.[1] ?? null;
-    let lottie = strings(get(lotties, l))[0] ?? '';
+    let word = norm(wordParts.at(-1) ?? '');
+    if (code === 'tr') word = word.replace(/Ï/g, 'İ').replace(/ï/g, 'i');
+    const card = get(m.cards, raw).match(/(\w+CardView)/)?.[1] ?? null;
+    let lottie = strings(prop(m, 'lotties', raw))[0] ?? '';
     let characterImage = null;
     if (!lottieExists(lottie) && card && cardFiles.has(card)) {
       const cardSrc = fs.readFileSync(cardFiles.get(card), 'utf8');
@@ -172,47 +228,48 @@ for (const [code, { model }] of Object.entries(LANGS)) {
       // A few cards are plain images instead of animations.
       if (!lottieExists(lottie)) characterImage = cardSrc.match(/R\.image\.(\w+)\(\)/)?.[1] ?? null;
     }
-    const upper = l.toLocaleUpperCase(code);
-    const outline = outlineFor(l);
+    const outline = outlineFor(raw.toLowerCase());
     if (outline) allOutlines[upper] = outline;
-    // Hard sign, umlauts, ß etc. rarely start a word, so for them any position counts.
-    const inside = ['ъ', 'ы', 'ь', 'ä', 'ö', 'ü', 'ß'].includes(l);
-    const related = vocab.filter((w) => {
-      const t = w.text.toLocaleLowerCase(code);
-      return w.image && (inside ? t.includes(l) : t.startsWith(l));
-    });
+    // Letters such as ъ, ğ, ą or ß rarely start a word, so then any position counts.
+    const pick = (fn) => vocab.filter((w) => w.image && fn(fold(code, w.text.toLocaleLowerCase(code))));
+    const key = fold(code, lower);
+    let related = pick((t) => t.startsWith(key));
+    const wordsMatch = related.length ? 'start' : 'inside';
+    if (!related.length) related = pick((t) => t.includes(key)).slice(0, 6);
     related.forEach((w) => usedImages.add(w.image));
-    const slug = code === 'ru'
-      ? (ruSlug[l] ?? 'bukva-' + translit[l])
-      : (deSlug[l] ?? l);
+    // German nouns keep their capital; other languages show the word in lower case.
+    const shown = word ? (code === 'de' ? word.charAt(0) + word.slice(1).toLocaleLowerCase(code) : word.toLocaleLowerCase(code)) : null;
     return {
-      letter: l === 'ß' ? 'ß' : upper,
-      lower: l,
-      slug,
+      letter: upper,
+      lower,
+      slug: SLUG[code](lower),
       // Word shown on the letter's card in the app.
-      // German nouns keep their capital; Russian words are lower case.
-      word: word ? (code === 'de' ? word.charAt(0) + word.slice(1).toLocaleLowerCase(code) : word.toLocaleLowerCase(code)) : null,
+      word: shown,
       article,
-      emoji: strings(get(emoji, l))[0] ?? null,
+      emoji: strings(prop(m, 'emoji', raw))[0] ?? null,
       character: lottieExists(lottie) ? lottie : null,
       characterImage,
-      color: colorOf(get(bg, l)),
-      letterColor: colorOf(get(fill, l)),
+      color: colorOf(prop(m, 'bg', raw)),
+      letterColor: colorOf(prop(m, 'fill', raw)),
       freeInApp: false,
       outline: Boolean(outline),
       // More words from the app's words game, each with its picture.
       words: related.map((w) => ({ text: w.text, image: w.image })),
+      wordsMatch,
       source: 'app',
     };
   });
   // `free` lists the free letters explicitly; everything else is paid.
-  const freeLine = block(src, 'var free: Bool').match(/case ([^:]+): return true/)?.[1] ?? '';
-  const freeSet = new Set(freeLine.split(',').map((s) => norm(s.trim().replace(/^\./, ''))));
-  letters.forEach((x) => (x.freeInApp = freeSet.has(x.lower)));
+  const freeLine = block(m.src, 'var free: Bool')?.match(/case ([^:]+): return true/)?.[1] ?? '';
+  const freeSet = new Set(freeLine.split(',').map((x) => norm(x.trim().replace(/^\./, ''))));
+  letters.forEach((x, i) => (x.freeInApp = freeSet.has(m.order[i])));
+  const slugs = new Set(letters.map((x) => x.slug));
+  if (slugs.size !== letters.length) throw new Error(`${code}: duplicate slugs`);
   writeJson(`data/letters/${code}.json`, letters);
-  console.log(code, letters.length, 'letters;',
-    letters.filter((x) => !x.character).map((x) => x.letter).join(' ') || 'all have characters', '| no outline:',
-    letters.filter((x) => !x.outline).map((x) => x.letter).join(' ') || '-');
+  console.log(code, letters.length, 'letters | no character:',
+    letters.filter((x) => !x.character && !x.characterImage).map((x) => x.letter).join(' ') || '-', '| no outline:',
+    letters.filter((x) => !x.outline).map((x) => x.letter).join(' ') || '-', '| no word:',
+    letters.filter((x) => !x.word).map((x) => x.letter).join(' ') || '-');
 }
 
 writeJson('data/letter-outlines.json', allOutlines);

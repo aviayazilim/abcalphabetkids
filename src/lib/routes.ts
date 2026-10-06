@@ -1,29 +1,36 @@
-import ruLetters from '../../data/letters/ru.json';
-import deLetters from '../../data/letters/de.json';
+import languages from '../../data/languages.json';
 
-export const LANGS = ['ru', 'de'] as const;
-export type Lang = (typeof LANGS)[number];
+// Letters per language, extracted from the app (see scripts/extract-app-data.mjs).
+const letterFiles = import.meta.glob('../../data/letters/*.json', { eager: true, import: 'default' });
 
-// US Letter only where that paper is used (EN later); RU/DE print on A4.
-export const PAPER: Record<Lang, ('a4' | 'letter')[]> = { ru: ['a4'], de: ['a4'] };
-
-export const HREFLANG: Record<Lang, string> = { ru: 'ru', de: 'de' };
-
-// Section slugs are written in the page's language because search reads them too.
-export const SECTIONS = {
-  ru: { tracing: 'propisi', app: 'prilozhenie', privacy: 'konfidentsialnost' },
-  de: { tracing: 'buchstaben-nachspuren', app: 'app', privacy: 'datenschutz', imprint: 'impressum' },
-} as const satisfies Record<Lang, Record<string, string>>;
-
+type LangConfig = (typeof languages)[keyof typeof languages];
+export type Lang = keyof typeof languages;
 export type SectionKind = 'tracing' | 'app' | 'privacy' | 'imprint';
 
-export type Letter = (typeof ruLetters)[number];
-export const LETTERS: Record<Lang, Letter[]> = { ru: ruLetters, de: deLetters as Letter[] };
+// Languages switch on one by one via `enabled` in data/languages.json.
+export const LANGS = (Object.keys(languages) as Lang[]).filter((l) => languages[l].enabled);
+const conf = (lang: Lang) => languages[lang] as LangConfig & { sections: Partial<Record<SectionKind, string>> };
+
+export const HREFLANG = Object.fromEntries(LANGS.map((l) => [l, conf(l).hreflang])) as Record<Lang, string>;
+// US Letter where that paper is used; elsewhere A4 only.
+export const PAPER_LABEL = { a4: 'A4', letter: 'US Letter' } as const;
+export const PAPER = Object.fromEntries(LANGS.map((l) => [l, conf(l).paper])) as Record<Lang, ('a4' | 'letter')[]>;
+// Section slugs are written in the page's language because search reads them too.
+export const SECTIONS = Object.fromEntries(LANGS.map((l) => [l, conf(l).sections])) as Record<Lang, Partial<Record<SectionKind, string>> & { tracing: string }>;
+
+export type Letter = {
+  letter: string; lower: string; slug: string; word: string | null; article: string | null;
+  character: string | null; characterImage: string | null; color: string | null; letterColor: string | null;
+  freeInApp: boolean; coloring: string | null; words: { text: string; image: string }[]; wordsMatch: 'start' | 'inside';
+};
+export const LETTERS = Object.fromEntries(
+  LANGS.map((l) => [l, letterFiles[`../../data/letters/${l}.json`] as Letter[]]),
+) as Record<Lang, Letter[]>;
 
 export const path = {
   home: (lang: Lang) => `/${lang}/`,
   section: (lang: Lang, kind: SectionKind) => {
-    const slug = (SECTIONS[lang] as Record<string, string>)[kind];
+    const slug = SECTIONS[lang][kind];
     return slug ? `/${lang}/${slug}/` : null;
   },
   letter: (lang: Lang, slug: string) => `/${lang}/${SECTIONS[lang].tracing}/${slug}/`,
