@@ -22,6 +22,8 @@ const USE_OBJECT_IMAGE = {
   brush: 'objectBrush', wolf: 'objectWolf', hedgehog_static: 'objectHedgehog', chick: 'objectChick',
   xylophoneBase: 'objectXylophone', clock: 'objectClock', cherry: 'objectCherry', drumStand: 'objectDrums',
   owl: 'objectOwl',
+  // Spanish S (sombrilla): the card draws the umbrella as a separate picture over the cat.
+  cat_umbrella_static: 'LettersBackground/Umbrella/umbrellaOpened.imageset/umbrellaOpened.png',
 };
 // The river animation only draws splashes; the river itself is the card background,
 // so the app's river picture is used as a rounded card.
@@ -33,6 +35,7 @@ async function sceneCard(file) {
     .composite([{ input: mask, blend: 'dest-in' }]).png().toBuffer();
 }
 const objectPng = (asset) => {
+  if (asset.includes('/')) return path.join(APP, 'Assets.xcassets', asset);
   const dir = path.join(APP, 'Assets.xcassets/ObjectsImages', asset + '.imageset');
   return path.join(dir, fs.readdirSync(dir).find((f) => f.endsWith('.png')));
 };

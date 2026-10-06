@@ -86,7 +86,7 @@
     }
   },
   "es": {
-    "enabled": false,
+    "enabled": true,
     "hreflang": "es",
     "sections": {
       "tracing": "fichas-abecedario",
@@ -102,13 +102,13 @@
       "date": "Fecha",
       "color": "Colorea: {word}",
       "qr": "Escucha esta letra en la app ABC Alphabet",
-      "scan": "Apunta la cámara del móvil al código",
+      "scan": "Apunta la cámara del teléfono al código",
       "ogTitle": "Letra {letter}",
       "ogSub": "Ficha para repasar y colorear · PDF"
     }
   },
   "pt": {
-    "enabled": false,
+    "enabled": true,
     "hreflang": "pt",
     "sections": {
       "tracing": "alfabeto-pontilhado",
