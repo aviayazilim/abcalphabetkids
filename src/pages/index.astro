@@ -28,20 +28,25 @@ import { LANGS, HREFLANG, path } from '../lib/routes';
     <h1>ABC Alphabet</h1>
     <ul>
       {LANGS.map((l) => (
-        <li><a href={path.home(l)} hreflang={l} lang={l}><img src={`/img/flags/${l}.webp`} alt="" width="40" height="40" />{t(l).langName}</a></li>
+        <li><a href={path.home(l)} hreflang={l} lang={l} data-lang={l}><img src={`/img/flags/${l}.webp`} alt="" width="40" height="40" />{t(l).langName}</a></li>
       ))}
     </ul>
   </main>
-  <script is:inline>
-    // Send returning visitors straight to their browser language when we have it.
+  <script is:inline define:vars={{ have: [...LANGS] }}>
+    // Same order as the app (SceneDelegate.setDefaultLanguage): a language the
+    // visitor picked before, else the device's primary language, else English.
+    // Only this root page redirects — language URLs themselves never do.
     (function () {
-      var have = ['ru', 'de'];
-      var langs = navigator.languages || [navigator.language];
-      for (var i = 0; i < langs.length; i++) {
-        var code = (langs[i] || '').slice(0, 2).toLowerCase();
-        if (have.indexOf(code) >= 0) { location.replace('/' + code + '/'); return; }
-      }
+      var saved = null;
+      try { saved = localStorage.getItem('lang'); } catch (e) {}
+      var primary = ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
+      var target = [saved, primary, 'en'].filter(function (l) { return l && have.indexOf(l) >= 0; })[0];
+      if (target) location.replace('/' + target + '/');
     })();
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[data-lang]');
+      if (a) try { localStorage.setItem('lang', a.dataset.lang); } catch (err) {}
+    });
   </script>
 </body>
 </html>

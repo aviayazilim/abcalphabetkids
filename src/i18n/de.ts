@@ -121,7 +121,7 @@ export default {
     body: `
 <p>Verantwortlich für diese Website ist AVIA YAZILIM LİMİTED ŞİRKETİ (Kontakt im <a href="/de/impressum/">Impressum</a>). Hier steht kurz, welche Daten die Website verarbeitet. Die Datenschutzerklärung der App finden Sie im App Store und bei Google Play.</p>
 <h2>Was wir nicht tun</h2>
-<ul><li>Keine Cookies, nichts wird in Ihrem Browser gespeichert.</li><li>Keine Anmeldung, keine E-Mail-Adressen: Arbeitsblätter werden direkt heruntergeladen.</li><li>Keine Werbung und keine Werbe-Tracker.</li></ul>
+<ul><li>Keine Cookies. Im Browser wird nur die Sprache gespeichert, die Sie selbst gewählt haben (localStorage). Sie wird nirgendwohin übertragen.</li><li>Keine Anmeldung, keine E-Mail-Adressen: Arbeitsblätter werden direkt heruntergeladen.</li><li>Keine Werbung und keine Werbe-Tracker.</li></ul>
 <h2>Besuchsstatistik</h2>
 <p>Wir zählen Besuche mit Cloudflare Web Analytics. Der Dienst setzt keine Cookies, erstellt kein Besucherprofil und verfolgt Sie nicht über andere Websites. Wir sehen nur zusammengefasste Zahlen: Seitenaufrufe, Land, Gerätetyp.</p>
 <h2>Hosting</h2>
