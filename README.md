@@ -16,6 +16,10 @@ Astro (статика) → GitHub Pages.
 | Контуры раскрасок | `PaintGame/PaintColorableObject.swift` |
 | Флаги, иконка | `Assets.xcassets` |
 
+## Языки
+
+8 языков приложения: ru, de, en, tr, es, pt (Бразилия), pl, fr. Настройки — `data/languages.json`: адреса разделов, форматы бумаги (EN — US Letter + A4, ES — A4 + Letter, остальные A4), подписи на листах, `enabled`. Тексты страниц — `src/i18n/<lang>.ts`.
+
 ## Команды
 
 Нужен Node ≥ 22.12 (локально: `PATH=/usr/local/opt/node/bin:$PATH`).
@@ -26,6 +30,7 @@ npm run pdf    # все PDF + превью листов + OG-картинки (�
 npm run pdf -- --lang ru --only bukva-a   # один лист
 npm run dev    # http://localhost:4321
 npm run build && npm run check   # сборка и проверка SEO-минимума
+node scripts/contact-sheet.mjs ru out.png   # все превью листов языка на одной картинке
 ```
 
 ## Настройки

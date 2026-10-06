@@ -129,7 +129,7 @@
     }
   },
   "pl": {
-    "enabled": false,
+    "enabled": true,
     "hreflang": "pl",
     "sections": {
       "tracing": "karty-pracy-litery",
@@ -150,7 +150,7 @@
     }
   },
   "fr": {
-    "enabled": false,
+    "enabled": true,
     "hreflang": "fr",
     "sections": {
       "tracing": "fiches-alphabet",
