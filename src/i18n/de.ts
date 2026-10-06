@@ -21,7 +21,7 @@ export default {
     title: 'ABC-Lern-App für Kinder ab 3 und gratis Arbeitsblätter',
     description: 'Alphabet-App: jeder Buchstabe ist eine Figur, gesprochen von Muttersprachlern. Dazu kostenlose Arbeitsblätter A–Z als PDF, ohne Anmeldung.',
     h1: 'Das ABC, das mit muttersprachlicher Stimme spricht',
-    sub: (langs: number, games: number) => `${langs} Sprachen · ${games} Spiele · für Kinder von 3 bis 6`,
+    sub: (langs: number, games: number) => `${langs} Sprachen · ${games} Spiele · für Kinder von 3\u00a0bis\u00a06`,
     heroNote: 'Die ersten sechs Buchstaben sind kostenlos.',
     freeTitle: 'Kostenlos für Eltern',
     freeLead: 'Ausdrucken und ohne Bildschirm üben. Keine Anmeldung, keine E-Mail.',
