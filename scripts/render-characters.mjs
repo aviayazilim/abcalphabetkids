@@ -17,10 +17,10 @@ const letterRows = () => fs.readdirSync(path.join(ROOT, 'data/letters'))
 const names = new Set(letterRows().map((x) => x.character).filter(Boolean));
 
 // First frames of these animations don't show the character well (it is
-// still off-screen or hatching), so the app's words-game picture is used instead.
+// still off-screen, hatching or empty), so the app's words-game picture is used instead.
 const USE_OBJECT_IMAGE = {
   brush: 'objectBrush', wolf: 'objectWolf', hedgehog_static: 'objectHedgehog', chick: 'objectChick',
-  xylophoneBase: 'objectXylophone',
+  xylophoneBase: 'objectXylophone', clock: 'objectClock',
 };
 const objectPng = (asset) => {
   const dir = path.join(APP, 'Assets.xcassets/ObjectsImages', asset + '.imageset');

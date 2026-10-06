@@ -46,7 +46,7 @@ async function printImage(l) {
     : path.join(ROOT, 'public/img/characters', name + '.webp');
   const out = path.join(PRINT, name + '.jpg');
   if (!fs.existsSync(out)) {
-    await sharp(src).resize(700, 700, { fit: 'inside' }).flatten({ background: '#ffffff' }).jpeg({ quality: 82 }).toFile(out);
+    await sharp(src).resize(520, 520, { fit: 'inside' }).flatten({ background: '#ffffff' }).jpeg({ quality: 76, mozjpeg: true }).toFile(out);
   }
   return pathToFileURL(out).href;
 }
@@ -54,7 +54,10 @@ async function printImage(l) {
 function outlineSvg(letter, { dashed }) {
   const o = outlines[letter];
   if (!o) {
-    return `<svg viewBox="0 0 200 220"><text x="100" y="185" text-anchor="middle" font-size="210" class="trace-text">${esc(letter)}</text></svg>`;
+    // No app outline (ß): the Andika glyph, styled like the app outlines.
+    return `<svg viewBox="0 0 200 220"><text x="100" y="185" text-anchor="middle" font-size="210" font-family="Andika"
+      fill="none" stroke="${dashed ? '#8a909c' : '#1f2330'}" stroke-width="${dashed ? 2.2 : 3}"
+      ${dashed ? 'stroke-dasharray="6 5"' : ''} stroke-linecap="round" stroke-linejoin="round">${esc(letter)}</text></svg>`;
   }
   const pad = 6;
   const [x, y, w, h] = o.box;
@@ -67,7 +70,9 @@ function coloringSvg(key) {
   const c = coloring[key];
   const [x, y, w, h] = c.box;
   const pad = Math.max(w, h) * 0.01;
-  const shapes = c.paths.map((d, i) => {
+  // One decimal is plenty at print size and keeps the alphabet PDF small.
+  const shapes = c.paths.map((raw, i) => {
+    const d = raw.replace(/(\.\d)\d+/g, '$1');
     if (c.filled.includes(i)) return `<path d="${d}" fill="#1f2330"/>`;
     if (c.mask.includes(i)) return `<path d="${d}" fill="#fff"/>`;
     return `<path d="${d}" fill="#fff" stroke="#1f2330" stroke-width="2.6" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>`;
@@ -98,12 +103,14 @@ async function sheetPages(l, lang, qrSvg) {
     { text: l.word, mode: 'word' },
     { text: hasUpper ? l.letter + l.lower : l.lower, mode: 'half' },
     { text: '', mode: 'empty' },
+    // ß has no capital row; keep the page balanced with another blank line.
+    !hasUpper && { text: '', mode: 'empty' },
   ].filter(Boolean);
   const footer = `
     <footer class="foot">
       <div class="qr">${qrSvg}</div>
       <div><p class="qr-title">${esc(T.qr)}</p><p class="qr-sub">${esc(T.scan)}</p></div>
-      <div class="site"><img src="${file('public/icon-192.png')}" alt=""><span>${SITE}</span></div>
+      <div class="site"><img src="${file('public/img/icon-print.jpg')}" alt=""><span>${SITE}</span></div>
     </footer>`;
   const page1 = `
   <section class="page">
@@ -158,7 +165,7 @@ body { font-family: Nunito, sans-serif; color: #1f2330; }
 .pair { margin: 0; font-family: Andika, sans-serif; font-size: 16pt; color: #5d6475; letter-spacing: 1mm; }
 .rows { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 1mm 0 3mm; }
 .row { width: 100%; height: auto; display: block; overflow: visible; }
-.trace-text { font-family: Andika, sans-serif; fill: none; stroke: #8a909c; stroke-width: 0.35; stroke-dasharray: 0.9 0.7; stroke-linecap: round; }
+.trace-text { font-family: Andika, sans-serif; fill: none; stroke: #8a909c; stroke-width: 0.35; stroke-dasharray: 1.5 1; stroke-linecap: round; }
 .model { font-family: Andika, sans-serif; fill: #c9ccd3; }
 .foot { display: flex; align-items: center; gap: 4mm; border-top: 0.3mm solid #e2ddd2; padding-top: 3mm; }
 .qr { width: 19mm; height: 19mm; flex: none; }
