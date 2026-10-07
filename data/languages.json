@@ -40,6 +40,16 @@
       "scan": "Code mit der Handykamera scannen",
       "ogTitle": "Buchstabe {letter}",
       "ogSub": "Nachspuren und Ausmalen · PDF"
+    },
+    "pin": {
+      "headline": "Buchstabe {letter}",
+      "headline2": "nachspuren",
+      "sub": "Kostenloses Arbeitsblatt · PDF",
+      "board": "Buchstaben nachspuren – Arbeitsblätter",
+      "title": "Buchstabe {letter} nachspuren – kostenloses Arbeitsblatt zum Ausdrucken (PDF)",
+      "description": "Kostenloses Arbeitsblatt zum Buchstaben {letter}: {letter} und {lower} nachspuren, das Wort „{word}“ mit Bild{coloring}. Für Kinder von 4 bis 6 Jahren, Vorschule und Kindergarten. PDF zum Ausdrucken, ohne Anmeldung.",
+      "coloring": " und ein Ausmalbild",
+      "keywords": "Buchstaben nachspuren, Arbeitsblatt Buchstabe {letter}, Vorschule Arbeitsblätter, Buchstaben lernen, Schwungübungen, ABC lernen, Kindergarten"
     }
   },
   "en": {
@@ -62,6 +72,16 @@
       "scan": "Point your phone camera at the code",
       "ogTitle": "Letter {letter}",
       "ogSub": "Tracing and coloring worksheet · PDF"
+    },
+    "pin": {
+      "headline": "Letter {letter}",
+      "headline2": "tracing",
+      "sub": "Free printable worksheet · PDF",
+      "board": "Letter Tracing Worksheets",
+      "title": "Letter {letter} Tracing Worksheet – Free Printable PDF for Preschool",
+      "description": "Free letter {letter} tracing worksheet for preschool and kindergarten: trace uppercase {letter} and lowercase {lower}, the word “{word}” with a picture{coloring}. For kids ages 4–6. Printable PDF, no sign-up.",
+      "coloring": ", plus a coloring page",
+      "keywords": "letter tracing, letter {lower} worksheet, preschool printables, alphabet worksheets, kindergarten worksheets, handwriting practice, free printables"
     }
   },
   "tr": {

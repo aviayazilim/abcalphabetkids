@@ -255,6 +255,51 @@ async function ogCard(l, lang, sheetPng, out) {
   await page.screenshot({ path: out, type: 'png' });
 }
 
+// Vertical 1000×1500 Pinterest image: headline, the sheet itself, the letter's character.
+async function pinCard(l, lang, sheetPng, out) {
+  const P = LANGUAGES[lang].pin;
+  const name = l.character ?? l.characterImage;
+  const tintBg = '#' + [1, 3, 5].map((i) => Math.round(255 + (parseInt(l.color.slice(i, i + 2), 16) - 255) * 0.16).toString(16).padStart(2, '0')).join('');
+  const ink = isLight(l.color) ? '#1f2330' : l.color;
+  const html = `<!doctype html><html><head><meta charset="utf-8"><style>${CSS}
+    body { width: 1000px; height: 1500px; background: #fbf8f3; position: relative; overflow: hidden; }
+    .p-head { padding: 70px 70px 0; }
+    h1 { margin: 0; font-size: 150px; line-height: .95; font-weight: 900; color: ${ink}; letter-spacing: -2px; }
+    h2 { margin: 6px 0 0; font-size: 112px; line-height: 1; font-weight: 900; color: #1f2330; letter-spacing: -1px; }
+    .p-sub { margin: 26px 0 0; font-size: 44px; font-weight: 700; color: #5d6475; }
+    .p-sheet { position: absolute; right: 60px; top: 520px; width: 600px; transform: rotate(3deg); background: #fff;
+      box-shadow: 0 0 0 2px #e2ddd2, 0 18px 40px rgba(31,35,48,.12); }
+    .p-char { position: absolute; left: 50px; top: 760px; width: 400px; height: 400px; border-radius: 50%; background: ${tintBg};
+      display: grid; place-items: center; border: 10px solid #fbf8f3; }
+    .p-char img { width: 300px; height: 300px; object-fit: contain; }
+    .p-word { position: absolute; left: 50px; top: 1180px; width: 400px; text-align: center; font-family: Andika, sans-serif; font-size: 56px; color: #1f2330; }
+    .p-foot { position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: ${l.color}; display: flex; align-items: center; justify-content: center; gap: 22px; }
+    .p-foot img { width: 64px; height: 64px; border-radius: 14px; }
+    .p-foot span { font-size: 46px; font-weight: 900; color: ${isLight(l.color) ? '#1f2330' : '#fff'}; }
+  </style></head><body>
+    <div class="p-head"><h1>${esc(fill(P.headline, { letter: l.letter }))}</h1><h2>${esc(P.headline2)}</h2><p class="p-sub">${esc(P.sub)}</p></div>
+    <img class="p-sheet" src="data:image/png;base64,${sheetPng.toString('base64')}">
+    ${name ? `<div class="p-char"><img src="${file(`public/img/characters/${name}.webp`)}"></div>` : ''}
+    <div class="p-word">${wordMarkup(l, lang)}</div>
+    <div class="p-foot"><img src="${file('public/img/icon-print.jpg')}"><span>${SITE}</span></div>
+  </body></html>`;
+  const tmp = path.join(ROOT, 'build-cache/pin.html');
+  fs.writeFileSync(tmp, html);
+  await page.setViewportSize({ width: 1000, height: 1500 });
+  await page.goto(pathToFileURL(tmp).href);
+  await page.evaluate(() => document.fonts.ready);
+  // Long headlines ("Buchstabe A", "Fiches alphabet") shrink to stay on one line.
+  await page.evaluate(() => {
+    for (const el of document.querySelectorAll('.p-head h1, .p-head h2')) {
+      el.style.whiteSpace = 'nowrap';
+      let size = parseFloat(getComputedStyle(el).fontSize);
+      while (el.scrollWidth > 860 && size > 40) el.style.fontSize = `${(size -= 4)}px`;
+    }
+  });
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  await sharp(await page.screenshot({ type: 'png' })).jpeg({ quality: 86, mozjpeg: true }).toFile(out);
+}
+
 for (const lang of LANGS) {
   const letters = read(`data/letters/${lang}.json`);
   const qrSvg = await QRCode.toString(`https://${SITE}/${lang}/${LANGUAGES[lang].sections.app}/?c=pdf`, { type: 'svg', margin: 0, errorCorrectionLevel: 'M', color: { dark: '#1f2330', light: '#ffffff' } });
@@ -267,6 +312,7 @@ for (const lang of LANGS) {
     await render(html, 'a4', path.join(ROOT, `public/pdf/${lang}/${l.slug}.pdf`));
     const shot = await preview(path.join(ROOT, `public/img/sheets/${lang}/${l.slug}.webp`));
     await ogCard(l, lang, shot, path.join(ROOT, `public/og/${lang}/${l.slug}.png`));
+    if (LANGUAGES[lang].pin) await pinCard(l, lang, shot, path.join(ROOT, `public/pins/${lang}/${l.slug}.jpg`));
     const kb = Math.round(fs.statSync(path.join(ROOT, `public/pdf/${lang}/${l.slug}.pdf`)).size / 1024);
     console.log(`${lang} ${l.letter} → ${kb} KB`);
   }
