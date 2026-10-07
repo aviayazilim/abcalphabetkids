@@ -2,7 +2,9 @@
 import '../styles/global.css';
 import { SITE } from '../site';
 import { t } from '../i18n';
-import { LANGS, HREFLANG, alternates, path, type Lang, type PageRef } from '../lib/routes';
+import { HREFLANG, alternates, path, type Lang, type PageRef } from '../lib/routes';
+import { DEFAULT_LANGS } from '../lib/lang-order';
+import LangOrderScript from '../components/LangOrderScript.astro';
 
 interface Props {
   lang: Lang;
@@ -85,15 +87,16 @@ const imprint = path.section(lang, 'imprint');
       </div>
       <div>
         <p class="footer-title">{tr.footer.language}</p>
-        <ul>
-          {LANGS.map((l) => (
-            <li><a href={alts[l] ?? path.home(l)} hreflang={l} lang={l} data-lang={l} aria-current={l === lang ? 'true' : undefined}>{t(l).langName}</a></li>
+        <ul data-lang-order>
+          {DEFAULT_LANGS.map((l) => (
+            <li data-lang={l}><a href={alts[l] ?? path.home(l)} hreflang={l} lang={l} data-lang={l} aria-current={l === lang ? 'true' : undefined}>{t(l).langName}</a></li>
           ))}
         </ul>
       </div>
     </div>
   </footer>
 
+  <LangOrderScript />
   <script is:inline>
     // Remember an explicit language choice, like the app keeps the chosen language.
     document.addEventListener('click', function (e) {

@@ -1,0 +1,13 @@
+---
+import { LANG_ORDER } from '../lib/lang-order';
+---
+<script is:inline define:vars={{ order: LANG_ORDER }}>
+  // Reorder every language list for the browser's primary language, like the app does.
+  var primary = ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
+  var ord = order[primary] || order['default'];
+  document.querySelectorAll('[data-lang-order]').forEach(function (list) {
+    Array.prototype.slice.call(list.children)
+      .sort(function (a, b) { return ord.indexOf(a.dataset.lang) - ord.indexOf(b.dataset.lang); })
+      .forEach(function (item) { list.appendChild(item); });
+  });
+</script>

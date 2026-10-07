@@ -5,6 +5,8 @@ import '../styles/global.css';
 import { SITE } from '../site';
 import { t } from '../i18n';
 import { LANGS, HREFLANG, path } from '../lib/routes';
+import { DEFAULT_LANGS } from '../lib/lang-order';
+import LangOrderScript from '../components/LangOrderScript.astro';
 ---
 <!doctype html>
 <html lang="en">
@@ -26,12 +28,13 @@ import { LANGS, HREFLANG, path } from '../lib/routes';
   <main class="picker wrap">
     <img src="/img/icon.webp" alt="ABC Alphabet" width="96" height="96" />
     <h1>ABC Alphabet</h1>
-    <ul>
-      {LANGS.map((l) => (
-        <li><a href={path.home(l)} hreflang={l} lang={l} data-lang={l}><img src={`/img/flags/${l}.webp`} alt="" width="40" height="40" />{t(l).langName}</a></li>
+    <ul data-lang-order>
+      {DEFAULT_LANGS.map((l) => (
+        <li data-lang={l}><a href={path.home(l)} hreflang={l} lang={l} data-lang={l}><img src={`/img/flags/${l}.webp`} alt="" width="40" height="40" />{t(l).langName}</a></li>
       ))}
     </ul>
   </main>
+  <LangOrderScript />
   <script is:inline define:vars={{ have: [...LANGS] }}>
     // Same order as the app (SceneDelegate.setDefaultLanguage): a language the
     // visitor picked before, else the device's primary language, else English.
