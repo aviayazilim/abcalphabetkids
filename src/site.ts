@@ -11,7 +11,8 @@ export const SITE = {
   playId: 'com.abc.avia.yazilim',
   // App Store Connect provider token (the `pt` in campaign links); public, same for every campaign.
   appStoreProviderToken: import.meta.env.PUBLIC_APPSTORE_PROVIDER_TOKEN || '126619153',
-  pinterestVerify: import.meta.env.PUBLIC_PINTEREST_VERIFY ?? '',
+  // Pinterest website claim (<meta name="p:domain_verify">); public.
+  pinterestVerify: import.meta.env.PUBLIC_PINTEREST_VERIFY || '25823b6f455d7e5e1c41673d6e27ccc3',
   cfBeaconToken: import.meta.env.PUBLIC_CF_BEACON_TOKEN ?? '',
   // Facts checked against the app sources (Language.swift, GameEnum.swift).
   languageCount: 8,
