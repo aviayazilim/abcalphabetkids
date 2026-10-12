@@ -6,7 +6,7 @@ const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 export default {
   langName: 'Português',
   locale: 'pt_BR',
-  nav: { tracing: 'Alfabeto pontilhado', app: 'Aplicativo', download: 'Baixar' },
+  nav: { tracing: 'Alfabeto pontilhado', coloring: 'Para colorir', app: 'Aplicativo', download: 'Baixar' },
   store: { appStoreTop: 'Baixar na', googlePlayTop: 'Disponível no' },
   footer: {
     about: 'O ABC Alphabet é feito por pais e desenvolvedores da AVIA YAZILIM.',
@@ -17,10 +17,10 @@ export default {
   skip: 'Ir para o conteúdo',
 
   home: {
-    title: 'App de alfabeto para crianças de 3 a 6 e atividades grátis',
+    title: 'App de alfabeto para crianças de 2 a 6 e atividades grátis',
     description: 'App de alfabeto: cada letra é um personagem, com voz de falantes nativos. E atividades de alfabeto pontilhado A–Z grátis em PDF, sem cadastro.',
     h1: 'O alfabeto que fala com voz nativa',
-    sub: (langs: number, games: number) => `${langs} idiomas · ${games} jogos · para crianças de 3 a 6 anos`,
+    sub: (langs: number, games: number) => `${langs} idiomas · ${games} jogos · para crianças de 2 a 6 anos`,
     heroNote: 'As seis primeiras letras são grátis.',
     freeTitle: 'Grátis para as famílias',
     freeLead: 'Imprima e pratique longe das telas. Sem cadastro e sem e-mail.',
@@ -98,18 +98,68 @@ export default {
     next: 'Próxima letra',
     all: 'Todas as letras',
     sheetPage: 'Página 1: pontilhado, página 2: colorir',
+    otherLangsTitle: (l: Letter) => `A letra ${l.letter} em outros idiomas`,
+    otherLangsText: 'A mesma letra nos outros alfabetos do aplicativo: prático se seu filho aprende duas línguas.',
+    activitiesTitle: (l: Letter) => `Atividades com a letra ${l.letter}`,
+    activities: (l: Letter, words: string[]) => [
+      `Caça à letra: procurem ${l.letter} e ${l.lower} em caixas, livros e placas. Contem quantas encontraram.`,
+      `Jogo dos sons: fale devagar ${words.map((w) => `“${w}”`).join(', ')} e peça para a criança bater palmas quando ouvir ${l.letter}.`,
+      `Sem lápis: desenhe um ${l.letter} grande com o dedo no ar, na areia ou no vidro embaçado e depois cubra na folha.`,
+    ],
+    faqTitle: 'Perguntas dos pais',
+    faq: (l: Letter, words: string[]) => [
+      {
+        q: l.wordsMatch === 'inside' ? `Quais palavras têm a letra ${l.letter}?` : `Quais palavras começam com a letra ${l.letter}?`,
+        a: `Por exemplo: ${words.join(', ')}. As figuras estão nesta página.`,
+      },
+      {
+        q: `Com que idade aprender a letra ${l.letter}?`,
+        a: 'Dá para conhecer a letra já aos 2–3 anos: falar o som, achar na figura, passar o dedo. Cobrir com lápis costuma dar certo aos 4–5 anos, quando a criança segura bem o lápis.',
+      },
+      {
+        q: `A atividade da letra ${l.letter} é grátis?`,
+        a: 'Sim. O PDF é baixado sem cadastro e sem e-mail. Imprima quantas cópias quiser, em casa ou na escola.',
+      },
+      {
+        q: 'Como imprimir a atividade?',
+        a: 'Baixe o PDF e imprima em A4 em 100% (“Tamanho real”) para as linhas manterem a altura certa.',
+      },
+    ],
+    coloringCta: (l: Letter) => `Para colorir: ${l.letter} de ${l.word}`,
+  },
+
+  coloring: {
+    title: 'Alfabeto para colorir: letras para imprimir grátis (PDF)',
+    description: 'Desenhos do alfabeto para colorir grátis, para crianças de 2 a 6 anos, com os personagens do aplicativo ABC Alphabet. PDF em A4 para imprimir, sem cadastro.',
+    h1: 'Alfabeto para colorir',
+    lead: 'Para cada letra, um desenho para colorir com o personagem dela no aplicativo. Imprima e pinte junto com a criança.',
+    gridTitle: 'Escolha uma letra',
+    letterTitle: (l: Letter) => `Letra ${l.letter} para colorir: ${l.word} – imprimir grátis`,
+    letterDescription: (l: Letter) => `Desenho grátis da letra ${l.letter} para colorir: ${l.letter} de ${l.word}. PDF em A4 para imprimir, sem cadastro.`,
+    letterH1: (l: Letter) => `Letra ${l.letter} para colorir: ${l.word}`,
+    letterLead: (l: Letter) => `${l.letter} de ${l.word}. Pinte a letra e o personagem e depois encontre ${l.letter} nas palavras abaixo.`,
+    previewAlt: (l: Letter) => `Desenho para colorir da letra ${l.letter} com ${l.word}`,
+    tipsTitle: 'Colorir e aprender ao mesmo tempo',
+    tips: [
+      'Primeiro passe o dedo no contorno da letra e fale o som dela.',
+      'Pinte a letra de uma cor só e o personagem com quantas cores quiser.',
+      'Gizão de cera ou lápis jumbo são mais fáceis para mãos pequenas do que canetinhas.',
+      'Escreva o nome e a data: em um mês dá para ver quanto o capricho melhorou.',
+    ],
+    tracingTitle: (l: Letter) => `Letra ${l.letter} pontilhada`,
+    tracingText: (l: Letter) => `Próximo passo: cobrir ${l.letter} e ${l.lower} pela linha pontilhada e escrever a palavra “${l.word}”.`,
   },
 
   appBlock: {
     title: (l?: Letter) => (l ? `Ouça a letra ${l.letter} no aplicativo` : 'Letras com voz de falantes nativos'),
-    text: 'No aplicativo ABC Alphabet cada letra ganha vida: o personagem se mexe, uma voz fala o som e a criança cobre a letra com o dedo. E ainda 11 jogos de atenção, memória e primeiras leituras.',
+    text: 'No aplicativo ABC Alphabet cada letra ganha vida: o personagem se mexe, uma voz fala o som e a criança cobre a letra com o dedo. E ainda 12 jogos de atenção, memória e primeiras leituras.',
   },
 
   app: {
     title: 'Aplicativo ABC Alphabet: aprender as letras em 8 idiomas',
-    description: 'App de alfabeto para iPhone, iPad e Android: personagens das letras, voz de falantes nativos e 11 jogos educativos em 8 idiomas.',
+    description: 'App de alfabeto para iPhone, iPad e Android: personagens das letras, voz de falantes nativos e 12 jogos educativos em 8 idiomas.',
     h1: 'O aplicativo ABC Alphabet',
-    lead: 'App de alfabeto para crianças de 3 a 6 anos: personagens das letras, voz de falantes nativos e jogos para encontrar, montar e cobrir letras.',
+    lead: 'App de alfabeto para crianças de 2 a 6 anos: personagens das letras, voz de falantes nativos e jogos para encontrar, montar e cobrir letras.',
     redirecting: 'Abrindo a loja de aplicativos…',
   },
 

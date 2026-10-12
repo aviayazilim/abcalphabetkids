@@ -6,7 +6,7 @@ const withArticle = (l: Letter) => (l.article ? `${l.article} ${l.word}` : (l.wo
 export default {
   langName: 'Deutsch',
   locale: 'de_DE',
-  nav: { tracing: 'Buchstaben nachspuren', app: 'App', download: 'Laden' },
+  nav: { tracing: 'Buchstaben nachspuren', coloring: 'Ausmalbilder', app: 'App', download: 'Laden' },
   store: { appStoreTop: 'Laden im', googlePlayTop: 'Jetzt bei' },
   footer: {
     about: 'ABC Alphabet wird von Eltern und Entwicklern bei AVIA YAZILIM gemacht.',
@@ -99,18 +99,68 @@ export default {
     next: 'Nächster Buchstabe',
     all: 'Alle Buchstaben',
     sheetPage: 'Seite 1: Nachspuren, Seite 2: Ausmalbild',
+    otherLangsTitle: (l: Letter) => `Der Buchstabe ${l.letter} in anderen Sprachen`,
+    otherLangsText: 'Derselbe Buchstabe in den anderen Alphabeten der App – praktisch, wenn Ihr Kind zwei Sprachen lernt.',
+    activitiesTitle: (l: Letter) => `Spielideen zum Buchstaben ${l.letter}`,
+    activities: (l: Letter, words: string[]) => [
+      `Buchstabenjagd: Suchen Sie ${l.letter} und ${l.lower} auf Verpackungen, in Büchern und auf Schildern. Wer findet die meisten?`,
+      `Lautspiel: Sprechen Sie ${words.map((w) => `„${w}“`).join(', ')} langsam vor. Ihr Kind klatscht, sobald es ${l.letter} hört.`,
+      `Ohne Stift: Malen Sie ein großes ${l.letter} mit dem Finger in die Luft, in den Sand oder auf eine beschlagene Scheibe – danach auf dem Blatt nachspuren.`,
+    ],
+    faqTitle: 'Fragen von Eltern',
+    faq: (l: Letter, words: string[]) => [
+      {
+        q: l.wordsMatch === 'inside' ? `Welche Wörter enthalten ein ${l.letter}?` : `Welche Wörter beginnen mit ${l.letter}?`,
+        a: `Zum Beispiel: ${words.join(', ')}. Bilder dazu finden Sie auf dieser Seite.`,
+      },
+      {
+        q: `Ab welchem Alter lernen Kinder den Buchstaben ${l.letter}?`,
+        a: 'Kennenlernen geht schon mit 2–3 Jahren: den Laut sagen, den Buchstaben auf einem Bild finden, ihn mit dem Finger nachfahren. Mit dem Stift nachspuren klappt meist mit 4–5 Jahren, wenn das Kind den Stift sicher hält.',
+      },
+      {
+        q: `Ist das Arbeitsblatt zum Buchstaben ${l.letter} kostenlos?`,
+        a: 'Ja. Das PDF lässt sich ohne Anmeldung und ohne E-Mail herunterladen. Drucken Sie so viele Exemplare, wie Sie brauchen – für zu Hause oder für die Kita.',
+      },
+      {
+        q: 'Wie drucke ich das Arbeitsblatt aus?',
+        a: 'Laden Sie das PDF herunter und drucken Sie es auf A4 in Originalgröße (100 %), damit die Lineatur die richtige Höhe behält.',
+      },
+    ],
+    coloringCta: (l: Letter) => `Ausmalbild: ${l.letter} wie ${l.word}`,
+  },
+
+  coloring: {
+    title: 'Buchstaben-Ausmalbilder: kostenlos ausdrucken (PDF)',
+    description: 'Kostenlose Ausmalbilder zu den Buchstaben für Kinder von 2 bis 6 – mit den Figuren aus der App ABC Alphabet. PDF zum Ausdrucken auf A4, ohne Anmeldung.',
+    h1: 'Ausmalbilder zu den Buchstaben',
+    lead: 'Zu jedem Buchstaben ein Ausmalbild mit seiner Figur aus der App. Ausdrucken und gemeinsam ausmalen.',
+    gridTitle: 'Buchstaben wählen',
+    letterTitle: (l: Letter) => `Ausmalbild Buchstabe ${l.letter}: ${l.word} – kostenlos ausdrucken`,
+    letterDescription: (l: Letter) => `Kostenloses Ausmalbild zum Buchstaben ${l.letter}: ${l.letter} wie ${l.word}. PDF zum Ausdrucken auf A4, ohne Anmeldung.`,
+    letterH1: (l: Letter) => `Ausmalbild zum Buchstaben ${l.letter}: ${l.word}`,
+    letterLead: (l: Letter) => `${l.letter} wie ${l.word}. Buchstaben und Figur ausmalen und danach das ${l.letter} in den Wörtern unten finden.`,
+    previewAlt: (l: Letter) => `Ausmalbild zum Buchstaben ${l.letter}: ${l.word}`,
+    tipsTitle: 'So wird Ausmalen zum Lernen',
+    tips: [
+      'Zuerst den Umriss des Buchstabens mit dem Finger nachfahren und den Laut sagen.',
+      'Den Buchstaben in einer Farbe ausmalen, die Figur so bunt wie gewünscht.',
+      'Dicke Buntstifte oder Wachsmalstifte sind für kleine Hände leichter als Filzstifte.',
+      'Name und Datum aufschreiben – nach einem Monat sieht man, wie viel genauer es wird.',
+    ],
+    tracingTitle: (l: Letter) => `Buchstabe ${l.letter} nachspuren`,
+    tracingText: (l: Letter) => `Nächster Schritt: ${l.letter} und ${l.lower} auf der gestrichelten Linie nachspuren und das Wort „${l.word}“ schreiben.`,
   },
 
   appBlock: {
     title: (l?: Letter) => (l ? `Hör dir das ${l.letter} in der App an` : 'Buchstaben mit muttersprachlicher Stimme'),
-    text: 'In der App ABC Alphabet wird jeder Buchstabe lebendig: Die Figur bewegt sich, eine Stimme spricht den Laut, und der Buchstabe lässt sich mit dem Finger nachfahren. Dazu 11 Spiele für Aufmerksamkeit, Gedächtnis und erstes Lesen.',
+    text: 'In der App ABC Alphabet wird jeder Buchstabe lebendig: Die Figur bewegt sich, eine Stimme spricht den Laut, und der Buchstabe lässt sich mit dem Finger nachfahren. Dazu 12 Spiele für Aufmerksamkeit, Gedächtnis und erstes Lesen.',
   },
 
   app: {
     title: 'ABC Alphabet App: Buchstaben lernen in 8 Sprachen',
-    description: 'Alphabet-App für iPhone, iPad und Android: Buchstabenfiguren, Aussprache von Muttersprachlern, 11 Lernspiele in 8 Sprachen.',
+    description: 'Alphabet-App für iPhone, iPad und Android: Buchstabenfiguren, Aussprache von Muttersprachlern, 12 Lernspiele in 8 Sprachen.',
     h1: 'Die App ABC Alphabet',
-    lead: 'ABC-App für Kinder von 3 bis 6: Buchstabenfiguren, Aussprache von Muttersprachlern und Spiele, in denen Buchstaben gesucht, zusammengesetzt und nachgespurt werden.',
+    lead: 'ABC-App für Kinder von 2 bis 6: Buchstabenfiguren, Aussprache von Muttersprachlern und Spiele, in denen Buchstaben gesucht, zusammengesetzt und nachgespurt werden.',
     redirecting: 'App Store wird geöffnet…',
   },
 

@@ -13,7 +13,7 @@ interface Props {
   page: PageRef;
   ogImage?: string;
   noindex?: boolean;
-  nav?: 'tracing' | 'app';
+  nav?: 'tracing' | 'coloring' | 'app';
 }
 const { lang, title, description, page, ogImage = '/og/default.png', noindex = false, nav } = Astro.props;
 const tr = t(lang);
@@ -22,6 +22,7 @@ const alts = alternates(page);
 const xDefault = page.kind === 'home' ? new URL('/', SITE.url).href : null;
 const tracing = path.section(lang, 'tracing')!;
 const app = path.section(lang, 'app')!;
+const coloring = path.section(lang, 'coloring');
 const privacy = path.section(lang, 'privacy')!;
 const imprint = path.section(lang, 'imprint');
 ---
@@ -61,6 +62,7 @@ const imprint = path.section(lang, 'imprint');
       </a>
       <nav class="site-nav" aria-label="Main">
         <a href={tracing} aria-current={nav === 'tracing' ? 'page' : undefined}>{tr.nav.tracing}</a>
+        {coloring && tr.nav.coloring && <a href={coloring} aria-current={nav === 'coloring' ? 'page' : undefined}>{tr.nav.coloring}</a>}
         <a href={app} aria-current={nav === 'app' ? 'page' : undefined}>{tr.nav.app}</a>
         <a class="btn nav-download" href={app}>{tr.nav.download}</a>
       </nav>

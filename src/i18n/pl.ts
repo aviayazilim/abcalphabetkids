@@ -6,7 +6,7 @@ const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 export default {
   langName: 'Polski',
   locale: 'pl_PL',
-  nav: { tracing: 'Karty pracy: litery', app: 'Aplikacja', download: 'Pobierz' },
+  nav: { tracing: 'Karty pracy: litery', coloring: 'Kolorowanki', app: 'Aplikacja', download: 'Pobierz' },
   store: { appStoreTop: 'Pobierz z', googlePlayTop: 'Pobierz z' },
   footer: {
     about: 'ABC Alphabet tworzą rodzice i programiści z AVIA YAZILIM.',
@@ -17,10 +17,10 @@ export default {
   skip: 'Przejdź do treści',
 
   home: {
-    title: 'Aplikacja z alfabetem dla dzieci 3–6 i darmowe karty pracy',
+    title: 'Aplikacja z alfabetem dla dzieci 2–6 i darmowe karty pracy',
     description: 'Aplikacja z alfabetem: każda litera to postać, a głos nagrali native speakerzy. Do tego darmowe karty pracy z literami A–Ż w PDF, bez rejestracji.',
     h1: 'Alfabet, który mówi głosem native speakera',
-    sub: (langs: number, games: number) => `${langs} języków · ${games} gier · dla dzieci w wieku 3–6 lat`,
+    sub: (langs: number, games: number) => `${langs} języków · ${games} gier · dla dzieci w wieku 2–6 lat`,
     heroNote: 'Pierwsze sześć liter jest za darmo.',
     freeTitle: 'Za darmo dla rodziców',
     freeLead: 'Wydrukuj i ćwicz bez ekranu. Bez rejestracji i bez e-maila.',
@@ -97,18 +97,68 @@ export default {
     next: 'Następna litera',
     all: 'Wszystkie litery',
     sheetPage: 'Strona 1: pisanie po śladzie, strona 2: kolorowanka',
+    otherLangsTitle: (l: Letter) => `Litera ${l.letter} w innych językach`,
+    otherLangsText: 'Ta sama litera w pozostałych alfabetach aplikacji – przydatne, jeśli dziecko uczy się dwóch języków.',
+    activitiesTitle: (l: Letter) => `Zabawy z literą ${l.letter}`,
+    activities: (l: Letter, words: string[]) => [
+      `Polowanie na literę: szukajcie ${l.letter} i ${l.lower} na pudełkach, w książkach i na szyldach. Policzcie, ile udało się znaleźć.`,
+      `Zabawa w głoski: powiedz powoli ${words.map((w) => `„${w}”`).join(', ')} i poproś dziecko, żeby klasnęło, gdy usłyszy ${l.letter}.`,
+      `Bez ołówka: narysujcie duże ${l.letter} palcem w powietrzu, na piasku albo na zaparowanej szybie, a potem piszcie po śladzie na karcie.`,
+    ],
+    faqTitle: 'Pytania rodziców',
+    faq: (l: Letter, words: string[]) => [
+      {
+        q: l.wordsMatch === 'inside' ? `Jakie słowa zawierają literę ${l.letter}?` : `Jakie słowa zaczynają się na literę ${l.letter}?`,
+        a: `Na przykład: ${words.join(', ')}. Obrazki znajdziesz na tej stronie.`,
+      },
+      {
+        q: `W jakim wieku uczyć litery ${l.letter}?`,
+        a: 'Literę można poznawać już w wieku 2–3 lat: nazwać głoskę, znaleźć ją na obrazku, poprowadzić po niej palcem. Pisanie po śladzie ołówkiem zwykle udaje się około 4–5 lat, gdy dziecko pewnie trzyma ołówek.',
+      },
+      {
+        q: `Czy karta pracy z literą ${l.letter} jest darmowa?`,
+        a: 'Tak. PDF pobierasz bez rejestracji i bez adresu e-mail. Drukuj tyle kopii, ile potrzebujesz – w domu albo w przedszkolu.',
+      },
+      {
+        q: 'Jak wydrukować kartę pracy?',
+        a: 'Pobierz PDF i drukuj na A4 w skali 100% („Rzeczywisty rozmiar”), żeby linijki zachowały właściwą wysokość.',
+      },
+    ],
+    coloringCta: (l: Letter) => `Kolorowanka: ${l.letter} jak ${l.word}`,
+  },
+
+  coloring: {
+    title: 'Kolorowanki z literami alfabetu: do druku za darmo (PDF)',
+    description: 'Darmowe kolorowanki z literami dla dzieci 2–6 lat, z postaciami z aplikacji ABC Alphabet. PDF A4 do druku, bez rejestracji.',
+    h1: 'Kolorowanki z literami alfabetu',
+    lead: 'Do każdej litery kolorowanka z jej postacią z aplikacji. Wydrukuj i pokolorujcie razem.',
+    gridTitle: 'Wybierz literę',
+    letterTitle: (l: Letter) => `Kolorowanka litera ${l.letter}: ${l.word} – do druku za darmo`,
+    letterDescription: (l: Letter) => `Darmowa kolorowanka z literą ${l.letter}: ${l.letter} jak ${l.word}. PDF A4 do druku, bez rejestracji.`,
+    letterH1: (l: Letter) => `Kolorowanka: litera ${l.letter} i ${l.word}`,
+    letterLead: (l: Letter) => `${l.letter} jak ${l.word}. Pokoloruj literę i postać, a potem znajdź ${l.letter} w słowach poniżej.`,
+    previewAlt: (l: Letter) => `Kolorowanka z literą ${l.letter}, obrazek: ${l.word}`,
+    tipsTitle: 'Kolorowanie, które uczy',
+    tips: [
+      'Najpierw poprowadź palec po konturze litery i nazwij głoskę.',
+      'Pokoloruj literę jednym kolorem, a postać – tyloma, iloma chcesz.',
+      'Grube kredki albo kredki świecowe są łatwiejsze dla małych rąk niż flamastry.',
+      'Wpisz imię i datę – po miesiącu widać, ile przybyło staranności.',
+    ],
+    tracingTitle: (l: Letter) => `Litera ${l.letter}: pisanie po śladzie`,
+    tracingText: (l: Letter) => `Kolejny krok: pisanie ${l.letter} i ${l.lower} po przerywanej linii oraz słowa „${l.word}”.`,
   },
 
   appBlock: {
     title: (l?: Letter) => (l ? `Posłuchaj litery ${l.letter} w aplikacji` : 'Litery mówią głosem native speakera'),
-    text: 'W aplikacji ABC Alphabet każda litera ożywa: postać się porusza, głos wymawia głoskę, a dziecko pisze literę palcem. Do tego 11 gier na uwagę, pamięć i pierwsze czytanie.',
+    text: 'W aplikacji ABC Alphabet każda litera ożywa: postać się porusza, głos wymawia głoskę, a dziecko pisze literę palcem. Do tego 12 gier na uwagę, pamięć i pierwsze czytanie.',
   },
 
   app: {
     title: 'Aplikacja ABC Alphabet: nauka liter w 8 językach',
-    description: 'Aplikacja z alfabetem na iPhone’a, iPada i Androida: postacie liter, głos native speakerów i 11 gier edukacyjnych w 8 językach.',
+    description: 'Aplikacja z alfabetem na iPhone’a, iPada i Androida: postacie liter, głos native speakerów i 12 gier edukacyjnych w 8 językach.',
     h1: 'Aplikacja ABC Alphabet',
-    lead: 'Aplikacja z alfabetem dla dzieci w wieku 3–6 lat: postacie liter, głos native speakerów i gry, w których litery trzeba znaleźć, ułożyć i napisać po śladzie.',
+    lead: 'Aplikacja z alfabetem dla dzieci w wieku 2–6 lat: postacie liter, głos native speakerów i gry, w których litery trzeba znaleźć, ułożyć i napisać po śladzie.',
     redirecting: 'Otwieramy sklep z aplikacjami…',
   },
 

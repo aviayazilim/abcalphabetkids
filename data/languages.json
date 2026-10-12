@@ -5,7 +5,8 @@
     "sections": {
       "tracing": "propisi",
       "app": "prilozhenie",
-      "privacy": "konfidentsialnost"
+      "privacy": "konfidentsialnost",
+      "coloring": "raskraski"
     },
     "paper": [
       "a4"
@@ -27,7 +28,8 @@
       "tracing": "buchstaben-nachspuren",
       "app": "app",
       "privacy": "datenschutz",
-      "imprint": "impressum"
+      "imprint": "impressum",
+      "coloring": "buchstaben-ausmalbilder"
     },
     "paper": [
       "a4"
@@ -58,7 +60,8 @@
     "sections": {
       "tracing": "letter-tracing",
       "app": "app",
-      "privacy": "privacy"
+      "privacy": "privacy",
+      "coloring": "coloring-pages"
     },
     "paper": [
       "letter",
@@ -90,7 +93,8 @@
     "sections": {
       "tracing": "harf-yazma-calismasi",
       "app": "uygulama",
-      "privacy": "gizlilik"
+      "privacy": "gizlilik",
+      "coloring": "harf-boyama"
     },
     "paper": [
       "a4"
@@ -111,7 +115,8 @@
     "sections": {
       "tracing": "fichas-abecedario",
       "app": "app",
-      "privacy": "privacidad"
+      "privacy": "privacidad",
+      "coloring": "abecedario-para-colorear"
     },
     "paper": [
       "a4",
@@ -133,7 +138,8 @@
     "sections": {
       "tracing": "alfabeto-pontilhado",
       "app": "aplicativo",
-      "privacy": "privacidade"
+      "privacy": "privacidade",
+      "coloring": "alfabeto-para-colorir"
     },
     "paper": [
       "a4"
@@ -154,7 +160,8 @@
     "sections": {
       "tracing": "karty-pracy-litery",
       "app": "aplikacja",
-      "privacy": "prywatnosc"
+      "privacy": "prywatnosc",
+      "coloring": "kolorowanki-litery"
     },
     "paper": [
       "a4"
@@ -176,7 +183,8 @@
       "tracing": "fiches-alphabet",
       "app": "application",
       "privacy": "confidentialite",
-      "imprint": "mentions-legales"
+      "imprint": "mentions-legales",
+      "coloring": "coloriages-alphabet"
     },
     "paper": [
       "a4"

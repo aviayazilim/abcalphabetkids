@@ -6,7 +6,7 @@ const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 export default {
   langName: 'Français',
   locale: 'fr_FR',
-  nav: { tracing: 'Fiches alphabet', app: 'Application', download: 'Télécharger' },
+  nav: { tracing: 'Fiches alphabet', coloring: 'Coloriages', app: 'Application', download: 'Télécharger' },
   store: { appStoreTop: 'Télécharger dans l’', googlePlayTop: 'Disponible sur' },
   footer: {
     about: 'ABC Alphabet est conçu par des parents et des développeurs d’AVIA YAZILIM.',
@@ -18,10 +18,10 @@ export default {
   skip: 'Aller au contenu',
 
   home: {
-    title: 'Appli alphabet pour enfants de 3 à 6 ans et fiches gratuites',
+    title: 'Appli alphabet pour enfants de 2 à 6 ans et fiches gratuites',
     description: 'Appli alphabet : chaque lettre est un personnage, avec la voix de locuteurs natifs. Et des fiches alphabet A–Z à imprimer gratuitement, sans inscription.',
     h1: 'L’alphabet qui parle avec une voix native',
-    sub: (langs: number, games: number) => `${langs} langues · ${games} jeux · pour les enfants de 3 à 6 ans`,
+    sub: (langs: number, games: number) => `${langs} langues · ${games} jeux · pour les enfants de 2 à 6 ans`,
     heroNote: 'Les six premières lettres sont gratuites.',
     freeTitle: 'Gratuit pour les parents',
     freeLead: 'Imprimez et entraînez-vous sans écran. Sans inscription, sans e-mail.',
@@ -98,18 +98,68 @@ export default {
     next: 'Lettre suivante',
     all: 'Toutes les lettres',
     sheetPage: 'Page 1 : écriture, page 2 : coloriage',
+    otherLangsTitle: (l: Letter) => `La lettre ${l.letter} dans d’autres langues`,
+    otherLangsText: 'La même lettre dans les autres alphabets de l’appli : pratique si votre enfant apprend deux langues.',
+    activitiesTitle: (l: Letter) => `Activités autour de la lettre ${l.letter}`,
+    activities: (l: Letter, words: string[]) => [
+      `Chasse à la lettre : cherchez ${l.letter} et ${l.lower} sur les boîtes, dans les livres et sur les panneaux. Comptez combien vous en trouvez.`,
+      `Jeu des sons : dites lentement ${words.map((w) => `« ${w} »`).join(', ')} et demandez à votre enfant de taper dans ses mains quand il entend ${l.letter}.`,
+      `Sans crayon : tracez un grand ${l.letter} du doigt dans l’air, dans le sable ou sur une vitre embuée, puis repassez-le sur la fiche.`,
+    ],
+    faqTitle: 'Questions des parents',
+    faq: (l: Letter, words: string[]) => [
+      {
+        q: l.wordsMatch === 'inside' ? `Quels mots contiennent la lettre ${l.letter} ?` : `Quels mots commencent par la lettre ${l.letter} ?`,
+        a: `Par exemple : ${words.join(', ')}. Vous trouverez les images sur cette page.`,
+      },
+      {
+        q: `À quel âge apprendre la lettre ${l.letter} ?`,
+        a: 'On peut découvrir une lettre dès 2–3 ans : dire son son, la retrouver sur une image, la suivre du doigt. Repasser au crayon devient possible vers 4–5 ans, quand l’enfant tient bien son crayon.',
+      },
+      {
+        q: `La fiche de la lettre ${l.letter} est-elle gratuite ?`,
+        a: 'Oui. Le PDF se télécharge sans inscription et sans e-mail. Imprimez-en autant que nécessaire, à la maison ou en classe.',
+      },
+      {
+        q: 'Comment imprimer la fiche ?',
+        a: 'Téléchargez le PDF et imprimez-le en A4 à 100 % (« Taille réelle ») pour que les lignes gardent la bonne hauteur.',
+      },
+    ],
+    coloringCta: (l: Letter) => `Coloriage : ${l.letter} comme ${l.word}`,
+  },
+
+  coloring: {
+    title: 'Coloriages alphabet : lettres à imprimer gratuitement (PDF)',
+    description: 'Coloriages gratuits de l’alphabet pour les enfants de 2 à 6 ans, avec les personnages de l’appli ABC Alphabet. PDF A4 à imprimer, sans inscription.',
+    h1: 'Coloriages de l’alphabet',
+    lead: 'Pour chaque lettre, un coloriage avec son personnage de l’appli. Imprimez-le et coloriez-le ensemble.',
+    gridTitle: 'Choisissez une lettre',
+    letterTitle: (l: Letter) => `Coloriage lettre ${l.letter} : ${l.word} – gratuit à imprimer`,
+    letterDescription: (l: Letter) => `Coloriage gratuit de la lettre ${l.letter} : ${l.letter} comme ${l.word}. PDF A4 à imprimer, sans inscription.`,
+    letterH1: (l: Letter) => `Coloriage de la lettre ${l.letter} : ${l.word}`,
+    letterLead: (l: Letter) => `${l.letter} comme ${l.word}. Coloriez la lettre et le personnage, puis retrouvez ${l.letter} dans les mots ci-dessous.`,
+    previewAlt: (l: Letter) => `Coloriage de la lettre ${l.letter} avec ${l.word}`,
+    tipsTitle: 'Pour un coloriage qui fait apprendre',
+    tips: [
+      'Suivez d’abord le contour de la lettre du doigt et dites son son.',
+      'Coloriez la lettre d’une seule couleur, et le personnage avec autant de couleurs que vous voulez.',
+      'Les gros crayons ou les craies grasses sont plus faciles pour les petites mains que les feutres.',
+      'Écrivez le prénom et la date : dans un mois, vous verrez les progrès.',
+    ],
+    tracingTitle: (l: Letter) => `Fiche d’écriture de la lettre ${l.letter}`,
+    tracingText: (l: Letter) => `Étape suivante : repasser ${l.letter} et ${l.lower} en suivant les pointillés et écrire le mot « ${l.word} ».`,
   },
 
   appBlock: {
     title: (l?: Letter) => (l ? `Écoutez la lettre ${l.letter} dans l’appli` : 'Des lettres avec la voix de locuteurs natifs'),
-    text: 'Dans l’appli ABC Alphabet, chaque lettre prend vie : le personnage bouge, une voix prononce le son et l’enfant repasse la lettre du doigt. Plus 11 jeux pour l’attention, la mémoire et les premières lectures.',
+    text: 'Dans l’appli ABC Alphabet, chaque lettre prend vie : le personnage bouge, une voix prononce le son et l’enfant repasse la lettre du doigt. Plus 12 jeux pour l’attention, la mémoire et les premières lectures.',
   },
 
   app: {
     title: 'Appli ABC Alphabet : apprendre les lettres en 8 langues',
-    description: 'Appli alphabet pour iPhone, iPad et Android : personnages des lettres, voix de locuteurs natifs et 11 jeux éducatifs en 8 langues.',
+    description: 'Appli alphabet pour iPhone, iPad et Android : personnages des lettres, voix de locuteurs natifs et 12 jeux éducatifs en 8 langues.',
     h1: 'L’application ABC Alphabet',
-    lead: 'Une appli alphabet pour les enfants de 3 à 6 ans : personnages des lettres, voix de locuteurs natifs et jeux pour trouver, assembler et repasser les lettres.',
+    lead: 'Une appli alphabet pour les enfants de 2 à 6 ans : personnages des lettres, voix de locuteurs natifs et jeux pour trouver, assembler et repasser les lettres.',
     redirecting: 'Ouverture de la boutique d’applications…',
   },
 

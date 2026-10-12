@@ -82,6 +82,40 @@ const screens = kind === 'app'
   </Base>
 )}
 
+{kind === 'coloring' && tr.coloring && (
+  <Base lang={lang} title={tr.coloring.title} description={tr.coloring.description} page={{ kind }} nav="coloring">
+    <section class="section">
+      <div class="wrap">
+        <h1>{tr.coloring.h1}</h1>
+        <p class="lead">{tr.coloring.lead}</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap">
+        <h2>{tr.coloring.gridTitle}</h2>
+        <ul class="coloring-grid">
+          {letters.filter((l) => l.coloring).map((l) => {
+            const preview = `/img/coloring/${lang}/${l.slug}.webp`;
+            return (
+              <li>
+                <a class="card" href={path.coloringLetter(lang, l.slug)!}>
+                  {fs.existsSync('public' + preview)
+                    ? <img src={preview} alt={tr.coloring!.previewAlt(l)} width="595" height="842" loading="lazy" decoding="async" />
+                    : <span class="ph" style={tileStyle(l.color)}>{l.letter}</span>}
+                  <span><b>{l.letter}</b> · {l.word}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_coloring`} /></div>
+    </section>
+  </Base>
+)}
+
 {kind === 'app' && (
   <Base lang={lang} title={tr.app.title} description={tr.app.description} page={{ kind }} nav="app">
     <section class="section">
@@ -137,6 +171,11 @@ const screens = kind === 'app'
 <style>
   .dl { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
   .letters { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
+  .coloring-grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .coloring-grid a { display: grid; gap: 8px; padding: 10px; text-decoration: none; color: inherit; text-align: center; }
+  .coloring-grid a:hover { outline: 3px solid var(--ink); outline-offset: 2px; }
+  .coloring-grid img { width: 100%; height: auto; border: 1px solid var(--line); }
+  .coloring-grid .ph { display: grid; place-items: center; aspect-ratio: 595 / 842; border-radius: 10px; background: var(--c); color: var(--fg); font-size: 3rem; font-weight: 900; }
   .sets { grid-template-columns: 1fr; }
   @media (min-width: 760px) { .sets { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } }
   .set-letters { display: flex; flex-wrap: wrap; gap: 8px; }

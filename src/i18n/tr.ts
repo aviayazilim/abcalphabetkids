@@ -6,7 +6,7 @@ const cap = (s: string) => s.charAt(0).toLocaleUpperCase('tr') + s.slice(1);
 export default {
   langName: 'Türkçe',
   locale: 'tr_TR',
-  nav: { tracing: 'Harf yazma', app: 'Uygulama', download: 'İndir' },
+  nav: { tracing: 'Harf yazma', coloring: 'Boyama', app: 'Uygulama', download: 'İndir' },
   store: { appStoreTop: 'App Store’dan', googlePlayTop: 'Google Play’den' },
   footer: {
     about: 'ABC Alphabet, AVIA YAZILIM’da ebeveynler ve geliştiriciler tarafından yapılıyor.',
@@ -17,10 +17,10 @@ export default {
   skip: 'İçeriğe geç',
 
   home: {
-    title: '3–6 yaş için alfabe uygulaması ve ücretsiz harf yazma',
+    title: '2–6 yaş için alfabe uygulaması ve ücretsiz harf yazma',
     description: 'Her harfin bir karakter olduğu, ana dili konuşanların seslendirdiği alfabe uygulaması. Ücretsiz harf yazma çalışma sayfaları A–Z, PDF, kayıt yok.',
     h1: 'Ana dili konuşanların sesiyle konuşan alfabe',
-    sub: (langs: number, games: number) => `${langs} dil · ${games} oyun · 3–6 yaş çocuklar için`,
+    sub: (langs: number, games: number) => `${langs} dil · ${games} oyun · 2–6 yaş çocuklar için`,
     heroNote: 'İlk altı harf ücretsiz.',
     freeTitle: 'Ebeveynler için ücretsiz',
     freeLead: 'Yazdırın ve ekransız çalışın. Kayıt yok, e-posta yok.',
@@ -97,18 +97,68 @@ export default {
     next: 'Sonraki harf',
     all: 'Tüm harfler',
     sheetPage: '1. sayfa: yazma, 2. sayfa: boyama',
+    otherLangsTitle: (l: Letter) => `${l.letter} harfi diğer dillerde`,
+    otherLangsText: 'Aynı harf, uygulamadaki diğer alfabelerde: çocuğunuz iki dil öğreniyorsa işinize yarar.',
+    activitiesTitle: (l: Letter) => `${l.letter} harfiyle etkinlikler`,
+    activities: (l: Letter, words: string[]) => [
+      `Harf avı: ${l.letter} ve ${l.lower} harfini kutuların, kitapların ve tabelaların üzerinde arayın. Kaç tane bulduğunuzu sayın.`,
+      `Ses oyunu: ${words.map((w) => `“${w}”`).join(', ')} kelimelerini yavaşça söyleyin; çocuğunuz ${l.letter} sesini duyunca el çırpsın.`,
+      `Kalemsiz yazı: büyük ${l.letter} harfini parmakla havaya, kuma ya da buğulu cama çizin, sonra kâğıt üzerinde takip edin.`,
+    ],
+    faqTitle: 'Ebeveynlerden sorular',
+    faq: (l: Letter, words: string[]) => [
+      {
+        q: l.wordsMatch === 'inside' ? `İçinde ${l.letter} harfi olan kelimeler hangileri?` : `${l.letter} harfiyle başlayan kelimeler hangileri?`,
+        a: `Örneğin: ${words.join(', ')}. Resimleri bu sayfada bulabilirsiniz.`,
+      },
+      {
+        q: `${l.letter} harfi kaç yaşında öğretilir?`,
+        a: 'Harfle tanışmaya 2–3 yaşında başlanabilir: sesini söylemek, resimde bulmak, parmakla takip etmek. Kalemle takip etmek genellikle 4–5 yaşında, çocuk kalemi sağlam tuttuğunda başarılır.',
+      },
+      {
+        q: `${l.letter} harfi çalışma sayfası ücretsiz mi?`,
+        a: 'Evet. PDF kayıt ve e-posta olmadan indirilir. Evde ya da sınıfta istediğiniz kadar yazdırabilirsiniz.',
+      },
+      {
+        q: 'Çalışma sayfası nasıl yazdırılır?',
+        a: 'PDF’i indirin ve A4 kâğıda %100 ölçekte (“Gerçek boyut”) yazdırın; böylece satırların yüksekliği doğru kalır.',
+      },
+    ],
+    coloringCta: (l: Letter) => `Boyama sayfası: ${l.letter} harfi ve ${l.word}`,
+  },
+
+  coloring: {
+    title: 'Harf boyama sayfaları: ücretsiz PDF yazdır',
+    description: 'Uygulamanın karakterleriyle 2–6 yaş çocuklar için ücretsiz harf boyama sayfaları. A4 PDF, kayıt gerekmez.',
+    h1: 'Harf boyama sayfaları',
+    lead: 'Her harf için uygulamadaki karakteriyle bir boyama sayfası. Yazdırın ve çocuğunuzla birlikte boyayın.',
+    gridTitle: 'Bir harf seçin',
+    letterTitle: (l: Letter) => `${l.letter} harfi boyama sayfası: ${l.word} – ücretsiz yazdır`,
+    letterDescription: (l: Letter) => `Çocuklar için ücretsiz ${l.letter} harfi boyama sayfası: ${l.word}. A4 PDF, kayıt gerekmez.`,
+    letterH1: (l: Letter) => `${l.letter} harfi boyama: ${l.word}`,
+    letterLead: (l: Letter) => `${l.letter} harfi: ${l.word}. Harfi ve karakteri boyayın, sonra aşağıdaki kelimelerde ${l.letter} harfini bulun.`,
+    previewAlt: (l: Letter) => `${l.letter} harfi boyama sayfası, ${l.word} resmiyle`,
+    tipsTitle: 'Boyamayı öğrenmeye dönüştürün',
+    tips: [
+      'Önce harfin çizgisini parmakla takip edin ve sesini söyleyin.',
+      'Harfi tek renkle, karakteri istediğiniz kadar renkle boyayın.',
+      'Kalın boya kalemleri ya da pastel boyalar küçük eller için keçeli kalemden daha kolaydır.',
+      'Sayfaya adı ve tarihi yazın: bir ay sonra ne kadar özenli boyandığı görülür.',
+    ],
+    tracingTitle: (l: Letter) => `${l.letter} harfi yazma çalışması`,
+    tracingText: (l: Letter) => `Sonraki adım: ${l.letter} ve ${l.lower} harfini kesik çizgi üzerinden takip edip “${l.word}” kelimesini yazmak.`,
   },
 
   appBlock: {
     title: (l?: Letter) => (l ? `${l.letter} harfini uygulamada dinleyin` : 'Ana dili konuşanların sesiyle harfler'),
-    text: 'ABC Alphabet uygulamasında her harf canlanır: karakter hareket eder, bir ses harfi söyler ve çocuk harfi parmağıyla takip eder. Ayrıca dikkat, hafıza ve ilk okuma için 11 oyun.',
+    text: 'ABC Alphabet uygulamasında her harf canlanır: karakter hareket eder, bir ses harfi söyler ve çocuk harfi parmağıyla takip eder. Ayrıca dikkat, hafıza ve ilk okuma için 12 oyun.',
   },
 
   app: {
     title: 'ABC Alphabet uygulaması: 8 dilde harf öğrenme',
-    description: 'iPhone, iPad ve Android için alfabe uygulaması: harf karakterleri, ana dili konuşanların seslendirmesi ve 8 dilde 11 eğitici oyun.',
+    description: 'iPhone, iPad ve Android için alfabe uygulaması: harf karakterleri, ana dili konuşanların seslendirmesi ve 8 dilde 12 eğitici oyun.',
     h1: 'ABC Alphabet uygulaması',
-    lead: '3–6 yaş çocuklar için alfabe uygulaması: harf karakterleri, ana dili konuşanların sesi ve harf bulma, birleştirme ve takip etme oyunları.',
+    lead: '2–6 yaş çocuklar için alfabe uygulaması: harf karakterleri, ana dili konuşanların sesi ve harf bulma, birleştirme ve takip etme oyunları.',
     redirecting: 'Uygulama mağazası açılıyor…',
   },
 

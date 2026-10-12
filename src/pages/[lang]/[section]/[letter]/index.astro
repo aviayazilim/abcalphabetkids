@@ -9,80 +9,156 @@ import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, path, type Lang, type Let
 import { tileStyle } from '../../../../lib/color';
 import { splitAt } from '../../../../lib/text';
 
+type Kind = 'tracing' | 'coloring';
+
 export function getStaticPaths() {
-  return LANGS.flatMap((lang) =>
-    LETTERS[lang].map((letter, i, all) => ({
+  return LANGS.flatMap((lang) => {
+    const tracing = LETTERS[lang].map((letter, i, all) => ({
       params: { lang, section: SECTIONS[lang].tracing, letter: letter.slug },
-      props: { letter, prev: all[i - 1] ?? null, next: all[i + 1] ?? null },
-    })),
-  );
+      props: { kind: 'tracing' as Kind, letter, prev: all[i - 1] ?? null, next: all[i + 1] ?? null },
+    }));
+    const coloringSection = SECTIONS[lang].coloring;
+    const withColoring = coloringSection ? LETTERS[lang].filter((l) => l.coloring) : [];
+    const coloring = withColoring.map((letter, i, all) => ({
+      params: { lang, section: coloringSection!, letter: letter.slug },
+      props: { kind: 'coloring' as Kind, letter, prev: all[i - 1] ?? null, next: all[i + 1] ?? null },
+    }));
+    return [...tracing, ...coloring];
+  });
 }
 
 const lang = Astro.params.lang as Lang;
-const { letter: l, prev, next } = Astro.props as { letter: Letter; prev: Letter | null; next: Letter | null };
+const { kind, letter: l, prev, next } = Astro.props as { kind: Kind; letter: Letter; prev: Letter | null; next: Letter | null };
 const tr = t(lang);
 const L = tr.letter;
+const C = tr.coloring;
 const tracing = path.section(lang, 'tracing')!;
+const coloringHub = path.section(lang, 'coloring');
 const [primary, ...others] = PAPER[lang];
 const img = l.character ?? l.characterImage;
 const inside = l.wordsMatch === 'inside';
 const preview = `/img/sheets/${lang}/${l.slug}.webp`;
 const hasPreview = fs.existsSync('public' + preview);
+const coloringPreview = `/img/coloring/${lang}/${l.slug}.webp`;
+const hasColoringPreview = fs.existsSync('public' + coloringPreview);
 const og = `/og/${lang}/${l.slug}.png`;
-const pageUrl = new URL(path.letter(lang, l.slug), SITE.url).href;
+const isColoring = kind === 'coloring';
+const pagePath = isColoring ? path.coloringLetter(lang, l.slug)! : path.letter(lang, l.slug);
+const pageUrl = new URL(pagePath, SITE.url).href;
+const coloringPage = l.coloring && C ? path.coloringLetter(lang, l.slug) : null;
+const abs = (p: string) => new URL(p, SITE.url).href;
 
 const highlight = (word: string) => splitAt(lang, word, l.lower);
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'ABC Alphabet', item: new URL(path.home(lang), SITE.url).href },
-    { '@type': 'ListItem', position: 2, name: tr.nav.tracing, item: new URL(tracing, SITE.url).href },
-    { '@type': 'ListItem', position: 3, name: l.letter, item: pageUrl },
-  ],
-};
+// Example words for activities and FAQ: the letter's character word first, then the picture words.
+const exampleWords = [...new Set([l.word, ...l.words.map((w) => w.text)].filter((w): w is string => Boolean(w)))].slice(0, 5);
+
+// The same letter in the other alphabets (A in English, French, German…).
+const otherLangs = LANGS.filter((x) => x !== lang)
+  .map((x) => ({ lang: x, letter: LETTERS[x].find((o) => o.letter === l.letter) }))
+  .filter((x): x is { lang: Lang; letter: Letter } => Boolean(x.letter));
+
+const faq = !isColoring && L.faq ? L.faq(l, exampleWords) : [];
+const title = isColoring ? C!.letterTitle(l) : L.title(l);
+const description = isColoring ? C!.letterDescription(l) : L.description(l);
+const pdfHref = isColoring ? path.coloringPdf(lang, l.slug, primary) : path.pdf(lang, l.slug, primary);
+
+const section = isColoring ? { name: tr.nav.coloring!, href: coloringHub! } : { name: tr.nav.tracing, href: tracing };
+const graph: Record<string, unknown>[] = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'ABC Alphabet', item: abs(path.home(lang)) },
+      { '@type': 'ListItem', position: 2, name: section.name, item: abs(section.href) },
+      { '@type': 'ListItem', position: 3, name: l.letter, item: pageUrl },
+    ],
+  },
+  {
+    '@type': 'LearningResource',
+    name: title,
+    description,
+    url: pageUrl,
+    inLanguage: lang,
+    learningResourceType: isColoring ? 'Coloring page' : 'Worksheet',
+    educationalLevel: 'Preschool',
+    typicalAgeRange: '2-6',
+    isAccessibleForFree: true,
+    ...(isColoring ? (hasColoringPreview ? { image: abs(coloringPreview) } : {}) : (hasPreview ? { image: abs(preview) } : {})),
+    encoding: { '@type': 'MediaObject', contentUrl: abs(pdfHref), encodingFormat: 'application/pdf' },
+  },
+];
+if (faq.length > 0) {
+  graph.push({
+    '@type': 'FAQPage',
+    mainEntity: faq.map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })),
+  });
+}
+const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
+const pageRef = isColoring
+  ? { kind: 'coloringLetter' as const, lang, slug: l.slug }
+  : { kind: 'letter' as const, lang, slug: l.slug };
+const pagerHref = (x: Letter) => (isColoring ? path.coloringLetter(lang, x.slug)! : path.letter(lang, x.slug));
 ---
-<Base lang={lang} title={L.title(l)} description={L.description(l)} page={{ kind: 'letter', lang, slug: l.slug }}
-  ogImage={fs.existsSync('public' + og) ? og : undefined} nav="tracing">
+<Base lang={lang} title={title} description={description} page={pageRef}
+  ogImage={fs.existsSync('public' + og) ? og : undefined} nav={isColoring ? 'coloring' : 'tracing'}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <section class="section">
     <div class="wrap">
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href={path.home(lang)}>ABC Alphabet</a> <span aria-hidden="true">›</span>
-        <a href={tracing}>{tr.nav.tracing}</a> <span aria-hidden="true">›</span>
+        <a href={section.href}>{section.name}</a> <span aria-hidden="true">›</span>
         <span aria-current="page">{l.letter}</span>
       </nav>
-      <h1>{L.h1(l)}</h1>
-      <p class="lead">{L.lead(l)}</p>
+      <h1>{isColoring ? C!.letterH1(l) : L.h1(l)}</h1>
+      <p class="lead">{isColoring ? C!.letterLead(l) : L.lead(l)}</p>
       <div class="dl">
-        <a class="btn" href={path.pdf(lang, l.slug, primary)} download>
+        <a class="btn" href={pdfHref} download>
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>
           {L.download}{others.length > 0 && ` · ${PAPER_LABEL[primary]}`}
         </a>
-        {others.map((size) => <a class="btn btn-quiet" href={path.pdf(lang, l.slug, size)} download>{PAPER_LABEL[size]}</a>)}
+        {others.map((size) => (
+          <a class="btn btn-quiet" href={isColoring ? path.coloringPdf(lang, l.slug, size) : path.pdf(lang, l.slug, size)} download>{PAPER_LABEL[size]}</a>
+        ))}
       </div>
 
       <div class="letter-grid">
         <figure class="sheet card">
-          {hasPreview
-            ? <img src={preview} alt={L.previewAlt(l)} width="595" height="842" />
-            : <LetterOutline letter={l.letter} label={L.previewAlt(l)} />}
-          {l.coloring && <figcaption class="muted">{L.sheetPage}</figcaption>}
+          {isColoring
+            ? (hasColoringPreview
+                ? <img src={coloringPreview} alt={C!.previewAlt(l)} width="595" height="842" />
+                : <LetterOutline letter={l.letter} label={C!.previewAlt(l)} />)
+            : (hasPreview
+                ? <img src={preview} alt={L.previewAlt(l)} width="595" height="842" />
+                : <LetterOutline letter={l.letter} label={L.previewAlt(l)} />)}
+          {!isColoring && l.coloring && <figcaption class="muted">{L.sheetPage}</figcaption>}
         </figure>
 
         <div class="side">
-
-
           <div class="hero-char" style={tileStyle(l.color)}>
             <span class="big">{l.letter}{l.letter !== l.lower && <span class="small">{l.lower}</span>}</span>
             {img && <img src={`/img/characters/${img}.webp`} alt={L.characterAlt(l)} width="240" height="240" />}
             <p class="hero-word">{l.article && <span class="article">{l.article} </span>}{l.word}</p>
           </div>
 
-          <h2 class="h3">{L.howTitle}</h2>
-          <ol class="steps">{L.how.map((s) => <li>{s}</li>)}</ol>
+          {isColoring ? (
+            <>
+              <h2 class="h3">{C!.tipsTitle}</h2>
+              <ul class="steps">{C!.tips.map((s) => <li>{s}</li>)}</ul>
+              <a class="next-card card" href={path.letter(lang, l.slug)}>
+                <b>{C!.tracingTitle(l)} →</b>
+                <span class="muted">{C!.tracingText(l)}</span>
+              </a>
+            </>
+          ) : (
+            <>
+              <h2 class="h3">{L.howTitle}</h2>
+              <ol class="steps">{L.how.map((s) => <li>{s}</li>)}</ol>
+              {coloringPage && L.coloringCta && (
+                <a class="next-card card" href={coloringPage}><b>{L.coloringCta(l)} →</b></a>
+              )}
+            </>
+          )}
         </div>
       </div>
     </div>
@@ -107,18 +183,61 @@ const jsonLd = {
     </section>
   )}
 
+  {!isColoring && L.activities && (
+    <section class="section">
+      <div class="wrap prose">
+        <h2>{L.activitiesTitle!(l)}</h2>
+        <ul class="activities">{L.activities(l, exampleWords.slice(0, 3)).map((x) => <li>{x}</li>)}</ul>
+      </div>
+    </section>
+  )}
+
+  {!isColoring && L.otherLangsTitle && otherLangs.length > 0 && (
+    <section class="section">
+      <div class="wrap">
+        <h2>{L.otherLangsTitle(l)}</h2>
+        <p class="muted">{L.otherLangsText}</p>
+        <ul class="other-langs">
+          {otherLangs.map((o) => (
+            <li>
+              <a href={path.letter(o.lang, o.letter.slug)} hreflang={o.lang} style={tileStyle(o.letter.color)}>
+                <b>{o.letter.letter}</b>
+                <span>{t(o.lang).langName}</span>
+                <small>{o.letter.word}</small>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  {faq.length > 0 && (
+    <section class="section">
+      <div class="wrap prose">
+        <h2>{L.faqTitle}</h2>
+        {faq.map((x) => (
+          <details class="faq">
+            <summary>{x.q}</summary>
+            <p>{x.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  )}
+
   <section class="section">
     <div class="wrap">
       <nav class="pager" aria-label={L.all}>
-        {prev ? <a href={path.letter(lang, prev.slug)} rel="prev">← {L.prev}: <b>{prev.letter}</b></a> : <span />}
-        <a href={tracing}>{L.all}</a>
-        {next ? <a href={path.letter(lang, next.slug)} rel="next">{L.next}: <b>{next.letter}</b> →</a> : <span />}
+        {prev ? <a href={pagerHref(prev)} rel="prev">← {L.prev}: <b>{prev.letter}</b></a> : <span />}
+        <a href={section.href}>{L.all}</a>
+        {next ? <a href={pagerHref(next)} rel="next">{L.next}: <b>{next.letter}</b> →</a> : <span />}
       </nav>
     </div>
   </section>
 
   <section class="section">
-    <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_letter`} letter={l} /></div>
+    <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_${isColoring ? 'coloring' : 'letter'}`} letter={l} /></div>
   </section>
 </Base>
 
@@ -143,9 +262,24 @@ const jsonLd = {
   .steps { padding-left: 1.3em; margin: 0; }
   .steps li { margin-bottom: 6px; }
   .h3 { font-size: 1.2rem; }
+  .next-card { display: grid; gap: 6px; margin-top: 24px; padding: 16px 20px; text-decoration: none; color: inherit; }
+  .next-card:hover { outline: 3px solid var(--ink); outline-offset: 2px; }
   .words { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
   .words li { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; text-align: center; font-weight: 800; font-size: 1.15rem; }
   .words img { width: 100%; aspect-ratio: 1; object-fit: contain; margin-bottom: 8px; }
   mark { background: none; color: inherit; text-decoration: underline 4px var(--c); text-underline-offset: 4px; }
+  .activities li { margin-bottom: 10px; }
+  .other-langs { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  .other-langs a {
+    display: grid; gap: 2px; padding: 12px 14px; border-radius: var(--radius); background: var(--c); color: var(--fg);
+    text-decoration: none; min-width: 0;
+  }
+  .other-langs a:hover { outline: 3px solid var(--ink); outline-offset: 2px; }
+  .other-langs b { font-size: 2rem; font-weight: 900; line-height: 1; }
+  .other-langs span { font-weight: 800; }
+  .other-langs small { opacity: 0.85; overflow-wrap: anywhere; }
+  .faq { border-bottom: 1px solid var(--line); padding: 12px 0; }
+  .faq summary { font-weight: 800; cursor: pointer; }
+  .faq p { margin: 8px 0 0; }
   .pager { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-weight: 700; }
 </style>

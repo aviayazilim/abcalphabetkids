@@ -6,7 +6,7 @@ const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 export default {
   langName: 'Español',
   locale: 'es_ES',
-  nav: { tracing: 'Fichas del abecedario', app: 'App', download: 'Descargar' },
+  nav: { tracing: 'Fichas del abecedario', coloring: 'Para colorear', app: 'App', download: 'Descargar' },
   store: { appStoreTop: 'Descárgalo en el', googlePlayTop: 'Disponible en' },
   footer: {
     about: 'ABC Alphabet lo hacen madres, padres y desarrolladores de AVIA YAZILIM.',
@@ -17,10 +17,10 @@ export default {
   skip: 'Ir al contenido',
 
   home: {
-    title: 'App del abecedario para niños de 3 a 6 y fichas gratis',
+    title: 'App del abecedario para niños de 2 a 6 y fichas gratis',
     description: 'App del abecedario: cada letra es un personaje con voz de hablantes nativos. Y fichas gratis para repasar letras A–Z en PDF, sin registro.',
     h1: 'El abecedario que habla con voz nativa',
-    sub: (langs: number, games: number) => `${langs} idiomas · ${games} juegos · para niños de 3 a 6 años`,
+    sub: (langs: number, games: number) => `${langs} idiomas · ${games} juegos · para niños de 2 a 6 años`,
     heroNote: 'Las seis primeras letras son gratis.',
     freeTitle: 'Gratis para las familias',
     freeLead: 'Imprímelas y practica sin pantallas. Sin registro y sin correo.',
@@ -97,18 +97,68 @@ export default {
     next: 'Letra siguiente',
     all: 'Todas las letras',
     sheetPage: 'Página 1: repasar, página 2: colorear',
+    otherLangsTitle: (l: Letter) => `La letra ${l.letter} en otros idiomas`,
+    otherLangsText: 'La misma letra en los otros alfabetos de la app: útil si tu peque aprende dos idiomas.',
+    activitiesTitle: (l: Letter) => `Actividades con la letra ${l.letter}`,
+    activities: (l: Letter, words: string[]) => [
+      `Caza de letras: buscad la ${l.letter} y la ${l.lower} en cajas, libros y carteles. Contad cuántas encontráis.`,
+      `Juego de sonidos: di despacio ${words.map((w) => `«${w}»`).join(', ')} y pide a tu peque que dé una palmada cuando oiga la ${l.letter}.`,
+      `Sin lápiz: dibuja una ${l.letter} grande con el dedo en el aire, en la arena o en un cristal empañado, y después repásala en la ficha.`,
+    ],
+    faqTitle: 'Preguntas de las familias',
+    faq: (l: Letter, words: string[]) => [
+      {
+        q: l.wordsMatch === 'inside' ? `¿Qué palabras llevan la letra ${l.letter}?` : `¿Qué palabras empiezan por la letra ${l.letter}?`,
+        a: `Por ejemplo: ${words.join(', ')}. Tienes los dibujos en esta página.`,
+      },
+      {
+        q: `¿A qué edad se aprende la letra ${l.letter}?`,
+        a: 'Se puede conocer una letra desde los 2–3 años: decir su sonido, encontrarla en un dibujo, repasarla con el dedo. Repasar con lápiz suele salir hacia los 4–5 años, cuando el niño sujeta bien el lápiz.',
+      },
+      {
+        q: `¿La ficha de la letra ${l.letter} es gratis?`,
+        a: 'Sí. El PDF se descarga sin registro y sin correo. Imprime todas las copias que necesites, en casa o en clase.',
+      },
+      {
+        q: '¿Cómo imprimo la ficha?',
+        a: 'Descarga el PDF e imprímelo en A4 o carta al 100 % («Tamaño real») para que los renglones mantengan la altura correcta.',
+      },
+    ],
+    coloringCta: (l: Letter) => `Para colorear: ${l.letter} de ${l.word}`,
+  },
+
+  coloring: {
+    title: 'Abecedario para colorear: letras para imprimir gratis (PDF)',
+    description: 'Dibujos del abecedario para colorear gratis, para niños de 2 a 6 años, con los personajes de la app ABC Alphabet. PDF para imprimir en A4 o carta, sin registro.',
+    h1: 'Abecedario para colorear',
+    lead: 'Para cada letra, un dibujo para colorear con su personaje de la app. Imprímelo y coloread juntos.',
+    gridTitle: 'Elige una letra',
+    letterTitle: (l: Letter) => `Letra ${l.letter} para colorear: ${l.word} – imprimir gratis`,
+    letterDescription: (l: Letter) => `Dibujo gratis de la letra ${l.letter} para colorear: ${l.letter} de ${l.word}. PDF para imprimir en A4 o carta, sin registro.`,
+    letterH1: (l: Letter) => `Letra ${l.letter} para colorear: ${l.word}`,
+    letterLead: (l: Letter) => `${l.letter} de ${l.word}. Colorea la letra y el personaje, y después busca la ${l.letter} en las palabras de abajo.`,
+    previewAlt: (l: Letter) => `Dibujo para colorear de la letra ${l.letter} con ${l.word}`,
+    tipsTitle: 'Colorear y aprender a la vez',
+    tips: [
+      'Primero repasa el contorno de la letra con el dedo y di su sonido.',
+      'Colorea la letra de un solo color y el personaje con todos los que quieras.',
+      'Las ceras gruesas o los lápices triangulares son más fáciles para manos pequeñas que los rotuladores.',
+      'Escribe el nombre y la fecha: en un mes se nota cuánto ha mejorado.',
+    ],
+    tracingTitle: (l: Letter) => `Ficha para repasar la letra ${l.letter}`,
+    tracingText: (l: Letter) => `Siguiente paso: repasar ${l.letter} y ${l.lower} por la línea discontinua y escribir la palabra «${l.word}».`,
   },
 
   appBlock: {
     title: (l?: Letter) => (l ? `Escucha la letra ${l.letter} en la app` : 'Letras con voz de hablantes nativos'),
-    text: 'En la app ABC Alphabet cada letra cobra vida: el personaje se mueve, una voz dice el sonido y los niños repasan la letra con el dedo. Además, 11 juegos de atención, memoria y primeras lecturas.',
+    text: 'En la app ABC Alphabet cada letra cobra vida: el personaje se mueve, una voz dice el sonido y los niños repasan la letra con el dedo. Además, 12 juegos de atención, memoria y primeras lecturas.',
   },
 
   app: {
     title: 'App ABC Alphabet: aprender las letras en 8 idiomas',
-    description: 'App del abecedario para iPhone, iPad y Android: personajes de letras, voces de hablantes nativos y 11 juegos educativos en 8 idiomas.',
+    description: 'App del abecedario para iPhone, iPad y Android: personajes de letras, voces de hablantes nativos y 12 juegos educativos en 8 idiomas.',
     h1: 'La app ABC Alphabet',
-    lead: 'App del abecedario para niños de 3 a 6 años: personajes de letras, voces de hablantes nativos y juegos para encontrar, formar y repasar letras.',
+    lead: 'App del abecedario para niños de 2 a 6 años: personajes de letras, voces de hablantes nativos y juegos para encontrar, formar y repasar letras.',
     redirecting: 'Abriendo la tienda de apps…',
   },
 

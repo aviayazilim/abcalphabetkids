@@ -85,6 +85,28 @@ const wordMarkup = (l, lang) => {
   return `${esc(chars.slice(0, i).join(''))}<b style="color:${isLight(l.color) ? '#1f2330' : l.color}">${esc(chars[i])}</b>${esc(chars.slice(i + 1).join(''))}`;
 };
 
+const footerHtml = (T, qrSvg) => `
+    <footer class="foot">
+      <div class="qr">${qrSvg}</div>
+      <div><p class="qr-title">${esc(T.qr)}</p><p class="qr-sub">${esc(T.scan)}</p></div>
+      <div class="site"><img src="${file('public/img/icon-print.jpg')}" alt=""><span>${SITE}</span></div>
+    </footer>`;
+
+// Page 2 of the sheet; also printed on its own for the coloring pages section.
+function coloringPage(l, lang, qrSvg) {
+  const T = LANGUAGES[lang].sheet;
+  return `
+  <section class="page">
+    <header class="head"><span>${esc(T.name)}: <i></i></span><span>${esc(T.date)}: <i class="short"></i></span></header>
+    <h2 class="color-title">${esc(fill(T.color, { word: l.word }))}</h2>
+    <div class="color-wrap">
+      <div class="color-letter">${outlineSvg(l.letter, { dashed: false })}</div>
+      <div class="color-art">${coloringSvg(l.coloring)}</div>
+    </div>
+    ${footerHtml(T, qrSvg)}
+  </section>`;
+}
+
 async function sheetPages(l, lang, qrSvg) {
   const T = LANGUAGES[lang].sheet;
   const img = await printImage(l);
@@ -99,12 +121,7 @@ async function sheetPages(l, lang, qrSvg) {
     // ß has no capital row; keep the page balanced with another blank line.
     !hasUpper && { text: '', mode: 'empty' },
   ].filter(Boolean);
-  const footer = `
-    <footer class="foot">
-      <div class="qr">${qrSvg}</div>
-      <div><p class="qr-title">${esc(T.qr)}</p><p class="qr-sub">${esc(T.scan)}</p></div>
-      <div class="site"><img src="${file('public/img/icon-print.jpg')}" alt=""><span>${SITE}</span></div>
-    </footer>`;
+  const footer = footerHtml(T, qrSvg);
   const page1 = `
   <section class="page">
     <header class="head"><span>${esc(T.name)}: <i></i></span><span>${esc(T.date)}: <i class="short"></i></span></header>
@@ -121,16 +138,7 @@ async function sheetPages(l, lang, qrSvg) {
     </div>
     ${footer}
   </section>`;
-  const page2 = l.coloring ? `
-  <section class="page">
-    <header class="head"><span>${esc(T.name)}: <i></i></span><span>${esc(T.date)}: <i class="short"></i></span></header>
-    <h2 class="color-title">${esc(fill(T.color, { word: l.word }))}</h2>
-    <div class="color-wrap">
-      <div class="color-letter">${outlineSvg(l.letter, { dashed: false })}</div>
-      <div class="color-art">${coloringSvg(l.coloring)}</div>
-    </div>
-    ${footer}
-  </section>` : '';
+  const page2 = l.coloring ? coloringPage(l, lang, qrSvg) : '';
   return page1 + page2;
 }
 
@@ -313,6 +321,12 @@ for (const lang of LANGS) {
     const shot = await preview(path.join(ROOT, `public/img/sheets/${lang}/${l.slug}.webp`));
     await ogCard(l, lang, shot, path.join(ROOT, `public/og/${lang}/${l.slug}.png`));
     if (LANGUAGES[lang].pin) await pinCard(l, lang, shot, path.join(ROOT, `public/pins/${lang}/${l.slug}.jpg`));
+    if (LANGUAGES[lang].sections.coloring && l.coloring) {
+      const coloringHtml = coloringPage(l, lang, qrSvg);
+      if (LANGUAGES[lang].paper.includes('letter')) await render(coloringHtml, 'letter', path.join(ROOT, `public/pdf/${lang}/coloring-${l.slug}-letter.pdf`));
+      await render(coloringHtml, 'a4', path.join(ROOT, `public/pdf/${lang}/coloring-${l.slug}.pdf`));
+      await preview(path.join(ROOT, `public/img/coloring/${lang}/${l.slug}.webp`));
+    }
     const kb = Math.round(fs.statSync(path.join(ROOT, `public/pdf/${lang}/${l.slug}.pdf`)).size / 1024);
     console.log(`${lang} ${l.letter} → ${kb} KB`);
   }

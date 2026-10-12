@@ -9,6 +9,10 @@ export const GET: APIRoute = () => {
     entries.push({ loc: path.home(lang), ref: { kind: 'home' } });
     for (const kind of Object.keys(SECTIONS[lang]) as SectionKind[]) entries.push({ loc: path.section(lang, kind)!, ref: { kind } });
     for (const l of LETTERS[lang]) entries.push({ loc: path.letter(lang, l.slug), ref: { kind: 'letter', lang, slug: l.slug } });
+    for (const l of LETTERS[lang]) {
+      const coloring = l.coloring ? path.coloringLetter(lang, l.slug) : null;
+      if (coloring) entries.push({ loc: coloring, ref: { kind: 'coloringLetter', lang, slug: l.slug } });
+    }
   }
   const abs = (p: string) => new URL(p, SITE.url).href;
   const body = entries.map(({ loc, ref }) => {

@@ -16,7 +16,7 @@ export const SITE = {
   cfBeaconToken: import.meta.env.PUBLIC_CF_BEACON_TOKEN ?? '',
   // Facts checked against the app sources (Language.swift, GameEnum.swift).
   languageCount: 8,
-  gameCount: 11,
+  gameCount: 12,
 };
 
 // Campaign names: site_<lang>_<page>, pdf_<lang>, pinterest_<lang>.
