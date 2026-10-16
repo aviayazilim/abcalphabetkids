@@ -6,7 +6,7 @@ import LetterTile from '../../components/LetterTile.astro';
 import AppBlock from '../../components/AppBlock.astro';
 import { SITE } from '../../site';
 import { t } from '../../i18n';
-import { LANGS, LETTERS, path, type Lang } from '../../lib/routes';
+import { LANGS, LETTERS, articlesIn, path, type Lang } from '../../lib/routes';
 import { LANG_ORDER } from '../../lib/lang-order';
 
 export function getStaticPaths() {
@@ -22,6 +22,9 @@ const tracing = path.section(lang, 'tracing')!;
 const screens = (fs.existsSync(`public/img/screens/${lang}`) ? fs.readdirSync(`public/img/screens/${lang}`) : []).filter((f) => f.endsWith('-360.webp')).sort()
   .map((f) => f.replace('-360.webp', ''));
 const campaign = `site_${lang}_home`;
+const coloring = path.section(lang, 'coloring');
+const articles = articlesIn(lang).slice(0, 3);
+const articlesHub = articles.length > 0 ? path.section(lang, 'articles') : null;
 ---
 <Base lang={lang} title={h.title} description={h.description} page={{ kind: 'home' }}>
   <section class="section hero">
@@ -51,14 +54,44 @@ const campaign = `site_${lang}_home`;
           <p>{h.tracingCard.text}</p>
           <span class="btn">{h.tracingCard.cta}</span>
         </a>
-        <div class="card free-card is-soon">
-          <span class="soon">{h.coloringCard.soon}</span>
-          <h3>{h.coloringCard.title}</h3>
-          <p>{h.coloringCard.text}</p>
-        </div>
+        {coloring && tr.coloring ? (
+          <a class="card free-card" href={coloring}>
+            <div class="mini-row" aria-hidden="true">
+              {letters.slice(10, 14).map((l) => <span>{l.letter}</span>)}
+            </div>
+            <h3>{tr.coloring.h1}</h3>
+            <p>{tr.coloring.lead}</p>
+            <span class="btn">{tr.nav.coloring} →</span>
+          </a>
+        ) : (
+          <div class="card free-card is-soon">
+            <span class="soon">{h.coloringCard.soon}</span>
+            <h3>{h.coloringCard.title}</h3>
+            <p>{h.coloringCard.text}</p>
+          </div>
+        )}
       </div>
     </div>
   </section>
+
+  {articlesHub && (
+  <section class="section">
+    <div class="wrap">
+      <h2>{tr.articles.h1}</h2>
+      <p class="lead">{tr.articles.lead}</p>
+      <div class="grid article-grid">
+        {articles.map((a) => (
+          <a class="card article-card" href={path.article(lang, a.slug)}>
+            <h3>{a.h1}</h3>
+            <p>{a.lead}</p>
+            <span class="more">{tr.articles.readMore} →</span>
+          </a>
+        ))}
+      </div>
+      <p class="all-articles"><a href={articlesHub}>{tr.articles.nav} →</a></p>
+    </div>
+  </section>
+  )}
 
   <section class="section">
     <div class="wrap">
@@ -118,6 +151,14 @@ const campaign = `site_${lang}_home`;
   .hero-tiles { grid-template-columns: repeat(3, 1fr); }
 
   .free-grid { grid-template-columns: 1fr; margin-top: 24px; }
+  .article-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
+  @media (min-width: 760px) { .article-grid { grid-template-columns: repeat(3, 1fr); } }
+  .article-card { display: flex; flex-direction: column; color: var(--ink); text-decoration: none; min-width: 0; }
+  .article-card h3 { font-size: 1.15rem; }
+  .article-card p { color: var(--muted); flex: 1; }
+  a.article-card:hover { border-color: var(--ink); }
+  .article-card .more { font-weight: 800; color: var(--accent); }
+  .all-articles { margin-top: 20px; font-weight: 800; }
   @media (min-width: 720px) { .free-grid { grid-template-columns: 1fr 1fr; } }
   .free-card { display: flex; flex-direction: column; align-items: flex-start; color: var(--ink); text-decoration: none; }
   .free-card p { color: var(--muted); flex: 1; }

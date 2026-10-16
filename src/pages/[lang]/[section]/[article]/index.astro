@@ -55,7 +55,7 @@ if (faq.length > 0) {
 }
 const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 ---
-<Base lang={lang} title={a.title} description={a.description} page={{ kind: 'article', topic: a.topic }}>
+<Base lang={lang} title={a.title} description={a.description} page={{ kind: 'article', topic: a.topic }} nav="articles">
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <article>

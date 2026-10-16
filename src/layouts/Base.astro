@@ -13,7 +13,7 @@ interface Props {
   page: PageRef;
   ogImage?: string;
   noindex?: boolean;
-  nav?: 'tracing' | 'coloring' | 'app';
+  nav?: 'tracing' | 'coloring' | 'articles' | 'app';
 }
 const { lang, title, description, page, ogImage = '/og/default.png', noindex = false, nav } = Astro.props;
 const tr = t(lang);
@@ -64,6 +64,7 @@ const articles = articlesIn(lang).length > 0 ? path.section(lang, 'articles') : 
       <nav class="site-nav" aria-label="Main">
         <a href={tracing} aria-current={nav === 'tracing' ? 'page' : undefined}>{tr.nav.tracing}</a>
         {coloring && tr.nav.coloring && <a href={coloring} aria-current={nav === 'coloring' ? 'page' : undefined}>{tr.nav.coloring}</a>}
+        {articles && <a href={articles} aria-current={nav === 'articles' ? 'page' : undefined}>{tr.articles.nav}</a>}
         <a href={app} aria-current={nav === 'app' ? 'page' : undefined}>{tr.nav.app}</a>
         <a class="btn nav-download" href={app}>{tr.nav.download}</a>
       </nav>

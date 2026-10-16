@@ -123,7 +123,7 @@ const screens = kind === 'app'
 )}
 
 {kind === 'articles' && (
-  <Base lang={lang} title={tr.articles.title} description={tr.articles.description} page={{ kind }}>
+  <Base lang={lang} title={tr.articles.title} description={tr.articles.description} page={{ kind }} nav="articles">
     <section class="section">
       <div class="wrap">
         <h1>{tr.articles.h1}</h1>
