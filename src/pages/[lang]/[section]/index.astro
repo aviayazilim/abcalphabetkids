@@ -6,12 +6,14 @@ import LetterTile from '../../../components/LetterTile.astro';
 import AppBlock from '../../../components/AppBlock.astro';
 import { appStoreUrl, playUrl } from '../../../site';
 import { t } from '../../../i18n';
-import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, path, type Lang, type SectionKind } from '../../../lib/routes';
+import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, articlesIn, path, type Lang, type SectionKind } from '../../../lib/routes';
 import { tileStyle } from '../../../lib/color';
 
 export function getStaticPaths() {
   return LANGS.flatMap((lang) =>
-    Object.entries(SECTIONS[lang]).map(([kind, section]) => ({ params: { lang, section }, props: { kind } })),
+    Object.entries(SECTIONS[lang])
+      .filter(([kind]) => kind !== 'articles' || articlesIn(lang).length > 0)
+      .map(([kind, section]) => ({ params: { lang, section }, props: { kind } })),
   );
 }
 
@@ -27,6 +29,9 @@ const redirects = {
   pdf: { ios: appStoreUrl(`pdf_${lang}`), android: playUrl(`pdf_${lang}`, 'pdf') },
   pinterest: { ios: appStoreUrl(`pinterest_${lang}`), android: playUrl(`pinterest_${lang}`, 'pinterest') },
 };
+const tracingGuide = articlesIn(lang).find((a) => a.topic === 'tracing-guide');
+const articles = kind === 'articles' ? articlesIn(lang) : [];
+const dateFmt = new Intl.DateTimeFormat(tr.locale.replace('_', '-'), { dateStyle: 'long' });
 const content = kind === 'privacy' ? tr.privacy : kind === 'imprint' ? tr.imprint! : null;
 const screens = kind === 'app'
   ? (fs.existsSync(`public/img/screens/${lang}`) ? fs.readdirSync(`public/img/screens/${lang}`) : []).filter((f) => f.endsWith('-360.webp')).sort().map((f) => f.replace('-360.webp', ''))
@@ -74,6 +79,7 @@ const screens = kind === 'app'
       <div class="wrap prose">
         <h2>{tr.tracing.guideTitle}</h2>
         <Fragment set:html={tr.tracing.guide} />
+        {tracingGuide && <p><a href={path.article(lang, tracingGuide.slug)}><b>{tr.articles.guideLink}: {tracingGuide.h1}</b></a></p>}
       </div>
     </section>
     <section class="section">
@@ -112,6 +118,29 @@ const screens = kind === 'app'
     </section>
     <section class="section">
       <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_coloring`} /></div>
+    </section>
+  </Base>
+)}
+
+{kind === 'articles' && (
+  <Base lang={lang} title={tr.articles.title} description={tr.articles.description} page={{ kind }}>
+    <section class="section">
+      <div class="wrap">
+        <h1>{tr.articles.h1}</h1>
+        <p class="lead">{tr.articles.lead}</p>
+        <ul class="article-list">
+          {articles.map((a) => (
+            <li class="card">
+              <h2 class="h3"><a href={path.article(lang, a.slug)}>{a.h1}</a></h2>
+              <p class="muted">{a.lead}</p>
+              <p class="meta"><time datetime={a.date}>{dateFmt.format(new Date(a.date))}</time> · <a href={path.article(lang, a.slug)}>{tr.articles.readMore} →</a></p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_articles`} /></div>
     </section>
   </Base>
 )}
@@ -176,6 +205,10 @@ const screens = kind === 'app'
   .coloring-grid a:hover { outline: 3px solid var(--ink); outline-offset: 2px; }
   .coloring-grid img { width: 100%; height: auto; border: 1px solid var(--line); }
   .coloring-grid .ph { display: grid; place-items: center; aspect-ratio: 595 / 842; border-radius: 10px; background: var(--c); color: var(--fg); font-size: 3rem; font-weight: 900; }
+  .article-list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 16px; max-width: 46em; }
+  .article-list h2 { margin: 0 0 8px; }
+  .article-list p { margin: 0 0 8px; }
+  .meta { font-size: 0.95rem; color: var(--muted); }
   .sets { grid-template-columns: 1fr; }
   @media (min-width: 760px) { .sets { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } }
   .set-letters { display: flex; flex-wrap: wrap; gap: 8px; }

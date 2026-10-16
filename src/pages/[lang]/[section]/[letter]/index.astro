@@ -5,7 +5,7 @@ import AppBlock from '../../../../components/AppBlock.astro';
 import LetterOutline from '../../../../components/LetterOutline.astro';
 import { SITE } from '../../../../site';
 import { t } from '../../../../i18n';
-import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, path, type Lang, type Letter } from '../../../../lib/routes';
+import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, articlesIn, path, type Lang, type Letter } from '../../../../lib/routes';
 import { tileStyle } from '../../../../lib/color';
 import { splitAt } from '../../../../lib/text';
 
@@ -47,6 +47,7 @@ const pagePath = isColoring ? path.coloringLetter(lang, l.slug)! : path.letter(l
 const pageUrl = new URL(pagePath, SITE.url).href;
 const coloringPage = l.coloring && C ? path.coloringLetter(lang, l.slug) : null;
 const abs = (p: string) => new URL(p, SITE.url).href;
+const tracingGuide = articlesIn(lang).find((a) => a.topic === 'tracing-guide');
 
 const highlight = (word: string) => splitAt(lang, word, l.lower);
 
@@ -154,6 +155,7 @@ const pagerHref = (x: Letter) => (isColoring ? path.coloringLetter(lang, x.slug)
             <>
               <h2 class="h3">{L.howTitle}</h2>
               <ol class="steps">{L.how.map((s) => <li>{s}</li>)}</ol>
+              {tracingGuide && <p class="guide-link"><a href={path.article(lang, tracingGuide.slug)}>{tr.articles.guideLink} →</a></p>}
               {coloringPage && L.coloringCta && (
                 <a class="next-card card" href={coloringPage}><b>{L.coloringCta(l)} →</b></a>
               )}
@@ -261,6 +263,7 @@ const pagerHref = (x: Letter) => (isColoring ? path.coloringLetter(lang, x.slug)
   .article { font-weight: 600; opacity: 0.85; }
   .steps { padding-left: 1.3em; margin: 0; }
   .steps li { margin-bottom: 6px; }
+  .guide-link { margin: 12px 0 0; font-weight: 700; }
   .h3 { font-size: 1.2rem; }
   .next-card { display: grid; gap: 6px; margin-top: 24px; padding: 16px 20px; text-decoration: none; color: inherit; }
   .next-card:hover { outline: 3px solid var(--ink); outline-offset: 2px; }

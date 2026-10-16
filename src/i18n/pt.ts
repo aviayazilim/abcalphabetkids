@@ -150,6 +150,20 @@ export default {
     tracingText: (l: Letter) => `Próximo passo: cobrir ${l.letter} e ${l.lower} pela linha pontilhada e escrever a palavra “${l.word}”.`,
   },
 
+  articles: {
+    nav: 'Dicas',
+    title: 'Dicas para pais: como ensinar o alfabeto em casa',
+    description: 'Guias práticos para pais e professores da educação infantil: como ensinar as letras, cobrir o pontilhado e escrever, com atividades grátis em PDF.',
+    h1: 'Dicas para pais',
+    lead: 'Guias curtos e práticos sobre como ensinar as letras para crianças de 2 a 6 anos, com atividades grátis para imprimir.',
+    readMore: 'Ler o guia',
+    published: 'Publicado em',
+    faqTitle: 'Perguntas frequentes',
+    lettersTitle: 'Comece por estas letras',
+    sheetsCta: 'Baixar o alfabeto pontilhado completo (PDF)',
+    guideLink: 'Guia completo para os pais',
+  },
+
   appBlock: {
     title: (l?: Letter) => (l ? `Ouça a letra ${l.letter} no aplicativo` : 'Letras com voz de falantes nativos'),
     text: 'No aplicativo ABC Alphabet cada letra ganha vida: o personagem se mexe, uma voz fala o som e a criança cobre a letra com o dedo. E ainda 12 jogos de atenção, memória e primeiras leituras.',

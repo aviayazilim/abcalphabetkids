@@ -6,7 +6,8 @@
       "tracing": "propisi",
       "app": "prilozhenie",
       "privacy": "konfidentsialnost",
-      "coloring": "raskraski"
+      "coloring": "raskraski",
+      "articles": "stati"
     },
     "paper": [
       "a4"
@@ -29,7 +30,8 @@
       "app": "app",
       "privacy": "datenschutz",
       "imprint": "impressum",
-      "coloring": "buchstaben-ausmalbilder"
+      "coloring": "buchstaben-ausmalbilder",
+      "articles": "ratgeber"
     },
     "paper": [
       "a4"
@@ -61,7 +63,8 @@
       "tracing": "letter-tracing",
       "app": "app",
       "privacy": "privacy",
-      "coloring": "coloring-pages"
+      "coloring": "coloring-pages",
+      "articles": "guides"
     },
     "paper": [
       "letter",
@@ -94,7 +97,8 @@
       "tracing": "harf-yazma-calismasi",
       "app": "uygulama",
       "privacy": "gizlilik",
-      "coloring": "harf-boyama"
+      "coloring": "harf-boyama",
+      "articles": "rehber"
     },
     "paper": [
       "a4"
@@ -116,7 +120,8 @@
       "tracing": "fichas-abecedario",
       "app": "app",
       "privacy": "privacidad",
-      "coloring": "abecedario-para-colorear"
+      "coloring": "abecedario-para-colorear",
+      "articles": "articulos"
     },
     "paper": [
       "a4",
@@ -139,7 +144,8 @@
       "tracing": "alfabeto-pontilhado",
       "app": "aplicativo",
       "privacy": "privacidade",
-      "coloring": "alfabeto-para-colorir"
+      "coloring": "alfabeto-para-colorir",
+      "articles": "artigos"
     },
     "paper": [
       "a4"
@@ -161,7 +167,8 @@
       "tracing": "karty-pracy-litery",
       "app": "aplikacja",
       "privacy": "prywatnosc",
-      "coloring": "kolorowanki-litery"
+      "coloring": "kolorowanki-litery",
+      "articles": "poradniki"
     },
     "paper": [
       "a4"
@@ -184,7 +191,8 @@
       "app": "application",
       "privacy": "confidentialite",
       "imprint": "mentions-legales",
-      "coloring": "coloriages-alphabet"
+      "coloring": "coloriages-alphabet",
+      "articles": "conseils"
     },
     "paper": [
       "a4"

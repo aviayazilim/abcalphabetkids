@@ -150,6 +150,20 @@ export default {
     tracingText: (l: Letter) => `Étape suivante : repasser ${l.letter} et ${l.lower} en suivant les pointillés et écrire le mot « ${l.word} ».`,
   },
 
+  articles: {
+    nav: 'Conseils',
+    title: 'Conseils aux parents : apprendre l’alphabet à la maison',
+    description: 'Guides pratiques pour parents et enseignants de maternelle : apprendre les lettres, les tracer et les écrire, avec des fiches gratuites en PDF.',
+    h1: 'Conseils aux parents',
+    lead: 'Des guides courts et concrets pour apprendre les lettres aux enfants de 2 à 6 ans, avec des fiches gratuites à imprimer.',
+    readMore: 'Lire le guide',
+    published: 'Publié le',
+    faqTitle: 'Questions fréquentes',
+    lettersTitle: 'Commencez par ces lettres',
+    sheetsCta: 'Télécharger toutes les fiches alphabet (PDF)',
+    guideLink: 'Le guide complet pour les parents',
+  },
+
   appBlock: {
     title: (l?: Letter) => (l ? `Écoutez la lettre ${l.letter} dans l’appli` : 'Des lettres avec la voix de locuteurs natifs'),
     text: 'Dans l’appli ABC Alphabet, chaque lettre prend vie : le personnage bouge, une voix prononce le son et l’enfant repasse la lettre du doigt. Plus 12 jeux pour l’attention, la mémoire et les premières lectures.',

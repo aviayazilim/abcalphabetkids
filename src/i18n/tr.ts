@@ -149,6 +149,20 @@ export default {
     tracingText: (l: Letter) => `Sonraki adım: ${l.letter} ve ${l.lower} harfini kesik çizgi üzerinden takip edip “${l.word}” kelimesini yazmak.`,
   },
 
+  articles: {
+    nav: 'Rehber',
+    title: 'Ebeveyn rehberi: evde harf öğretimi',
+    description: 'Ebeveynler ve okul öncesi öğretmenleri için pratik rehberler: harfleri tanıtma, harf yazma çalışması ve ilk yazı. Ücretsiz PDF çalışma sayfaları.',
+    h1: 'Ebeveyn rehberi',
+    lead: '2–6 yaş çocuklara harf öğretmek için kısa ve pratik rehberler, ücretsiz yazdırılabilir çalışma sayfalarıyla.',
+    readMore: 'Rehberi oku',
+    published: 'Yayın tarihi',
+    faqTitle: 'Sık sorulan sorular',
+    lettersTitle: 'Bu harflerle başlayın',
+    sheetsCta: 'Tüm harf yazma çalışma sayfalarını indir (PDF)',
+    guideLink: 'Ebeveynler için ayrıntılı rehber',
+  },
+
   appBlock: {
     title: (l?: Letter) => (l ? `${l.letter} harfini uygulamada dinleyin` : 'Ana dili konuşanların sesiyle harfler'),
     text: 'ABC Alphabet uygulamasında her harf canlanır: karakter hareket eder, bir ses harfi söyler ve çocuk harfi parmağıyla takip eder. Ayrıca dikkat, hafıza ve ilk okuma için 12 oyun.',

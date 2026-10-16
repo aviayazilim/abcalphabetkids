@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import { SITE } from '../site';
 import { t } from '../i18n';
-import { HREFLANG, alternates, path, type Lang, type PageRef } from '../lib/routes';
+import { HREFLANG, alternates, articlesIn, path, type Lang, type PageRef } from '../lib/routes';
 import { DEFAULT_LANGS } from '../lib/lang-order';
 import LangOrderScript from '../components/LangOrderScript.astro';
 
@@ -25,6 +25,7 @@ const app = path.section(lang, 'app')!;
 const coloring = path.section(lang, 'coloring');
 const privacy = path.section(lang, 'privacy')!;
 const imprint = path.section(lang, 'imprint');
+const articles = articlesIn(lang).length > 0 ? path.section(lang, 'articles') : null;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -83,6 +84,7 @@ const imprint = path.section(lang, 'imprint');
         <ul>
           <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
           <li><a href={SITE.instagram} rel="noopener">Instagram</a></li>
+          {articles && <li><a href={articles}>{tr.articles.nav}</a></li>}
           <li><a href={privacy}>{tr.footer.privacy}</a></li>
           {imprint && <li><a href={imprint}>{tr.footer.imprint}</a></li>}
         </ul>

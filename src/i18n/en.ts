@@ -149,6 +149,20 @@ export default {
     tracingText: (l: Letter) => `Next step: trace uppercase and lowercase ${l.letter}${l.lower} along the dashed lines and write the word “${l.word}”.`,
   },
 
+  articles: {
+    nav: 'Guides',
+    title: 'Parent guides: teaching the alphabet at home',
+    description: 'Practical guides for parents and preschool teachers: how to teach letters, letter tracing and early writing, with free printable PDF worksheets.',
+    h1: 'Parent guides',
+    lead: 'Short, practical guides to teaching letters to children aged 2 to 6, with free printable worksheets.',
+    readMore: 'Read the guide',
+    published: 'Published',
+    faqTitle: 'Frequently asked questions',
+    lettersTitle: 'Start with these letters',
+    sheetsCta: 'Download all letter tracing worksheets (PDF)',
+    guideLink: 'The full guide for parents',
+  },
+
   appBlock: {
     title: (l?: Letter) => (l ? `Hear the letter ${l.letter} in the app` : 'Letters that speak with a native voice'),
     text: 'In the ABC Alphabet app every letter comes alive: the character moves, a voice says the sound, and kids trace the letter with a finger. Plus 12 games for attention, memory and first reading.',

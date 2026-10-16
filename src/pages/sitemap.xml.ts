@@ -1,13 +1,17 @@
 import type { APIRoute } from 'astro';
 import { SITE } from '../site';
-import { LANGS, HREFLANG, SECTIONS, LETTERS, alternates, path, type PageRef, type SectionKind } from '../lib/routes';
+import { LANGS, HREFLANG, SECTIONS, LETTERS, articlesIn, alternates, path, type PageRef, type SectionKind } from '../lib/routes';
 
 // Own sitemap: section slugs differ per language, which @astrojs/sitemap's i18n mode can't pair up.
 export const GET: APIRoute = () => {
   const entries: { loc: string; ref: PageRef }[] = [];
   for (const lang of LANGS) {
     entries.push({ loc: path.home(lang), ref: { kind: 'home' } });
-    for (const kind of Object.keys(SECTIONS[lang]) as SectionKind[]) entries.push({ loc: path.section(lang, kind)!, ref: { kind } });
+    for (const kind of Object.keys(SECTIONS[lang]) as SectionKind[]) {
+      if (kind === 'articles' && articlesIn(lang).length === 0) continue;
+      entries.push({ loc: path.section(lang, kind)!, ref: { kind } });
+    }
+    for (const a of articlesIn(lang)) entries.push({ loc: path.article(lang, a.slug), ref: { kind: 'article', topic: a.topic } });
     for (const l of LETTERS[lang]) entries.push({ loc: path.letter(lang, l.slug), ref: { kind: 'letter', lang, slug: l.slug } });
     for (const l of LETTERS[lang]) {
       const coloring = l.coloring ? path.coloringLetter(lang, l.slug) : null;

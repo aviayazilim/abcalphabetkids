@@ -1,0 +1,118 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import AppBlock from '../../../../components/AppBlock.astro';
+import LetterTile from '../../../../components/LetterTile.astro';
+import { SITE } from '../../../../site';
+import { t } from '../../../../i18n';
+import { ARTICLES, SECTIONS, LETTERS, PAPER, path, type Article, type Lang } from '../../../../lib/routes';
+
+export function getStaticPaths() {
+  return ARTICLES.map((a) => ({
+    params: { lang: a.lang, section: SECTIONS[a.lang].articles!, article: a.slug },
+    props: { article: a },
+  }));
+}
+
+const { article: a } = Astro.props as { article: Article };
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const A = tr.articles;
+const abs = (p: string) => new URL(p, SITE.url).href;
+const pageUrl = abs(path.article(lang, a.slug));
+const hub = path.section(lang, 'articles')!;
+const dateFmt = new Intl.DateTimeFormat(tr.locale.replace('_', '-'), { dateStyle: 'long' });
+const letters = (a.letters ?? []).map((s) => LETTERS[lang].find((l) => l.slug === s)).filter((l) => l !== undefined);
+const faq = a.faq ?? [];
+const { Content } = a;
+
+const graph: Record<string, unknown>[] = [
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'ABC Alphabet', item: abs(path.home(lang)) },
+      { '@type': 'ListItem', position: 2, name: A.nav, item: abs(hub) },
+      { '@type': 'ListItem', position: 3, name: a.h1, item: pageUrl },
+    ],
+  },
+  {
+    '@type': 'Article',
+    headline: a.h1,
+    description: a.description,
+    url: pageUrl,
+    inLanguage: lang,
+    datePublished: a.date,
+    dateModified: a.updated ?? a.date,
+    image: abs('/og/default.png'),
+    author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+    publisher: { '@type': 'Organization', name: SITE.company, url: SITE.url },
+  },
+];
+if (faq.length > 0) {
+  graph.push({
+    '@type': 'FAQPage',
+    mainEntity: faq.map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })),
+  });
+}
+const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
+---
+<Base lang={lang} title={a.title} description={a.description} page={{ kind: 'article', topic: a.topic }}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <article>
+    <section class="section">
+      <div class="wrap prose">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href={path.home(lang)}>ABC Alphabet</a> <span aria-hidden="true">›</span>
+          <a href={hub}>{A.nav}</a>
+        </nav>
+        <h1>{a.h1}</h1>
+        <p class="lead">{a.lead}</p>
+        <p class="meta">{A.published} <time datetime={a.date}>{dateFmt.format(new Date(a.date))}</time></p>
+        <Content />
+      </div>
+    </section>
+
+    {letters.length > 0 && (
+      <section class="section">
+        <div class="wrap">
+          <h2>{A.lettersTitle}</h2>
+          <div class="grid letters">
+            {letters.map((l) => <LetterTile letter={l} href={path.letter(lang, l.slug)} alt={tr.letter.characterAlt(l)} />)}
+          </div>
+          <p class="dl"><a class="btn" href={path.pdfAll(lang, PAPER[lang][0])} download>{A.sheetsCta}</a></p>
+        </div>
+      </section>
+    )}
+
+    {faq.length > 0 && (
+      <section class="section">
+        <div class="wrap prose">
+          <h2>{A.faqTitle}</h2>
+          {faq.map((x) => (
+            <details class="faq">
+              <summary>{x.q}</summary>
+              <p>{x.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
+  </article>
+
+  <section class="section">
+    <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_article_${a.topic}`} /></div>
+  </section>
+</Base>
+
+<style>
+  .crumbs { font-size: 0.95rem; color: var(--muted); margin-bottom: 16px; }
+  .crumbs a { color: var(--muted); }
+  .meta { color: var(--muted); font-size: 0.95rem; }
+  .letters { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
+  .dl { margin-top: 24px; }
+  .faq { border-bottom: 1px solid var(--line); padding: 12px 0; }
+  .faq summary { font-weight: 800; cursor: pointer; }
+  .faq p { margin: 8px 0 0; }
+  .prose :global(table) { border-collapse: collapse; width: 100%; margin: 1em 0; display: block; overflow-x: auto; }
+  .prose :global(th), .prose :global(td) { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+</style>

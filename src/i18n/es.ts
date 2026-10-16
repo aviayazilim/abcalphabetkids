@@ -149,6 +149,20 @@ export default {
     tracingText: (l: Letter) => `Siguiente paso: repasar ${l.letter} y ${l.lower} por la línea discontinua y escribir la palabra «${l.word}».`,
   },
 
+  articles: {
+    nav: 'Consejos',
+    title: 'Consejos para padres: cómo enseñar el abecedario en casa',
+    description: 'Guías prácticas para padres y maestras de infantil: cómo enseñar las letras, repasarlas y escribirlas, con fichas gratis en PDF.',
+    h1: 'Consejos para padres',
+    lead: 'Guías breves y prácticas para enseñar las letras a niños de 2 a 6 años, con fichas gratis para imprimir.',
+    readMore: 'Leer la guía',
+    published: 'Publicado el',
+    faqTitle: 'Preguntas frecuentes',
+    lettersTitle: 'Empieza por estas letras',
+    sheetsCta: 'Descargar todas las fichas del abecedario (PDF)',
+    guideLink: 'Guía completa para padres',
+  },
+
   appBlock: {
     title: (l?: Letter) => (l ? `Escucha la letra ${l.letter} en la app` : 'Letras con voz de hablantes nativos'),
     text: 'En la app ABC Alphabet cada letra cobra vida: el personaje se mueve, una voz dice el sonido y los niños repasan la letra con el dedo. Además, 12 juegos de atención, memoria y primeras lecturas.',

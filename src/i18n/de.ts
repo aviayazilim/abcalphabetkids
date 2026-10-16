@@ -151,6 +151,20 @@ export default {
     tracingText: (l: Letter) => `Nächster Schritt: ${l.letter} und ${l.lower} auf der gestrichelten Linie nachspuren und das Wort „${l.word}“ schreiben.`,
   },
 
+  articles: {
+    nav: 'Ratgeber',
+    title: 'Ratgeber für Eltern: Buchstaben lernen zu Hause',
+    description: 'Praktische Ratgeber für Eltern und Erzieher: Buchstaben kennenlernen, nachspuren und schreiben, mit kostenlosen Arbeitsblättern als PDF.',
+    h1: 'Ratgeber für Eltern',
+    lead: 'Kurze, praktische Ratgeber zum Buchstabenlernen für Kinder von 2 bis 6 Jahren, mit kostenlosen Arbeitsblättern zum Ausdrucken.',
+    readMore: 'Ratgeber lesen',
+    published: 'Veröffentlicht am',
+    faqTitle: 'Häufige Fragen',
+    lettersTitle: 'Mit diesen Buchstaben anfangen',
+    sheetsCta: 'Alle Arbeitsblätter zum Nachspuren herunterladen (PDF)',
+    guideLink: 'Der ausführliche Ratgeber für Eltern',
+  },
+
   appBlock: {
     title: (l?: Letter) => (l ? `Hör dir das ${l.letter} in der App an` : 'Buchstaben mit muttersprachlicher Stimme'),
     text: 'In der App ABC Alphabet wird jeder Buchstabe lebendig: Die Figur bewegt sich, eine Stimme spricht den Laut, und der Buchstabe lässt sich mit dem Finger nachfahren. Dazu 12 Spiele für Aufmerksamkeit, Gedächtnis und erstes Lesen.',

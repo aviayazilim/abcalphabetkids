@@ -149,6 +149,20 @@ export default {
     tracingText: (l: Letter) => `Kolejny krok: pisanie ${l.letter} i ${l.lower} po przerywanej linii oraz słowa „${l.word}”.`,
   },
 
+  articles: {
+    nav: 'Poradniki',
+    title: 'Poradniki dla rodziców: jak uczyć liter w domu',
+    description: 'Praktyczne poradniki dla rodziców i nauczycieli przedszkoli: jak uczyć liter, pisania po śladzie i pierwszego pisania. Karty pracy PDF za darmo.',
+    h1: 'Poradniki dla rodziców',
+    lead: 'Krótkie, praktyczne poradniki o nauce liter dla dzieci w wieku 2–6 lat, z darmowymi kartami pracy do druku.',
+    readMore: 'Czytaj poradnik',
+    published: 'Opublikowano',
+    faqTitle: 'Częste pytania',
+    lettersTitle: 'Zacznij od tych liter',
+    sheetsCta: 'Pobierz wszystkie karty pracy z literami (PDF)',
+    guideLink: 'Pełny poradnik dla rodziców',
+  },
+
   appBlock: {
     title: (l?: Letter) => (l ? `Posłuchaj litery ${l.letter} w aplikacji` : 'Litery mówią głosem native speakera'),
     text: 'W aplikacji ABC Alphabet każda litera ożywa: postać się porusza, głos wymawia głoskę, a dziecko pisze literę palcem. Do tego 12 gier na uwagę, pamięć i pierwsze czytanie.',
