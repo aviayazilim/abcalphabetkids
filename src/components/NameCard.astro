@@ -11,7 +11,7 @@ interface Props {
   errEmpty: string;
   errInvalid: string;
   privacy: string;
-  alphabets: { code: string; name: string; letters: { letter: string; img: string | null; bg: string; ink: string }[] }[];
+  alphabets: { code: string; name: string; sample: string; letters: { letter: string; img: string | null; bg: string; ink: string }[] }[];
 }
 const { lang, copy: C, nameLabel, placeholder, errEmpty, errInvalid, privacy, alphabets } = Astro.props;
 const config = { lang, alphabets, errEmpty, errInvalid };
@@ -20,7 +20,7 @@ const config = { lang, alphabets, errEmpty, errInvalid };
   <form class="nc-form card" id="nc-form" novalidate>
     <label class="field">
       <span>{nameLabel}</span>
-      <input id="nc-name" type="text" value={placeholder} maxlength="14" autocomplete="off" spellcheck="false" />
+      <input id="nc-name" type="text" value={placeholder} placeholder={placeholder} maxlength="14" autocomplete="off" spellcheck="false" />
       <small class="err" id="nc-err" aria-live="polite"></small>
     </label>
     <label class="field">
@@ -63,13 +63,19 @@ const config = { lang, alphabets, errEmpty, errInvalid };
     return images[src];
   }
   var loc = function () { return state.alpha; };
+  // Accented letters that aren't letters of their own here (Í, Ã, Ë) use the base letter's character.
+  function lookup(ch) { return byLetter[ch] || byLetter[ch.normalize('NFD').replace(/\p{M}/gu, '')]; }
   var up = function (s) { return s.toLocaleUpperCase(loc()); };
 
-  function readName() {
+  var samples = {};
+  config.alphabets.forEach(function (a) { samples[a.code] = a.sample; });
+  // An empty field previews the alphabet's sample name; only download and print insist on a name.
+  function readName(strict) {
     var raw = $('nc-name').value.trim().replace(/\s+/g, ' ');
-    var err = !raw ? config.errEmpty : (!valid.test(raw) || !/\p{L}/u.test(raw)) ? config.errInvalid : '';
+    var err = !raw ? (strict ? config.errEmpty : '') : (!valid.test(raw) || !/\p{L}/u.test(raw)) ? config.errInvalid : '';
     $('nc-err').textContent = err;
-    return err ? null : raw;
+    if (err) return null;
+    return raw || (strict ? null : samples[state.alpha]);
   }
 
   // Words become rows; long words wrap into balanced rows of at most `max` tiles.
@@ -106,7 +112,7 @@ const config = { lang, alphabets, errEmpty, errInvalid };
       var rowW = row.length * s + (row.length - 1) * gap, x0 = (W - rowW) / 2;
       row.forEach(function (ch, c) { tiles.push({ ch: ch, x: x0 + c * (s + gap), y: top + r * (s + gap) }); });
     });
-    var pics = await Promise.all(tiles.map(function (t) { var l = byLetter[t.ch]; return l && l.img ? load('/img/characters/' + l.img + '.webp') : null; }));
+    var pics = await Promise.all(tiles.map(function (t) { var l = lookup(t.ch); return l && l.img ? load('/img/characters/' + l.img + '.webp') : null; }));
     var icon = await load('/img/icon.webp');
 
     ctx.fillStyle = '#fbf8f3'; ctx.fillRect(0, 0, W, H);
@@ -119,7 +125,7 @@ const config = { lang, alphabets, errEmpty, errInvalid };
     ctx.fillStyle = '#1f2330'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillText(title, W / 2, P + head * 0.5);
     tiles.forEach(function (t, i) {
-      var l = byLetter[t.ch], pic = pics[i];
+      var l = lookup(t.ch), pic = pics[i];
       ctx.fillStyle = l ? l.bg : '#ece8e1'; roundRect(ctx, t.x, t.y, s, s, s * 0.12); ctx.fill();
       ctx.fillStyle = l ? l.ink : '#1f2330';
       if (pic) {
@@ -165,11 +171,16 @@ const config = { lang, alphabets, errEmpty, errInvalid };
     $('nc-format').querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
     state.format = b.dataset.format; render();
   });
-  $('nc-name').addEventListener('input', function () { var n = readName(); if (n) matchScript(n); render(); });
-  $('nc-alpha').addEventListener('change', function () { setAlpha($('nc-alpha').value); render(); });
+  $('nc-name').addEventListener('input', function () { if ($('nc-name').value.trim()) { var n = readName(); if (n) matchScript(n); } render(); });
+  // A new alphabet starts a new name: clear the field and show that language's sample.
+  $('nc-alpha').addEventListener('change', function () {
+    setAlpha($('nc-alpha').value);
+    $('nc-name').value = ''; $('nc-name').placeholder = samples[state.alpha]; $('nc-err').textContent = '';
+    $('nc-name').focus(); render();
+  });
   $('nc-form').addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = readName(); if (!name) return;
+    var name = readName(true); if (!name) return;
     $('nc-canvas').toBlob(function (blob) {
       var a = document.createElement('a');
       a.href = URL.createObjectURL(blob); a.download = name.replace(/[^\p{L}\- ]/gu, '').replace(/ /g, '-') + '-abc-alphabet.png';
@@ -179,7 +190,7 @@ const config = { lang, alphabets, errEmpty, errInvalid };
   // Printing always uses the A4 layout, whatever is previewed.
   document.body.appendChild($('nc-print'));
   $('nc-print-btn').addEventListener('click', async function () {
-    var name = readName(); if (!name) return;
+    var name = readName(true); if (!name) return;
     var off = document.createElement('canvas');
     await draw(off, 'print', name);
     var img = new Image(); img.alt = '';

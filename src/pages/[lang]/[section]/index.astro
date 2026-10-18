@@ -49,7 +49,7 @@ const nameData = kind === 'name' ? {
 const NK = NAMECARD_COPY[lang];
 // Every alphabet, so the card can be built with any language's characters; this page's language first.
 const cardAlphabets = kind === 'namecard' ? [lang, ...LANGS.filter((x) => x !== lang)].map((code) => ({
-  code, name: t(code).langName,
+  code, name: t(code).langName, sample: NAME_COPY[code].placeholder,
   letters: LETTERS[code].map((l) => ({ letter: l.letter, img: l.character ?? l.characterImage, bg: tint(l.color), ink: inkOn(l.color) })),
 })) : [];
 const cardJsonLd = kind === 'namecard' ? {
