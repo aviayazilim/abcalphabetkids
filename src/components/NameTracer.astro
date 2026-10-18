@@ -82,17 +82,16 @@ const config = { locale, letters, errEmpty: N.errEmpty, errInvalid: N.errInvalid
   var $ = function (id) { return document.getElementById(id); };
   var state = { kase: 'cap', paper: config.defaultPaper };
   var byLetter = {};
-  var allowed = new Set([' ', '-', '\'']);
-  config.letters.forEach(function (l) {
-    byLetter[l.letter] = l;
-    allowed.add(l.letter); allowed.add(l.letter.toLocaleLowerCase(config.locale));
-  });
+  // Any Latin or Cyrillic name (both are in Andika), not just this page's alphabet:
+  // bilingual families type names from either script.
+  var valid = /^[\p{Script=Latin}\p{Script=Cyrillic}\p{M} '’-]+$/u;
+  config.letters.forEach(function (l) { byLetter[l.letter] = l; });
   var up = function (s) { return s.toLocaleUpperCase(config.locale); };
   var low = function (s) { return s.toLocaleLowerCase(config.locale); };
   function format(name) {
     if (state.kase === 'up') return up(name);
     if (state.kase === 'low') return low(name);
-    return name.split(/([ -])/).map(function (p) { return p.length > 1 || /[^ -]/.test(p) ? up(p.charAt(0)) + low(p.slice(1)) : p; }).join('');
+    return name.split(/([ '’-])/).map(function (p) { return /^[ '’-]?$/.test(p) ? p : up(p.charAt(0)) + low(p.slice(1)); }).join('');
   }
   function line(svg, y, dash) {
     var l = document.createElementNS(NS, 'line');
@@ -117,7 +116,7 @@ const config = { locale, letters, errEmpty: N.errEmpty, errInvalid: N.errInvalid
     var raw = $('nt-name').value.trim().replace(/\s+/g, ' ');
     var err = '';
     if (!raw) err = config.errEmpty;
-    else if (Array.from(raw).some(function (c) { return !allowed.has(c); })) err = config.errInvalid;
+    else if (!valid.test(raw) || !/\p{L}/u.test(raw)) err = config.errInvalid;
     $('nt-err').textContent = err;
     if (err) return;
     var text = format(raw);
