@@ -8,6 +8,7 @@ import { SITE } from '../../site';
 import { t } from '../../i18n';
 import { LANGS, LETTERS, articlesIn, path, type Lang } from '../../lib/routes';
 import { NAME_COPY } from '../../i18n/name';
+import { WORDS_COPY } from '../../i18n/words';
 import { LANG_ORDER } from '../../lib/lang-order';
 
 export function getStaticPaths() {
@@ -25,6 +26,8 @@ const screens = (fs.existsSync(`public/img/screens/${lang}`) ? fs.readdirSync(`p
 const campaign = `site_${lang}_home`;
 const coloring = path.section(lang, 'coloring');
 const nameTool = path.section(lang, 'name');
+const W = WORDS_COPY[lang];
+const wordsHub = W ? path.section(lang, 'words') : null;
 const NC = NAME_COPY[lang];
 const articles = articlesIn(lang).slice(0, 3);
 const articlesHub = articles.length > 0 ? path.section(lang, 'articles') : null;
@@ -72,6 +75,16 @@ const articlesHub = articles.length > 0 ? path.section(lang, 'articles') : null;
             <h3>{h.coloringCard.title}</h3>
             <p>{h.coloringCard.text}</p>
           </div>
+        )}
+        {wordsHub && W && (
+          <a class="card free-card" href={wordsHub}>
+            <div class="mini-row" aria-hidden="true">
+              {letters.slice(1, 5).map((l) => <span>{l.letter}</span>)}
+            </div>
+            <h3>{W.h1}</h3>
+            <p>{W.lead}</p>
+            <span class="btn">{W.gridTitle} →</span>
+          </a>
         )}
         {nameTool && (
           <a class="card free-card" href={nameTool}>
@@ -170,7 +183,7 @@ const articlesHub = articles.length > 0 ? path.section(lang, 'articles') : null;
   a.article-card:hover { border-color: var(--ink); }
   .article-card .more { font-weight: 800; color: var(--accent); }
   .all-articles { margin-top: 20px; font-weight: 800; }
-  @media (min-width: 720px) { .free-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
+  @media (min-width: 720px) { .free-grid { grid-template-columns: 1fr 1fr; } }
   .name-row span { width: auto !important; padding: 0 12px; font-family: Andika, sans-serif; }
   .free-card { display: flex; flex-direction: column; align-items: flex-start; color: var(--ink); text-decoration: none; }
   .free-card p { color: var(--muted); flex: 1; }

@@ -72,6 +72,10 @@ const screens = kind === 'app'
           <a class="btn" href={path.pdfAll(lang, PAPER[lang][0])} download>{tr.tracing.downloadAll}</a>
           {PAPER[lang].slice(1).map((size) => <a class="btn btn-quiet" href={path.pdfAll(lang, size)} download>{PAPER_LABEL[size]}</a>)}
         </div>
+        <div class="more-tools">
+          {W && path.section(lang, 'words') && <a class="btn btn-quiet" href={path.section(lang, 'words')!}>{W.hubLink} →</a>}
+          {path.section(lang, 'name') && <a class="btn btn-quiet" href={path.section(lang, 'name')!}>{NC.card.title} →</a>}
+        </div>
       </div>
     </section>
     <section class="section">
@@ -274,6 +278,7 @@ const screens = kind === 'app'
 
 <style>
   .dl { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .more-tools { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
   .letters { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
   .coloring-grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .coloring-grid a { display: grid; gap: 8px; padding: 10px; text-decoration: none; color: inherit; text-align: center; }

@@ -4,6 +4,7 @@ import { SITE } from '../site';
 import { t } from '../i18n';
 import { HREFLANG, alternates, articlesIn, path, type Lang, type PageRef } from '../lib/routes';
 import { DEFAULT_LANGS } from '../lib/lang-order';
+import { WORDS_COPY } from '../i18n/words';
 import LangOrderScript from '../components/LangOrderScript.astro';
 
 interface Props {
@@ -26,6 +27,7 @@ const coloring = path.section(lang, 'coloring');
 const privacy = path.section(lang, 'privacy')!;
 const imprint = path.section(lang, 'imprint');
 const articles = articlesIn(lang).length > 0 ? path.section(lang, 'articles') : null;
+const wordsHub = WORDS_COPY[lang] ? path.section(lang, 'words') : null;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -86,6 +88,7 @@ const articles = articlesIn(lang).length > 0 ? path.section(lang, 'articles') : 
           <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
           <li><a href={SITE.instagram} rel="noopener">Instagram</a></li>
           {articles && <li><a href={articles}>{tr.articles.nav}</a></li>}
+          {wordsHub && <li><a href={wordsHub}>{WORDS_COPY[lang]!.hubLink}</a></li>}
           <li><a href={privacy}>{tr.footer.privacy}</a></li>
           {imprint && <li><a href={imprint}>{tr.footer.imprint}</a></li>}
         </ul>
