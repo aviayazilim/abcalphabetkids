@@ -5,7 +5,8 @@ import AppBlock from '../../../../components/AppBlock.astro';
 import LetterOutline from '../../../../components/LetterOutline.astro';
 import { SITE } from '../../../../site';
 import { t } from '../../../../i18n';
-import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, articlesIn, path, type Lang, type Letter } from '../../../../lib/routes';
+import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, articlesIn, wordsFor, path, type Lang, type Letter } from '../../../../lib/routes';
+import { WORDS_COPY } from '../../../../i18n/words';
 import { tileStyle } from '../../../../lib/color';
 import { splitAt } from '../../../../lib/text';
 
@@ -48,6 +49,7 @@ const pageUrl = new URL(pagePath, SITE.url).href;
 const coloringPage = l.coloring && C ? path.coloringLetter(lang, l.slug) : null;
 const abs = (p: string) => new URL(p, SITE.url).href;
 const tracingGuide = articlesIn(lang).find((a) => a.topic === 'tracing-guide');
+const wordsPage = WORDS_COPY[lang] && wordsFor(lang, l.slug) ? path.wordsLetter(lang, l.slug) : null;
 
 const highlight = (word: string) => splitAt(lang, word, l.lower);
 
@@ -181,6 +183,7 @@ const pagerHref = (x: Letter) => (isColoring ? path.coloringLetter(lang, x.slug)
             );
           })}
         </ul>
+        {wordsPage && <p class="guide-link"><a href={wordsPage}>{WORDS_COPY[lang]!.moreWords(l)} →</a></p>}
       </div>
     </section>
   )}

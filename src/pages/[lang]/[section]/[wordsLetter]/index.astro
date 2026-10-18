@@ -1,0 +1,217 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import AppBlock from '../../../../components/AppBlock.astro';
+import { SITE } from '../../../../site';
+import { t } from '../../../../i18n';
+import { WORDS_COPY } from '../../../../i18n/words';
+import { LANGS, SECTIONS, LETTERS, path, wordsFor, type Lang, type Letter, type WordList } from '../../../../lib/routes';
+import { tileStyle } from '../../../../lib/color';
+import { splitAt } from '../../../../lib/text';
+
+export function getStaticPaths() {
+  return LANGS.filter((lang) => SECTIONS[lang].words && WORDS_COPY[lang]).flatMap((lang) =>
+    LETTERS[lang]
+      .map((letter) => ({ letter, list: wordsFor(lang, letter.slug) }))
+      .filter((x): x is { letter: Letter; list: WordList } => x.list !== null)
+      .map(({ letter, list }) => ({
+        params: { lang, section: SECTIONS[lang].words!, wordsLetter: letter.slug },
+        props: { letter, list },
+      })),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const { letter: l, list } = Astro.props as { letter: Letter; list: WordList };
+const tr = t(lang);
+const W = WORDS_COPY[lang]!;
+const hub = path.section(lang, 'words')!;
+const abs = (p: string) => new URL(p, SITE.url).href;
+const pageUrl = abs(path.wordsLetter(lang, l.slug)!);
+
+// Words from the app that have a picture: the letter's character first.
+const img = l.character ?? l.characterImage;
+const pictures = [
+  ...(l.word && img ? [{ text: l.word, src: `/img/characters/${img}.webp` }] : []),
+  ...l.words.filter((w) => w.text !== l.word).map((w) => ({ text: w.text, src: `/img/words/${w.image}.webp` })),
+];
+
+const count = list.start.length + list.inside.length;
+// Description examples: as many start words as fit in Google's ~160 characters.
+let examples = list.start.slice(0, 5);
+while (examples.length > 1 && W.letterDescription(l, count, examples).length > 160) examples = examples.slice(0, -1);
+const title = W.letterTitle(l);
+const description = W.letterDescription(l, count, examples);
+const faq = W.faq(l, list.start, list.inside);
+const highlight = (word: string) => splitAt(lang, word, l.lower);
+const others = LETTERS[lang].filter((x) => x.slug !== l.slug && wordsFor(lang, x.slug));
+const ink = `--c:${l.letterColor ?? l.color}`;
+const coloring = l.coloring ? path.coloringLetter(lang, l.slug) : null;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'ABC Alphabet', item: abs(path.home(lang)) },
+        { '@type': 'ListItem', position: 2, name: W.nav, item: abs(hub) },
+        { '@type': 'ListItem', position: 3, name: l.letter, item: pageUrl },
+      ],
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faq.map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })),
+    },
+  ],
+};
+---
+<Base lang={lang} title={title} description={description} page={{ kind: 'wordsLetter', lang, slug: l.slug }}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <section class="section">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href={path.home(lang)}>ABC Alphabet</a> <span aria-hidden="true">›</span>
+        <a href={hub}>{W.nav}</a> <span aria-hidden="true">›</span>
+        <span aria-current="page">{l.letter}</span>
+      </nav>
+      <div class="head">
+        <div class="badge" style={tileStyle(l.color)} aria-hidden="true">
+          <span>{l.letter}</span>{l.letter !== l.lower && <small>{l.lower}</small>}
+        </div>
+        <div>
+          <h1>{W.letterH1(l)}</h1>
+          <p class="lead">{W.letterLead(l, list.start.length, list.inside.length)}</p>
+        </div>
+      </div>
+
+      {pictures.length > 0 && (
+        <>
+          <h2 class="h3">{W.picturesTitle}</h2>
+          <ul class="pics">
+            {pictures.map((p) => {
+              const [a, b, c] = highlight(p.text);
+              return (
+                <li>
+                  <img src={p.src} alt={tr.letter.wordAlt(p.text)} width="120" height="120" loading="lazy" decoding="async" />
+                  <span>{a}<mark style={`--c:${l.letterColor ?? l.color}`}>{b}</mark>{c}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      )}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>{W.startTitle(l)}</h2>
+      <ul class="chips">
+        {list.start.map((w) => {
+          const [a, b, c] = highlight(w);
+          return <li>{a}<b style={ink}>{b}</b>{c}</li>;
+        })}
+      </ul>
+
+      {list.inside.length > 0 && (
+        <>
+          <h2>{W.insideTitle(l)}</h2>
+          <ul class="chips">
+            {list.inside.map((w) => {
+              const [a, b, c] = highlight(w);
+              return <li>{a}<b style={ink}>{b}</b>{c}</li>;
+            })}
+          </ul>
+        </>
+      )}
+
+      {list.names.length > 0 && (
+        <>
+          <h2>{W.namesTitle(l)}</h2>
+          <ul class="chips">
+            {list.names.map((w) => {
+              const [a, b, c] = highlight(w);
+              return <li>{a}<b style={ink}>{b}</b>{c}</li>;
+            })}
+          </ul>
+        </>
+      )}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>{W.nextTitle}</h2>
+      <div class="next">
+        <a class="card" href={path.letter(lang, l.slug)}>
+          <b>{W.tracingCard(l).title} →</b>
+          <span class="muted">{W.tracingCard(l).text}</span>
+        </a>
+        {coloring && (
+          <a class="card" href={coloring}>
+            <b>{W.coloringCard(l).title} →</b>
+            <span class="muted">{W.coloringCard(l).text}</span>
+          </a>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>{W.activitiesTitle}</h2>
+      <ul class="activities">{W.activities(l, list.start, list.inside).map((x) => <li>{x}</li>)}</ul>
+      <h2>{W.faqTitle}</h2>
+      {faq.map((x) => (
+        <details class="faq">
+          <summary>{x.q}</summary>
+          <p>{x.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>{W.otherLetters}</h2>
+      <ul class="letters-nav">
+        {others.map((x) => <li><a href={path.wordsLetter(lang, x.slug)!} style={tileStyle(x.color)}>{x.letter}</a></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_words`} letter={l} /></div>
+  </section>
+</Base>
+
+<style>
+  .crumbs { font-size: 0.95rem; color: var(--muted); margin-bottom: 16px; }
+  .crumbs a { color: var(--muted); }
+  .head { display: grid; gap: 20px; align-items: center; margin-bottom: 28px; }
+  @media (min-width: 640px) { .head { grid-template-columns: auto 1fr; } }
+  .badge { display: grid; grid-auto-flow: column; align-items: baseline; justify-content: center; gap: 4px; width: 112px; height: 112px; place-content: center;
+    border-radius: var(--radius); background: var(--c); color: var(--fg); font-weight: 900; font-size: 4rem; line-height: 1; }
+  .badge small { font-size: 0.55em; }
+  .head h1 { margin: 0 0 8px; }
+  .h3 { font-size: 1.2rem; }
+  .pics { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  .pics li { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; text-align: center; font-weight: 800; font-size: 1.1rem; }
+  .pics img { width: 100%; aspect-ratio: 1; object-fit: contain; margin-bottom: 6px; }
+  mark { background: none; color: inherit; text-decoration: underline 4px var(--c); text-underline-offset: 4px; }
+  .chips { list-style: none; padding: 0; margin: 12px 0 32px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .chips li { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 1.15rem; font-weight: 600; }
+  .chips b { font-weight: 900; text-decoration: underline 4px var(--c); text-underline-offset: 4px; }
+  .next { display: grid; gap: 16px; }
+  @media (min-width: 720px) { .next { grid-template-columns: 1fr 1fr; } }
+  .next a { display: grid; gap: 6px; text-decoration: none; color: inherit; }
+  .next a:hover { outline: 3px solid var(--ink); outline-offset: 2px; }
+  .activities li { margin-bottom: 10px; }
+  .faq { border-bottom: 1px solid var(--line); padding: 12px 0; }
+  .faq summary { font-weight: 800; cursor: pointer; }
+  .faq p { margin: 8px 0 0; }
+  .letters-nav { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .letters-nav a { display: grid; place-items: center; width: 48px; height: 52px; border-radius: 10px; background: var(--c); color: var(--fg); font-weight: 900; font-size: 1.4rem; text-decoration: none; }
+  .letters-nav a:hover { outline: 3px solid var(--ink); outline-offset: 2px; }
+</style>

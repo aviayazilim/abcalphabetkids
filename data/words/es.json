@@ -1,0 +1,708 @@
+{
+ "_note": "TODO(review): curated word lists for kids, neutral Spanish; have a native speaker check them.",
+ "letra-a": {
+  "start": [
+   "abeja",
+   "árbol",
+   "agua",
+   "avión",
+   "araña",
+   "anillo",
+   "ardilla",
+   "abuela",
+   "abuelo",
+   "amigo",
+   "azul",
+   "amarillo",
+   "arcoíris",
+   "aguacate",
+   "ala",
+   "ajo"
+  ],
+  "inside": [
+   "casa",
+   "gato",
+   "mano",
+   "pata",
+   "cama",
+   "vaca",
+   "rana",
+   "luna"
+  ],
+  "names": []
+ },
+ "letra-b": {
+  "start": [
+   "barco",
+   "ballena",
+   "boca",
+   "bota",
+   "burro",
+   "bebé",
+   "banana",
+   "bicicleta",
+   "búho",
+   "bolso",
+   "bruja",
+   "botella",
+   "barriga",
+   "brazo",
+   "bombero"
+  ],
+  "inside": [
+   "lobo",
+   "abeja",
+   "cabra",
+   "árbol",
+   "jabón",
+   "nube",
+   "caballo",
+   "abuela",
+   "globo"
+  ],
+  "names": []
+ },
+ "letra-c": {
+  "start": [
+   "casa",
+   "caracol",
+   "cama",
+   "conejo",
+   "cocodrilo",
+   "caballo",
+   "camión",
+   "cuchara",
+   "cebolla",
+   "cereza",
+   "corazón",
+   "cohete",
+   "cisne",
+   "cuna",
+   "chocolate"
+  ],
+  "inside": [
+   "vaca",
+   "boca",
+   "foca",
+   "mosca",
+   "taco",
+   "loco"
+  ],
+  "names": []
+ },
+ "letra-d": {
+  "start": [
+   "dado",
+   "dedo",
+   "delfín",
+   "diente",
+   "dinosaurio",
+   "dragón",
+   "domingo",
+   "dulce",
+   "dos",
+   "diez",
+   "ducha",
+   "dibujo"
+  ],
+  "inside": [
+   "nido",
+   "helado",
+   "rueda",
+   "cadena",
+   "candado",
+   "moneda",
+   "pared",
+   "verde"
+  ],
+  "names": []
+ },
+ "letra-e": {
+  "start": [
+   "elefante",
+   "erizo",
+   "escoba",
+   "estrella",
+   "escuela",
+   "enano",
+   "espejo",
+   "elote",
+   "estufa",
+   "ensalada"
+  ],
+  "inside": [
+   "leche",
+   "pera",
+   "mesa",
+   "pez",
+   "tren",
+   "queso",
+   "nieve",
+   "bebé",
+   "café"
+  ],
+  "names": []
+ },
+ "letra-f": {
+  "start": [
+   "flor",
+   "foca",
+   "fresa",
+   "fuego",
+   "falda",
+   "faro",
+   "fiesta",
+   "foto",
+   "fruta",
+   "fantasma",
+   "flecha",
+   "frío"
+  ],
+  "inside": [
+   "jirafa",
+   "café",
+   "sofá",
+   "elefante",
+   "teléfono",
+   "delfín",
+   "búfalo",
+   "gafas"
+  ],
+  "names": []
+ },
+ "letra-g": {
+  "start": [
+   "gato",
+   "gallina",
+   "gallo",
+   "globo",
+   "gorila",
+   "gusano",
+   "gafas",
+   "guitarra",
+   "gorro",
+   "goma",
+   "gigante",
+   "gelatina"
+  ],
+  "inside": [
+   "lago",
+   "fuego",
+   "tigre",
+   "agua",
+   "amigo",
+   "jugo",
+   "hormiga",
+   "tortuga",
+   "higo",
+   "mago"
+  ],
+  "names": []
+ },
+ "letra-h": {
+  "start": [
+   "hongo",
+   "hoja",
+   "huevo",
+   "hormiga",
+   "helado",
+   "hada",
+   "hilo",
+   "hipopótamo",
+   "hueso",
+   "hamaca",
+   "hermano",
+   "higo"
+  ],
+  "inside": [
+   "búho",
+   "leche",
+   "noche",
+   "zanahoria",
+   "almohada",
+   "chocolate",
+   "coche",
+   "ahora"
+  ],
+  "names": []
+ },
+ "letra-i": {
+  "start": [
+   "idea",
+   "iglú",
+   "isla",
+   "iglesia",
+   "imán",
+   "insecto",
+   "invierno",
+   "iguana"
+  ],
+  "inside": [
+   "piña",
+   "pino",
+   "lápiz",
+   "niño",
+   "nido",
+   "silla",
+   "tijeras",
+   "jirafa"
+  ],
+  "names": []
+ },
+ "letra-j": {
+  "start": [
+   "jirafa",
+   "jabón",
+   "jugo",
+   "jarra",
+   "juguete",
+   "jardín",
+   "jaula",
+   "jamón",
+   "jinete",
+   "jícara"
+  ],
+  "inside": [
+   "ojo",
+   "oveja",
+   "abeja",
+   "caja",
+   "hoja",
+   "naranja",
+   "reloj",
+   "tijeras",
+   "conejo",
+   "ajo"
+  ],
+  "names": []
+ },
+ "letra-k": {
+  "start": [
+   "koala",
+   "kiwi",
+   "kilo",
+   "kárate",
+   "kétchup",
+   "kayak",
+   "kiosco"
+  ],
+  "inside": [
+   "bikini"
+  ],
+  "names": [
+   "Karina",
+   "Kevin",
+   "Karla",
+   "Kiara"
+  ]
+ },
+ "letra-l": {
+  "start": [
+   "león",
+   "luna",
+   "lápiz",
+   "libro",
+   "loro",
+   "lobo",
+   "limón",
+   "leche",
+   "lagarto",
+   "lluvia",
+   "llave",
+   "lámpara"
+  ],
+  "inside": [
+   "pelota",
+   "sol",
+   "árbol",
+   "ala",
+   "vela",
+   "papel",
+   "pala",
+   "maleta",
+   "caracol",
+   "palo"
+  ],
+  "names": []
+ },
+ "letra-m": {
+  "start": [
+   "manzana",
+   "mamá",
+   "mano",
+   "mesa",
+   "mono",
+   "moto",
+   "mar",
+   "mariposa",
+   "melón",
+   "mosca",
+   "muñeca",
+   "miel"
+  ],
+  "inside": [
+   "cama",
+   "lima",
+   "llama",
+   "tomate",
+   "camión",
+   "humo",
+   "pluma",
+   "paloma",
+   "camisa"
+  ],
+  "names": []
+ },
+ "letra-n": {
+  "start": [
+   "nido",
+   "nube",
+   "nariz",
+   "naranja",
+   "nieve",
+   "noche",
+   "nuez",
+   "número",
+   "nave",
+   "nadar"
+  ],
+  "inside": [
+   "luna",
+   "mano",
+   "cuna",
+   "rana",
+   "piano",
+   "banana",
+   "ventana",
+   "camión",
+   "pan"
+  ],
+  "names": []
+ },
+ "letra-enie": {
+  "start": [
+   "ñandú",
+   "ñu",
+   "ñoquis",
+   "ñame"
+  ],
+  "inside": [
+   "niño",
+   "piña",
+   "araña",
+   "muñeca",
+   "uña",
+   "año",
+   "baño",
+   "caña",
+   "leña",
+   "montaña",
+   "pañuelo",
+   "sueño",
+   "señal"
+  ],
+  "names": []
+ },
+ "letra-o": {
+  "start": [
+   "oso",
+   "oveja",
+   "ojo",
+   "oreja",
+   "ola",
+   "olla",
+   "ocho",
+   "oro",
+   "otoño",
+   "oruga",
+   "oca"
+  ],
+  "inside": [
+   "sol",
+   "lobo",
+   "mono",
+   "gato",
+   "perro",
+   "loro",
+   "foca",
+   "bota",
+   "pato"
+  ],
+  "names": []
+ },
+ "letra-p": {
+  "start": [
+   "pato",
+   "perro",
+   "pez",
+   "pera",
+   "piña",
+   "pingüino",
+   "pan",
+   "papá",
+   "pelota",
+   "pájaro",
+   "payaso",
+   "pulpo",
+   "piano"
+  ],
+  "inside": [
+   "sapo",
+   "sopa",
+   "mapa",
+   "lápiz",
+   "zapato",
+   "tapa",
+   "capa",
+   "lupa",
+   "mariposa"
+  ],
+  "names": []
+ },
+ "letra-q": {
+  "start": [
+   "queso",
+   "quince",
+   "quieto",
+   "química",
+   "quinto"
+  ],
+  "inside": [
+   "mosquito",
+   "parque",
+   "paquete",
+   "raqueta",
+   "tanque",
+   "esquimal",
+   "chaqueta",
+   "mantequilla",
+   "máquina",
+   "barquito"
+  ],
+  "names": []
+ },
+ "letra-r": {
+  "start": [
+   "ratón",
+   "rana",
+   "rosa",
+   "reloj",
+   "rey",
+   "regalo",
+   "río",
+   "rueda",
+   "robot",
+   "rojo",
+   "regla",
+   "rinoceronte"
+  ],
+  "inside": [
+   "pera",
+   "perro",
+   "loro",
+   "carro",
+   "flor",
+   "tigre",
+   "árbol",
+   "tortuga",
+   "girasol",
+   "cereza"
+  ],
+  "names": []
+ },
+ "letra-s": {
+  "start": [
+   "sol",
+   "sapo",
+   "sombrilla",
+   "silla",
+   "serpiente",
+   "sopa",
+   "sandía",
+   "seta",
+   "sirena",
+   "sofá",
+   "siete",
+   "sombrero"
+  ],
+  "inside": [
+   "casa",
+   "mesa",
+   "oso",
+   "rosa",
+   "queso",
+   "vaso",
+   "mosca",
+   "camisa",
+   "beso",
+   "pies"
+  ],
+  "names": []
+ },
+ "letra-t": {
+  "start": [
+   "tigre",
+   "tortuga",
+   "tomate",
+   "tren",
+   "taza",
+   "tambor",
+   "teléfono",
+   "tijeras",
+   "toro",
+   "torta",
+   "tiburón",
+   "tucán"
+  ],
+  "inside": [
+   "gato",
+   "pato",
+   "pelota",
+   "bota",
+   "botella",
+   "maleta",
+   "zapato",
+   "chocolate",
+   "patín"
+  ],
+  "names": []
+ },
+ "letra-u": {
+  "start": [
+   "uva",
+   "unicornio",
+   "uña",
+   "uno",
+   "universo",
+   "uniforme",
+   "urraca"
+  ],
+  "inside": [
+   "luna",
+   "nube",
+   "cuna",
+   "burro",
+   "tortuga",
+   "pulpo",
+   "fruta",
+   "azul",
+   "jugo"
+  ],
+  "names": []
+ },
+ "letra-v": {
+  "start": [
+   "vaca",
+   "volcán",
+   "vaso",
+   "vela",
+   "ventana",
+   "verde",
+   "violín",
+   "vestido",
+   "viento",
+   "vaquero"
+  ],
+  "inside": [
+   "uva",
+   "nieve",
+   "llave",
+   "avión",
+   "nave",
+   "lluvia",
+   "huevo",
+   "clavo",
+   "pavo"
+  ],
+  "names": []
+ },
+ "letra-w": {
+  "start": [
+   "wombat",
+   "web",
+   "wifi",
+   "waterpolo"
+  ],
+  "inside": [
+   "kiwi",
+   "sándwich",
+   "show"
+  ],
+  "names": [
+   "Walter",
+   "Wendy",
+   "William",
+   "Wilson"
+  ]
+ },
+ "letra-x": {
+  "start": [
+   "xilófono"
+  ],
+  "inside": [
+   "taxi",
+   "examen",
+   "éxito",
+   "boxeo",
+   "saxofón",
+   "texto",
+   "oxígeno",
+   "explorar",
+   "extraterrestre",
+   "México"
+  ],
+  "names": [
+   "Ximena",
+   "Xavier"
+  ]
+ },
+ "letra-y": {
+  "start": [
+   "yogui",
+   "yate",
+   "yema",
+   "yogur",
+   "yoyó",
+   "yegua",
+   "yeso",
+   "yuca"
+  ],
+  "inside": [
+   "playa",
+   "rayo",
+   "payaso",
+   "joya",
+   "mayo",
+   "ayer",
+   "hoy",
+   "rey",
+   "ley",
+   "buey"
+  ],
+  "names": []
+ },
+ "letra-z": {
+  "start": [
+   "zorro",
+   "zapato",
+   "zanahoria",
+   "zapatilla",
+   "zumo",
+   "zoológico",
+   "zona"
+  ],
+  "inside": [
+   "taza",
+   "pez",
+   "lápiz",
+   "nariz",
+   "maíz",
+   "arroz",
+   "cabeza",
+   "pizza",
+   "luz",
+   "calabaza"
+  ],
+  "names": []
+ }
+}

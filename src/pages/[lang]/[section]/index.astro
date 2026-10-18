@@ -6,13 +6,15 @@ import LetterTile from '../../../components/LetterTile.astro';
 import AppBlock from '../../../components/AppBlock.astro';
 import { appStoreUrl, playUrl } from '../../../site';
 import { t } from '../../../i18n';
-import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, articlesIn, path, type Lang, type SectionKind } from '../../../lib/routes';
+import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, articlesIn, wordsFor, path, type Lang, type SectionKind } from '../../../lib/routes';
+import { WORDS_COPY } from '../../../i18n/words';
 import { tileStyle } from '../../../lib/color';
 
 export function getStaticPaths() {
   return LANGS.flatMap((lang) =>
     Object.entries(SECTIONS[lang])
       .filter(([kind]) => kind !== 'articles' || articlesIn(lang).length > 0)
+      .filter(([kind]) => kind !== 'words' || WORDS_COPY[lang])
       .map(([kind, section]) => ({ params: { lang, section }, props: { kind } })),
   );
 }
@@ -29,6 +31,8 @@ const redirects = {
   pdf: { ios: appStoreUrl(`pdf_${lang}`), android: playUrl(`pdf_${lang}`, 'pdf') },
   pinterest: { ios: appStoreUrl(`pinterest_${lang}`), android: playUrl(`pinterest_${lang}`, 'pinterest') },
 };
+const W = WORDS_COPY[lang];
+const wordLetters = kind === 'words' ? letters.filter((l) => wordsFor(lang, l.slug)) : [];
 const tracingGuide = articlesIn(lang).find((a) => a.topic === 'tracing-guide');
 const articles = kind === 'articles' ? articlesIn(lang) : [];
 const dateFmt = new Intl.DateTimeFormat(tr.locale.replace('_', '-'), { dateStyle: 'long' });
@@ -80,6 +84,7 @@ const screens = kind === 'app'
         <h2>{tr.tracing.guideTitle}</h2>
         <Fragment set:html={tr.tracing.guide} />
         {tracingGuide && <p><a href={path.article(lang, tracingGuide.slug)}><b>{tr.articles.guideLink}: {tracingGuide.h1}</b></a></p>}
+        {W && path.section(lang, 'words') && <p><a href={path.section(lang, 'words')!}><b>{W.hubLink} →</b></a></p>}
       </div>
     </section>
     <section class="section">
@@ -118,6 +123,24 @@ const screens = kind === 'app'
     </section>
     <section class="section">
       <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_coloring`} /></div>
+    </section>
+  </Base>
+)}
+
+{kind === 'words' && W && (
+  <Base lang={lang} title={W.title} description={W.description} page={{ kind }}>
+    <section class="section">
+      <div class="wrap">
+        <h1>{W.h1}</h1>
+        <p class="lead">{W.lead}</p>
+        <h2>{W.gridTitle}</h2>
+        <div class="grid letters">
+          {wordLetters.map((l) => <LetterTile letter={l} href={path.wordsLetter(lang, l.slug)!} alt={tr.letter.characterAlt(l)} />)}
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_words`} /></div>
     </section>
   </Base>
 )}

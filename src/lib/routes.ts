@@ -5,7 +5,7 @@ const letterFiles = import.meta.glob('../../data/letters/*.json', { eager: true,
 
 type LangConfig = (typeof languages)[keyof typeof languages];
 export type Lang = keyof typeof languages;
-export type SectionKind = 'tracing' | 'app' | 'privacy' | 'imprint' | 'coloring' | 'articles';
+export type SectionKind = 'tracing' | 'app' | 'privacy' | 'imprint' | 'coloring' | 'articles' | 'words';
 
 // Languages switch on one by one via `enabled` in data/languages.json.
 export const LANGS = (Object.keys(languages) as Lang[]).filter((l) => languages[l].enabled);
@@ -37,10 +37,21 @@ export const path = {
   // Coloring pages exist only in languages with a `coloring` section.
   coloringLetter: (lang: Lang, slug: string) => (SECTIONS[lang].coloring ? `/${lang}/${SECTIONS[lang].coloring}/${slug}/` : null),
   article: (lang: Lang, slug: string) => `/${lang}/${SECTIONS[lang].articles}/${slug}/`,
+  // Word lists exist only in languages with a `words` section and data/words/<lang>.json.
+  wordsLetter: (lang: Lang, slug: string) => (SECTIONS[lang].words ? `/${lang}/${SECTIONS[lang].words}/${slug}/` : null),
   coloringPdf: (lang: Lang, slug: string, size: 'a4' | 'letter' = 'a4') => `/pdf/${lang}/coloring-${slug}${size === 'a4' ? '' : '-letter'}.pdf`,
   pdf: (lang: Lang, slug: string, size: 'a4' | 'letter' = 'a4') => `/pdf/${lang}/${slug}${size === 'a4' ? '' : '-letter'}.pdf`,
   pdfAll: (lang: Lang, size: 'a4' | 'letter' = 'a4') => `/pdf/${lang}/alphabet${size === 'a4' ? '' : '-letter'}.pdf`,
 };
+
+// Curated word lists per letter (data/words/<lang>.json, keyed by letter slug).
+export type WordList = { start: string[]; inside: string[]; names: string[] };
+const wordFiles = import.meta.glob<Record<string, WordList | string>>('../../data/words/*.json', { eager: true, import: 'default' });
+export function wordsFor(lang: Lang, slug: string): WordList | null {
+  if (!SECTIONS[lang].words) return null;
+  const v = wordFiles[`../../data/words/${lang}.json`]?.[slug];
+  return v && typeof v === 'object' ? v : null;
+}
 
 // Articles live in src/content/articles/<lang>/<slug>.md. Translations of one
 // article share a `topic` in their frontmatter, which pairs them for hreflang.
@@ -69,7 +80,8 @@ export type PageRef =
   | { kind: SectionKind }
   | { kind: 'letter'; lang: Lang; slug: string }
   | { kind: 'coloringLetter'; lang: Lang; slug: string }
-  | { kind: 'article'; topic: string };
+  | { kind: 'article'; topic: string }
+  | { kind: 'wordsLetter'; lang: Lang; slug: string };
 
 export function alternates(ref: PageRef): Partial<Record<Lang, string>> {
   const out: Partial<Record<Lang, string>> = {};
@@ -78,6 +90,8 @@ export function alternates(ref: PageRef): Partial<Record<Lang, string>> {
     else if (ref.kind === 'letter') {
       // Letter pages are language-specific (А ≠ A), so only the page itself is listed.
       if (lang === ref.lang) out[lang] = path.letter(lang, ref.slug);
+    } else if (ref.kind === 'wordsLetter') {
+      if (lang === ref.lang) out[lang] = path.wordsLetter(lang, ref.slug)!;
     } else if (ref.kind === 'article') {
       const a = ARTICLES.find((x) => x.lang === lang && x.topic === ref.topic);
       if (a) out[lang] = path.article(lang, a.slug);

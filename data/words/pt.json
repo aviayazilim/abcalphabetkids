@@ -1,0 +1,699 @@
+{
+ "_note": "TODO(review): curated word lists for kids, Brazilian Portuguese; have a native speaker check them.",
+ "letra-a": {
+  "start": [
+   "abelha",
+   "abacaxi",
+   "água",
+   "árvore",
+   "avião",
+   "amigo",
+   "anel",
+   "asa",
+   "aranha",
+   "abacate",
+   "alface",
+   "azul",
+   "amarelo",
+   "anjo",
+   "arco-íris",
+   "abóbora",
+   "aluno",
+   "amora"
+  ],
+  "inside": [
+   "casa",
+   "gato",
+   "bola",
+   "pato",
+   "mala",
+   "janela",
+   "banana",
+   "cama"
+  ],
+  "names": []
+ },
+ "letra-b": {
+  "start": [
+   "bola",
+   "banana",
+   "boneca",
+   "borboleta",
+   "bebê",
+   "barco",
+   "boca",
+   "bolo",
+   "biscoito",
+   "baleia",
+   "balão",
+   "bicicleta",
+   "burro",
+   "beijo",
+   "bota",
+   "banho",
+   "branco",
+   "bruxa"
+  ],
+  "inside": [
+   "cabelo",
+   "abelha",
+   "cabra",
+   "sabão",
+   "lobo",
+   "tubarão",
+   "abacate",
+   "cobra"
+  ],
+  "names": []
+ },
+ "letra-c": {
+  "start": [
+   "casa",
+   "cachorro",
+   "cama",
+   "carro",
+   "coelho",
+   "cavalo",
+   "copo",
+   "cobra",
+   "camelo",
+   "caneta",
+   "cabelo",
+   "cenoura",
+   "cebola",
+   "cereja",
+   "coração",
+   "chuva",
+   "chave",
+   "circo"
+  ],
+  "inside": [
+   "boca",
+   "macaco",
+   "vaca",
+   "faca",
+   "pipoca",
+   "maçã",
+   "taça",
+   "laço",
+   "bicicleta"
+  ],
+  "names": []
+ },
+ "letra-d": {
+  "start": [
+   "dado",
+   "dente",
+   "dinossauro",
+   "doce",
+   "dedo",
+   "dia",
+   "dois",
+   "dez",
+   "dragão",
+   "dança",
+   "desenho",
+   "dormir"
+  ],
+  "inside": [
+   "cadeira",
+   "moeda",
+   "soldado",
+   "escada",
+   "pomada",
+   "nadar",
+   "roda",
+   "tomada"
+  ],
+  "names": []
+ },
+ "letra-e": {
+  "start": [
+   "elefante",
+   "escola",
+   "estrela",
+   "escova",
+   "espelho",
+   "esquilo",
+   "ema",
+   "envelope",
+   "elástico",
+   "erva",
+   "égua",
+   "escada"
+  ],
+  "inside": [
+   "peixe",
+   "leite",
+   "mesa",
+   "dente",
+   "pente",
+   "neve",
+   "sete",
+   "pé",
+   "café",
+   "jacaré"
+  ],
+  "names": []
+ },
+ "letra-f": {
+  "start": [
+   "faca",
+   "foca",
+   "fada",
+   "flor",
+   "fogo",
+   "foguete",
+   "formiga",
+   "festa",
+   "folha",
+   "fruta",
+   "feijão",
+   "fita",
+   "fogão"
+  ],
+  "inside": [
+   "girafa",
+   "sofá",
+   "café",
+   "garrafa",
+   "alface",
+   "telefone",
+   "elefante",
+   "golfinho"
+  ],
+  "names": []
+ },
+ "letra-g": {
+  "start": [
+   "gato",
+   "galinha",
+   "girafa",
+   "galo",
+   "gelo",
+   "goiaba",
+   "gorila",
+   "garfo",
+   "gaveta",
+   "gema",
+   "girassol",
+   "grama",
+   "gota"
+  ],
+  "inside": [
+   "fogo",
+   "jogo",
+   "amigo",
+   "formiga",
+   "tigre",
+   "figo",
+   "lago",
+   "agulha",
+   "manga",
+   "bigode"
+  ],
+  "names": []
+ },
+ "letra-h": {
+  "start": [
+   "hipopótamo",
+   "hamster",
+   "hora",
+   "hoje",
+   "homem",
+   "hospital",
+   "hotel",
+   "helicóptero",
+   "horta",
+   "história"
+  ],
+  "inside": [
+   "chave",
+   "chuva",
+   "galinha",
+   "abelha",
+   "minhoca",
+   "folha",
+   "coelho",
+   "olho",
+   "joaninha"
+  ],
+  "names": []
+ },
+ "letra-i": {
+  "start": [
+   "igreja",
+   "ilha",
+   "índio",
+   "inverno",
+   "ideia",
+   "iogurte",
+   "ímã",
+   "irmão",
+   "iglu",
+   "inseto"
+  ],
+  "inside": [
+   "bicicleta",
+   "pipoca",
+   "sino",
+   "livro",
+   "pião",
+   "biscoito",
+   "abacaxi",
+   "kiwi",
+   "lápis"
+  ],
+  "names": []
+ },
+ "letra-j": {
+  "start": [
+   "jacaré",
+   "janela",
+   "joaninha",
+   "jabuti",
+   "jarra",
+   "jogo",
+   "jornal",
+   "jipe",
+   "jaca",
+   "jardim",
+   "jantar",
+   "juba"
+  ],
+  "inside": [
+   "queijo",
+   "beijo",
+   "laranja",
+   "caju",
+   "loja",
+   "feijão",
+   "hoje",
+   "ajudar"
+  ],
+  "names": []
+ },
+ "letra-k": {
+  "start": [
+   "kiwi",
+   "koala",
+   "karatê",
+   "ketchup",
+   "kit",
+   "kart"
+  ],
+  "inside": [
+   "skate",
+   "pokémon"
+  ],
+  "names": [
+   "Karina",
+   "Kátia",
+   "Kauã",
+   "Kevin",
+   "Kelly"
+  ]
+ },
+ "letra-l": {
+  "start": [
+   "leão",
+   "lápis",
+   "lua",
+   "livro",
+   "laranja",
+   "limão",
+   "lobo",
+   "lagarta",
+   "leite",
+   "lago",
+   "lixo",
+   "loja",
+   "luva"
+  ],
+  "inside": [
+   "bola",
+   "mala",
+   "bolo",
+   "janela",
+   "vela",
+   "sol",
+   "anel",
+   "flor",
+   "palhaço",
+   "galo"
+  ],
+  "names": []
+ },
+ "letra-m": {
+  "start": [
+   "macaco",
+   "mamãe",
+   "maçã",
+   "mesa",
+   "mão",
+   "mala",
+   "mar",
+   "melancia",
+   "morango",
+   "mosca",
+   "moto",
+   "menino",
+   "milho"
+  ],
+  "inside": [
+   "cama",
+   "camelo",
+   "lima",
+   "pomba",
+   "tomate",
+   "cometa",
+   "gema",
+   "limão"
+  ],
+  "names": []
+ },
+ "letra-n": {
+  "start": [
+   "navio",
+   "neve",
+   "ninho",
+   "nariz",
+   "nuvem",
+   "nota",
+   "noite",
+   "nove",
+   "novelo",
+   "nabo"
+  ],
+  "inside": [
+   "banana",
+   "boneca",
+   "janela",
+   "cenoura",
+   "menino",
+   "sino",
+   "pena",
+   "panela",
+   "canoa"
+  ],
+  "names": []
+ },
+ "letra-o": {
+  "start": [
+   "ovo",
+   "ovelha",
+   "olho",
+   "orelha",
+   "onça",
+   "osso",
+   "ônibus",
+   "ouro",
+   "óculos",
+   "oito",
+   "onda",
+   "outono"
+  ],
+  "inside": [
+   "bola",
+   "gato",
+   "pato",
+   "foca",
+   "lobo",
+   "sapo",
+   "copo",
+   "rato"
+  ],
+  "names": []
+ },
+ "letra-p": {
+  "start": [
+   "pato",
+   "pipoca",
+   "pera",
+   "peixe",
+   "papai",
+   "porco",
+   "pente",
+   "pé",
+   "panela",
+   "pássaro",
+   "pinguim",
+   "palhaço",
+   "pião"
+  ],
+  "inside": [
+   "sapo",
+   "copo",
+   "sopa",
+   "lápis",
+   "chapéu",
+   "capa",
+   "tapete",
+   "lupa"
+  ],
+  "names": []
+ },
+ "letra-q": {
+  "start": [
+   "queijo",
+   "quati",
+   "quadro",
+   "quarto",
+   "quatro",
+   "quente",
+   "quiabo",
+   "quintal",
+   "quebra-cabeça"
+  ],
+  "inside": [
+   "leque",
+   "esquilo",
+   "parque",
+   "periquito",
+   "moleque",
+   "raquete"
+  ],
+  "names": []
+ },
+ "letra-r": {
+  "start": [
+   "rato",
+   "raposa",
+   "rei",
+   "relógio",
+   "rosa",
+   "roda",
+   "rua",
+   "rio",
+   "régua",
+   "rede",
+   "rã",
+   "rabo"
+  ],
+  "inside": [
+   "carro",
+   "barco",
+   "cenoura",
+   "girafa",
+   "arara",
+   "pera",
+   "flor",
+   "árvore",
+   "torre",
+   "cachorro"
+  ],
+  "names": []
+ },
+ "letra-s": {
+  "start": [
+   "sapo",
+   "sol",
+   "sino",
+   "sopa",
+   "sapato",
+   "sabão",
+   "saia",
+   "sorvete",
+   "sete",
+   "suco",
+   "sofá",
+   "serpente"
+  ],
+  "inside": [
+   "casa",
+   "mesa",
+   "rosa",
+   "pássaro",
+   "osso",
+   "vaso",
+   "lápis",
+   "asa",
+   "blusa"
+  ],
+  "names": []
+ },
+ "letra-t": {
+  "start": [
+   "tatu",
+   "tomate",
+   "tigre",
+   "tartaruga",
+   "telefone",
+   "tesoura",
+   "tapete",
+   "tambor",
+   "torta",
+   "trem",
+   "tubarão",
+   "tucano"
+  ],
+  "inside": [
+   "gato",
+   "pato",
+   "rato",
+   "pente",
+   "sete",
+   "batata",
+   "foguete",
+   "chocolate"
+  ],
+  "names": []
+ },
+ "letra-u": {
+  "start": [
+   "uva",
+   "urso",
+   "unha",
+   "um",
+   "unicórnio",
+   "urubu",
+   "uniforme",
+   "umbigo"
+  ],
+  "inside": [
+   "lua",
+   "rua",
+   "suco",
+   "tatu",
+   "luva",
+   "chuva",
+   "nuvem",
+   "caju",
+   "tucano"
+  ],
+  "names": []
+ },
+ "letra-v": {
+  "start": [
+   "vaca",
+   "vela",
+   "vaso",
+   "violão",
+   "vassoura",
+   "verde",
+   "vento",
+   "vovó",
+   "vovô",
+   "vulcão",
+   "vestido",
+   "viola"
+  ],
+  "inside": [
+   "uva",
+   "ovo",
+   "ovelha",
+   "neve",
+   "luva",
+   "nuvem",
+   "chuva",
+   "livro",
+   "navio",
+   "chave"
+  ],
+  "names": []
+ },
+ "letra-w": {
+  "start": [
+   "wafer",
+   "waffle",
+   "windsurf",
+   "wombat"
+  ],
+  "inside": [
+   "kiwi",
+   "show"
+  ],
+  "names": [
+   "Wagner",
+   "Wesley",
+   "Walter",
+   "Wanda",
+   "William"
+  ]
+ },
+ "letra-x": {
+  "start": [
+   "xícara",
+   "xampu",
+   "xadrez",
+   "xarope",
+   "xale",
+   "xerife",
+   "xilofone",
+   "xodó"
+  ],
+  "inside": [
+   "abacaxi",
+   "peixe",
+   "caixa",
+   "bruxa",
+   "ameixa",
+   "lixo",
+   "táxi",
+   "graxa",
+   "feixe"
+  ],
+  "names": []
+ },
+ "letra-y": {
+  "start": [
+   "yeti",
+   "yakisoba",
+   "yoga"
+  ],
+  "inside": [
+   "playground",
+   "hobby",
+   "pony"
+  ],
+  "names": [
+   "Yasmin",
+   "Yuri",
+   "Yago",
+   "Yara"
+  ]
+ },
+ "letra-z": {
+  "start": [
+   "zebra",
+   "zero",
+   "zíper",
+   "zoológico",
+   "zangão",
+   "zumbido",
+   "zabumba"
+  ],
+  "inside": [
+   "azul",
+   "buzina",
+   "cozinha",
+   "beleza",
+   "dez",
+   "luz",
+   "noz",
+   "arroz",
+   "vazio"
+  ],
+  "names": []
+ }
+}

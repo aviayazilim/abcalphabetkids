@@ -121,7 +121,8 @@
       "app": "app",
       "privacy": "privacidad",
       "coloring": "abecedario-para-colorear",
-      "articles": "articulos"
+      "articles": "articulos",
+      "words": "palabras"
     },
     "paper": [
       "a4",
@@ -145,7 +146,8 @@
       "app": "aplicativo",
       "privacy": "privacidade",
       "coloring": "alfabeto-para-colorir",
-      "articles": "artigos"
+      "articles": "artigos",
+      "words": "palavras"
     },
     "paper": [
       "a4"
