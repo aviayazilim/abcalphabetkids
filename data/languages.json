@@ -8,7 +8,8 @@
       "privacy": "konfidentsialnost",
       "coloring": "raskraski",
       "articles": "stati",
-      "words": "slova"
+      "words": "slova",
+      "name": "propis-imeni"
     },
     "paper": [
       "a4"
@@ -33,7 +34,8 @@
       "imprint": "impressum",
       "coloring": "buchstaben-ausmalbilder",
       "articles": "ratgeber",
-      "words": "woerter"
+      "words": "woerter",
+      "name": "name-nachspuren"
     },
     "paper": [
       "a4"
@@ -67,7 +69,8 @@
       "privacy": "privacy",
       "coloring": "coloring-pages",
       "articles": "guides",
-      "words": "words"
+      "words": "words",
+      "name": "name-tracing"
     },
     "paper": [
       "letter",
@@ -102,7 +105,8 @@
       "privacy": "gizlilik",
       "coloring": "harf-boyama",
       "articles": "rehber",
-      "words": "kelimeler"
+      "words": "kelimeler",
+      "name": "isim-yazma-calismasi"
     },
     "paper": [
       "a4"
@@ -126,7 +130,8 @@
       "privacy": "privacidad",
       "coloring": "abecedario-para-colorear",
       "articles": "articulos",
-      "words": "palabras"
+      "words": "palabras",
+      "name": "nombre-para-repasar"
     },
     "paper": [
       "a4",
@@ -151,7 +156,8 @@
       "privacy": "privacidade",
       "coloring": "alfabeto-para-colorir",
       "articles": "artigos",
-      "words": "palavras"
+      "words": "palavras",
+      "name": "nome-pontilhado"
     },
     "paper": [
       "a4"
@@ -175,7 +181,8 @@
       "privacy": "prywatnosc",
       "coloring": "kolorowanki-litery",
       "articles": "poradniki",
-      "words": "slowa"
+      "words": "slowa",
+      "name": "imie-po-sladzie"
     },
     "paper": [
       "a4"
@@ -200,7 +207,8 @@
       "imprint": "mentions-legales",
       "coloring": "coloriages-alphabet",
       "articles": "conseils",
-      "words": "mots"
+      "words": "mots",
+      "name": "prenom-a-tracer"
     },
     "paper": [
       "a4"

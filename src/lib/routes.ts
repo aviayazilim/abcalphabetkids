@@ -5,7 +5,7 @@ const letterFiles = import.meta.glob('../../data/letters/*.json', { eager: true,
 
 type LangConfig = (typeof languages)[keyof typeof languages];
 export type Lang = keyof typeof languages;
-export type SectionKind = 'tracing' | 'app' | 'privacy' | 'imprint' | 'coloring' | 'articles' | 'words';
+export type SectionKind = 'tracing' | 'app' | 'privacy' | 'imprint' | 'coloring' | 'articles' | 'words' | 'name';
 
 // Languages switch on one by one via `enabled` in data/languages.json.
 export const LANGS = (Object.keys(languages) as Lang[]).filter((l) => languages[l].enabled);

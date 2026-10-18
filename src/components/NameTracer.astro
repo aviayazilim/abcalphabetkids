@@ -1,0 +1,228 @@
+---
+import '@fontsource/andika/400.css';
+import type { NameCopy } from '../i18n/name';
+
+// Name tracing worksheet built in the browser: nothing is sent anywhere.
+// The sheet mirrors scripts/make-pdf.mjs (mm units, same ruling and fonts).
+interface Props {
+  lang: string;
+  copy: NameCopy;
+  sheet: { name: string; date: string; qr: string; scan: string };
+  letters: { letter: string; img: string | null; color: string | null }[];
+  qrSvg: string;
+  paper: ('a4' | 'letter')[];
+}
+const { lang, copy: N, sheet, letters, qrSvg, paper } = Astro.props;
+const locale = lang === 'tr' ? 'tr' : lang;
+const sample = N.placeholder;
+const up = (s: string) => s.toLocaleUpperCase(locale);
+const low = (s: string) => s.toLocaleLowerCase(locale);
+const cases = [
+  { key: 'cap', label: up(sample.charAt(0)) + low(sample.slice(1)) },
+  { key: 'up', label: up(sample) },
+  { key: 'low', label: low(sample) },
+];
+const config = { locale, letters, errEmpty: N.errEmpty, errInvalid: N.errInvalid, defaultPaper: paper[0] };
+---
+<div class="nt">
+  <form class="nt-form card" id="nt-form" novalidate>
+    <label class="field">
+      <span>{N.nameLabel}</span>
+      <input id="nt-name" type="text" value={sample} maxlength="14" autocomplete="off" spellcheck="false" />
+      <small class="err" id="nt-err" aria-live="polite"></small>
+    </label>
+    <fieldset class="field">
+      <legend>{N.caseLabel}</legend>
+      <div class="seg" id="nt-case">
+        {cases.map((c, i) => <button type="button" data-case={c.key} aria-pressed={i === 0 ? 'true' : 'false'}>{c.label}</button>)}
+      </div>
+    </fieldset>
+    <label class="field">
+      <span>{N.rowsLabel}: <b id="nt-rows-out">4</b></span>
+      <input id="nt-rows" type="range" min="2" max="6" step="1" value="4" />
+    </label>
+    <label class="check"><input id="nt-char" type="checkbox" checked /> {N.characterLabel}</label>
+    <label class="check"><input id="nt-empty" type="checkbox" checked /> {N.emptyRowLabel}</label>
+    <fieldset class="field">
+      <legend>{N.paperLabel}</legend>
+      <div class="seg" id="nt-paper">
+        {['a4', 'letter'].map((p) => <button type="button" data-paper={p} aria-pressed={p === paper[0] ? 'true' : 'false'}>{p === 'a4' ? 'A4' : 'US Letter'}</button>)}
+      </div>
+    </fieldset>
+    <button type="submit" class="btn">{N.print}</button>
+    <p class="muted small">{N.privacy}</p>
+  </form>
+
+  <div class="nt-preview" id="nt-preview" aria-label={N.previewLabel} role="img">
+    <div class="nt-scale" id="nt-scale">
+      <div class="nt-sheet" id="nt-page">
+        <div class="head"><span>{sheet.name}<i></i></span><span>{sheet.date}<i class="short"></i></span></div>
+        <p class="title">{N.sheetTitle}</p>
+        <div class="rows" id="nt-rows-box"></div>
+        <div class="foot">
+          <div class="charbox" id="nt-charbox">
+            <svg viewBox="0 0 60 66" class="hollow"><text id="nt-hollow" x="30" y="56" text-anchor="middle" font-size="64"></text></svg>
+            <img id="nt-charimg" alt="" />
+            <span class="hint">{N.colorHint}</span>
+          </div>
+          <div class="qr" set:html={qrSvg} />
+          <div class="qr-text"><p class="qr-title">{sheet.qr}</p><p class="qr-sub">{sheet.scan}</p></div>
+          <div class="site"><img src="/img/icon.webp" alt="" />abcalphabetkids.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="nt-print" aria-hidden="true"></div>
+<style id="nt-page-size" is:inline>@page { size: A4; margin: 0; }</style>
+
+<script is:inline define:vars={{ config }}>
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var $ = function (id) { return document.getElementById(id); };
+  var state = { kase: 'cap', paper: config.defaultPaper };
+  var byLetter = {};
+  var allowed = new Set([' ', '-', '\'']);
+  config.letters.forEach(function (l) {
+    byLetter[l.letter] = l;
+    allowed.add(l.letter); allowed.add(l.letter.toLocaleLowerCase(config.locale));
+  });
+  var up = function (s) { return s.toLocaleUpperCase(config.locale); };
+  var low = function (s) { return s.toLocaleLowerCase(config.locale); };
+  function format(name) {
+    if (state.kase === 'up') return up(name);
+    if (state.kase === 'low') return low(name);
+    return name.split(/([ -])/).map(function (p) { return p.length > 1 || /[^ -]/.test(p) ? up(p.charAt(0)) + low(p.slice(1)) : p; }).join('');
+  }
+  function line(svg, y, dash) {
+    var l = document.createElementNS(NS, 'line');
+    l.setAttribute('x1', 0); l.setAttribute('x2', 186); l.setAttribute('y1', y); l.setAttribute('y2', y);
+    l.setAttribute('stroke', dash ? '#c3c7cf' : '#9aa0aa'); l.setAttribute('stroke-width', dash ? 0.25 : 0.3);
+    if (dash) l.setAttribute('stroke-dasharray', '1.5 1.2');
+    svg.appendChild(l);
+  }
+  function row(text, cls) {
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 186 25'); svg.setAttribute('class', 'row');
+    $('nt-rows-box').appendChild(svg);
+    line(svg, 3); line(svg, 10.2, true); line(svg, 19); line(svg, 23.5, true);
+    if (!text) return;
+    var t = document.createElementNS(NS, 'text');
+    t.setAttribute('x', 1); t.setAttribute('y', 19); t.setAttribute('font-size', 21.5); t.setAttribute('class', cls);
+    t.textContent = text; svg.appendChild(t);
+    var w = t.getComputedTextLength();
+    if (w > 183) t.setAttribute('font-size', (21.5 * 183 / w).toFixed(2));
+  }
+  function render() {
+    var raw = $('nt-name').value.trim().replace(/\s+/g, ' ');
+    var err = '';
+    if (!raw) err = config.errEmpty;
+    else if (Array.from(raw).some(function (c) { return !allowed.has(c); })) err = config.errInvalid;
+    $('nt-err').textContent = err;
+    if (err) return;
+    var text = format(raw);
+    var n = +$('nt-rows').value;
+    $('nt-rows-out').textContent = n;
+    $('nt-rows-box').innerHTML = '';
+    row(text, 'model');
+    for (var i = 0; i < n; i++) row(text, 'trace-text');
+    if ($('nt-empty').checked) row('', '');
+    var first = up(Array.from(text)[0]);
+    var l = byLetter[first];
+    var box = $('nt-charbox');
+    box.hidden = !$('nt-char').checked;
+    box.style.setProperty('--c', (l && l.color) || '#1f2330');
+    $('nt-hollow').textContent = first;
+    var img = $('nt-charimg');
+    if (l && l.img) { img.src = '/img/characters/' + l.img + '.webp'; img.hidden = false; } else { img.hidden = true; }
+  }
+  function setPaper(p) {
+    state.paper = p;
+    var size = p === 'letter' ? ['215.9mm', '279.4mm', 'letter'] : ['210mm', '297mm', 'A4'];
+    $('nt-page').style.setProperty('--pw', size[0]); $('nt-page').style.setProperty('--ph', size[1]);
+    $('nt-page-size').textContent = '@page { size: ' + size[2] + '; margin: 0; }';
+    fit();
+  }
+  function fit() {
+    var page = $('nt-page'), box = $('nt-preview');
+    var s = Math.min(1, box.clientWidth / page.offsetWidth);
+    $('nt-scale').style.transform = 'scale(' + s + ')';
+    $('nt-scale').style.height = page.offsetHeight * s + 'px';
+  }
+  function pick(group, attr, fn) {
+    $(group).addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      $(group).querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      fn(b.dataset[attr]);
+    });
+  }
+  pick('nt-case', 'case', function (v) { state.kase = v; render(); });
+  pick('nt-paper', 'paper', setPaper);
+  ['nt-name', 'nt-rows', 'nt-char', 'nt-empty'].forEach(function (id) { $(id).addEventListener('input', render); });
+  // Printing: copy the sheet into a top-level container that is the only thing on paper.
+  document.body.appendChild($('nt-print'));
+  window.addEventListener('beforeprint', function () {
+    var copy = $('nt-page').cloneNode(true); copy.removeAttribute('id');
+    copy.querySelectorAll('[id]').forEach(function (el) { el.removeAttribute('id'); });
+    $('nt-print').innerHTML = ''; $('nt-print').appendChild(copy);
+  });
+  $('nt-form').addEventListener('submit', function (e) { e.preventDefault(); if (!$('nt-err').textContent) window.print(); });
+  if (window.ResizeObserver) new ResizeObserver(fit).observe($('nt-preview'));
+  setPaper(state.paper);
+  render();
+  document.fonts.load('21px Andika', $('nt-name').value).then(function () { render(); fit(); });
+})();
+</script>
+
+<style>
+  .nt { display: grid; gap: 24px; align-items: start; }
+  @media (min-width: 860px) { .nt { grid-template-columns: minmax(0, 300px) minmax(0, 1fr); } }
+  .nt-form { display: grid; gap: 16px; }
+  .field { display: grid; gap: 6px; border: 0; margin: 0; padding: 0; min-width: 0; }
+  .field > span, legend { font-weight: 700; font-size: 0.95rem; padding: 0; }
+  .field input[type='text'] { font: inherit; font-size: 1.2rem; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+  .field input[type='range'] { width: 100%; }
+  .err { color: #b3261e; min-height: 1em; }
+  .seg { display: flex; flex-wrap: wrap; gap: 8px; }
+  .seg button { font: inherit; font-weight: 700; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: #fff; cursor: pointer; }
+  .seg button[aria-pressed='true'] { border-color: var(--ink); background: var(--ink); color: #fff; }
+  .check { display: flex; gap: 8px; align-items: center; font-weight: 600; }
+  .small { font-size: 0.85rem; margin: 0; }
+  .nt-preview { min-width: 0; overflow: hidden; }
+  .nt-scale { transform-origin: top left; }
+  #nt-print { display: none; }
+</style>
+
+<style is:global>
+  .nt-sheet { --pw: 210mm; --ph: 297mm; width: var(--pw); height: var(--ph); padding: 11mm 12mm 9mm; display: flex; flex-direction: column; overflow: hidden;
+    background: #fff; color: #1f2330; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 0 0 1px var(--line, #e2ddd2); }
+  .nt-sheet .head { display: flex; gap: 10mm; font-size: 11pt; font-weight: 700; color: #5d6475; }
+  .nt-sheet .head span { display: flex; align-items: flex-end; gap: 2mm; }
+  .nt-sheet .head span:first-child { flex: 1; }
+  .nt-sheet .head i { display: block; flex: 1; min-width: 30mm; border-bottom: 0.3mm solid #b9bec8; height: 5mm; }
+  .nt-sheet .head i.short { flex: none; width: 30mm; }
+  .nt-sheet .title { font-size: 20pt; font-weight: 900; margin: 7mm 0 4mm; }
+  .nt-sheet .rows { flex: 1; display: flex; flex-direction: column; gap: 8mm; }
+  .nt-sheet .row { width: 100%; height: auto; display: block; overflow: visible; }
+  .nt-sheet .trace-text { font-family: Andika, sans-serif; fill: none; stroke: #8a909c; stroke-width: 0.35; stroke-dasharray: 1.5 1; stroke-linecap: round; }
+  .nt-sheet .model { font-family: Andika, sans-serif; fill: #c9ccd3; }
+  .nt-sheet .foot { display: flex; align-items: center; gap: 4mm; border-top: 0.3mm solid #e2ddd2; padding-top: 3mm; }
+  .nt-sheet .charbox { display: flex; align-items: center; gap: 3mm; border: 0.6mm solid var(--c); border-radius: 4mm; padding: 2mm 3mm; margin-right: auto; }
+  .nt-sheet .charbox[hidden] { display: none; }
+  .nt-sheet .hollow { width: 18mm; height: 20mm; }
+  .nt-sheet .hollow text { font-family: Andika, sans-serif; fill: none; stroke: #1f2330; stroke-width: 1.1; }
+  .nt-sheet .charbox img { width: 18mm; height: 18mm; object-fit: contain; }
+  .nt-sheet .hint { font-size: 9pt; color: #5d6475; max-width: 34mm; }
+  .nt-sheet .qr { width: 17mm; height: 17mm; flex: none; }
+  .nt-sheet .qr svg { width: 100%; height: 100%; display: block; }
+  .nt-sheet .qr-text { max-width: 42mm; }
+  .nt-sheet .qr-title { margin: 0; font-weight: 800; font-size: 9.5pt; }
+  .nt-sheet .qr-sub { margin: 0; font-size: 8.5pt; color: #5d6475; }
+  .nt-sheet .site { display: flex; align-items: center; gap: 2mm; font-weight: 800; font-size: 9pt; }
+  .nt-sheet .site img { width: 7mm; height: 7mm; border-radius: 2mm; }
+  @media print {
+    body > :not(#nt-print) { display: none !important; }
+    #nt-print { display: block !important; }
+    #nt-print .nt-sheet { box-shadow: none; }
+  }
+</style>

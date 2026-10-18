@@ -8,6 +8,11 @@ import { appStoreUrl, playUrl } from '../../../site';
 import { t } from '../../../i18n';
 import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, articlesIn, wordsFor, path, type Lang, type SectionKind } from '../../../lib/routes';
 import { WORDS_COPY } from '../../../i18n/words';
+import { NAME_COPY } from '../../../i18n/name';
+import NameTracer from '../../../components/NameTracer.astro';
+import languages from '../../../../data/languages.json';
+import QRCode from 'qrcode';
+import { SITE } from '../../../site';
 import { tileStyle } from '../../../lib/color';
 
 export function getStaticPaths() {
@@ -30,8 +35,24 @@ const bySymbol = new Map(letters.map((l) => [l.letter, l]));
 const redirects = {
   pdf: { ios: appStoreUrl(`pdf_${lang}`), android: playUrl(`pdf_${lang}`, 'pdf') },
   pinterest: { ios: appStoreUrl(`pinterest_${lang}`), android: playUrl(`pinterest_${lang}`, 'pinterest') },
+  name: { ios: appStoreUrl(`name_${lang}`), android: playUrl(`name_${lang}`, 'name') },
 };
 const W = WORDS_COPY[lang];
+const NC = NAME_COPY[lang];
+const nameData = kind === 'name' ? {
+  sheet: (languages as Record<string, { sheet: { name: string; date: string; qr: string; scan: string } }>)[lang].sheet,
+  letters: letters.map((l) => ({ letter: l.letter, img: l.character ?? l.characterImage, color: l.color })),
+  qrSvg: await QRCode.toString(`${SITE.url}/${lang}/${SECTIONS[lang].app}/?c=name`, { type: 'svg', margin: 0, errorCorrectionLevel: 'M', color: { dark: '#1f2330', light: '#ffffff' } }),
+} : null;
+const nameJsonLd = kind === 'name' ? {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebApplication', name: NC.h1, description: NC.description, url: new URL(path.section(lang, 'name')!, SITE.url).href,
+      applicationCategory: 'EducationalApplication', operatingSystem: 'Any', inLanguage: lang, isAccessibleForFree: true,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+    { '@type': 'FAQPage', mainEntity: NC.faq.map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })) },
+  ],
+} : null;
 const wordLetters = kind === 'words' ? letters.filter((l) => wordsFor(lang, l.slug)) : [];
 const tracingGuide = articlesIn(lang).find((a) => a.topic === 'tracing-guide');
 const articles = kind === 'articles' ? articlesIn(lang) : [];
@@ -85,6 +106,7 @@ const screens = kind === 'app'
         <Fragment set:html={tr.tracing.guide} />
         {tracingGuide && <p><a href={path.article(lang, tracingGuide.slug)}><b>{tr.articles.guideLink}: {tracingGuide.h1}</b></a></p>}
         {W && path.section(lang, 'words') && <p><a href={path.section(lang, 'words')!}><b>{W.hubLink} →</b></a></p>}
+        {path.section(lang, 'name') && <p><a href={path.section(lang, 'name')!}><b>{NC.hubLink} →</b></a></p>}
       </div>
     </section>
     <section class="section">
@@ -123,6 +145,36 @@ const screens = kind === 'app'
     </section>
     <section class="section">
       <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_coloring`} /></div>
+    </section>
+  </Base>
+)}
+
+{kind === 'name' && nameData && (
+  <Base lang={lang} title={NC.title} description={NC.description} page={{ kind }}>
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(nameJsonLd)} />
+    <section class="section">
+      <div class="wrap">
+        <h1>{NC.h1}</h1>
+        <p class="lead">{NC.lead}</p>
+        <NameTracer lang={lang} copy={NC} sheet={nameData.sheet} letters={nameData.letters} qrSvg={nameData.qrSvg} paper={PAPER[lang]} />
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap prose">
+        <h2>{NC.guideTitle}</h2>
+        <Fragment set:html={NC.guide} />
+        <h2>{NC.faqTitle}</h2>
+        {NC.faq.map((x) => (
+          <details class="faq">
+            <summary>{x.q}</summary>
+            <p>{x.a}</p>
+          </details>
+        ))}
+        <p><a href={path.section(lang, 'tracing')!}><b>{tr.nav.tracing} →</b></a></p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_name`} /></div>
     </section>
   </Base>
 )}
@@ -228,6 +280,9 @@ const screens = kind === 'app'
   .coloring-grid a:hover { outline: 3px solid var(--ink); outline-offset: 2px; }
   .coloring-grid img { width: 100%; height: auto; border: 1px solid var(--line); }
   .coloring-grid .ph { display: grid; place-items: center; aspect-ratio: 595 / 842; border-radius: 10px; background: var(--c); color: var(--fg); font-size: 3rem; font-weight: 900; }
+  .faq { border-bottom: 1px solid var(--line); padding: 12px 0; }
+  .faq summary { font-weight: 800; cursor: pointer; }
+  .faq p { margin: 8px 0 0; }
   .article-list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 16px; max-width: 46em; }
   .article-list h2 { margin: 0 0 8px; }
   .article-list p { margin: 0 0 8px; }
