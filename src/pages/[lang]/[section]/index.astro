@@ -10,10 +10,12 @@ import { LANGS, SECTIONS, LETTERS, PAPER, PAPER_LABEL, articlesIn, wordsFor, pat
 import { WORDS_COPY } from '../../../i18n/words';
 import { NAME_COPY } from '../../../i18n/name';
 import NameTracer from '../../../components/NameTracer.astro';
+import NameCard from '../../../components/NameCard.astro';
+import { NAMECARD_COPY } from '../../../i18n/namecard';
 import languages from '../../../../data/languages.json';
 import QRCode from 'qrcode';
 import { SITE } from '../../../site';
-import { tileStyle } from '../../../lib/color';
+import { tileStyle, tint, inkOn } from '../../../lib/color';
 
 export function getStaticPaths() {
   return LANGS.flatMap((lang) =>
@@ -43,6 +45,17 @@ const nameData = kind === 'name' ? {
   sheet: (languages as Record<string, { sheet: { name: string; date: string; qr: string; scan: string } }>)[lang].sheet,
   letters: letters.map((l) => ({ letter: l.letter, img: l.character ?? l.characterImage, color: l.color })),
   qrSvg: await QRCode.toString(`${SITE.url}/${lang}/${SECTIONS[lang].app}/?c=name`, { type: 'svg', margin: 0, errorCorrectionLevel: 'M', color: { dark: '#1f2330', light: '#ffffff' } }),
+} : null;
+const NK = NAMECARD_COPY[lang];
+const cardLetters = kind === 'namecard' ? letters.map((l) => ({ letter: l.letter, img: l.character ?? l.characterImage, bg: tint(l.color), ink: inkOn(l.color) })) : [];
+const cardJsonLd = kind === 'namecard' ? {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebApplication', name: NK.h1, description: NK.description, url: new URL(path.section(lang, 'namecard')!, SITE.url).href,
+      applicationCategory: 'EducationalApplication', operatingSystem: 'Any', inLanguage: lang, isAccessibleForFree: true,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+    { '@type': 'FAQPage', mainEntity: NK.faq.map((x) => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })) },
+  ],
 } : null;
 const nameJsonLd = kind === 'name' ? {
   '@context': 'https://schema.org',
@@ -75,6 +88,7 @@ const screens = kind === 'app'
         <div class="more-tools">
           {W && path.section(lang, 'words') && <a class="btn btn-quiet" href={path.section(lang, 'words')!}>{W.hubLink} →</a>}
           {path.section(lang, 'name') && <a class="btn btn-quiet" href={path.section(lang, 'name')!}>{NC.card.title} →</a>}
+          {path.section(lang, 'namecard') && <a class="btn btn-quiet" href={path.section(lang, 'namecard')!}>{NK.link} →</a>}
         </div>
       </div>
     </section>
@@ -153,6 +167,36 @@ const screens = kind === 'app'
   </Base>
 )}
 
+{kind === 'namecard' && (
+  <Base lang={lang} title={NK.title} description={NK.description} page={{ kind }}>
+    <script slot="head" type="application/ld+json" set:html={JSON.stringify(cardJsonLd)} />
+    <section class="section">
+      <div class="wrap">
+        <h1>{NK.h1}</h1>
+        <p class="lead">{NK.lead}</p>
+        <NameCard lang={lang} copy={NK} nameLabel={NC.nameLabel} placeholder={NC.placeholder} errEmpty={NC.errEmpty} errInvalid={NC.errInvalid} privacy={NK.privacy} letters={cardLetters} />
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap prose">
+        <h2>{NK.ideasTitle}</h2>
+        <ul>{NK.ideas.map((x) => <li>{x}</li>)}</ul>
+        <h2>{NK.faqTitle}</h2>
+        {NK.faq.map((x) => (
+          <details class="faq">
+            <summary>{x.q}</summary>
+            <p>{x.a}</p>
+          </details>
+        ))}
+        <p><a href={path.section(lang, 'name')!}><b>{NC.card.title} →</b></a> · <a href={path.section(lang, 'tracing')!}><b>{tr.nav.tracing} →</b></a></p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap"><AppBlock lang={lang} campaign={`site_${lang}_namecard`} /></div>
+    </section>
+  </Base>
+)}
+
 {kind === 'name' && nameData && (
   <Base lang={lang} title={NC.title} description={NC.description} page={{ kind }}>
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(nameJsonLd)} />
@@ -174,7 +218,7 @@ const screens = kind === 'app'
             <p>{x.a}</p>
           </details>
         ))}
-        <p><a href={path.section(lang, 'tracing')!}><b>{tr.nav.tracing} →</b></a></p>
+        <p><a href={path.section(lang, 'namecard')!}><b>{NK.link} →</b></a> · <a href={path.section(lang, 'tracing')!}><b>{tr.nav.tracing} →</b></a></p>
       </div>
     </section>
     <section class="section">

@@ -1,0 +1,204 @@
+---
+import type { NameCardCopy } from '../i18n/namecard';
+
+// "Name in pictures": each letter of a name drawn as its character tile on a canvas,
+// downloadable as PNG or printable on A4. Built in the browser; nothing is sent anywhere.
+interface Props {
+  lang: string;
+  copy: NameCardCopy;
+  nameLabel: string;
+  placeholder: string;
+  errEmpty: string;
+  errInvalid: string;
+  privacy: string;
+  letters: { letter: string; img: string | null; bg: string; ink: string }[];
+}
+const { lang, copy: C, nameLabel, placeholder, errEmpty, errInvalid, privacy, letters } = Astro.props;
+const config = { locale: lang === 'tr' ? 'tr' : lang, letters, errEmpty, errInvalid };
+---
+<div class="nc">
+  <form class="nc-form card" id="nc-form" novalidate>
+    <label class="field">
+      <span>{nameLabel}</span>
+      <input id="nc-name" type="text" value={placeholder} maxlength="14" autocomplete="off" spellcheck="false" />
+      <small class="err" id="nc-err" aria-live="polite"></small>
+    </label>
+    <fieldset class="field">
+      <legend>{C.formatLabel}</legend>
+      <div class="seg" id="nc-format">
+        <button type="button" data-format="square" aria-pressed="true">{C.formats.square}</button>
+        <button type="button" data-format="story" aria-pressed="false">{C.formats.story}</button>
+        <button type="button" data-format="print" aria-pressed="false">{C.formats.print}</button>
+      </div>
+    </fieldset>
+    <button type="submit" class="btn">{C.download}</button>
+    <button type="button" class="btn btn-quiet" id="nc-print-btn">{C.print}</button>
+    <p class="muted small">{privacy}</p>
+  </form>
+  <div class="nc-preview">
+    <canvas id="nc-canvas" role="img" aria-label={C.previewLabel}></canvas>
+  </div>
+</div>
+<div id="nc-print" aria-hidden="true"></div>
+
+<script is:inline define:vars={{ config }}>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var SIZES = { square: [1080, 1080, 4], story: [1080, 1920, 3], print: [1654, 2339, 3] };
+  var state = { format: 'square' };
+  var byLetter = {};
+  config.letters.forEach(function (l) { byLetter[l.letter] = l; });
+  var valid = /^[\p{Script=Latin}\p{Script=Cyrillic}\p{M} '’-]+$/u;
+  var FONT = getComputedStyle(document.body).fontFamily;
+  var images = {};
+  function load(src) {
+    if (!images[src]) images[src] = new Promise(function (res) { var i = new Image(); i.onload = function () { res(i); }; i.onerror = function () { res(null); }; i.src = src; });
+    return images[src];
+  }
+  var up = function (s) { return s.toLocaleUpperCase(config.locale); };
+
+  function readName() {
+    var raw = $('nc-name').value.trim().replace(/\s+/g, ' ');
+    var err = !raw ? config.errEmpty : (!valid.test(raw) || !/\p{L}/u.test(raw)) ? config.errInvalid : '';
+    $('nc-err').textContent = err;
+    return err ? null : raw;
+  }
+
+  // Words become rows; long words wrap into balanced rows of at most `max` tiles.
+  function layout(name, max) {
+    var rows = [];
+    name.split(/[ \-'’]+/).filter(Boolean).forEach(function (word) {
+      var chars = Array.from(up(word)).filter(function (c) { return /\p{L}/u.test(c); });
+      var n = Math.ceil(chars.length / max);
+      var per = Math.ceil(chars.length / n);
+      for (var i = 0; i < chars.length; i += per) rows.push(chars.slice(i, i + per));
+    });
+    return rows;
+  }
+
+  function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+  }
+
+  async function draw(canvas, format, name) {
+    var size = SIZES[format], W = size[0], H = size[1];
+    canvas.width = W; canvas.height = H;
+    var ctx = canvas.getContext('2d');
+    var rows = layout(name, size[2]);
+    var cols = Math.max.apply(null, rows.map(function (r) { return r.length; }));
+    var P = W * 0.07, foot = W * 0.11, gap = W * 0.025, head = W * 0.2;
+    var areaW = W - 2 * P, areaH = H - 2 * P - foot - head;
+    var s = Math.min((areaW - gap * (cols - 1)) / cols, (areaH - gap * (rows.length - 1)) / rows.length, W * 0.34);
+    var gridH = rows.length * s + (rows.length - 1) * gap;
+    var top = P + head + (areaH - gridH) / 2;
+    var tiles = [];
+    rows.forEach(function (row, r) {
+      var rowW = row.length * s + (row.length - 1) * gap, x0 = (W - rowW) / 2;
+      row.forEach(function (ch, c) { tiles.push({ ch: ch, x: x0 + c * (s + gap), y: top + r * (s + gap) }); });
+    });
+    var pics = await Promise.all(tiles.map(function (t) { var l = byLetter[t.ch]; return l && l.img ? load('/img/characters/' + l.img + '.webp') : null; }));
+    var icon = await load('/img/icon.webp');
+
+    ctx.fillStyle = '#fbf8f3'; ctx.fillRect(0, 0, W, H);
+    // The name itself, large, above the tiles.
+    var title = name.split(/([ \-'’])/).map(function (p) { return /^[ \-'’]?$/.test(p) ? p : up(p.charAt(0)) + p.slice(1).toLocaleLowerCase(config.locale); }).join('');
+    var fs = head * 0.62;
+    ctx.font = '900 ' + Math.round(fs) + 'px ' + FONT;
+    var tw = ctx.measureText(title).width;
+    if (tw > areaW) { fs *= areaW / tw; ctx.font = '900 ' + Math.round(fs) + 'px ' + FONT; }
+    ctx.fillStyle = '#1f2330'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(title, W / 2, P + head * 0.5);
+    tiles.forEach(function (t, i) {
+      var l = byLetter[t.ch], pic = pics[i];
+      ctx.fillStyle = l ? l.bg : '#ece8e1'; roundRect(ctx, t.x, t.y, s, s, s * 0.12); ctx.fill();
+      ctx.fillStyle = l ? l.ink : '#1f2330';
+      if (pic) {
+        ctx.font = '900 ' + Math.round(s * 0.26) + 'px ' + FONT; ctx.textBaseline = 'top'; ctx.textAlign = 'left';
+        ctx.fillText(t.ch, t.x + s * 0.08, t.y + s * 0.05);
+        var bw = s * 0.82, bh = s * 0.6, k = Math.min(bw / pic.width, bh / pic.height);
+        var w = pic.width * k, h = pic.height * k;
+        ctx.drawImage(pic, t.x + (s - w) / 2, t.y + s * 0.33 + (bh - h) / 2, w, h);
+      } else {
+        ctx.font = '900 ' + Math.round(s * 0.62) + 'px ' + FONT; ctx.textBaseline = 'middle'; ctx.textAlign = 'center';
+        ctx.fillText(t.ch, t.x + s / 2, t.y + s * 0.54);
+      }
+    });
+    // Brand bar.
+    var fy = H - P - foot * 0.55, ih = foot * 0.55;
+    if (icon) ctx.drawImage(icon, P, fy - ih / 2, ih, ih);
+    ctx.fillStyle = '#1f2330'; ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
+    ctx.font = '900 ' + Math.round(foot * 0.3) + 'px ' + FONT; ctx.fillText('ABC Alphabet', P + ih * 1.25, fy);
+    ctx.fillStyle = '#5d6475'; ctx.textAlign = 'right';
+    ctx.font = '700 ' + Math.round(foot * 0.24) + 'px ' + FONT; ctx.fillText('abcalphabetkids.com', W - P, fy);
+  }
+
+  var pending = 0;
+  async function render() {
+    var name = readName(); if (!name) return;
+    var ticket = ++pending;
+    var off = document.createElement('canvas');
+    await draw(off, state.format, name);
+    if (ticket !== pending) return;
+    var c = $('nc-canvas'); c.width = off.width; c.height = off.height; c.getContext('2d').drawImage(off, 0, 0);
+    c.dataset.format = state.format;
+  }
+
+  $('nc-format').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    $('nc-format').querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    state.format = b.dataset.format; render();
+  });
+  $('nc-name').addEventListener('input', render);
+  $('nc-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = readName(); if (!name) return;
+    $('nc-canvas').toBlob(function (blob) {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = name.replace(/[^\p{L}\- ]/gu, '').replace(/ /g, '-') + '-abc-alphabet.png';
+      document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+    }, 'image/png');
+  });
+  // Printing always uses the A4 layout, whatever is previewed.
+  document.body.appendChild($('nc-print'));
+  $('nc-print-btn').addEventListener('click', async function () {
+    var name = readName(); if (!name) return;
+    var off = document.createElement('canvas');
+    await draw(off, 'print', name);
+    var img = new Image(); img.alt = '';
+    img.onload = function () { window.print(); };
+    $('nc-print').innerHTML = ''; $('nc-print').appendChild(img);
+    img.src = off.toDataURL('image/png');
+  });
+  document.fonts.ready.then(render);
+  render();
+})();
+</script>
+
+<style>
+  .nc { display: grid; gap: 24px; align-items: start; }
+  @media (min-width: 860px) { .nc { grid-template-columns: minmax(0, 300px) minmax(0, 1fr); } }
+  .nc-form { display: grid; gap: 16px; }
+  .field { display: grid; gap: 6px; border: 0; margin: 0; padding: 0; min-width: 0; }
+  .field > span, legend { font-weight: 700; font-size: 0.95rem; padding: 0; }
+  .field input[type='text'] { font: inherit; font-size: 1.2rem; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+  .err { color: #b3261e; min-height: 1em; }
+  .seg { display: flex; flex-wrap: wrap; gap: 8px; }
+  .seg button { font: inherit; font-weight: 700; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: #fff; cursor: pointer; }
+  .seg button[aria-pressed='true'] { border-color: var(--ink); background: var(--ink); color: #fff; }
+  .small { font-size: 0.85rem; margin: 0; }
+  .nc-preview { min-width: 0; display: flex; justify-content: center; }
+  .nc-preview canvas { width: 100%; max-width: 560px; height: auto; border-radius: 12px; box-shadow: 0 0 0 1px var(--line); }
+  .nc-preview canvas[data-format='story'] { max-width: 340px; }
+  .nc-preview canvas[data-format='print'] { max-width: 440px; }
+  #nc-print { display: none; }
+</style>
+
+<style is:global>
+  @media print {
+    @page { size: A4; margin: 0; }
+    body > :not(#nc-print) { display: none !important; }
+    #nc-print { display: block !important; }
+    #nc-print img { width: 210mm; height: 297mm; display: block; }
+  }
+</style>

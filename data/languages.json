@@ -9,7 +9,8 @@
       "coloring": "raskraski",
       "articles": "stati",
       "words": "slova",
-      "name": "propis-imeni"
+      "name": "propis-imeni",
+      "namecard": "imya-v-kartinkah"
     },
     "paper": [
       "a4"
@@ -35,7 +36,8 @@
       "coloring": "buchstaben-ausmalbilder",
       "articles": "ratgeber",
       "words": "woerter",
-      "name": "name-nachspuren"
+      "name": "name-nachspuren",
+      "namecard": "name-in-bildern"
     },
     "paper": [
       "a4"
@@ -70,7 +72,8 @@
       "coloring": "coloring-pages",
       "articles": "guides",
       "words": "words",
-      "name": "name-tracing"
+      "name": "name-tracing",
+      "namecard": "name-in-pictures"
     },
     "paper": [
       "letter",
@@ -106,7 +109,8 @@
       "coloring": "harf-boyama",
       "articles": "rehber",
       "words": "kelimeler",
-      "name": "isim-yazma-calismasi"
+      "name": "isim-yazma-calismasi",
+      "namecard": "resimli-isim"
     },
     "paper": [
       "a4"
@@ -131,7 +135,8 @@
       "coloring": "abecedario-para-colorear",
       "articles": "articulos",
       "words": "palabras",
-      "name": "nombre-para-repasar"
+      "name": "nombre-para-repasar",
+      "namecard": "nombre-con-dibujos"
     },
     "paper": [
       "a4",
@@ -157,7 +162,8 @@
       "coloring": "alfabeto-para-colorir",
       "articles": "artigos",
       "words": "palavras",
-      "name": "nome-pontilhado"
+      "name": "nome-pontilhado",
+      "namecard": "nome-com-desenhos"
     },
     "paper": [
       "a4"
@@ -182,7 +188,8 @@
       "coloring": "kolorowanki-litery",
       "articles": "poradniki",
       "words": "slowa",
-      "name": "imie-po-sladzie"
+      "name": "imie-po-sladzie",
+      "namecard": "imie-w-obrazkach"
     },
     "paper": [
       "a4"
@@ -208,7 +215,8 @@
       "coloring": "coloriages-alphabet",
       "articles": "conseils",
       "words": "mots",
-      "name": "prenom-a-tracer"
+      "name": "prenom-a-tracer",
+      "namecard": "prenom-en-images"
     },
     "paper": [
       "a4"
