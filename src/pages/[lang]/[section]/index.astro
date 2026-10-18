@@ -184,7 +184,7 @@ const screens = kind === 'app'
 )}
 
 {kind === 'words' && W && (
-  <Base lang={lang} title={W.title} description={W.description} page={{ kind }}>
+  <Base lang={lang} title={W.title} description={W.description} page={{ kind }} nav="words">
     <section class="section">
       <div class="wrap">
         <h1>{W.h1}</h1>
