@@ -47,7 +47,11 @@ const nameData = kind === 'name' ? {
   qrSvg: await QRCode.toString(`${SITE.url}/${lang}/${SECTIONS[lang].app}/?c=name`, { type: 'svg', margin: 0, errorCorrectionLevel: 'M', color: { dark: '#1f2330', light: '#ffffff' } }),
 } : null;
 const NK = NAMECARD_COPY[lang];
-const cardLetters = kind === 'namecard' ? letters.map((l) => ({ letter: l.letter, img: l.character ?? l.characterImage, bg: tint(l.color), ink: inkOn(l.color) })) : [];
+// Every alphabet, so the card can be built with any language's characters; this page's language first.
+const cardAlphabets = kind === 'namecard' ? [lang, ...LANGS.filter((x) => x !== lang)].map((code) => ({
+  code, name: t(code).langName,
+  letters: LETTERS[code].map((l) => ({ letter: l.letter, img: l.character ?? l.characterImage, bg: tint(l.color), ink: inkOn(l.color) })),
+})) : [];
 const cardJsonLd = kind === 'namecard' ? {
   '@context': 'https://schema.org',
   '@graph': [
@@ -174,7 +178,7 @@ const screens = kind === 'app'
       <div class="wrap">
         <h1>{NK.h1}</h1>
         <p class="lead">{NK.lead}</p>
-        <NameCard lang={lang} copy={NK} nameLabel={NC.nameLabel} placeholder={NC.placeholder} errEmpty={NC.errEmpty} errInvalid={NC.errInvalid} privacy={NK.privacy} letters={cardLetters} />
+        <NameCard lang={lang} copy={NK} nameLabel={NC.nameLabel} placeholder={NC.placeholder} errEmpty={NC.errEmpty} errInvalid={NC.errInvalid} privacy={NK.privacy} alphabets={cardAlphabets} />
       </div>
     </section>
     <section class="section">

@@ -8,6 +8,7 @@ export type NameCardCopy = {
   h1: string;
   lead: string;
   formatLabel: string;
+  alphabetLabel: string;
   formats: { square: string; story: string; print: string };
   download: string;
   print: string;
@@ -26,6 +27,7 @@ const pt: NameCardCopy = {
   h1: 'O nome da criança com personagens das letras',
   lead: 'Cada letra do nome vira um personagem: M de macaco, A de abelha. Baixe a imagem para compartilhar ou imprima para a porta do quarto.',
   formatLabel: 'Formato',
+  alphabetLabel: 'Alfabeto',
   formats: { square: 'Post 1:1', story: 'Stories 9:16', print: 'A4 para imprimir' },
   download: 'Baixar imagem',
   print: 'Imprimir',
@@ -47,6 +49,7 @@ const es: NameCardCopy = {
   h1: 'El nombre del niño con personajes de las letras',
   lead: 'Cada letra del nombre se convierte en un personaje: la M de manzana, la A de aguacate. Descarga la imagen para compartir o imprímela para la puerta de su cuarto.',
   formatLabel: 'Formato',
+  alphabetLabel: 'Abecedario',
   formats: { square: 'Post 1:1', story: 'Historia 9:16', print: 'A4 para imprimir' },
   download: 'Descargar imagen',
   print: 'Imprimir',
@@ -68,6 +71,7 @@ const fr: NameCardCopy = {
   h1: 'Le prénom de l’enfant avec les personnages des lettres',
   lead: 'Chaque lettre du prénom devient un personnage : L comme lion, A comme abeille. Téléchargez l’image pour la partager ou imprimez-la pour la porte de sa chambre.',
   formatLabel: 'Format',
+  alphabetLabel: 'Alphabet',
   formats: { square: 'Post 1:1', story: 'Story 9:16', print: 'A4 à imprimer' },
   download: 'Télécharger l’image',
   print: 'Imprimer',
@@ -89,6 +93,7 @@ const de: NameCardCopy = {
   h1: 'Der Name Ihres Kindes mit Buchstaben-Figuren',
   lead: 'Jeder Buchstabe des Namens wird zur Figur: M wie Maus, A wie Apfel. Laden Sie das Bild zum Teilen herunter oder drucken Sie es für die Kinderzimmertür.',
   formatLabel: 'Format',
+  alphabetLabel: 'Alphabet',
   formats: { square: 'Post 1:1', story: 'Story 9:16', print: 'A4 zum Drucken' },
   download: 'Bild herunterladen',
   print: 'Drucken',
@@ -110,6 +115,7 @@ const pl: NameCardCopy = {
   h1: 'Imię dziecka z postaciami liter',
   lead: 'Każda litera imienia staje się postacią: K jak kot, A jak awokado. Pobierz obrazek, żeby go udostępnić, albo wydrukuj na drzwi pokoju.',
   formatLabel: 'Format',
+  alphabetLabel: 'Alfabet',
   formats: { square: 'Post 1:1', story: 'Relacja 9:16', print: 'A4 do druku' },
   download: 'Pobierz obrazek',
   print: 'Drukuj',
@@ -131,6 +137,7 @@ const tr: NameCardCopy = {
   h1: 'Harf karakterleriyle çocuğun adı',
   lead: 'Adın her harfi bir karaktere dönüşür: E için eşek, L için limon. Resmi paylaşmak için indirin ya da oda kapısı için yazdırın.',
   formatLabel: 'Boyut',
+  alphabetLabel: 'Alfabe',
   formats: { square: 'Gönderi 1:1', story: 'Hikâye 9:16', print: 'Yazdırmak için A4' },
   download: 'Resmi indir',
   print: 'Yazdır',
@@ -152,6 +159,7 @@ const en: NameCardCopy = {
   h1: 'Your child’s name with letter characters',
   lead: 'Every letter of the name becomes a character: M for mouse, A for avocado. Download the picture to share, or print it for their bedroom door.',
   formatLabel: 'Format',
+  alphabetLabel: 'Alphabet',
   formats: { square: 'Post 1:1', story: 'Story 9:16', print: 'Print A4' },
   download: 'Download picture',
   print: 'Print',
@@ -173,6 +181,7 @@ const ru: NameCardCopy = {
   h1: 'Имя ребёнка из персонажей букв',
   lead: 'Каждая буква имени превращается в персонажа: М — мышь, А — авокадо. Скачайте картинку, чтобы поделиться, или распечатайте на дверь детской.',
   formatLabel: 'Формат',
+  alphabetLabel: 'Алфавит',
   formats: { square: 'Пост 1:1', story: 'Сторис 9:16', print: 'A4 для печати' },
   download: 'Скачать картинку',
   print: 'Распечатать',

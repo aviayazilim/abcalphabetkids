@@ -11,10 +11,10 @@ interface Props {
   errEmpty: string;
   errInvalid: string;
   privacy: string;
-  letters: { letter: string; img: string | null; bg: string; ink: string }[];
+  alphabets: { code: string; name: string; letters: { letter: string; img: string | null; bg: string; ink: string }[] }[];
 }
-const { lang, copy: C, nameLabel, placeholder, errEmpty, errInvalid, privacy, letters } = Astro.props;
-const config = { locale: lang === 'tr' ? 'tr' : lang, letters, errEmpty, errInvalid };
+const { lang, copy: C, nameLabel, placeholder, errEmpty, errInvalid, privacy, alphabets } = Astro.props;
+const config = { lang, alphabets, errEmpty, errInvalid };
 ---
 <div class="nc">
   <form class="nc-form card" id="nc-form" novalidate>
@@ -22,6 +22,12 @@ const config = { locale: lang === 'tr' ? 'tr' : lang, letters, errEmpty, errInva
       <span>{nameLabel}</span>
       <input id="nc-name" type="text" value={placeholder} maxlength="14" autocomplete="off" spellcheck="false" />
       <small class="err" id="nc-err" aria-live="polite"></small>
+    </label>
+    <label class="field">
+      <span>{C.alphabetLabel}</span>
+      <select id="nc-alpha">
+        {alphabets.map((a) => <option value={a.code} selected={a.code === lang}>{a.name}</option>)}
+      </select>
     </label>
     <fieldset class="field">
       <legend>{C.formatLabel}</legend>
@@ -45,9 +51,10 @@ const config = { locale: lang === 'tr' ? 'tr' : lang, letters, errEmpty, errInva
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var SIZES = { square: [1080, 1080, 4], story: [1080, 1920, 3], print: [1654, 2339, 3] };
-  var state = { format: 'square' };
-  var byLetter = {};
-  config.letters.forEach(function (l) { byLetter[l.letter] = l; });
+  var state = { format: 'square', alpha: config.lang };
+  var tables = {};
+  config.alphabets.forEach(function (a) { var m = {}; a.letters.forEach(function (l) { m[l.letter] = l; }); tables[a.code] = m; });
+  var byLetter = tables[state.alpha];
   var valid = /^[\p{Script=Latin}\p{Script=Cyrillic}\p{M} '’-]+$/u;
   var FONT = getComputedStyle(document.body).fontFamily;
   var images = {};
@@ -55,7 +62,8 @@ const config = { locale: lang === 'tr' ? 'tr' : lang, letters, errEmpty, errInva
     if (!images[src]) images[src] = new Promise(function (res) { var i = new Image(); i.onload = function () { res(i); }; i.onerror = function () { res(null); }; i.src = src; });
     return images[src];
   }
-  var up = function (s) { return s.toLocaleUpperCase(config.locale); };
+  var loc = function () { return state.alpha; };
+  var up = function (s) { return s.toLocaleUpperCase(loc()); };
 
   function readName() {
     var raw = $('nc-name').value.trim().replace(/\s+/g, ' ');
@@ -68,7 +76,8 @@ const config = { locale: lang === 'tr' ? 'tr' : lang, letters, errEmpty, errInva
   function layout(name, max) {
     var rows = [];
     name.split(/[ \-'’]+/).filter(Boolean).forEach(function (word) {
-      var chars = Array.from(up(word)).filter(function (c) { return /\p{L}/u.test(c); });
+      // Per letter, so ß (upper-cased to SS) keeps its own tile.
+      var chars = Array.from(word).map(function (c) { var u = up(c); return u.length === 1 ? u : c; }).filter(function (c) { return /\p{L}/u.test(c); });
       var n = Math.ceil(chars.length / max);
       var per = Math.ceil(chars.length / n);
       for (var i = 0; i < chars.length; i += per) rows.push(chars.slice(i, i + per));
@@ -102,7 +111,7 @@ const config = { locale: lang === 'tr' ? 'tr' : lang, letters, errEmpty, errInva
 
     ctx.fillStyle = '#fbf8f3'; ctx.fillRect(0, 0, W, H);
     // The name itself, large, above the tiles.
-    var title = name.split(/([ \-'’])/).map(function (p) { return /^[ \-'’]?$/.test(p) ? p : up(p.charAt(0)) + p.slice(1).toLocaleLowerCase(config.locale); }).join('');
+    var title = name.split(/([ \-'’])/).map(function (p) { return /^[ \-'’]?$/.test(p) ? p : up(p.charAt(0)) + p.slice(1).toLocaleLowerCase(loc()); }).join('');
     var fs = head * 0.62;
     ctx.font = '900 ' + Math.round(fs) + 'px ' + FONT;
     var tw = ctx.measureText(title).width;
@@ -134,6 +143,13 @@ const config = { locale: lang === 'tr' ? 'tr' : lang, letters, errEmpty, errInva
   }
 
   var pending = 0;
+  function setAlpha(code) { state.alpha = code; byLetter = tables[code]; $('nc-alpha').value = code; }
+  // Follow the script of the typed name: Cyrillic → Russian, Latin on the Russian alphabet → this page's language (or English).
+  function matchScript(name) {
+    var cyr = /\p{Script=Cyrillic}/u.test(name), lat = /\p{Script=Latin}/u.test(name);
+    if (cyr && !lat && state.alpha !== 'ru') setAlpha('ru');
+    else if (lat && !cyr && state.alpha === 'ru') setAlpha(config.lang !== 'ru' ? config.lang : 'en');
+  }
   async function render() {
     var name = readName(); if (!name) return;
     var ticket = ++pending;
@@ -149,7 +165,8 @@ const config = { locale: lang === 'tr' ? 'tr' : lang, letters, errEmpty, errInva
     $('nc-format').querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
     state.format = b.dataset.format; render();
   });
-  $('nc-name').addEventListener('input', render);
+  $('nc-name').addEventListener('input', function () { var n = readName(); if (n) matchScript(n); render(); });
+  $('nc-alpha').addEventListener('change', function () { setAlpha($('nc-alpha').value); render(); });
   $('nc-form').addEventListener('submit', function (e) {
     e.preventDefault();
     var name = readName(); if (!name) return;
@@ -183,6 +200,7 @@ const config = { locale: lang === 'tr' ? 'tr' : lang, letters, errEmpty, errInva
   .field > span, legend { font-weight: 700; font-size: 0.95rem; padding: 0; }
   .field input[type='text'] { font: inherit; font-size: 1.2rem; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
   .err { color: #b3261e; min-height: 1em; }
+  .field select { font: inherit; font-size: 1.05rem; padding: 9px 10px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
   .seg { display: flex; flex-wrap: wrap; gap: 8px; }
   .seg button { font: inherit; font-weight: 700; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: #fff; cursor: pointer; }
   .seg button[aria-pressed='true'] { border-color: var(--ink); background: var(--ink); color: #fff; }
