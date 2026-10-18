@@ -7,7 +7,8 @@
       "app": "prilozhenie",
       "privacy": "konfidentsialnost",
       "coloring": "raskraski",
-      "articles": "stati"
+      "articles": "stati",
+      "words": "slova"
     },
     "paper": [
       "a4"
@@ -31,7 +32,8 @@
       "privacy": "datenschutz",
       "imprint": "impressum",
       "coloring": "buchstaben-ausmalbilder",
-      "articles": "ratgeber"
+      "articles": "ratgeber",
+      "words": "woerter"
     },
     "paper": [
       "a4"
@@ -64,7 +66,8 @@
       "app": "app",
       "privacy": "privacy",
       "coloring": "coloring-pages",
-      "articles": "guides"
+      "articles": "guides",
+      "words": "words"
     },
     "paper": [
       "letter",
@@ -98,7 +101,8 @@
       "app": "uygulama",
       "privacy": "gizlilik",
       "coloring": "harf-boyama",
-      "articles": "rehber"
+      "articles": "rehber",
+      "words": "kelimeler"
     },
     "paper": [
       "a4"
@@ -170,7 +174,8 @@
       "app": "aplikacja",
       "privacy": "prywatnosc",
       "coloring": "kolorowanki-litery",
-      "articles": "poradniki"
+      "articles": "poradniki",
+      "words": "slowa"
     },
     "paper": [
       "a4"
@@ -194,7 +199,8 @@
       "privacy": "confidentialite",
       "imprint": "mentions-legales",
       "coloring": "coloriages-alphabet",
-      "articles": "conseils"
+      "articles": "conseils",
+      "words": "mots"
     },
     "paper": [
       "a4"

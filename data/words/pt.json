@@ -85,7 +85,8 @@
    "coração",
    "chuva",
    "chave",
-   "circo"
+   "circo",
+   "caratê"
   ],
   "inside": [
    "boca",
@@ -297,7 +298,6 @@
   "start": [
    "kiwi",
    "koala",
-   "karatê",
    "ketchup",
    "kit",
    "kart"
@@ -663,8 +663,7 @@
   ],
   "inside": [
    "playground",
-   "hobby",
-   "pony"
+   "hobby"
   ],
   "names": [
    "Yasmin",

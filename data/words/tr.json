@@ -1,0 +1,699 @@
+{
+ "_note": "TODO(review): curated word lists for kids, Turkish; have a native speaker check them.",
+ "a-harfi": {
+  "start": [
+   "arı",
+   "araba",
+   "ağaç",
+   "at",
+   "ayı",
+   "ayakkabı",
+   "armut",
+   "anne",
+   "ay",
+   "ayna",
+   "ahtapot",
+   "aslan",
+   "ateş"
+  ],
+  "inside": [
+   "kalem",
+   "masa",
+   "baba",
+   "kapı",
+   "saat",
+   "kaşık",
+   "balık",
+   "tavşan"
+  ],
+  "names": []
+ },
+ "b-harfi": {
+  "start": [
+   "balık",
+   "baba",
+   "balon",
+   "bebek",
+   "böcek",
+   "bulut",
+   "bardak",
+   "bisiklet",
+   "boya",
+   "bal",
+   "biber",
+   "bahçe"
+  ],
+  "inside": [
+   "kurbağa",
+   "kaplumbağa",
+   "tabak",
+   "çorba",
+   "abla",
+   "sabun",
+   "araba"
+  ],
+  "names": []
+ },
+ "c-harfi": {
+  "start": [
+   "civciv",
+   "ceket",
+   "cam",
+   "cüce",
+   "ceviz",
+   "cadı",
+   "cep",
+   "cetvel"
+  ],
+  "inside": [
+   "gece",
+   "incir",
+   "minicik",
+   "bacak",
+   "ocak",
+   "hece",
+   "küçücük"
+  ],
+  "names": []
+ },
+ "ch-harfi": {
+  "start": [
+   "çiçek",
+   "çocuk",
+   "çanta",
+   "çay",
+   "çatal",
+   "çorap",
+   "çilek",
+   "çikolata",
+   "çorba",
+   "çekiç",
+   "çam",
+   "çadır"
+  ],
+  "inside": [
+   "ağaç",
+   "ilaç",
+   "uçak",
+   "saç",
+   "kepçe",
+   "bahçe",
+   "kılıç",
+   "üç"
+  ],
+  "names": []
+ },
+ "d-harfi": {
+  "start": [
+   "dağ",
+   "dede",
+   "deniz",
+   "dondurma",
+   "domates",
+   "defter",
+   "dil",
+   "diş",
+   "davul",
+   "dinozor",
+   "dolap",
+   "duvar"
+  ],
+  "inside": [
+   "kedi",
+   "ördek",
+   "odun",
+   "kardeş",
+   "badem",
+   "yıldız",
+   "pide"
+  ],
+  "names": []
+ },
+ "e-harfi": {
+  "start": [
+   "eşek",
+   "ev",
+   "elma",
+   "el",
+   "ekmek",
+   "etek",
+   "erik",
+   "eldiven",
+   "ejderha",
+   "emzik"
+  ],
+  "inside": [
+   "kedi",
+   "bebek",
+   "deve",
+   "gemi",
+   "bez",
+   "ses",
+   "çiçek",
+   "kalem"
+  ],
+  "names": []
+ },
+ "f-harfi": {
+  "start": [
+   "fil",
+   "fare",
+   "fındık",
+   "fener",
+   "fırça",
+   "futbol",
+   "fasulye",
+   "fincan",
+   "fıstık",
+   "fok"
+  ],
+  "inside": [
+   "kafa",
+   "sofra",
+   "defter",
+   "harf",
+   "kafes",
+   "telefon",
+   "zürafa"
+  ],
+  "names": []
+ },
+ "g-harfi": {
+  "start": [
+   "gemi",
+   "göz",
+   "gül",
+   "güneş",
+   "gömlek",
+   "gökkuşağı",
+   "gözlük",
+   "gergedan",
+   "gece",
+   "geyik"
+  ],
+  "inside": [
+   "sevgi",
+   "yorgan",
+   "bilgisayar",
+   "salyangoz",
+   "kanguru",
+   "rüzgâr",
+   "dalga"
+  ],
+  "names": []
+ },
+ "yumusak-g-harfi": {
+  "start": [],
+  "inside": [
+   "dağ",
+   "ağaç",
+   "yağmur",
+   "kurbağa",
+   "ağız",
+   "kağıt",
+   "yoğurt",
+   "sağ",
+   "öğretmen",
+   "buğday"
+  ],
+  "names": []
+ },
+ "h-harfi": {
+  "start": [
+   "horoz",
+   "havuç",
+   "halı",
+   "hediye",
+   "helikopter",
+   "hamak",
+   "hamsi",
+   "hırka",
+   "hayvan",
+   "hastane"
+  ],
+  "inside": [
+   "sabah",
+   "bahçe",
+   "ahtapot",
+   "kahvaltı",
+   "sihirbaz",
+   "tahta"
+  ],
+  "names": []
+ },
+ "noktasiz-i-harfi": {
+  "start": [
+   "ılık",
+   "ırmak",
+   "ışık",
+   "ısırgan",
+   "ıspanak",
+   "ıslık",
+   "ıhlamur"
+  ],
+  "inside": [
+   "kırmızı",
+   "balık",
+   "kapı",
+   "kız",
+   "sarı",
+   "yıldız",
+   "halı",
+   "arı",
+   "kaşık",
+   "kılıç"
+  ],
+  "names": []
+ },
+ "i-harfi": {
+  "start": [
+   "inek",
+   "iğne",
+   "ip",
+   "incir",
+   "iki",
+   "ilaç",
+   "iplik",
+   "istasyon"
+  ],
+  "inside": [
+   "kedi",
+   "bisiklet",
+   "deniz",
+   "gemi",
+   "simit",
+   "biber",
+   "çilek",
+   "fil"
+  ],
+  "names": []
+ },
+ "j-harfi": {
+  "start": [
+   "jeton",
+   "jöle",
+   "jip",
+   "judo",
+   "jaguar",
+   "jimnastik",
+   "jüri"
+  ],
+  "inside": [
+   "bej",
+   "garaj",
+   "plaj",
+   "bagaj",
+   "ejderha",
+   "pijama",
+   "mesaj"
+  ],
+  "names": []
+ },
+ "k-harfi": {
+  "start": [
+   "kedi",
+   "kuş",
+   "kalem",
+   "kitap",
+   "kapı",
+   "kaşık",
+   "kirpi",
+   "kelebek",
+   "köpek",
+   "kurbağa",
+   "kar",
+   "kaplumbağa"
+  ],
+  "inside": [
+   "bebek",
+   "ekmek",
+   "çiçek",
+   "tavuk",
+   "mektup",
+   "şeker",
+   "ördek",
+   "saksı"
+  ],
+  "names": []
+ },
+ "l-harfi": {
+  "start": [
+   "limon",
+   "lale",
+   "leylek",
+   "lamba",
+   "lokum",
+   "lahana",
+   "leopar",
+   "lastik",
+   "lunapark"
+  ],
+  "inside": [
+   "elma",
+   "balık",
+   "kalem",
+   "bal",
+   "gül",
+   "fil",
+   "balon",
+   "el"
+  ],
+  "names": []
+ },
+ "m-harfi": {
+  "start": [
+   "muz",
+   "masa",
+   "makas",
+   "mantar",
+   "maymun",
+   "mavi",
+   "meyve",
+   "mısır",
+   "mum",
+   "mektup",
+   "minder",
+   "martı"
+  ],
+  "inside": [
+   "elma",
+   "kalem",
+   "limon",
+   "simit",
+   "emzik",
+   "domates",
+   "ümit"
+  ],
+  "names": []
+ },
+ "n-harfi": {
+  "start": [
+   "nar",
+   "nota",
+   "ninni",
+   "nane",
+   "nehir",
+   "nokta",
+   "nine",
+   "nohut"
+  ],
+  "inside": [
+   "anne",
+   "kanat",
+   "fener",
+   "fincan",
+   "zincir",
+   "güneş",
+   "kanguru",
+   "ayna"
+  ],
+  "names": []
+ },
+ "o-harfi": {
+  "start": [
+   "okul",
+   "oyuncak",
+   "otobüs",
+   "ok",
+   "orman",
+   "oda",
+   "oklava",
+   "oyun",
+   "olta",
+   "ot"
+  ],
+  "inside": [
+   "top",
+   "horoz",
+   "dondurma",
+   "kova",
+   "koyun",
+   "domates",
+   "robot",
+   "kol"
+  ],
+  "names": []
+ },
+ "oe-harfi": {
+  "start": [
+   "ördek",
+   "örümcek",
+   "ödev",
+   "öğretmen",
+   "örgü",
+   "öykü",
+   "ön"
+  ],
+  "inside": [
+   "göz",
+   "köpek",
+   "gök",
+   "böcek",
+   "gömlek",
+   "söğüt",
+   "köprü",
+   "göl"
+  ],
+  "names": []
+ },
+ "p-harfi": {
+  "start": [
+   "pasta",
+   "peynir",
+   "palyaço",
+   "papağan",
+   "penguen",
+   "pijama",
+   "portakal",
+   "pamuk",
+   "patates",
+   "pencere",
+   "pil",
+   "park"
+  ],
+  "inside": [
+   "kapı",
+   "top",
+   "ip",
+   "çorap",
+   "kepçe",
+   "kaplumbağa",
+   "kitap",
+   "sepet"
+  ],
+  "names": []
+ },
+ "r-harfi": {
+  "start": [
+   "roket",
+   "renk",
+   "resim",
+   "radyo",
+   "rüzgâr",
+   "robot",
+   "reçel",
+   "rakam"
+  ],
+  "inside": [
+   "araba",
+   "armut",
+   "kar",
+   "ördek",
+   "kurbağa",
+   "horoz",
+   "çorap",
+   "deri"
+  ],
+  "names": []
+ },
+ "s-harfi": {
+  "start": [
+   "sabun",
+   "saat",
+   "su",
+   "sepet",
+   "simit",
+   "salıncak",
+   "sincap",
+   "salyangoz",
+   "saksı",
+   "soğan",
+   "süt",
+   "sandalye",
+   "ses"
+  ],
+  "inside": [
+   "masa",
+   "kasa",
+   "ders",
+   "pasta",
+   "bisiklet",
+   "aslan",
+   "musluk"
+  ],
+  "names": []
+ },
+ "sh-harfi": {
+  "start": [
+   "şemsiye",
+   "şeker",
+   "şapka",
+   "şato",
+   "şişe",
+   "şelale",
+   "şeftali",
+   "şarkı",
+   "şimşek"
+  ],
+  "inside": [
+   "kuş",
+   "güneş",
+   "eşek",
+   "ateş",
+   "kaşık",
+   "beş",
+   "taş",
+   "diş"
+  ],
+  "names": []
+ },
+ "t-harfi": {
+  "start": [
+   "tavşan",
+   "top",
+   "tavuk",
+   "tabak",
+   "tren",
+   "tencere",
+   "tarak",
+   "tilki",
+   "terlik",
+   "tahta",
+   "tuz",
+   "tepe"
+  ],
+  "inside": [
+   "kitap",
+   "at",
+   "ahtapot",
+   "ateş",
+   "etek",
+   "patates",
+   "otobüs",
+   "mektup"
+  ],
+  "names": []
+ },
+ "u-harfi": {
+  "start": [
+   "uçak",
+   "uzay",
+   "uyku",
+   "un",
+   "uçurtma",
+   "umut"
+  ],
+  "inside": [
+   "kuş",
+   "su",
+   "tuz",
+   "bulut",
+   "kurt",
+   "tavuk",
+   "muz",
+   "kutu"
+  ],
+  "names": []
+ },
+ "ue-harfi": {
+  "start": [
+   "ütü",
+   "üzüm",
+   "üç",
+   "ülke",
+   "ümit"
+  ],
+  "inside": [
+   "gül",
+   "süt",
+   "köprü",
+   "güneş",
+   "düdük",
+   "bülbül",
+   "kürek",
+   "süpürge"
+  ],
+  "names": []
+ },
+ "v-harfi": {
+  "start": [
+   "vazo",
+   "vapur",
+   "valiz",
+   "vişne",
+   "vagon",
+   "vida"
+  ],
+  "inside": [
+   "ev",
+   "kova",
+   "havuç",
+   "tavşan",
+   "tavuk",
+   "deve",
+   "sevgi",
+   "kavun",
+   "yuva"
+  ],
+  "names": []
+ },
+ "y-harfi": {
+  "start": [
+   "yıldız",
+   "yumurta",
+   "yaprak",
+   "yatak",
+   "yağmur",
+   "yılan",
+   "yastık",
+   "yelken",
+   "yemek",
+   "yeşil",
+   "yol"
+  ],
+  "inside": [
+   "ayı",
+   "ayna",
+   "ayakkabı",
+   "oyun",
+   "köy",
+   "koyun",
+   "kaya",
+   "papatya"
+  ],
+  "names": []
+ },
+ "z-harfi": {
+  "start": [
+   "zebra",
+   "zürafa",
+   "zil",
+   "zeytin",
+   "zar",
+   "zambak",
+   "zeplin",
+   "zincir"
+  ],
+  "inside": [
+   "göz",
+   "tuz",
+   "muz",
+   "deniz",
+   "kuzu",
+   "yaz",
+   "kız",
+   "buz"
+  ],
+  "names": []
+ }
+}

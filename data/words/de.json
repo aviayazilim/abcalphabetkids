@@ -1,0 +1,684 @@
+{
+ "_note": "TODO(review): curated word lists for kids, German; have a native speaker check them.",
+ "a": {
+  "start": [
+   "Apfel",
+   "Affe",
+   "Ameise",
+   "Auto",
+   "Ast",
+   "Ananas",
+   "Ampel",
+   "Arm",
+   "Auge",
+   "Anker",
+   "Adler"
+  ],
+  "inside": [
+   "Hase",
+   "Katze",
+   "Ball",
+   "Tasche",
+   "Banane",
+   "Mama",
+   "Papa",
+   "Nase"
+  ],
+  "names": []
+ },
+ "b": {
+  "start": [
+   "Ball",
+   "Baum",
+   "Banane",
+   "Bär",
+   "Biene",
+   "Buch",
+   "Boot",
+   "Bus",
+   "Blume",
+   "Brot",
+   "Bett",
+   "Becher",
+   "Bagger"
+  ],
+  "inside": [
+   "Gabel",
+   "Rabe",
+   "Zebra",
+   "Taube",
+   "Schublade",
+   "Abend"
+  ],
+  "names": []
+ },
+ "c": {
+  "start": [
+   "Clown",
+   "Computer",
+   "Chamäleon",
+   "Cowboy",
+   "Comic",
+   "Café"
+  ],
+  "inside": [
+   "Dach",
+   "Buch",
+   "Kuchen",
+   "Fisch",
+   "Milch",
+   "Tisch",
+   "Schuh",
+   "Koch"
+  ],
+  "names": []
+ },
+ "d": {
+  "start": [
+   "Dach",
+   "Delfin",
+   "Drache",
+   "Dose",
+   "Dorf",
+   "Daumen",
+   "Decke",
+   "Dusche"
+  ],
+  "inside": [
+   "Hund",
+   "Kind",
+   "Pferd",
+   "Schildkröte",
+   "Nadel",
+   "Rad",
+   "Mond",
+   "Wald"
+  ],
+  "names": []
+ },
+ "e": {
+  "start": [
+   "Ente",
+   "Elefant",
+   "Erdbeere",
+   "Esel",
+   "Eis",
+   "Ei",
+   "Eule",
+   "Eimer",
+   "Engel",
+   "Eichhörnchen"
+  ],
+  "inside": [
+   "Biene",
+   "Bett",
+   "Hemd",
+   "Zebra",
+   "Regen",
+   "Teller",
+   "Melone",
+   "Besen"
+  ],
+  "names": []
+ },
+ "f": {
+  "start": [
+   "Fisch",
+   "Fuchs",
+   "Frosch",
+   "Feuer",
+   "Fahrrad",
+   "Flugzeug",
+   "Fenster",
+   "Feder",
+   "Finger",
+   "Fuß",
+   "Flasche",
+   "Fee"
+  ],
+  "inside": [
+   "Affe",
+   "Apfel",
+   "Schaf",
+   "Hafen",
+   "Giraffe",
+   "Schiff",
+   "Ofen",
+   "Löffel"
+  ],
+  "names": []
+ },
+ "g": {
+  "start": [
+   "Giraffe",
+   "Gans",
+   "Gabel",
+   "Garten",
+   "Geschenk",
+   "Gurke",
+   "Glas",
+   "Gras",
+   "Gespenst",
+   "Gitarre",
+   "Glocke"
+  ],
+  "inside": [
+   "Vogel",
+   "Tiger",
+   "Regen",
+   "Auge",
+   "Wagen",
+   "Igel",
+   "Berg",
+   "Zug"
+  ],
+  "names": []
+ },
+ "h": {
+  "start": [
+   "Hund",
+   "Haus",
+   "Hase",
+   "Hand",
+   "Huhn",
+   "Hut",
+   "Herz",
+   "Hummel",
+   "Himmel",
+   "Hose",
+   "Honig",
+   "Hexe"
+  ],
+  "inside": [
+   "Kuh",
+   "Schuh",
+   "Uhr",
+   "Ohr",
+   "Zahn",
+   "Bahn",
+   "Stuhl"
+  ],
+  "names": []
+ },
+ "i": {
+  "start": [
+   "Igel",
+   "Insel",
+   "Iglu",
+   "Insekt",
+   "Ingwer"
+  ],
+  "inside": [
+   "Fisch",
+   "Tisch",
+   "Kind",
+   "Pinsel",
+   "Biene",
+   "Milch",
+   "Ring",
+   "Kirsche",
+   "Zitrone"
+  ],
+  "names": []
+ },
+ "j": {
+  "start": [
+   "Junge",
+   "Jacke",
+   "Jahr",
+   "Joghurt",
+   "Jäger",
+   "Juli",
+   "Juni",
+   "Jojo"
+  ],
+  "inside": [
+   "Pyjama",
+   "Boje",
+   "Kajak"
+  ],
+  "names": [
+   "Jan",
+   "Julia",
+   "Jonas"
+  ]
+ },
+ "k": {
+  "start": [
+   "Katze",
+   "Kuh",
+   "Kind",
+   "Käse",
+   "Kuchen",
+   "Kerze",
+   "Krone",
+   "Koffer",
+   "Kamel",
+   "Kirsche",
+   "Känguru",
+   "Kran"
+  ],
+  "inside": [
+   "Rakete",
+   "Schaukel",
+   "Socke",
+   "Glocke",
+   "Decke",
+   "Brücke",
+   "Anker",
+   "Wolke"
+  ],
+  "names": []
+ },
+ "l": {
+  "start": [
+   "Löwe",
+   "Lampe",
+   "Laterne",
+   "Leiter",
+   "Löffel",
+   "Licht",
+   "Lama",
+   "Laub",
+   "Lineal"
+  ],
+  "inside": [
+   "Ball",
+   "Blume",
+   "Wolke",
+   "Apfel",
+   "Esel",
+   "Igel",
+   "Schule",
+   "Stuhl"
+  ],
+  "names": []
+ },
+ "m": {
+  "start": [
+   "Maus",
+   "Mama",
+   "Mond",
+   "Milch",
+   "Mund",
+   "Mütze",
+   "Möhre",
+   "Melone",
+   "Messer",
+   "Marienkäfer",
+   "Muschel",
+   "Mann"
+  ],
+  "inside": [
+   "Blume",
+   "Lampe",
+   "Baum",
+   "Hammer",
+   "Tomate",
+   "Ameise",
+   "Himmel",
+   "Zimmer"
+  ],
+  "names": []
+ },
+ "n": {
+  "start": [
+   "Nase",
+   "Nest",
+   "Nashorn",
+   "Nadel",
+   "Nudel",
+   "Nacht",
+   "Nuss",
+   "Netz",
+   "Name",
+   "Nebel"
+  ],
+  "inside": [
+   "Banane",
+   "Sonne",
+   "Hund",
+   "Mond",
+   "Kind",
+   "Biene",
+   "Hand",
+   "Zahn"
+  ],
+  "names": []
+ },
+ "o": {
+  "start": [
+   "Ohr",
+   "Oma",
+   "Opa",
+   "Obst",
+   "Orange",
+   "Ofen",
+   "Ostern",
+   "Otter",
+   "Ochse",
+   "Oktopus"
+  ],
+  "inside": [
+   "Boot",
+   "Rose",
+   "Sonne",
+   "Hose",
+   "Mond",
+   "Dose",
+   "Brot",
+   "Wolke"
+  ],
+  "names": []
+ },
+ "p": {
+  "start": [
+   "Papa",
+   "Pferd",
+   "Pinguin",
+   "Puppe",
+   "Pilz",
+   "Pizza",
+   "Pinsel",
+   "Post",
+   "Pudel",
+   "Pirat",
+   "Pflaume",
+   "Paket"
+  ],
+  "inside": [
+   "Apfel",
+   "Lampe",
+   "Suppe",
+   "Raupe",
+   "Lupe",
+   "Tulpe",
+   "Kopf",
+   "Zopf"
+  ],
+  "names": []
+ },
+ "q": {
+  "start": [
+   "Qualle",
+   "Quark",
+   "Quelle",
+   "Quadrat",
+   "Quitte"
+  ],
+  "inside": [
+   "Aquarium"
+  ],
+  "names": []
+ },
+ "r": {
+  "start": [
+   "Rakete",
+   "Rad",
+   "Regen",
+   "Rose",
+   "Ring",
+   "Raupe",
+   "Rabe",
+   "Roller",
+   "Rucksack",
+   "Riese",
+   "Rübe",
+   "Reh"
+  ],
+  "inside": [
+   "Birne",
+   "Pferd",
+   "Haar",
+   "Tür",
+   "Uhr",
+   "Ohr",
+   "Tiger",
+   "Zebra"
+  ],
+  "names": []
+ },
+ "s": {
+  "start": [
+   "Sonne",
+   "Schaf",
+   "Schule",
+   "Schuh",
+   "Seife",
+   "Sofa",
+   "Stern",
+   "Stuhl",
+   "Socke",
+   "Schnecke",
+   "Sand"
+  ],
+  "inside": [
+   "Hase",
+   "Nase",
+   "Haus",
+   "Maus",
+   "Glas",
+   "Gras",
+   "Fisch",
+   "Esel"
+  ],
+  "names": []
+ },
+ "t": {
+  "start": [
+   "Tisch",
+   "Tiger",
+   "Tomate",
+   "Torte",
+   "Turm",
+   "Tasse",
+   "Teller",
+   "Tür",
+   "Tulpe",
+   "Teddy",
+   "Truthahn",
+   "Traktor"
+  ],
+  "inside": [
+   "Katze",
+   "Auto",
+   "Hut",
+   "Brot",
+   "Ente",
+   "Stern",
+   "Garten",
+   "Butter"
+  ],
+  "names": []
+ },
+ "u": {
+  "start": [
+   "Uhr",
+   "Uhu",
+   "Ufo",
+   "Ufer",
+   "U-Bahn"
+  ],
+  "inside": [
+   "Hund",
+   "Mund",
+   "Kuh",
+   "Maus",
+   "Bus",
+   "Puppe",
+   "Schule",
+   "Turm"
+  ],
+  "names": []
+ },
+ "v": {
+  "start": [
+   "Vogel",
+   "Vase",
+   "Vulkan",
+   "Vater",
+   "Veilchen",
+   "Vorhang"
+  ],
+  "inside": [
+   "Klavier",
+   "Pullover",
+   "Olive",
+   "Lava",
+   "Kurve"
+  ],
+  "names": []
+ },
+ "w": {
+  "start": [
+   "Wolf",
+   "Wasser",
+   "Wal",
+   "Wurm",
+   "Wolke",
+   "Wagen",
+   "Wurst",
+   "Wald",
+   "Würfel",
+   "Wecker"
+  ],
+  "inside": [
+   "Löwe",
+   "Möwe",
+   "Schwan",
+   "Schwein",
+   "Kiwi",
+   "Zwerg",
+   "Schwamm"
+  ],
+  "names": []
+ },
+ "x": {
+  "start": [
+   "Xylophon"
+  ],
+  "inside": [
+   "Hexe",
+   "Taxi",
+   "Boxer",
+   "Axt",
+   "Mixer"
+  ],
+  "names": [
+   "Xaver",
+   "Xenia"
+  ]
+ },
+ "y": {
+  "start": [
+   "Yoga",
+   "Yak",
+   "Yeti",
+   "Yacht"
+  ],
+  "inside": [
+   "Pony",
+   "Baby",
+   "Teddy",
+   "Handy",
+   "Pyjama",
+   "Hobby"
+  ],
+  "names": []
+ },
+ "z": {
+  "start": [
+   "Zebra",
+   "Zahn",
+   "Zug",
+   "Zitrone",
+   "Zelt",
+   "Zaun",
+   "Ziege",
+   "Zwerg",
+   "Zauberer",
+   "Zucker",
+   "Zoo",
+   "Zange"
+  ],
+  "inside": [
+   "Katze",
+   "Pilz",
+   "Herz",
+   "Pizza",
+   "Salz",
+   "Holz",
+   "Mütze",
+   "Kerze"
+  ],
+  "names": []
+ },
+ "ae": {
+  "start": [
+   "Äpfel",
+   "Ärmel",
+   "Ähre",
+   "Äffchen"
+  ],
+  "inside": [
+   "Bär",
+   "Käse",
+   "Känguru",
+   "Mädchen",
+   "Hände",
+   "Bäume",
+   "Gärtner",
+   "Säge",
+   "Käfer"
+  ],
+  "names": []
+ },
+ "oe": {
+  "start": [
+   "Öl",
+   "Öfen"
+  ],
+  "inside": [
+   "Löwe",
+   "Möwe",
+   "Brötchen",
+   "Möhre",
+   "Flöte",
+   "Frösche",
+   "Löffel",
+   "Vögel"
+  ],
+  "names": []
+ },
+ "ue": {
+  "start": [
+   "Überraschung",
+   "Übung"
+  ],
+  "inside": [
+   "Tür",
+   "Mütze",
+   "Küken",
+   "Hühner",
+   "Würfel",
+   "Rübe",
+   "Gemüse",
+   "Bücher",
+   "Schüssel"
+  ],
+  "names": []
+ },
+ "eszett": {
+  "start": [],
+  "inside": [
+   "Fuß",
+   "Straße",
+   "Spaß",
+   "Soße",
+   "Strauß",
+   "Gruß",
+   "Kloß"
+  ],
+  "names": []
+ }
+}

@@ -1,0 +1,724 @@
+{
+ "_note": "TODO(review): curated word lists for kids, Polish; have a native speaker check them.",
+ "litera-a": {
+  "start": [
+   "auto",
+   "autobus",
+   "arbuz",
+   "ananas",
+   "agrest",
+   "aparat",
+   "anioł",
+   "awokado",
+   "akwarium",
+   "astronauta",
+   "album"
+  ],
+  "inside": [
+   "mama",
+   "tata",
+   "kawa",
+   "lalka",
+   "balon",
+   "lampa",
+   "rak",
+   "sanki"
+  ],
+  "names": []
+ },
+ "litera-a-ogonek": {
+  "start": [],
+  "inside": [
+   "zając",
+   "wąż",
+   "mąka",
+   "pająk",
+   "ząb",
+   "dąb",
+   "gałąź",
+   "wąsy",
+   "książka",
+   "łąka"
+  ],
+  "names": []
+ },
+ "litera-b": {
+  "start": [
+   "banan",
+   "balon",
+   "but",
+   "biedronka",
+   "bocian",
+   "burak",
+   "bałwan",
+   "babcia",
+   "brat",
+   "bęben",
+   "bułka"
+  ],
+  "inside": [
+   "ryba",
+   "zebra",
+   "chleb",
+   "ząb",
+   "dąb",
+   "żaba",
+   "jabłko",
+   "robot"
+  ],
+  "names": []
+ },
+ "litera-c": {
+  "start": [
+   "cytryna",
+   "cebula",
+   "cukierek",
+   "cyrk",
+   "czapka",
+   "czekolada",
+   "ciastko",
+   "cegła",
+   "córka"
+  ],
+  "inside": [
+   "koc",
+   "noc",
+   "owca",
+   "owoc",
+   "kaczka",
+   "słońce",
+   "pociąg"
+  ],
+  "names": []
+ },
+ "litera-c-kreska": {
+  "start": [
+   "ćma",
+   "ćwiczenie"
+  ],
+  "inside": [
+   "pięć",
+   "sześć",
+   "liść",
+   "kość",
+   "gość",
+   "nić"
+  ],
+  "names": []
+ },
+ "litera-d": {
+  "start": [
+   "dom",
+   "drzewo",
+   "delfin",
+   "dynia",
+   "dziecko",
+   "dziadek",
+   "deszcz",
+   "drzwi",
+   "dzwonek",
+   "dinozaur",
+   "dach",
+   "dywan"
+  ],
+  "inside": [
+   "woda",
+   "lody",
+   "ogród",
+   "miód",
+   "jagoda",
+   "kredka",
+   "pudełko"
+  ],
+  "names": []
+ },
+ "litera-e": {
+  "start": [
+   "emu",
+   "ekran",
+   "elf",
+   "echo"
+  ],
+  "inside": [
+   "pies",
+   "kreda",
+   "ser",
+   "mleko",
+   "lew",
+   "sweter",
+   "rower",
+   "telefon"
+  ],
+  "names": []
+ },
+ "litera-e-ogonek": {
+  "start": [],
+  "inside": [
+   "ręka",
+   "gęś",
+   "zęby",
+   "księżyc",
+   "pędzel",
+   "bęben",
+   "tęcza",
+   "ręcznik"
+  ],
+  "names": []
+ },
+ "litera-f": {
+  "start": [
+   "foka",
+   "flaga",
+   "farba",
+   "fotel",
+   "fartuch",
+   "fabryka",
+   "filiżanka",
+   "flamaster",
+   "fasola"
+  ],
+  "inside": [
+   "żyrafa",
+   "szafa",
+   "telefon",
+   "kufer",
+   "kalafior",
+   "delfin"
+  ],
+  "names": []
+ },
+ "litera-g": {
+  "start": [
+   "góra",
+   "grzyb",
+   "gruszka",
+   "gitara",
+   "gęś",
+   "gwiazda",
+   "gazeta",
+   "goryl",
+   "guzik",
+   "garnek",
+   "gąsienica"
+  ],
+  "inside": [
+   "noga",
+   "droga",
+   "waga",
+   "tygrys",
+   "jogurt",
+   "śnieg",
+   "ogród",
+   "kangur"
+  ],
+  "names": []
+ },
+ "litera-h": {
+  "start": [
+   "hipopotam",
+   "herbata",
+   "helikopter",
+   "hamak",
+   "hulajnoga",
+   "hotel",
+   "hokej"
+  ],
+  "inside": [
+   "chleb",
+   "mucha",
+   "ucho",
+   "chmura",
+   "dach",
+   "orzech"
+  ],
+  "names": []
+ },
+ "litera-i": {
+  "start": [
+   "indyk",
+   "igła",
+   "igloo",
+   "imbir",
+   "irys"
+  ],
+  "inside": [
+   "lis",
+   "pies",
+   "miś",
+   "zima",
+   "lizak",
+   "rybki",
+   "kwiat",
+   "sikorka"
+  ],
+  "names": []
+ },
+ "litera-j": {
+  "start": [
+   "jabłko",
+   "jajko",
+   "jeż",
+   "jeleń",
+   "jagoda",
+   "jaszczurka",
+   "jogurt",
+   "jaskółka",
+   "jacht",
+   "jesień",
+   "język"
+  ],
+  "inside": [
+   "kajak",
+   "maj",
+   "zając",
+   "pająk",
+   "szyja",
+   "olej",
+   "pokój"
+  ],
+  "names": []
+ },
+ "litera-k": {
+  "start": [
+   "kot",
+   "koń",
+   "kura",
+   "krowa",
+   "kaczka",
+   "kwiat",
+   "kapelusz",
+   "książka",
+   "klucz",
+   "kredka",
+   "kaktus",
+   "kubek"
+  ],
+  "inside": [
+   "mleko",
+   "rak",
+   "mak",
+   "oko",
+   "ręka",
+   "lalka",
+   "jabłko",
+   "pająk"
+  ],
+  "names": []
+ },
+ "litera-l": {
+  "start": [
+   "lis",
+   "lew",
+   "lody",
+   "lalka",
+   "lampa",
+   "lizak",
+   "las",
+   "lato",
+   "lustro",
+   "list"
+  ],
+  "inside": [
+   "balon",
+   "mleko",
+   "pole",
+   "kalosze",
+   "hulajnoga",
+   "tulipan",
+   "motyl",
+   "bal"
+  ],
+  "names": []
+ },
+ "litera-l-kreska": {
+  "start": [
+   "łódka",
+   "łabędź",
+   "łóżko",
+   "łyżka",
+   "łapa",
+   "łąka",
+   "łoś",
+   "łza",
+   "łyżwy",
+   "łuk"
+  ],
+  "inside": [
+   "stół",
+   "jabłko",
+   "piłka",
+   "mydło",
+   "bałwan",
+   "pszczoła",
+   "skała",
+   "kołdra",
+   "koło"
+  ],
+  "names": []
+ },
+ "litera-m": {
+  "start": [
+   "mama",
+   "miś",
+   "mysz",
+   "mleko",
+   "motyl",
+   "małpa",
+   "marchew",
+   "miód",
+   "morze",
+   "miska",
+   "młotek",
+   "muchomor"
+  ],
+  "inside": [
+   "dom",
+   "zima",
+   "lampa",
+   "komar",
+   "sum",
+   "dym",
+   "ziemia"
+  ],
+  "names": []
+ },
+ "litera-n": {
+  "start": [
+   "nos",
+   "noga",
+   "nożyczki",
+   "niedźwiedź",
+   "nosorożec",
+   "niebo",
+   "nuty",
+   "nietoperz",
+   "nora",
+   "noc"
+  ],
+  "inside": [
+   "banan",
+   "pan",
+   "konik",
+   "sanki",
+   "ananas",
+   "cytryna",
+   "balon",
+   "kino"
+  ],
+  "names": []
+ },
+ "litera-n-kreska": {
+  "start": [],
+  "inside": [
+   "słoń",
+   "koń",
+   "dzień",
+   "jeleń",
+   "cień",
+   "kamień",
+   "pień",
+   "ogień",
+   "dłoń"
+  ],
+  "names": []
+ },
+ "litera-o": {
+  "start": [
+   "oko",
+   "osa",
+   "owca",
+   "okno",
+   "orzech",
+   "owoc",
+   "ogórek",
+   "ośmiornica",
+   "ołówek",
+   "obraz",
+   "ogon",
+   "osioł"
+  ],
+  "inside": [
+   "kot",
+   "dom",
+   "sok",
+   "nos",
+   "lody",
+   "koza",
+   "rower",
+   "wrona"
+  ],
+  "names": []
+ },
+ "litera-o-kreska": {
+  "start": [
+   "ósemka"
+  ],
+  "inside": [
+   "góra",
+   "wiewiórka",
+   "ogórek",
+   "ołówek",
+   "kółko",
+   "ogród",
+   "róża",
+   "miód",
+   "wóz",
+   "łódka",
+   "stół",
+   "pióro"
+  ],
+  "names": []
+ },
+ "litera-p": {
+  "start": [
+   "pies",
+   "ptak",
+   "pająk",
+   "pingwin",
+   "piłka",
+   "pomidor",
+   "pociąg",
+   "parasol",
+   "piórnik",
+   "papuga",
+   "pomarańcza",
+   "plecak"
+  ],
+  "inside": [
+   "zupa",
+   "lampa",
+   "łapa",
+   "kapelusz",
+   "czapka",
+   "chłopiec",
+   "stopa"
+  ],
+  "names": []
+ },
+ "litera-r": {
+  "start": [
+   "ryba",
+   "rak",
+   "rower",
+   "róża",
+   "rakieta",
+   "ręka",
+   "ropucha",
+   "renifer",
+   "rzeka",
+   "rzodkiewka",
+   "ręcznik"
+  ],
+  "inside": [
+   "ser",
+   "kura",
+   "krowa",
+   "góra",
+   "tygrys",
+   "sweter",
+   "kredka",
+   "marchew"
+  ],
+  "names": []
+ },
+ "litera-s": {
+  "start": [
+   "ser",
+   "sowa",
+   "słoń",
+   "samolot",
+   "sanki",
+   "samochód",
+   "skarpetka",
+   "stół",
+   "sok",
+   "smok",
+   "sikorka",
+   "sałata"
+  ],
+  "inside": [
+   "nos",
+   "pies",
+   "lis",
+   "las",
+   "osa",
+   "kosz",
+   "autobus",
+   "ananas"
+  ],
+  "names": []
+ },
+ "litera-s-kreska": {
+  "start": [
+   "ślimak",
+   "śnieg",
+   "śliwka",
+   "świnka",
+   "świeca",
+   "śniadanie",
+   "świat",
+   "ślizgawka"
+  ],
+  "inside": [
+   "miś",
+   "liść",
+   "gęś",
+   "łoś",
+   "kość",
+   "ryś",
+   "wieś"
+  ],
+  "names": []
+ },
+ "litera-t": {
+  "start": [
+   "tata",
+   "tort",
+   "tygrys",
+   "telefon",
+   "traktor",
+   "trąbka",
+   "tęcza",
+   "tulipan",
+   "talerz",
+   "torba",
+   "taczka"
+  ],
+  "inside": [
+   "kot",
+   "but",
+   "kwiat",
+   "motyl",
+   "ptak",
+   "latawiec",
+   "kostka",
+   "auto"
+  ],
+  "names": []
+ },
+ "litera-u": {
+  "start": [
+   "ul",
+   "ucho",
+   "ulica",
+   "ubranie",
+   "usta",
+   "uśmiech",
+   "urodziny"
+  ],
+  "inside": [
+   "but",
+   "kubek",
+   "cukier",
+   "kura",
+   "mucha",
+   "zupa",
+   "guzik",
+   "lustro"
+  ],
+  "names": []
+ },
+ "litera-w": {
+  "start": [
+   "woda",
+   "wilk",
+   "wąż",
+   "wiewiórka",
+   "wiatrak",
+   "wózek",
+   "waga",
+   "worek",
+   "wazon",
+   "wrona",
+   "wieloryb",
+   "widelec"
+  ],
+  "inside": [
+   "krowa",
+   "sowa",
+   "owca",
+   "lew",
+   "kawa",
+   "rower",
+   "drzewo",
+   "słowo"
+  ],
+  "names": []
+ },
+ "litera-y": {
+  "start": [],
+  "inside": [
+   "mysz",
+   "ryba",
+   "dynia",
+   "ryż",
+   "cytryna",
+   "tygrys",
+   "dym",
+   "motyl",
+   "rybka",
+   "dywan"
+  ],
+  "names": []
+ },
+ "litera-z": {
+  "start": [
+   "zebra",
+   "zając",
+   "zamek",
+   "ząb",
+   "zegar",
+   "zupa",
+   "zabawka",
+   "zima",
+   "złoto",
+   "zeszyt"
+  ],
+  "inside": [
+   "koza",
+   "wazon",
+   "buzia",
+   "lizak",
+   "guzik",
+   "gwiazda",
+   "obraz"
+  ],
+  "names": []
+ },
+ "litera-z-kreska": {
+  "start": [
+   "źrebię",
+   "źródło",
+   "źdźbło"
+  ],
+  "inside": [
+   "gałąź",
+   "gwóźdź",
+   "późno"
+  ],
+  "names": []
+ },
+ "litera-z-kropka": {
+  "start": [
+   "żaba",
+   "żyrafa",
+   "żółw",
+   "żuk",
+   "żaglówka",
+   "żołądź",
+   "żelazko",
+   "żubr"
+  ],
+  "inside": [
+   "jeż",
+   "nóż",
+   "wąż",
+   "łóżko",
+   "łyżka",
+   "książka",
+   "róża",
+   "wieża"
+  ],
+  "names": []
+ }
+}

@@ -1,0 +1,632 @@
+{
+ "_note": "Curated word lists for kids, English.",
+ "letter-a": {
+  "start": [
+   "apple",
+   "ant",
+   "alligator",
+   "astronaut",
+   "arrow",
+   "acorn",
+   "airplane",
+   "avocado",
+   "animal",
+   "arm"
+  ],
+  "inside": [
+   "cat",
+   "bag",
+   "hat",
+   "banana",
+   "panda",
+   "snake",
+   "rabbit",
+   "grapes"
+  ],
+  "names": []
+ },
+ "letter-b": {
+  "start": [
+   "ball",
+   "bear",
+   "bee",
+   "banana",
+   "boat",
+   "book",
+   "bus",
+   "butterfly",
+   "bird",
+   "bed",
+   "balloon",
+   "baby",
+   "bike"
+  ],
+  "inside": [
+   "rabbit",
+   "zebra",
+   "crab",
+   "robot",
+   "table",
+   "ribbon",
+   "tub"
+  ],
+  "names": []
+ },
+ "letter-c": {
+  "start": [
+   "cat",
+   "car",
+   "cake",
+   "cow",
+   "cup",
+   "carrot",
+   "cookie",
+   "castle",
+   "candle",
+   "clown",
+   "crab",
+   "corn"
+  ],
+  "inside": [
+   "duck",
+   "pencil",
+   "ice",
+   "bicycle",
+   "rocket",
+   "sock",
+   "juice",
+   "truck"
+  ],
+  "names": []
+ },
+ "letter-d": {
+  "start": [
+   "dog",
+   "duck",
+   "drum",
+   "doll",
+   "door",
+   "dinosaur",
+   "dolphin",
+   "donut",
+   "dragon",
+   "desk"
+  ],
+  "inside": [
+   "bird",
+   "bed",
+   "cloud",
+   "candy",
+   "ladder",
+   "sandwich",
+   "garden",
+   "spider"
+  ],
+  "names": []
+ },
+ "letter-e": {
+  "start": [
+   "egg",
+   "elephant",
+   "eagle",
+   "ear",
+   "envelope",
+   "engine",
+   "elf",
+   "eel"
+  ],
+  "inside": [
+   "bed",
+   "bee",
+   "tree",
+   "red",
+   "pen",
+   "hen",
+   "cheese",
+   "sheep"
+  ],
+  "names": []
+ },
+ "letter-f": {
+  "start": [
+   "fish",
+   "fox",
+   "frog",
+   "flower",
+   "fire",
+   "fork",
+   "flag",
+   "feather",
+   "fan",
+   "farm",
+   "foot",
+   "fruit"
+  ],
+  "inside": [
+   "giraffe",
+   "leaf",
+   "wolf",
+   "muffin",
+   "gift",
+   "sofa",
+   "butterfly",
+   "waffle"
+  ],
+  "names": []
+ },
+ "letter-g": {
+  "start": [
+   "goat",
+   "girl",
+   "grapes",
+   "guitar",
+   "gift",
+   "garden",
+   "glass",
+   "gorilla",
+   "giraffe",
+   "goose",
+   "glove"
+  ],
+  "inside": [
+   "dog",
+   "pig",
+   "frog",
+   "egg",
+   "bag",
+   "tiger",
+   "dragon",
+   "magnet"
+  ],
+  "names": []
+ },
+ "letter-h": {
+  "start": [
+   "hat",
+   "horse",
+   "house",
+   "hen",
+   "hand",
+   "heart",
+   "helicopter",
+   "honey",
+   "hippo",
+   "hedgehog",
+   "hammer",
+   "hug"
+  ],
+  "inside": [
+   "fish",
+   "chair",
+   "elephant",
+   "sheep",
+   "shoe",
+   "teeth",
+   "peach",
+   "whale"
+  ],
+  "names": []
+ },
+ "letter-i": {
+  "start": [
+   "igloo",
+   "insect",
+   "ink",
+   "island",
+   "iguana",
+   "ice",
+   "idea",
+   "inch"
+  ],
+  "inside": [
+   "fish",
+   "pig",
+   "milk",
+   "kite",
+   "bike",
+   "pin",
+   "lion",
+   "spider"
+  ],
+  "names": []
+ },
+ "letter-j": {
+  "start": [
+   "jam",
+   "jar",
+   "jet",
+   "juice",
+   "jelly",
+   "jacket",
+   "jellyfish",
+   "jeep",
+   "jump",
+   "jigsaw",
+   "jaguar",
+   "jeans"
+  ],
+  "inside": [
+   "pajamas",
+   "banjo",
+   "ninja"
+  ],
+  "names": []
+ },
+ "letter-k": {
+  "start": [
+   "kite",
+   "kangaroo",
+   "key",
+   "king",
+   "kitten",
+   "koala",
+   "kiwi",
+   "kettle",
+   "kayak",
+   "kid"
+  ],
+  "inside": [
+   "bike",
+   "cake",
+   "duck",
+   "book",
+   "monkey",
+   "sock",
+   "snake",
+   "rocket"
+  ],
+  "names": []
+ },
+ "letter-l": {
+  "start": [
+   "lion",
+   "lamp",
+   "leaf",
+   "lemon",
+   "ladder",
+   "ladybug",
+   "lamb",
+   "log",
+   "lollipop",
+   "lizard"
+  ],
+  "inside": [
+   "ball",
+   "owl",
+   "apple",
+   "balloon",
+   "doll",
+   "bell",
+   "table",
+   "clock"
+  ],
+  "names": []
+ },
+ "letter-m": {
+  "start": [
+   "mouse",
+   "moon",
+   "milk",
+   "monkey",
+   "map",
+   "mitten",
+   "mushroom",
+   "muffin",
+   "mango",
+   "mermaid"
+  ],
+  "inside": [
+   "lemon",
+   "hammer",
+   "camel",
+   "drum",
+   "lamp",
+   "gum",
+   "worm",
+   "jam"
+  ],
+  "names": []
+ },
+ "letter-n": {
+  "start": [
+   "nest",
+   "nose",
+   "nut",
+   "nurse",
+   "net",
+   "nine",
+   "night",
+   "needle",
+   "noodles",
+   "nail"
+  ],
+  "inside": [
+   "sun",
+   "lion",
+   "pen",
+   "hen",
+   "moon",
+   "banana",
+   "candy",
+   "hand"
+  ],
+  "names": []
+ },
+ "letter-o": {
+  "start": [
+   "owl",
+   "octopus",
+   "orange",
+   "ostrich",
+   "otter",
+   "ox",
+   "onion",
+   "oven"
+  ],
+  "inside": [
+   "dog",
+   "fox",
+   "box",
+   "frog",
+   "doll",
+   "robot",
+   "pot",
+   "clock"
+  ],
+  "names": []
+ },
+ "letter-p": {
+  "start": [
+   "pig",
+   "penguin",
+   "pen",
+   "pizza",
+   "pear",
+   "panda",
+   "parrot",
+   "pumpkin",
+   "puppy",
+   "pencil",
+   "pie",
+   "pink"
+  ],
+  "inside": [
+   "apple",
+   "cup",
+   "map",
+   "lamp",
+   "ship",
+   "soap",
+   "grapes",
+   "hippo"
+  ],
+  "names": []
+ },
+ "letter-q": {
+  "start": [
+   "queen",
+   "quilt",
+   "quack",
+   "question",
+   "quarter",
+   "quail",
+   "quiet"
+  ],
+  "inside": [
+   "squirrel",
+   "squid",
+   "square",
+   "aquarium",
+   "mosquito",
+   "liquid"
+  ],
+  "names": []
+ },
+ "letter-r": {
+  "start": [
+   "rabbit",
+   "rocket",
+   "rain",
+   "rainbow",
+   "ring",
+   "robot",
+   "rose",
+   "rat",
+   "road",
+   "ruler",
+   "rooster"
+  ],
+  "inside": [
+   "car",
+   "star",
+   "bear",
+   "carrot",
+   "tiger",
+   "zebra",
+   "frog",
+   "tree"
+  ],
+  "names": []
+ },
+ "letter-s": {
+  "start": [
+   "sun",
+   "star",
+   "snake",
+   "sock",
+   "sheep",
+   "spoon",
+   "spider",
+   "ship",
+   "swing",
+   "strawberry",
+   "seal",
+   "snail"
+  ],
+  "inside": [
+   "bus",
+   "house",
+   "horse",
+   "glass",
+   "mouse",
+   "nest",
+   "rose",
+   "castle"
+  ],
+  "names": []
+ },
+ "letter-t": {
+  "start": [
+   "turtle",
+   "tiger",
+   "tree",
+   "train",
+   "truck",
+   "tomato",
+   "teddy",
+   "toy",
+   "tent",
+   "table",
+   "toothbrush",
+   "tooth"
+  ],
+  "inside": [
+   "cat",
+   "hat",
+   "kite",
+   "boat",
+   "kitten",
+   "butter",
+   "rabbit",
+   "button"
+  ],
+  "names": []
+ },
+ "letter-u": {
+  "start": [
+   "umbrella",
+   "unicorn",
+   "up",
+   "under",
+   "uniform",
+   "ukulele"
+  ],
+  "inside": [
+   "sun",
+   "bus",
+   "duck",
+   "cup",
+   "drum",
+   "juice",
+   "mud",
+   "bug"
+  ],
+  "names": []
+ },
+ "letter-v": {
+  "start": [
+   "van",
+   "vase",
+   "violin",
+   "volcano",
+   "vest",
+   "vegetables",
+   "vet"
+  ],
+  "inside": [
+   "dove",
+   "glove",
+   "oven",
+   "river",
+   "seven",
+   "five",
+   "cave",
+   "wave"
+  ],
+  "names": []
+ },
+ "letter-w": {
+  "start": [
+   "whale",
+   "watch",
+   "worm",
+   "window",
+   "wolf",
+   "water",
+   "wagon",
+   "web",
+   "wing",
+   "woodpecker"
+  ],
+  "inside": [
+   "owl",
+   "cow",
+   "snow",
+   "bow",
+   "flower",
+   "towel",
+   "yellow"
+  ],
+  "names": []
+ },
+ "letter-x": {
+  "start": [
+   "xylophone",
+   "x-ray"
+  ],
+  "inside": [
+   "box",
+   "fox",
+   "six",
+   "ox",
+   "taxi",
+   "mixer",
+   "axe",
+   "wax"
+  ],
+  "names": []
+ },
+ "letter-y": {
+  "start": [
+   "yo-yo",
+   "yak",
+   "yarn",
+   "yellow",
+   "yogurt",
+   "yacht",
+   "yard"
+  ],
+  "inside": [
+   "toy",
+   "boy",
+   "key",
+   "monkey",
+   "baby",
+   "candy",
+   "crayon",
+   "pony",
+   "eye"
+  ],
+  "names": []
+ },
+ "letter-z": {
+  "start": [
+   "zebra",
+   "zoo",
+   "zero",
+   "zipper",
+   "zucchini",
+   "zigzag"
+  ],
+  "inside": [
+   "pizza",
+   "lizard",
+   "puzzle",
+   "maze",
+   "prize",
+   "freezer",
+   "dozen"
+  ],
+  "names": []
+ }
+}

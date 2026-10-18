@@ -30,6 +30,9 @@ for (const file of pages) {
   if (!/hreflang=/.test(html)) issues.push('no hreflang');
   const noAlt = (html.match(/<img(?![^>]*\balt=)[^>]*>/g) ?? []).length;
   if (noAlt) issues.push(`${noAlt} img without alt`);
+  const missing = [...new Set([...html.matchAll(/\bsrc="(\/[^"?#]+)"/g)].map((m) => m[1]))]
+    .filter((src) => !fs.existsSync(path.join(DIST, src)));
+  if (missing.length) issues.push(`missing ${missing.join(', ')}`);
   if (titles.has(title)) issues.push(`duplicate title with ${titles.get(title)}`);
   if (descs.has(desc)) issues.push(`duplicate description with ${descs.get(desc)}`);
   titles.set(title, url); descs.set(desc, url);

@@ -314,11 +314,22 @@ const objDir = path.join(APP, 'Assets.xcassets/ObjectsImages');
 const outDir = path.join(ROOT, 'public/img/words');
 fs.mkdirSync(outDir, { recursive: true });
 const assetName = (r) => r.charAt(0).toLowerCase() + r.slice(1);
+// A few words reuse pictures kept elsewhere in the catalog (paraguas → LettersBackground/Umbrella).
+const findImageset = (dir, name) => {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (!e.isDirectory()) continue;
+    const p = path.join(dir, e.name);
+    if (e.name.toLowerCase() === name) return p;
+    if (!e.name.endsWith('.imageset')) { const hit = findImageset(p, name); if (hit) return hit; }
+  }
+  return null;
+};
 for (const img of usedImages) {
-  const set = fs.readdirSync(objDir).find((d) => d.toLowerCase() === assetName(img).toLowerCase() + '.imageset');
+  const name = assetName(img).toLowerCase() + '.imageset';
+  const set = findImageset(objDir, name) ?? findImageset(path.join(APP, 'Assets.xcassets'), name);
   if (!set) { console.warn('missing image', img); continue; }
-  const png = fs.readdirSync(path.join(objDir, set)).find((f) => f.endsWith('.png'));
-  await sharp(path.join(objDir, set, png)).resize(320, 320, { fit: 'inside' }).webp({ quality: 82 })
+  const png = fs.readdirSync(set).find((f) => f.endsWith('.png'));
+  await sharp(path.join(set, png)).resize(320, 320, { fit: 'inside' }).webp({ quality: 82 })
     .toFile(path.join(outDir, img + '.webp'));
 }
 console.log('word images:', usedImages.size);

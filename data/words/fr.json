@@ -1,0 +1,640 @@
+{
+ "_note": "TODO(review): curated word lists for kids, French; have a native speaker check them.",
+ "lettre-a": {
+  "start": [
+   "abeille",
+   "avion",
+   "ananas",
+   "arbre",
+   "âne",
+   "araignée",
+   "animal",
+   "ami",
+   "anniversaire",
+   "assiette",
+   "autobus",
+   "abricot",
+   "aigle",
+   "arc-en-ciel"
+  ],
+  "inside": [
+   "chat",
+   "sac",
+   "lapin",
+   "banane",
+   "cheval",
+   "table",
+   "papa",
+   "maman"
+  ],
+  "names": []
+ },
+ "lettre-b": {
+  "start": [
+   "ballon",
+   "banane",
+   "bateau",
+   "bébé",
+   "biberon",
+   "bonbon",
+   "bouche",
+   "bouteille",
+   "brosse",
+   "bus",
+   "baleine",
+   "bougie",
+   "bol",
+   "bras",
+   "beurre"
+  ],
+  "inside": [
+   "abeille",
+   "arbre",
+   "cabane",
+   "robe",
+   "tableau",
+   "zèbre",
+   "abricot",
+   "jambe"
+  ],
+  "names": []
+ },
+ "lettre-c": {
+  "start": [
+   "chat",
+   "chien",
+   "cheval",
+   "cochon",
+   "canard",
+   "carotte",
+   "citron",
+   "cadeau",
+   "camion",
+   "crayon",
+   "couteau",
+   "coccinelle",
+   "cerise",
+   "chapeau",
+   "chocolat"
+  ],
+  "inside": [
+   "lac",
+   "sac",
+   "école",
+   "bouche",
+   "vache",
+   "poche",
+   "biscuit",
+   "avocat"
+  ],
+  "names": []
+ },
+ "lettre-d": {
+  "start": [
+   "dauphin",
+   "dinosaure",
+   "dent",
+   "doigt",
+   "dragon",
+   "dé",
+   "dessin",
+   "docteur",
+   "domino",
+   "douche",
+   "dindon",
+   "dame"
+  ],
+  "inside": [
+   "radis",
+   "salade",
+   "rideau",
+   "sardine",
+   "cadeau",
+   "poudre",
+   "panda",
+   "lavande"
+  ],
+  "names": []
+ },
+ "lettre-e": {
+  "start": [
+   "éléphant",
+   "école",
+   "étoile",
+   "escargot",
+   "écureuil",
+   "eau",
+   "enfant",
+   "éponge",
+   "échelle",
+   "été",
+   "escalier"
+  ],
+  "inside": [
+   "lune",
+   "pomme",
+   "table",
+   "fleur",
+   "mer",
+   "vélo",
+   "chèvre",
+   "sel"
+  ],
+  "names": []
+ },
+ "lettre-f": {
+  "start": [
+   "fleur",
+   "fraise",
+   "fromage",
+   "fusée",
+   "feu",
+   "fée",
+   "fourmi",
+   "fenêtre",
+   "forêt",
+   "fourchette",
+   "fille",
+   "frère"
+  ],
+  "inside": [
+   "girafe",
+   "café",
+   "carafe",
+   "buffet",
+   "gaufre",
+   "chiffre",
+   "neuf"
+  ],
+  "names": []
+ },
+ "lettre-g": {
+  "start": [
+   "girafe",
+   "gâteau",
+   "garçon",
+   "gant",
+   "glace",
+   "gomme",
+   "gorille",
+   "grenouille",
+   "guitare",
+   "grue",
+   "goûter",
+   "gilet"
+  ],
+  "inside": [
+   "tigre",
+   "orange",
+   "éponge",
+   "nuage",
+   "aigle",
+   "plage",
+   "fromage",
+   "bougie",
+   "luge"
+  ],
+  "names": []
+ },
+ "lettre-h": {
+  "start": [
+   "hibou",
+   "hérisson",
+   "hippopotame",
+   "hélicoptère",
+   "herbe",
+   "horloge",
+   "hamster",
+   "hamac",
+   "haricot",
+   "homme"
+  ],
+  "inside": [
+   "chat",
+   "chien",
+   "cheval",
+   "éléphant",
+   "téléphone",
+   "cahier",
+   "chou",
+   "cochon"
+  ],
+  "names": []
+ },
+ "lettre-i": {
+  "start": [
+   "igloo",
+   "île",
+   "iguane",
+   "image",
+   "insecte",
+   "idée",
+   "infirmière"
+  ],
+  "inside": [
+   "lit",
+   "lion",
+   "ski",
+   "biscuit",
+   "ville",
+   "pirate",
+   "souris",
+   "tapis",
+   "girafe"
+  ],
+  "names": []
+ },
+ "lettre-j": {
+  "start": [
+   "jaguar",
+   "jardin",
+   "jouet",
+   "jus",
+   "jupe",
+   "journal",
+   "jambon",
+   "jeu",
+   "joue",
+   "jumelles",
+   "jaune"
+  ],
+  "inside": [
+   "bonjour",
+   "pyjama",
+   "bijou",
+   "déjeuner",
+   "aujourd'hui"
+  ],
+  "names": []
+ },
+ "lettre-k": {
+  "start": [
+   "koala",
+   "kangourou",
+   "kiwi",
+   "kayak",
+   "ketchup",
+   "karaté",
+   "kimono",
+   "kilo"
+  ],
+  "inside": [
+   "ski",
+   "hockey",
+   "anorak"
+  ],
+  "names": [
+   "Kevin",
+   "Karine"
+  ]
+ },
+ "lettre-l": {
+  "start": [
+   "lion",
+   "lapin",
+   "lune",
+   "lait",
+   "livre",
+   "loup",
+   "lampe",
+   "lit",
+   "léopard",
+   "lettre",
+   "lunettes",
+   "légume"
+  ],
+  "inside": [
+   "ballon",
+   "balle",
+   "cheval",
+   "sel",
+   "vélo",
+   "école",
+   "fleur",
+   "poule",
+   "soleil"
+  ],
+  "names": []
+ },
+ "lettre-m": {
+  "start": [
+   "maman",
+   "maison",
+   "main",
+   "mouton",
+   "moto",
+   "mouche",
+   "mer",
+   "melon",
+   "montagne",
+   "miel",
+   "marteau",
+   "macaque"
+  ],
+  "inside": [
+   "pomme",
+   "plume",
+   "tomate",
+   "homme",
+   "fromage",
+   "chameau",
+   "lama"
+  ],
+  "names": []
+ },
+ "lettre-n": {
+  "start": [
+   "nid",
+   "nez",
+   "neige",
+   "nuage",
+   "nuit",
+   "noix",
+   "nounours",
+   "nageur",
+   "nappe",
+   "noël"
+  ],
+  "inside": [
+   "banane",
+   "lune",
+   "âne",
+   "cane",
+   "lapin",
+   "sapin",
+   "jardin",
+   "main"
+  ],
+  "names": []
+ },
+ "lettre-o": {
+  "start": [
+   "orange",
+   "ours",
+   "oiseau",
+   "os",
+   "oreille",
+   "olive",
+   "orage",
+   "oignon",
+   "otarie",
+   "ordinateur"
+  ],
+  "inside": [
+   "pomme",
+   "robot",
+   "vélo",
+   "moto",
+   "bol",
+   "loup",
+   "ballon",
+   "chocolat"
+  ],
+  "names": []
+ },
+ "lettre-p": {
+  "start": [
+   "papa",
+   "pomme",
+   "poisson",
+   "poule",
+   "pain",
+   "pingouin",
+   "papillon",
+   "panda",
+   "parapluie",
+   "pied",
+   "poire",
+   "pirate",
+   "puzzle"
+  ],
+  "inside": [
+   "lapin",
+   "sapin",
+   "soupe",
+   "chapeau",
+   "tapis",
+   "crêpe",
+   "lampe",
+   "éponge"
+  ],
+  "names": []
+ },
+ "lettre-q": {
+  "start": [
+   "quille",
+   "quatre",
+   "queue",
+   "question",
+   "quiche",
+   "quai"
+  ],
+  "inside": [
+   "coq",
+   "cinq",
+   "bouquet",
+   "requin",
+   "moustique",
+   "masque",
+   "perroquet"
+  ],
+  "names": []
+ },
+ "lettre-r": {
+  "start": [
+   "renard",
+   "robot",
+   "rose",
+   "roue",
+   "radis",
+   "raisin",
+   "requin",
+   "robe",
+   "rat",
+   "rideau",
+   "rivière",
+   "roi"
+  ],
+  "inside": [
+   "arbre",
+   "fraise",
+   "carotte",
+   "poire",
+   "mer",
+   "ours",
+   "sirène",
+   "fleur"
+  ],
+  "names": []
+ },
+ "lettre-s": {
+  "start": [
+   "soleil",
+   "souris",
+   "serpent",
+   "sac",
+   "sapin",
+   "salade",
+   "savon",
+   "singe",
+   "sirène",
+   "sucre",
+   "seau",
+   "sel"
+  ],
+  "inside": [
+   "maison",
+   "chaise",
+   "rose",
+   "poisson",
+   "ours",
+   "bus",
+   "fusée",
+   "valise"
+  ],
+  "names": []
+ },
+ "lettre-t": {
+  "start": [
+   "tortue",
+   "tomate",
+   "train",
+   "table",
+   "tigre",
+   "tambour",
+   "téléphone",
+   "tasse",
+   "tapis",
+   "tracteur",
+   "tête",
+   "toit"
+  ],
+  "inside": [
+   "chat",
+   "bateau",
+   "gâteau",
+   "carotte",
+   "botte",
+   "patte",
+   "lit",
+   "pirate"
+  ],
+  "names": []
+ },
+ "lettre-u": {
+  "start": [
+   "usine",
+   "univers",
+   "uniforme",
+   "un",
+   "ukulélé"
+  ],
+  "inside": [
+   "lune",
+   "plume",
+   "jus",
+   "bus",
+   "sucre",
+   "tortue",
+   "mur",
+   "nuage"
+  ],
+  "names": []
+ },
+ "lettre-v": {
+  "start": [
+   "vache",
+   "vélo",
+   "voiture",
+   "volcan",
+   "violon",
+   "verre",
+   "ville",
+   "vent",
+   "valise",
+   "vase",
+   "ver"
+  ],
+  "inside": [
+   "cheval",
+   "chèvre",
+   "avion",
+   "lavabo",
+   "livre",
+   "lèvre",
+   "rêve"
+  ],
+  "names": []
+ },
+ "lettre-w": {
+  "start": [
+   "wagon",
+   "wombat",
+   "wapiti",
+   "week-end"
+  ],
+  "inside": [
+   "kiwi",
+   "sandwich",
+   "clown",
+   "bowling"
+  ],
+  "names": [
+   "William",
+   "Wendy"
+  ]
+ },
+ "lettre-x": {
+  "start": [
+   "xylophone"
+  ],
+  "inside": [
+   "taxi",
+   "boxe",
+   "six",
+   "dix",
+   "deux",
+   "yeux",
+   "saxophone"
+  ],
+  "names": [
+   "Xavier"
+  ]
+ },
+ "lettre-y": {
+  "start": [
+   "yaourt",
+   "yoyo",
+   "yéti",
+   "yoga",
+   "yacht"
+  ],
+  "inside": [
+   "pyjama",
+   "crayon",
+   "tuyau",
+   "noyau",
+   "voyage",
+   "rayon"
+  ],
+  "names": []
+ },
+ "lettre-z": {
+  "start": [
+   "zèbre",
+   "zoo",
+   "zéro",
+   "zigzag"
+  ],
+  "inside": [
+   "onze",
+   "douze",
+   "gaz",
+   "lézard",
+   "bazar",
+   "gazelle",
+   "gazon"
+  ],
+  "names": []
+ }
+}

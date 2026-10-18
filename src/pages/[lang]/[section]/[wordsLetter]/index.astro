@@ -1,4 +1,5 @@
 ---
+import fs from 'node:fs';
 import Base from '../../../../layouts/Base.astro';
 import AppBlock from '../../../../components/AppBlock.astro';
 import { SITE } from '../../../../site';
@@ -33,13 +34,13 @@ const img = l.character ?? l.characterImage;
 const pictures = [
   ...(l.word && img ? [{ text: l.word, src: `/img/characters/${img}.webp` }] : []),
   ...l.words.filter((w) => w.text !== l.word).map((w) => ({ text: w.text, src: `/img/words/${w.image}.webp` })),
-];
+].filter((p) => fs.existsSync('public' + p.src));
 
 const count = list.start.length + list.inside.length;
 // Description examples: as many start words as fit in Google's ~160 characters.
-let examples = list.start.slice(0, 5);
+let examples = (list.start.length ? list.start : list.inside).slice(0, 5);
 while (examples.length > 1 && W.letterDescription(l, count, examples).length > 160) examples = examples.slice(0, -1);
-const title = W.letterTitle(l);
+const title = W.letterTitle(l, list.start.length);
 const description = W.letterDescription(l, count, examples);
 const faq = W.faq(l, list.start, list.inside);
 const highlight = (word: string) => splitAt(lang, word, l.lower);
@@ -80,7 +81,7 @@ const jsonLd = {
           <span>{l.letter}</span>{l.letter !== l.lower && <small>{l.lower}</small>}
         </div>
         <div>
-          <h1>{W.letterH1(l)}</h1>
+          <h1>{W.letterH1(l, list.start.length)}</h1>
           <p class="lead">{W.letterLead(l, list.start.length, list.inside.length)}</p>
         </div>
       </div>
@@ -106,13 +107,17 @@ const jsonLd = {
 
   <section class="section">
     <div class="wrap">
-      <h2>{W.startTitle(l)}</h2>
-      <ul class="chips">
-        {list.start.map((w) => {
-          const [a, b, c] = highlight(w);
-          return <li>{a}<b style={ink}>{b}</b>{c}</li>;
-        })}
-      </ul>
+      {list.start.length > 0 && (
+        <>
+          <h2>{W.startTitle(l)}</h2>
+          <ul class="chips">
+            {list.start.map((w) => {
+              const [a, b, c] = highlight(w);
+              return <li>{a}<b style={ink}>{b}</b>{c}</li>;
+            })}
+          </ul>
+        </>
+      )}
 
       {list.inside.length > 0 && (
         <>
