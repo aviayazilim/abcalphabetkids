@@ -53,8 +53,14 @@ const wordsPage = WORDS_COPY[lang] && wordsFor(lang, l.slug) ? path.wordsLetter(
 
 const highlight = (word: string) => splitAt(lang, word, l.lower);
 
-// Example words for activities and FAQ: the letter's character word first, then the picture words.
-const exampleWords = [...new Set([l.word, ...l.words.map((w) => w.text)].filter((w): w is string => Boolean(w)))].slice(0, 5);
+// App word-game words are stored lowercase; German nouns are capitalised.
+const display = (w: string) => (lang === 'de' ? w.charAt(0).toLocaleUpperCase('de') + w.slice(1) : w);
+
+// Example words for activities and FAQ: the letter's character word first, then the picture words (no case-only repeats).
+const exampleWords = [l.word, ...l.words.map((w) => display(w.text))]
+  .filter((w): w is string => Boolean(w))
+  .filter((w, i, all) => all.findIndex((x) => x.toLocaleLowerCase(lang) === w.toLocaleLowerCase(lang)) === i)
+  .slice(0, 5);
 
 // The same letter in the other alphabets (A in English, French, German…).
 const otherLangs = LANGS.filter((x) => x !== lang)
@@ -174,10 +180,10 @@ const pagerHref = (x: Letter) => (isColoring ? path.coloringLetter(lang, x.slug)
         <h2>{inside ? L.wordsInsideTitle(l) : L.wordsTitle(l)}</h2>
         <ul class="words">
           {l.words.slice(0, 8).map((w) => {
-            const [a, b, c] = highlight(w.text);
+            const [a, b, c] = highlight(display(w.text));
             return (
               <li>
-                <img src={`/img/words/${w.image}.webp`} alt={L.wordAlt(w.text)} width="120" height="120" loading="lazy" decoding="async" />
+                <img src={`/img/words/${w.image}.webp`} alt={L.wordAlt(display(w.text))} width="120" height="120" loading="lazy" decoding="async" />
                 <span>{a}<mark style={`--c:${l.letterColor ?? l.color}`}>{b}</mark>{c}</span>
               </li>
             );

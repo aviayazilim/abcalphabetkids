@@ -31,9 +31,12 @@ const pageUrl = abs(path.wordsLetter(lang, l.slug)!);
 
 // Words from the app that have a picture: the letter's character first.
 const img = l.character ?? l.characterImage;
+// App word-game words are stored lowercase; German nouns are capitalised. Skip repeats of the card word.
+const display = (w: string) => (lang === 'de' ? w.charAt(0).toLocaleUpperCase('de') + w.slice(1) : w);
+const same = (a: string, b: string) => a.toLocaleLowerCase(lang) === b.toLocaleLowerCase(lang);
 const pictures = [
   ...(l.word && img ? [{ text: l.word, src: `/img/characters/${img}.webp` }] : []),
-  ...l.words.filter((w) => w.text !== l.word).map((w) => ({ text: w.text, src: `/img/words/${w.image}.webp` })),
+  ...l.words.filter((w) => !l.word || !same(w.text, l.word)).map((w) => ({ text: display(w.text), src: `/img/words/${w.image}.webp` })),
 ].filter((p) => fs.existsSync('public' + p.src));
 
 const count = list.start.length + list.inside.length;

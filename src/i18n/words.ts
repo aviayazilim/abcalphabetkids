@@ -141,14 +141,14 @@ const de: WordsCopy = {
   h1: 'Wörter mit jedem Buchstaben',
   lead: 'Zu jedem Buchstaben eine Liste einfacher Wörter, die Kinder kennen: Wörter, die mit dem Buchstaben anfangen, und Wörter, in denen er in der Mitte oder am Ende steht. Ideal für Hausaufgaben und Spiele.',
   gridTitle: 'Buchstaben wählen',
-  letterTitle: (l, s) => (s ? `Wörter mit ${l.letter}: Liste für Kinder` : `Wörter mit ${l.letter} für Kinder`),
-  letterDescription: (l, n, ex) => `${n} Wörter mit ${l.letter} für Kinder: ${ex.join(', ')} und mehr. Mit Bildern, Spielideen und kostenlosem Arbeitsblatt.`,
-  letterH1: (l) => `Wörter mit ${l.letter}`,
+  letterTitle: (l, s) => (s ? `Wörter mit ${l.letter} für Kinder: Gegenstände und Sachen` : `Wörter mit ${l.letter} für Kinder`),
+  letterDescription: (l, n, ex) => `${n} Wörter und Gegenstände mit ${l.letter} für Kinder: ${ex.join(', ')} und mehr. Mit Bildern, Spielideen und kostenlosem Arbeitsblatt.`,
+  letterH1: (l) => `Wörter mit ${l.letter} für Kinder`,
   letterLead: (l, s, i) => (s
     ? `${s} Wörter, die mit ${l.letter} anfangen${i ? `, und ${i} mit ${l.letter} in der Mitte oder am Ende` : ''}, ausgewählt für Kinder von 2 bis 6 Jahren.`
     : `${i} Wörter mit ${l.letter}, ausgewählt für Kinder von 2 bis 6 Jahren. Am Wortanfang steht ${l.letter} so gut wie nie.`),
   picturesTitle: 'Mit Bild',
-  startTitle: (l) => `Wörter, die mit ${l.letter} anfangen`,
+  startTitle: (l) => `Wörter und Gegenstände, die mit ${l.letter} anfangen`,
   insideTitle: (l) => `Wörter mit ${l.letter} in der Mitte oder am Ende`,
   namesTitle: (l) => `Namen mit ${l.letter}`,
   activitiesTitle: 'Spiele mit der Liste',
@@ -164,6 +164,7 @@ const de: WordsCopy = {
   faqTitle: 'Häufige Fragen',
   faq: (l, s, i) => [
     ...(s.length ? [{ q: `Welche Wörter fangen mit ${l.letter} an?`, a: `Zum Beispiel: ${s.slice(0, 8).join(', ')}. Die ganze Liste steht auf dieser Seite.` }] : []),
+    ...(s.length ? [{ q: `Welche Gegenstände und Sachen fangen mit ${l.letter} an?`, a: `Dinge, die Kinder kennen und zeigen können: ${s.slice(0, 5).join(', ')}. Gut für ein Suchspiel zu Hause.` }] : []),
     ...(i.length ? [{ q: `Welche Wörter haben ${l.letter} in der Mitte oder am Ende?`, a: `Zum Beispiel: ${i.slice(0, 6).join(', ')}.` }] : []),
     { q: 'Wie übe ich mit der Liste mit kleinen Kindern?', a: 'Nehmen Sie drei oder vier Wörter am Tag, lesen Sie sie langsam vor und zeigen Sie den Buchstaben im geschriebenen Wort. Danach kann Ihr Kind den Buchstaben auf dem Arbeitsblatt nachspuren.' },
   ],
@@ -173,14 +174,14 @@ const de: WordsCopy = {
 
 const pl: WordsCopy = {
   nav: 'Słowa',
-  title: 'Słowa na każdą literę alfabetu dla dzieci',
+  title: 'Słowa i wyrazy na każdą literę alfabetu dla dzieci',
   description: 'Listy słów na każdą literę od A do Ż dla przedszkolaków: słowa, które zaczynają się na literę, i słowa, w których ona występuje. Z obrazkami i zabawami.',
   h1: 'Słowa na każdą literę alfabetu',
   lead: 'Dla każdej litery lista prostych słów, które dzieci znają: zaczynających się na tę literę i takich, w których stoi w środku lub na końcu. Przydatne do zadań domowych i zabaw.',
   gridTitle: 'Wybierz literę',
-  letterTitle: (l, s) => (s ? `Słowa na literę ${l.letter}: lista dla dzieci` : `Słowa z literą ${l.letter}: lista dla dzieci`),
-  letterDescription: (l, n, ex) => `${n} słów z literą ${l.letter} dla dzieci: ${ex.join(', ')} i więcej. Z obrazkami, zabawami i darmową kartą pracy.`,
-  letterH1: (l, s) => (s ? `Słowa na literę ${l.letter}` : `Słowa z literą ${l.letter}`),
+  letterTitle: (l, s) => (s ? `Słowa i wyrazy na literę ${l.letter} dla dzieci` : `Słowa i wyrazy z literą ${l.letter} dla dzieci`),
+  letterDescription: (l, n, ex) => `${n} słów i wyrazów z literą ${l.letter} dla dzieci: ${ex.join(', ')} i więcej. Z obrazkami, zabawami i darmową kartą pracy.`,
+  letterH1: (l, s) => (s ? `Słowa i wyrazy na literę ${l.letter}` : `Słowa i wyrazy z literą ${l.letter}`),
   letterLead: (l, s, i) => (s
     ? `${s} słów na literę ${l.letter}${i ? ` i ${i} z ${l.letter} w środku lub na końcu` : ''}, wybranych dla dzieci w wieku 2–6 lat.`
     : `${i} słów z literą ${l.letter}, wybranych dla dzieci w wieku 2–6 lat. Polskie słowa nie zaczynają się na ${l.letter}, dlatego szukamy jej w środku i na końcu.`),
@@ -201,6 +202,7 @@ const pl: WordsCopy = {
   faqTitle: 'Częste pytania',
   faq: (l, s, i) => [
     ...(s.length ? [{ q: `Jakie słowa zaczynają się na literę ${l.letter}?`, a: `Na przykład: ${s.slice(0, 8).join(', ')}. Pełna lista jest na tej stronie.` }] : []),
+    ...(s.length ? [{ q: `Jakie wyrazy na ${l.letter} wybrać dla dziecka?`, a: `Najlepiej krótkie wyrazy, które dziecko zna i może pokazać na obrazku: ${s.slice(0, 5).join(', ')}.` }] : []),
     ...(i.length ? [{ q: `Jakie słowa mają literę ${l.letter} w środku lub na końcu?`, a: `Na przykład: ${i.slice(0, 6).join(', ')}.` }] : []),
     { q: 'Jak korzystać z listy z małymi dziećmi?', a: 'Wybierz trzy–cztery słowa dziennie, czytaj je powoli i pokazuj literę w zapisanym słowie. Potem dziecko może napisać literę po śladzie na karcie pracy.' },
   ],
