@@ -18,6 +18,8 @@ let problems = 0;
 const decode = (s) => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
 for (const file of pages) {
   const html = fs.readFileSync(file, 'utf8');
+  // Not meant for search (e.g. /<lang>/go/<store>/ click counters).
+  if (/<meta name="robots" content="noindex/.test(html)) continue;
   const url = '/' + path.relative(DIST, path.dirname(file)) + (path.dirname(file) === DIST ? '' : '/');
   const title = decode(html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '');
   const desc = decode(html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '');

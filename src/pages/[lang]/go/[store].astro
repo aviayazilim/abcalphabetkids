@@ -1,0 +1,43 @@
+---
+// Store buttons link here so a click becomes a page view in Cloudflare Web Analytics
+// (no cookies, no custom events): /<lang>/go/ios/ and /<lang>/go/android/.
+// The page then forwards to the store with the same campaign as before.
+import { LANGS, type Lang } from '../../../lib/routes';
+import { SITE, appStoreUrl, playUrl } from '../../../site';
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) => (['ios', 'android'] as const).map((store) => ({ params: { lang, store } })));
+}
+
+const { lang, store } = Astro.params as { lang: Lang; store: 'ios' | 'android' };
+const make = store === 'ios' ? appStoreUrl : playUrl;
+const fallback = make(`site_${lang}`);
+const template = make('__C__');
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ABC Alphabet</title>
+  <noscript><meta http-equiv="refresh" content={`0;url=${fallback}`} /></noscript>
+  {SITE.cfBeaconToken && (
+    <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: SITE.cfBeaconToken })}></script>
+  )}
+  <style>body { font: 16px/1.5 system-ui, sans-serif; display: grid; place-items: center; min-height: 100vh; margin: 0; }</style>
+</head>
+<body>
+  <p><a id="go" href={fallback} rel="nofollow">{store === 'ios' ? 'App Store' : 'Google Play'} →</a></p>
+  <script is:inline define:vars={{ template, fallback }}>
+    (function () {
+      var c = new URLSearchParams(location.search).get('c');
+      // Only plain campaign names (site_de_words…) are passed on.
+      var url = c && /^[a-z0-9_]{1,48}$/.test(c) ? template.replace('__C__', c) : fallback;
+      document.getElementById('go').href = url;
+      // A short pause lets the analytics beacon load before the page is left.
+      setTimeout(function () { location.replace(url); }, 300);
+    })();
+  </script>
+</body>
+</html>
