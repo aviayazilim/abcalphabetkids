@@ -81,7 +81,7 @@ export default {
     h1: (l: Letter) => `Letra ${l.letter}: ${l.coloring ? 'repasar y colorear' : 'ficha para repasar'}`,
     lead: (l: Letter) => `${l.letter} de ${l.word}. Imprime la ficha y repasa la letra por la línea discontinua.`,
     download: 'Descargar PDF',
-    previewAlt: (l: Letter) => `Ficha para repasar la letra ${l.letter} con ${l.word}`,
+    previewAlt: (l: Letter) => `Ficha para repasar la letra ${l.letter}: ${l.word}`,
     characterAlt: (l: Letter) => `${cap(l.word ?? '')}, el personaje de la letra ${l.letter} en la app ABC Alphabet`,
     wordsTitle: (l: Letter) => `Palabras que empiezan por ${l.letter}`,
     wordsInsideTitle: (l: Letter) => `Palabras con ${l.letter}`,
@@ -137,7 +137,7 @@ export default {
     letterDescription: (l: Letter) => `Dibujo gratis de la letra ${l.letter} para colorear: ${l.letter} de ${l.word}. PDF para imprimir en A4 o carta, sin registro.`,
     letterH1: (l: Letter) => `Letra ${l.letter} para colorear: ${l.word}`,
     letterLead: (l: Letter) => `${l.letter} de ${l.word}. Colorea la letra y el personaje, y después busca la ${l.letter} en las palabras de abajo.`,
-    previewAlt: (l: Letter) => `Dibujo para colorear de la letra ${l.letter} con ${l.word}`,
+    previewAlt: (l: Letter) => `Dibujo para colorear de la letra ${l.letter}: ${l.word}`,
     tipsTitle: 'Colorear y aprender a la vez',
     tips: [
       'Primero repasa el contorno de la letra con el dedo y di su sonido.',

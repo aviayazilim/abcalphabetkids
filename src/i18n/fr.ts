@@ -82,7 +82,7 @@ export default {
     h1: (l: Letter) => `Lettre ${l.letter} : ${l.coloring ? 'écriture et coloriage' : 'fiche d’écriture'}`,
     lead: (l: Letter) => `${l.letter} comme ${l.word}. Imprimez la fiche et repassez la lettre en suivant les pointillés.`,
     download: 'Télécharger le PDF',
-    previewAlt: (l: Letter) => `Fiche d’écriture de la lettre ${l.letter} avec ${l.word}`,
+    previewAlt: (l: Letter) => `Fiche d’écriture de la lettre ${l.letter} : ${l.word}`,
     characterAlt: (l: Letter) => `${cap(l.word ?? '')}, le personnage de la lettre ${l.letter} dans l’appli ABC Alphabet`,
     wordsTitle: (l: Letter) => `Mots qui commencent par ${l.letter}`,
     wordsInsideTitle: (l: Letter) => `Mots avec ${l.letter}`,
@@ -138,7 +138,7 @@ export default {
     letterDescription: (l: Letter) => `Coloriage gratuit de la lettre ${l.letter} : ${l.letter} comme ${l.word}. PDF A4 à imprimer, sans inscription.`,
     letterH1: (l: Letter) => `Coloriage de la lettre ${l.letter} : ${l.word}`,
     letterLead: (l: Letter) => `${l.letter} comme ${l.word}. Coloriez la lettre et le personnage, puis retrouvez ${l.letter} dans les mots ci-dessous.`,
-    previewAlt: (l: Letter) => `Coloriage de la lettre ${l.letter} avec ${l.word}`,
+    previewAlt: (l: Letter) => `Coloriage de la lettre ${l.letter} : ${l.word}`,
     tipsTitle: 'Pour un coloriage qui fait apprendre',
     tips: [
       'Suivez d’abord le contour de la lettre du doigt et dites son son.',

@@ -82,7 +82,7 @@ export default {
     h1: (l: Letter) => `Letra ${l.letter}: ${l.coloring ? 'pontilhado e desenho para colorir' : 'atividade pontilhada'}`,
     lead: (l: Letter) => `${l.letter} de ${l.word}. Imprima a folha e cubra a letra pela linha pontilhada.`,
     download: 'Baixar PDF',
-    previewAlt: (l: Letter) => `Atividade da letra ${l.letter} pontilhada com ${l.word}`,
+    previewAlt: (l: Letter) => `Atividade da letra ${l.letter} pontilhada: ${l.word}`,
     characterAlt: (l: Letter) => `${cap(l.word ?? '')}, personagem da letra ${l.letter} no aplicativo ABC Alphabet`,
     wordsTitle: (l: Letter) => `Palavras com ${l.letter} no início`,
     wordsInsideTitle: (l: Letter) => `Palavras com ${l.letter}`,
@@ -138,7 +138,7 @@ export default {
     letterDescription: (l: Letter) => `Desenho grátis da letra ${l.letter} para colorir: ${l.letter} de ${l.word}. PDF em A4 para imprimir, sem cadastro.`,
     letterH1: (l: Letter) => `Letra ${l.letter} para colorir: ${l.word}`,
     letterLead: (l: Letter) => `${l.letter} de ${l.word}. Pinte a letra e o personagem e depois encontre ${l.letter} nas palavras abaixo.`,
-    previewAlt: (l: Letter) => `Desenho para colorir da letra ${l.letter} com ${l.word}`,
+    previewAlt: (l: Letter) => `Desenho para colorir da letra ${l.letter}: ${l.word}`,
     tipsTitle: 'Colorir e aprender ao mesmo tempo',
     tips: [
       'Primeiro passe o dedo no contorno da letra e fale o som dela.',

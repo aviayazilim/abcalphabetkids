@@ -83,7 +83,7 @@ export default {
     h1: (l: Letter) => `Buchstabe ${l.letter}: ${l.coloring ? 'Nachspuren und Ausmalen' : 'Arbeitsblatt zum Nachspuren'}`,
     lead: (l: Letter) => `${l.letter} wie ${l.word}. Blatt ausdrucken und den Buchstaben auf der gestrichelten Linie nachspuren.`,
     download: 'PDF laden',
-    previewAlt: (l: Letter) => `Arbeitsblatt Buchstabe ${l.letter} mit ${withArticle(l)}`,
+    previewAlt: (l: Letter) => `Arbeitsblatt zum Buchstaben ${l.letter}: ${withArticle(l)}`,
     characterAlt: (l: Letter) => `${withArticle(l)} – Figur für den Buchstaben ${l.letter} aus der App ABC Alphabet`,
     wordsTitle: (l: Letter) => `Wörter mit ${l.letter} am Anfang`,
     wordsInsideTitle: (l: Letter) => `Wörter mit ${l.letter}`,
