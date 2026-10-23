@@ -77,7 +77,7 @@ export default {
   },
 
   letter: {
-    title: (l: Letter) => `Letra ${l.letter} pontilhada: atividade grátis em PDF`,
+    title: (l: Letter) => `Letra ${l.letter} pontilhada para imprimir: atividade grátis em PDF`,
     description: (l: Letter) => `Atividade da letra ${l.letter} para educação infantil: cobrir ${l.letter} e ${l.lower}, a palavra “${l.word}” com figura${l.coloring ? ' e desenho para colorir' : ''}. PDF em A4.`,
     h1: (l: Letter) => `Letra ${l.letter}: ${l.coloring ? 'pontilhado e desenho para colorir' : 'atividade pontilhada'}`,
     lead: (l: Letter) => `${l.letter} de ${l.word}. Imprima a folha e cubra a letra pela linha pontilhada.`,

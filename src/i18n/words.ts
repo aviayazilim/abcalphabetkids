@@ -1,6 +1,11 @@
 import type { Lang, Letter } from '../lib/routes';
 
 // TODO(review): Portuguese and Spanish copy is a first draft — have native speakers check it.
+// Word count for titles; small lists read better without a number.
+const num = (n: number) => (n >= 5 ? `${n} ` : '');
+// Polish plural of "słowo" for n >= 5: 12 słów, 22 słowa.
+const plWords = (n: number) => ([2, 3, 4].includes(n % 10) && ![12, 13, 14].includes(n % 100) ? 'słowa' : 'słów');
+
 // Copy for the "words with the letter" pages; only languages with a `words` section need it.
 export type WordsCopy = {
   nav: string;
@@ -9,7 +14,7 @@ export type WordsCopy = {
   h1: string;
   lead: string;
   gridTitle: string;
-  letterTitle: (l: Letter, start: number) => string;
+  letterTitle: (l: Letter, start: number, count: number) => string;
   letterDescription: (l: Letter, count: number, examples: string[]) => string;
   letterH1: (l: Letter, start: number) => string;
   letterLead: (l: Letter, start: number, inside: number) => string;
@@ -36,7 +41,7 @@ const pt: WordsCopy = {
   h1: 'Palavras com cada letra do alfabeto',
   lead: 'Para cada letra, uma lista de palavras simples que as crianças conhecem: as que começam com a letra e as que têm a letra no meio ou no final. Ótimo para tarefas da escola, ditados e brincadeiras.',
   gridTitle: 'Escolha uma letra',
-  letterTitle: (l) => `Palavras e objetos com a letra ${l.letter} para crianças`,
+  letterTitle: (l, _s, n) => `Palavras com ${l.letter} para crianças: ${num(n)}objetos e coisas`,
   letterDescription: (l, n, ex) => `${n} palavras e objetos com a letra ${l.letter} para crianças: ${ex.join(', ')} e mais. Com figuras, atividades e ficha pontilhada grátis.`,
   letterH1: (l) => `Palavras com a letra ${l.letter} para crianças`,
   letterLead: (l, s, i) => `${s} palavras que começam com ${l.letter}${i ? ` e ${i} com ${l.letter} no meio ou no final` : ''}, escolhidas para crianças de 2 a 6 anos.`,
@@ -108,7 +113,7 @@ const fr: WordsCopy = {
   h1: 'Mots avec chaque lettre de l’alphabet',
   lead: 'Pour chaque lettre, une liste de mots simples que les enfants connaissent : ceux qui commencent par la lettre et ceux qui la contiennent au milieu ou à la fin. Idéal pour les devoirs et les jeux.',
   gridTitle: 'Choisissez une lettre',
-  letterTitle: (l) => `Mots en ${l.letter} pour enfants : mots et objets avec ${l.letter}`,
+  letterTitle: (l, _s, n) => `Mots en ${l.letter} pour enfants : ${num(n)}mots avec la lettre ${l.letter} (images)`,
   letterDescription: (l, n, ex) => `${n} mots en ${l.letter} pour les enfants : ${ex.join(', ')} et plus. Avec images, activités et fiche à tracer gratuite.`,
   letterH1: (l) => `Mots en ${l.letter} pour enfants`,
   letterLead: (l, s, i) => `${s} mots qui commencent par ${l.letter}${i ? ` et ${i} avec ${l.letter} au milieu ou à la fin` : ''}, choisis pour les enfants de 2 à 6 ans.`,
@@ -144,7 +149,7 @@ const de: WordsCopy = {
   h1: 'Wörter mit jedem Buchstaben',
   lead: 'Zu jedem Buchstaben eine Liste einfacher Wörter, die Kinder kennen: Wörter, die mit dem Buchstaben anfangen, und Wörter, in denen er in der Mitte oder am Ende steht. Ideal für Hausaufgaben und Spiele.',
   gridTitle: 'Buchstaben wählen',
-  letterTitle: (l, s) => (s ? `Wörter mit ${l.letter} für Kinder: Gegenstände und Sachen` : `Wörter mit ${l.letter} für Kinder`),
+  letterTitle: (l, s, n) => (s ? `Wörter mit ${l.letter} für Kinder: ${num(n)}Gegenstände und Dinge` : `Wörter mit ${l.letter} für Kinder`),
   letterDescription: (l, n, ex) => `${n} Wörter und Gegenstände mit ${l.letter} für Kinder: ${ex.join(', ')} und mehr. Mit Bildern, Spielideen und kostenlosem Arbeitsblatt.`,
   letterH1: (l) => `Wörter mit ${l.letter} für Kinder`,
   letterLead: (l, s, i) => (s
@@ -182,7 +187,7 @@ const pl: WordsCopy = {
   h1: 'Słowa na każdą literę alfabetu',
   lead: 'Dla każdej litery lista prostych słów, które dzieci znają: zaczynających się na tę literę i takich, w których stoi w środku lub na końcu. Przydatne do zadań domowych i zabaw.',
   gridTitle: 'Wybierz literę',
-  letterTitle: (l, s) => (s ? `Słowa i wyrazy na literę ${l.letter} dla dzieci` : `Słowa i wyrazy z literą ${l.letter} dla dzieci`),
+  letterTitle: (l, s, n) => (s ? `Wyrazy na literę ${l.letter} dla dzieci: ${n >= 5 ? `${n} ${plWords(n)} ` : ''}z obrazkami` : `Słowa i wyrazy z literą ${l.letter} dla dzieci`),
   letterDescription: (l, n, ex) => `${n} słów i wyrazów z literą ${l.letter} dla dzieci: ${ex.join(', ')} i więcej. Z obrazkami, zabawami i darmową kartą pracy.`,
   letterH1: (l, s) => (s ? `Słowa i wyrazy na literę ${l.letter}` : `Słowa i wyrazy z literą ${l.letter}`),
   letterLead: (l, s, i) => (s

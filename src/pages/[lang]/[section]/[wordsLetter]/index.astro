@@ -43,7 +43,7 @@ const count = list.start.length + list.inside.length;
 // Description examples: as many start words as fit in Google's ~160 characters.
 let examples = (list.start.length ? list.start : list.inside).slice(0, 5);
 while (examples.length > 1 && W.letterDescription(l, count, examples).length > 160) examples = examples.slice(0, -1);
-const title = W.letterTitle(l, list.start.length);
+const title = W.letterTitle(l, list.start.length, count);
 const description = W.letterDescription(l, count, examples);
 const faq = W.faq(l, list.start, list.inside);
 const highlight = (word: string) => splitAt(lang, word, l.lower);

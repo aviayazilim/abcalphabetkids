@@ -76,7 +76,7 @@ export default {
   },
 
   letter: {
-    title: (l: Letter) => `${l.letter} harfi yazma çalışması: ücretsiz PDF`,
+    title: (l: Letter) => `${l.letter} harfi yazma ve çizgi çalışması: ücretsiz PDF`,
     description: (l: Letter) => `Okul öncesi için ${l.letter} harfi çalışma sayfası: ${l.letter} ve ${l.lower} takibi, resimli “${l.word}” kelimesi${l.coloring ? ' ve boyama' : ''}. A4 PDF.`,
     h1: (l: Letter) => `${l.letter} harfi: ${l.coloring ? 'yazma ve boyama' : 'yazma çalışması'}`,
     lead: (l: Letter) => `${l.letter} harfi: ${l.word}. Sayfayı yazdırın ve harfi kesik çizgi üzerinden takip edin.`,
