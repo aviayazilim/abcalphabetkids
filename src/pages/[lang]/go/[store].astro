@@ -23,7 +23,7 @@ const template = make('__C__');
   <title>ABC Alphabet</title>
   <noscript><meta http-equiv="refresh" content={`0;url=${fallback}`} /></noscript>
   {SITE.cfBeaconToken && (
-    <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: SITE.cfBeaconToken })}></script>
+    <script is:inline defer id="cf-beacon" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: SITE.cfBeaconToken })}></script>
   )}
   <style>body { font: 16px/1.5 system-ui, sans-serif; display: grid; place-items: center; min-height: 100vh; margin: 0; }</style>
 </head>
@@ -35,8 +35,18 @@ const template = make('__C__');
       // Only plain campaign names (site_de_words…) are passed on.
       var url = c && /^[a-z0-9_]{1,48}$/.test(c) ? template.replace('__C__', c) : fallback;
       document.getElementById('go').href = url;
-      // A short pause lets the analytics beacon load before the page is left.
-      setTimeout(function () { location.replace(url); }, 300);
+      // Leave only after the analytics beacon has loaded and had a moment to send the
+      // page view; a blocked beacon fails fast, a slow one is not waited for long.
+      var left = false;
+      function go() { if (!left) { left = true; location.replace(url); } }
+      var beacon = document.getElementById('cf-beacon');
+      if (beacon) {
+        beacon.addEventListener('load', function () { setTimeout(go, 250); });
+        beacon.addEventListener('error', go);
+        setTimeout(go, 1500);
+      } else {
+        go();
+      }
     })();
   </script>
 </body>
