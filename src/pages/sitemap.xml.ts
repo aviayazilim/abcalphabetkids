@@ -13,9 +13,8 @@ export const GET: APIRoute = () => {
     }
     for (const a of articlesIn(lang)) entries.push({ loc: path.article(lang, a.slug), ref: { kind: 'article', topic: a.topic } });
     for (const l of LETTERS[lang]) entries.push({ loc: path.letter(lang, l.slug), ref: { kind: 'letter', lang, slug: l.slug } });
+    // Per-letter colouring pages repeat the tracing page (its PDF already has the colouring sheet), so they stay out of the index.
     for (const l of LETTERS[lang]) {
-      const coloring = l.coloring ? path.coloringLetter(lang, l.slug) : null;
-      if (coloring) entries.push({ loc: coloring, ref: { kind: 'coloringLetter', lang, slug: l.slug } });
       if (wordsFor(lang, l.slug)) entries.push({ loc: path.wordsLetter(lang, l.slug)!, ref: { kind: 'wordsLetter', lang, slug: l.slug } });
     }
   }

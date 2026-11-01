@@ -109,7 +109,8 @@ const pageRef = isColoring
 const pagerHref = (x: Letter) => (isColoring ? path.coloringLetter(lang, x.slug)! : path.letter(lang, x.slug));
 ---
 <Base lang={lang} title={title} description={description} page={pageRef}
-  ogImage={fs.existsSync('public' + og) ? og : undefined} nav={isColoring ? 'coloring' : 'tracing'}>
+  ogImage={fs.existsSync('public' + og) ? og : undefined} nav={isColoring ? 'coloring' : 'tracing'}
+  noindex={isColoring}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <section class="section">
