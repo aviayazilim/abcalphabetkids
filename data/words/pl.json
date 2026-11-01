@@ -24,7 +24,37 @@
    "rak",
    "sanki"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "antylopa",
+    "alpaka",
+    "aligator"
+   ],
+   "food": [
+    "arbuz",
+    "ananas",
+    "agrest",
+    "awokado"
+   ],
+   "home": [
+    "aparat",
+    "akwarium",
+    "album"
+   ],
+   "nature": [
+    "aster"
+   ],
+   "transport": [
+    "auto",
+    "autobus"
+   ],
+   "people": [
+    "anioł",
+    "astronauta",
+    "aktor"
+   ]
+  }
  },
  "litera-a-ogonek": {
   "start": [],
@@ -66,7 +96,51 @@
    "jabłko",
    "robot"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "biedronka",
+    "bocian",
+    "bóbr",
+    "borsuk",
+    "baran",
+    "byk",
+    "bażant"
+   ],
+   "food": [
+    "banan",
+    "burak",
+    "bułka",
+    "brzoskwinia",
+    "borówka",
+    "budyń"
+   ],
+   "home": [
+    "balon",
+    "bęben",
+    "butelka",
+    "bombka",
+    "biurko"
+   ],
+   "nature": [
+    "brzoza",
+    "burza",
+    "błoto"
+   ],
+   "body": [
+    "but",
+    "broda",
+    "brzuch",
+    "bluzka",
+    "beret"
+   ],
+   "people": [
+    "babcia",
+    "brat",
+    "bałwan",
+    "baletnica"
+   ]
+  }
  },
  "litera-c": {
   "start": [
@@ -89,7 +163,44 @@
    "słońce",
    "pociąg"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "chomik",
+    "czapla"
+   ],
+   "food": [
+    "cytryna",
+    "cebula",
+    "cukierek",
+    "czekolada",
+    "ciastko",
+    "cukinia",
+    "chleb",
+    "czereśnia"
+   ],
+   "home": [
+    "cegła",
+    "czajnik",
+    "chusteczka"
+   ],
+   "nature": [
+    "chmura"
+   ],
+   "body": [
+    "czapka",
+    "czoło"
+   ],
+   "transport": [
+    "cyrk",
+    "ciężarówka"
+   ],
+   "people": [
+    "córka",
+    "ciocia",
+    "chłopiec"
+   ]
+  }
  },
  "litera-c-kreska": {
   "start": [
@@ -130,7 +241,44 @@
    "kredka",
    "pudełko"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "delfin",
+    "dinozaur",
+    "dzik",
+    "dzięcioł",
+    "dżdżownica"
+   ],
+   "food": [
+    "dynia",
+    "dżem"
+   ],
+   "home": [
+    "dom",
+    "drzwi",
+    "dzwonek",
+    "dywan",
+    "dach",
+    "długopis"
+   ],
+   "nature": [
+    "drzewo",
+    "deszcz"
+   ],
+   "body": [
+    "dłoń"
+   ],
+   "transport": [
+    "droga",
+    "dźwig"
+   ],
+   "people": [
+    "dziecko",
+    "dziadek",
+    "dziewczynka"
+   ]
+  }
  },
  "litera-e": {
   "start": [
@@ -149,7 +297,18 @@
    "rower",
    "telefon"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "emu"
+   ],
+   "home": [
+    "ekran"
+   ],
+   "people": [
+    "elf"
+   ]
+  }
  },
  "litera-e-ogonek": {
   "start": [],
@@ -185,7 +344,38 @@
    "kalafior",
    "delfin"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "foka",
+    "flaming",
+    "fretka"
+   ],
+   "food": [
+    "fasola",
+    "frytki"
+   ],
+   "home": [
+    "flaga",
+    "farba",
+    "fotel",
+    "filiżanka",
+    "flamaster"
+   ],
+   "nature": [
+    "fala"
+   ],
+   "body": [
+    "fartuch"
+   ],
+   "transport": [
+    "fabryka"
+   ],
+   "people": [
+    "fryzjer",
+    "fotograf"
+   ]
+  }
  },
  "litera-g": {
   "start": [
@@ -211,7 +401,40 @@
    "ogród",
    "kangur"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "goryl",
+    "gęś",
+    "gąsienica",
+    "gil",
+    "gołąb",
+    "gepard"
+   ],
+   "food": [
+    "gruszka",
+    "groch",
+    "grzanka"
+   ],
+   "home": [
+    "gitara",
+    "gazeta",
+    "guzik",
+    "garnek",
+    "gumka"
+   ],
+   "nature": [
+    "góra",
+    "grzyb",
+    "gwiazda"
+   ],
+   "body": [
+    "głowa"
+   ],
+   "transport": [
+    "garaż"
+   ]
+  }
  },
  "litera-h": {
   "start": [
@@ -231,7 +454,25 @@
    "dach",
    "orzech"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "hipopotam",
+    "homar"
+   ],
+   "food": [
+    "herbata"
+   ],
+   "home": [
+    "hamak",
+    "harmonijka"
+   ],
+   "transport": [
+    "helikopter",
+    "hotel",
+    "hulajnoga"
+   ]
+  }
  },
  "litera-i": {
   "start": [
@@ -251,7 +492,22 @@
    "kwiat",
    "sikorka"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "indyk"
+   ],
+   "food": [
+    "imbir"
+   ],
+   "home": [
+    "igła",
+    "igloo"
+   ],
+   "nature": [
+    "irys"
+   ]
+  }
  },
  "litera-j": {
   "start": [
@@ -276,7 +532,36 @@
    "olej",
    "pokój"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "jeż",
+    "jeleń",
+    "jaszczurka",
+    "jaskółka",
+    "jastrząb"
+   ],
+   "food": [
+    "jabłko",
+    "jajko",
+    "jagoda",
+    "jogurt"
+   ],
+   "nature": [
+    "jesień",
+    "jezioro",
+    "jodła"
+   ],
+   "body": [
+    "język"
+   ],
+   "transport": [
+    "jacht"
+   ],
+   "people": [
+    "jednorożec"
+   ]
+  }
  },
  "litera-k": {
   "start": [
@@ -303,7 +588,60 @@
    "jabłko",
    "pająk"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "kot",
+    "koń",
+    "kura",
+    "krowa",
+    "kaczka",
+    "kogut",
+    "kangur",
+    "koza",
+    "kret",
+    "krokodyl",
+    "koala",
+    "kanarek"
+   ],
+   "food": [
+    "kanapka",
+    "kiełbasa",
+    "kapusta",
+    "kalafior",
+    "kakao"
+   ],
+   "home": [
+    "książka",
+    "klucz",
+    "kredka",
+    "kubek",
+    "krzesło",
+    "kołdra",
+    "koc",
+    "klocki"
+   ],
+   "nature": [
+    "kwiat",
+    "kaktus",
+    "kamień",
+    "kasztan"
+   ],
+   "body": [
+    "kapelusz",
+    "kurtka",
+    "kolano"
+   ],
+   "transport": [
+    "kajak",
+    "karetka"
+   ],
+   "people": [
+    "król",
+    "królewna",
+    "kucharz"
+   ]
+  }
  },
  "litera-l": {
   "start": [
@@ -328,7 +666,39 @@
    "motyl",
    "bal"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "lis",
+    "lew",
+    "lama"
+   ],
+   "food": [
+    "lody",
+    "lizak",
+    "lemoniada"
+   ],
+   "home": [
+    "lalka",
+    "lampa",
+    "lustro",
+    "list",
+    "latarka",
+    "linijka"
+   ],
+   "nature": [
+    "las",
+    "lato",
+    "liść"
+   ],
+   "transport": [
+    "lotnisko",
+    "lokomotywa"
+   ],
+   "people": [
+    "lekarz"
+   ]
+  }
  },
  "litera-l-kreska": {
   "start": [
@@ -354,7 +724,30 @@
    "kołdra",
    "koło"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "łabędź",
+    "łoś",
+    "łosoś"
+   ],
+   "home": [
+    "łóżko",
+    "łyżka",
+    "łyżwy",
+    "łuk",
+    "łopata"
+   ],
+   "nature": [
+    "łąka"
+   ],
+   "body": [
+    "łapa"
+   ],
+   "transport": [
+    "łódka"
+   ]
+  }
  },
  "litera-m": {
   "start": [
@@ -380,7 +773,45 @@
    "dym",
    "ziemia"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "mysz",
+    "motyl",
+    "małpa",
+    "mrówka",
+    "mucha"
+   ],
+   "food": [
+    "mleko",
+    "marchew",
+    "miód",
+    "makaron",
+    "masło",
+    "malina",
+    "mandarynka"
+   ],
+   "home": [
+    "miś",
+    "miska",
+    "młotek",
+    "mydło",
+    "mapa"
+   ],
+   "nature": [
+    "morze",
+    "muchomor",
+    "mgła"
+   ],
+   "transport": [
+    "most",
+    "metro",
+    "motocykl"
+   ],
+   "people": [
+    "mama"
+   ]
+  }
  },
  "litera-n": {
   "start": [
@@ -405,7 +836,34 @@
    "balon",
    "kino"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "niedźwiedź",
+    "nosorożec",
+    "nietoperz"
+   ],
+   "food": [
+    "naleśnik"
+   ],
+   "home": [
+    "nożyczki",
+    "nuty",
+    "nóż"
+   ],
+   "nature": [
+    "niebo",
+    "noc",
+    "nora"
+   ],
+   "body": [
+    "nos",
+    "noga"
+   ],
+   "people": [
+    "nauczyciel"
+   ]
+  }
  },
  "litera-n-kreska": {
   "start": [],
@@ -447,7 +905,32 @@
    "rower",
    "wrona"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "osa",
+    "owca",
+    "ośmiornica",
+    "osioł",
+    "orzeł"
+   ],
+   "food": [
+    "orzech",
+    "owoc",
+    "ogórek",
+    "oliwka"
+   ],
+   "home": [
+    "okno",
+    "ołówek",
+    "obraz"
+   ],
+   "body": [
+    "oko",
+    "ogon",
+    "okulary"
+   ]
+  }
  },
  "litera-o-kreska": {
   "start": [
@@ -493,7 +976,51 @@
    "chłopiec",
    "stopa"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "pies",
+    "ptak",
+    "pająk",
+    "pingwin",
+    "papuga",
+    "pszczoła",
+    "paw",
+    "pelikan"
+   ],
+   "food": [
+    "pomidor",
+    "pomarańcza",
+    "pączek",
+    "pizza",
+    "papryka"
+   ],
+   "home": [
+    "piłka",
+    "parasol",
+    "piórnik",
+    "plecak",
+    "poduszka",
+    "puzzle",
+    "pędzel"
+   ],
+   "nature": [
+    "piasek"
+   ],
+   "body": [
+    "palec",
+    "płaszcz",
+    "piżama"
+   ],
+   "transport": [
+    "pociąg"
+   ],
+   "people": [
+    "pirat",
+    "policjant",
+    "pilot"
+   ]
+  }
  },
  "litera-r": {
   "start": [
@@ -519,7 +1046,40 @@
    "kredka",
    "marchew"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "ryba",
+    "rak",
+    "ropucha",
+    "renifer",
+    "ryś",
+    "rekin"
+   ],
+   "food": [
+    "rzodkiewka",
+    "rogalik"
+   ],
+   "home": [
+    "ręcznik",
+    "radio"
+   ],
+   "nature": [
+    "róża",
+    "rzeka"
+   ],
+   "body": [
+    "ręka",
+    "rękawiczki"
+   ],
+   "transport": [
+    "rower",
+    "rakieta"
+   ],
+   "people": [
+    "rycerz"
+   ]
+  }
  },
  "litera-s": {
   "start": [
@@ -546,7 +1106,46 @@
    "autobus",
    "ananas"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "sowa",
+    "słoń",
+    "sikorka",
+    "sarna"
+   ],
+   "food": [
+    "ser",
+    "sok",
+    "sałata"
+   ],
+   "home": [
+    "sanki",
+    "stół",
+    "szafa",
+    "szczotka",
+    "szklanka"
+   ],
+   "nature": [
+    "słońce"
+   ],
+   "body": [
+    "skarpetka",
+    "spodnie",
+    "sukienka",
+    "szalik"
+   ],
+   "transport": [
+    "samolot",
+    "samochód",
+    "statek",
+    "sklep"
+   ],
+   "people": [
+    "smok",
+    "siostra"
+   ]
+  }
  },
  "litera-s-kreska": {
   "start": [
@@ -568,7 +1167,25 @@
    "ryś",
    "wieś"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "ślimak",
+    "świnka",
+    "śledź"
+   ],
+   "food": [
+    "śliwka",
+    "śniadanie",
+    "śmietana"
+   ],
+   "home": [
+    "świeca"
+   ],
+   "nature": [
+    "śnieg"
+   ]
+  }
  },
  "litera-t": {
   "start": [
@@ -594,7 +1211,38 @@
    "kostka",
    "auto"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "tygrys",
+    "tukan"
+   ],
+   "food": [
+    "tort",
+    "truskawka"
+   ],
+   "home": [
+    "telefon",
+    "trąbka",
+    "talerz",
+    "torba",
+    "taczka",
+    "telewizor"
+   ],
+   "nature": [
+    "tęcza",
+    "tulipan",
+    "trawa"
+   ],
+   "transport": [
+    "traktor",
+    "tramwaj",
+    "taksówka"
+   ],
+   "people": [
+    "tata"
+   ]
+  }
  },
  "litera-u": {
   "start": [
@@ -616,7 +1264,21 @@
    "guzik",
    "lustro"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "nature": [
+    "ul"
+   ],
+   "body": [
+    "ucho",
+    "usta",
+    "ubranie",
+    "uszanka"
+   ],
+   "transport": [
+    "ulica"
+   ]
+  }
  },
  "litera-w": {
   "start": [
@@ -643,7 +1305,44 @@
    "drzewo",
    "słowo"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "wilk",
+    "wąż",
+    "wiewiórka",
+    "wrona",
+    "wieloryb",
+    "wróbel",
+    "wydra",
+    "wielbłąd"
+   ],
+   "food": [
+    "winogrona",
+    "wiśnia"
+   ],
+   "home": [
+    "wiatrak",
+    "wózek",
+    "waga",
+    "worek",
+    "wazon",
+    "widelec",
+    "wiadro"
+   ],
+   "nature": [
+    "woda",
+    "wiatr",
+    "wulkan",
+    "wiosna"
+   ],
+   "transport": [
+    "wagon"
+   ],
+   "people": [
+    "wujek"
+   ]
+  }
  },
  "litera-y": {
   "start": [],
@@ -683,7 +1382,33 @@
    "gwiazda",
    "obraz"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "zebra",
+    "zając"
+   ],
+   "food": [
+    "zupa",
+    "ziemniak"
+   ],
+   "home": [
+    "zegar",
+    "zabawka",
+    "zeszyt"
+   ],
+   "nature": [
+    "zima",
+    "ziemia"
+   ],
+   "body": [
+    "ząb"
+   ],
+   "transport": [
+    "zamek",
+    "zoo"
+   ]
+  }
  },
  "litera-z-kreska": {
   "start": [
@@ -719,6 +1444,28 @@
    "róża",
    "wieża"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "żaba",
+    "żyrafa",
+    "żółw",
+    "żuk",
+    "żubr",
+    "żuraw"
+   ],
+   "food": [
+    "żelki"
+   ],
+   "home": [
+    "żelazko"
+   ],
+   "nature": [
+    "żołądź"
+   ],
+   "transport": [
+    "żaglówka"
+   ]
+  }
  }
 }

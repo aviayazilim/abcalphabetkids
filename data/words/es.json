@@ -29,7 +29,44 @@
    "rana",
    "luna"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "abeja",
+    "araña",
+    "ardilla",
+    "águila",
+    "avestruz",
+    "armadillo"
+   ],
+   "food": [
+    "agua",
+    "aguacate",
+    "ajo",
+    "arroz",
+    "aceituna"
+   ],
+   "home": [
+    "anillo",
+    "alfombra",
+    "almohada"
+   ],
+   "nature": [
+    "árbol",
+    "arcoíris",
+    "arena"
+   ],
+   "transport": [
+    "avión",
+    "autobús",
+    "ambulancia"
+   ],
+   "people": [
+    "abuela",
+    "abuelo",
+    "amigo"
+   ]
+  }
  },
  "letra-b": {
   "start": [
@@ -60,7 +97,47 @@
    "abuela",
    "globo"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "ballena",
+    "burro",
+    "búho",
+    "búfalo"
+   ],
+   "food": [
+    "banana",
+    "bocadillo",
+    "brócoli"
+   ],
+   "home": [
+    "bolso",
+    "botella",
+    "balón",
+    "bañera"
+   ],
+   "nature": [
+    "bosque"
+   ],
+   "body": [
+    "boca",
+    "barriga",
+    "brazo",
+    "bota",
+    "bufanda",
+    "bigote"
+   ],
+   "transport": [
+    "barco",
+    "bicicleta"
+   ],
+   "people": [
+    "bebé",
+    "bruja",
+    "bombero",
+    "bailarina"
+   ]
+  }
  },
  "letra-c": {
   "start": [
@@ -88,7 +165,50 @@
    "taco",
    "loco"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "caracol",
+    "conejo",
+    "cocodrilo",
+    "caballo",
+    "cisne",
+    "cerdo",
+    "cangrejo",
+    "camello",
+    "canguro"
+   ],
+   "food": [
+    "cebolla",
+    "cereza",
+    "chocolate",
+    "calabaza",
+    "caramelo"
+   ],
+   "home": [
+    "casa",
+    "cama",
+    "cuchara",
+    "cuna",
+    "cuchillo",
+    "cuaderno",
+    "cepillo"
+   ],
+   "nature": [
+    "cielo"
+   ],
+   "body": [
+    "corazón",
+    "cabeza",
+    "camisa",
+    "calcetín"
+   ],
+   "transport": [
+    "camión",
+    "cohete",
+    "coche"
+   ]
+  }
  },
  "letra-d": {
   "start": [
@@ -115,7 +235,31 @@
    "pared",
    "verde"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "delfín",
+    "dinosaurio"
+   ],
+   "food": [
+    "dulce",
+    "durazno"
+   ],
+   "home": [
+    "dado",
+    "dibujo",
+    "disfraz",
+    "ducha"
+   ],
+   "body": [
+    "dedo",
+    "diente"
+   ],
+   "people": [
+    "dragón",
+    "doctor"
+   ]
+  }
  },
  "letra-e": {
   "start": [
@@ -141,7 +285,36 @@
    "bebé",
    "café"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "elefante",
+    "erizo",
+    "escarabajo"
+   ],
+   "food": [
+    "elote",
+    "ensalada",
+    "espinaca"
+   ],
+   "home": [
+    "escoba",
+    "espejo",
+    "estufa",
+    "escalera"
+   ],
+   "nature": [
+    "estrella"
+   ],
+   "transport": [
+    "escuela",
+    "edificio"
+   ],
+   "people": [
+    "enano",
+    "enfermera"
+   ]
+  }
  },
  "letra-f": {
   "start": [
@@ -168,7 +341,35 @@
    "búfalo",
    "gafas"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "foca",
+    "flamenco"
+   ],
+   "food": [
+    "fresa",
+    "fruta",
+    "fideos"
+   ],
+   "home": [
+    "foto",
+    "flecha"
+   ],
+   "nature": [
+    "flor",
+    "fuego"
+   ],
+   "body": [
+    "falda"
+   ],
+   "transport": [
+    "faro"
+   ],
+   "people": [
+    "fantasma"
+   ]
+  }
  },
  "letra-g": {
   "start": [
@@ -197,7 +398,35 @@
    "higo",
    "mago"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "gato",
+    "gallina",
+    "gallo",
+    "gorila",
+    "gusano",
+    "ganso",
+    "gaviota"
+   ],
+   "food": [
+    "galleta",
+    "gelatina"
+   ],
+   "home": [
+    "globo",
+    "guitarra",
+    "goma"
+   ],
+   "body": [
+    "gafas",
+    "gorro",
+    "guante"
+   ],
+   "people": [
+    "gigante"
+   ]
+  }
  },
  "letra-h": {
   "start": [
@@ -224,7 +453,43 @@
    "coche",
    "ahora"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "hormiga",
+    "hipopótamo",
+    "hámster",
+    "halcón"
+   ],
+   "food": [
+    "huevo",
+    "helado",
+    "higo"
+   ],
+   "home": [
+    "hilo",
+    "hamaca"
+   ],
+   "nature": [
+    "hongo",
+    "hoja",
+    "hielo",
+    "hierba"
+   ],
+   "body": [
+    "hueso",
+    "hombro"
+   ],
+   "transport": [
+    "helicóptero",
+    "hospital"
+   ],
+   "people": [
+    "hada",
+    "hermano",
+    "hermana"
+   ]
+  }
  },
  "letra-i": {
   "start": [
@@ -247,7 +512,24 @@
    "tijeras",
    "jirafa"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "iguana",
+    "insecto"
+   ],
+   "home": [
+    "imán",
+    "iglú"
+   ],
+   "nature": [
+    "isla",
+    "invierno"
+   ],
+   "transport": [
+    "iglesia"
+   ]
+  }
  },
  "letra-j": {
   "start": [
@@ -274,7 +556,31 @@
    "conejo",
    "ajo"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "jirafa",
+    "jaguar",
+    "jabalí"
+   ],
+   "food": [
+    "jugo",
+    "jamón",
+    "jalea"
+   ],
+   "home": [
+    "jabón",
+    "jarra",
+    "juguete",
+    "jaula"
+   ],
+   "nature": [
+    "jardín"
+   ],
+   "people": [
+    "jinete"
+   ]
+  }
  },
  "letra-k": {
   "start": [
@@ -294,7 +600,20 @@
    "Kevin",
    "Karla",
    "Kiara"
-  ]
+  ],
+  "themes": {
+   "animals": [
+    "koala"
+   ],
+   "food": [
+    "kiwi",
+    "kétchup"
+   ],
+   "transport": [
+    "kayak",
+    "kiosco"
+   ]
+  }
  },
  "letra-l": {
   "start": [
@@ -323,7 +642,32 @@
    "caracol",
    "palo"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "león",
+    "loro",
+    "lobo",
+    "lagarto",
+    "lechuza",
+    "liebre"
+   ],
+   "food": [
+    "limón",
+    "leche",
+    "lechuga"
+   ],
+   "home": [
+    "lápiz",
+    "libro",
+    "llave",
+    "lámpara"
+   ],
+   "nature": [
+    "luna",
+    "lluvia"
+   ]
+  }
  },
  "letra-m": {
   "start": [
@@ -351,7 +695,42 @@
    "paloma",
    "camisa"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "mono",
+    "mariposa",
+    "mosca",
+    "mapache",
+    "murciélago"
+   ],
+   "food": [
+    "manzana",
+    "melón",
+    "miel",
+    "mantequilla",
+    "maíz"
+   ],
+   "home": [
+    "mesa",
+    "muñeca",
+    "mochila"
+   ],
+   "nature": [
+    "mar",
+    "montaña"
+   ],
+   "body": [
+    "mano"
+   ],
+   "transport": [
+    "moto"
+   ],
+   "people": [
+    "mamá",
+    "maestra"
+   ]
+  }
  },
  "letra-n": {
   "start": [
@@ -377,7 +756,32 @@
    "camión",
    "pan"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "nutria"
+   ],
+   "food": [
+    "naranja",
+    "nuez"
+   ],
+   "nature": [
+    "nido",
+    "nube",
+    "nieve",
+    "noche"
+   ],
+   "body": [
+    "nariz"
+   ],
+   "transport": [
+    "nave"
+   ],
+   "people": [
+    "niño",
+    "niña"
+   ]
+  }
  },
  "letra-enie": {
   "start": [
@@ -428,7 +832,29 @@
    "bota",
    "pato"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "oso",
+    "oveja",
+    "oruga",
+    "oca",
+    "orca"
+   ],
+   "home": [
+    "olla"
+   ],
+   "nature": [
+    "ola",
+    "otoño",
+    "oro"
+   ],
+   "body": [
+    "ojo",
+    "oreja",
+    "ombligo"
+   ]
+  }
  },
  "letra-p": {
   "start": [
@@ -457,7 +883,51 @@
    "lupa",
    "mariposa"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "pato",
+    "perro",
+    "pez",
+    "pingüino",
+    "pájaro",
+    "pulpo",
+    "pollito",
+    "panda"
+   ],
+   "food": [
+    "pera",
+    "piña",
+    "pan",
+    "pastel",
+    "patata",
+    "plátano"
+   ],
+   "home": [
+    "pelota",
+    "piano",
+    "peine",
+    "plato"
+   ],
+   "nature": [
+    "piedra",
+    "playa"
+   ],
+   "body": [
+    "pie",
+    "pelo",
+    "pantalón",
+    "pijama"
+   ],
+   "transport": [
+    "puente"
+   ],
+   "people": [
+    "papá",
+    "payaso",
+    "pirata"
+   ]
+  }
  },
  "letra-q": {
   "start": [
@@ -479,7 +949,16 @@
    "máquina",
    "barquito"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "food": [
+    "queso",
+    "quesadilla"
+   ],
+   "transport": [
+    "quiosco"
+   ]
+  }
  },
  "letra-r": {
   "start": [
@@ -508,7 +987,38 @@
    "girasol",
    "cereza"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "ratón",
+    "rana",
+    "rinoceronte"
+   ],
+   "food": [
+    "rábano"
+   ],
+   "home": [
+    "reloj",
+    "regalo",
+    "robot",
+    "regla"
+   ],
+   "nature": [
+    "rosa",
+    "río"
+   ],
+   "body": [
+    "rodilla",
+    "ropa"
+   ],
+   "transport": [
+    "rueda"
+   ],
+   "people": [
+    "rey",
+    "reina"
+   ]
+  }
  },
  "letra-s": {
   "start": [
@@ -537,7 +1047,39 @@
    "beso",
    "pies"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "sapo",
+    "serpiente",
+    "saltamontes"
+   ],
+   "food": [
+    "sopa",
+    "sandía",
+    "seta",
+    "sal",
+    "sándwich"
+   ],
+   "home": [
+    "sombrilla",
+    "silla",
+    "sofá",
+    "sábana"
+   ],
+   "nature": [
+    "sol"
+   ],
+   "body": [
+    "sombrero"
+   ],
+   "transport": [
+    "semáforo"
+   ],
+   "people": [
+    "sirena"
+   ]
+  }
  },
  "letra-t": {
   "start": [
@@ -565,7 +1107,40 @@
    "chocolate",
    "patín"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "tigre",
+    "tortuga",
+    "toro",
+    "tiburón",
+    "tucán"
+   ],
+   "food": [
+    "tomate",
+    "torta",
+    "tostada"
+   ],
+   "home": [
+    "taza",
+    "tambor",
+    "teléfono",
+    "tijeras",
+    "tenedor"
+   ],
+   "nature": [
+    "tierra"
+   ],
+   "transport": [
+    "tren",
+    "taxi",
+    "tractor"
+   ],
+   "people": [
+    "tía",
+    "tío"
+   ]
+  }
  },
  "letra-u": {
   "start": [
@@ -588,7 +1163,22 @@
    "azul",
    "jugo"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "urraca"
+   ],
+   "food": [
+    "uva"
+   ],
+   "body": [
+    "uña",
+    "uniforme"
+   ],
+   "people": [
+    "unicornio"
+   ]
+  }
  },
  "letra-v": {
   "start": [
@@ -614,7 +1204,28 @@
    "clavo",
    "pavo"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "vaca"
+   ],
+   "home": [
+    "vaso",
+    "vela",
+    "ventana",
+    "violín"
+   ],
+   "nature": [
+    "volcán",
+    "viento"
+   ],
+   "body": [
+    "vestido"
+   ],
+   "people": [
+    "vaquero"
+   ]
+  }
  },
  "letra-w": {
   "start": [
@@ -679,7 +1290,24 @@
    "ley",
    "buey"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "yegua"
+   ],
+   "food": [
+    "yema",
+    "yogur",
+    "yuca"
+   ],
+   "home": [
+    "yoyó",
+    "yeso"
+   ],
+   "transport": [
+    "yate"
+   ]
+  }
  },
  "letra-z": {
   "start": [
@@ -703,6 +1331,22 @@
    "luz",
    "calabaza"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "zorro"
+   ],
+   "food": [
+    "zanahoria",
+    "zumo"
+   ],
+   "body": [
+    "zapato",
+    "zapatilla"
+   ],
+   "transport": [
+    "zoológico"
+   ]
+  }
  }
 }

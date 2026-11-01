@@ -1,4 +1,4 @@
-import type { Lang, Letter } from '../lib/routes';
+import type { Lang, Letter, Theme } from '../lib/routes';
 
 // TODO(review): Portuguese and Spanish copy is a first draft — have native speakers check it.
 // Word count for titles; small lists read better without a number.
@@ -32,6 +32,12 @@ export type WordsCopy = {
   faq: (l: Letter, start: string[], inside: string[]) => { q: string; a: string }[];
   moreWords: (l: Letter) => string;
   hubLink: string;
+  // Only for languages whose word lists have themes.
+  themes?: {
+    names: Record<Theme | 'other', string>;
+    short: (l: Letter) => string;
+    animalsFaq: (l: Letter, animals: string[]) => { q: string; a: string };
+  };
 };
 
 const pt: WordsCopy = {
@@ -68,6 +74,14 @@ const pt: WordsCopy = {
   ],
   moreWords: (l) => `Mais palavras com ${l.letter}`,
   hubLink: 'Palavras com cada letra',
+  themes: {
+    names: {
+      animals: 'Animais', food: 'Comidas e bebidas', home: 'Em casa e brinquedos', nature: 'Natureza e tempo',
+      body: 'Corpo e roupas', transport: 'Lugares e transportes', people: 'Pessoas e personagens', other: 'Outras palavras',
+    },
+    short: (l) => `Palavras curtas com ${l.letter} para quem está começando a ler`,
+    animalsFaq: (l, a) => ({ q: `Quais animais começam com a letra ${l.letter}?`, a: `${a.join(', ')}.` }),
+  },
 };
 
 const es: WordsCopy = {
@@ -104,6 +118,14 @@ const es: WordsCopy = {
   ],
   moreWords: (l) => `Más palabras con ${l.letter}`,
   hubLink: 'Palabras con cada letra',
+  themes: {
+    names: {
+      animals: 'Animales', food: 'Comida y bebida', home: 'En casa y juguetes', nature: 'Naturaleza y tiempo',
+      body: 'Cuerpo y ropa', transport: 'Lugares y transportes', people: 'Personas y personajes', other: 'Otras palabras',
+    },
+    short: (l) => `Palabras cortas con ${l.letter} para los que empiezan a leer`,
+    animalsFaq: (l, a) => ({ q: `¿Qué animales empiezan por la letra ${l.letter}?`, a: `${a.join(', ')}.` }),
+  },
 };
 
 const fr: WordsCopy = {
@@ -178,6 +200,14 @@ const de: WordsCopy = {
   ],
   moreWords: (l) => `Mehr Wörter mit ${l.letter}`,
   hubLink: 'Wörter mit jedem Buchstaben',
+  themes: {
+    names: {
+      animals: 'Tiere', food: 'Essen und Trinken', home: 'Zu Hause und Spielsachen', nature: 'Natur und Wetter',
+      body: 'Körper und Kleidung', transport: 'Unterwegs', people: 'Menschen und Figuren', other: 'Weitere Wörter',
+    },
+    short: (l) => `Kurze Wörter mit ${l.letter} für Leseanfänger`,
+    animalsFaq: (l, a) => ({ q: `Welche Tiere fangen mit ${l.letter} an?`, a: `${a.join(', ')}.` }),
+  },
 };
 
 const pl: WordsCopy = {
@@ -216,6 +246,14 @@ const pl: WordsCopy = {
   ],
   moreWords: (l) => `Więcej słów z literą ${l.letter}`,
   hubLink: 'Słowa na każdą literę',
+  themes: {
+    names: {
+      animals: 'Zwierzęta', food: 'Jedzenie i picie', home: 'W domu i zabawki', nature: 'Przyroda i pogoda',
+      body: 'Ciało i ubrania', transport: 'Miejsca i pojazdy', people: 'Ludzie i postacie', other: 'Inne słowa',
+    },
+    short: (l) => `Krótkie słowa na literę ${l.letter} do nauki czytania`,
+    animalsFaq: (l, a) => ({ q: `Jakie zwierzęta zaczynają się na literę ${l.letter}?`, a: `${a.join(', ')}.` }),
+  },
 };
 
 const tr: WordsCopy = {

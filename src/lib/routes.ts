@@ -45,7 +45,10 @@ export const path = {
 };
 
 // Curated word lists per letter (data/words/<lang>.json, keyed by letter slug).
-export type WordList = { start: string[]; inside: string[]; names: string[] };
+// Optional themed groups of words that start with the letter; display order is THEMES.
+export const THEMES = ['animals', 'food', 'home', 'nature', 'body', 'transport', 'people'] as const;
+export type Theme = (typeof THEMES)[number];
+export type WordList = { start: string[]; inside: string[]; names: string[]; themes?: Partial<Record<Theme, string[]>> };
 const wordFiles = import.meta.glob<Record<string, WordList | string>>('../../data/words/*.json', { eager: true, import: 'default' });
 export function wordsFor(lang: Lang, slug: string): WordList | null {
   if (!SECTIONS[lang].words) return null;

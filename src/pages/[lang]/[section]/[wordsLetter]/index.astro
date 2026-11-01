@@ -5,7 +5,7 @@ import AppBlock from '../../../../components/AppBlock.astro';
 import { SITE } from '../../../../site';
 import { t } from '../../../../i18n';
 import { WORDS_COPY } from '../../../../i18n/words';
-import { LANGS, SECTIONS, LETTERS, path, wordsFor, type Lang, type Letter, type WordList } from '../../../../lib/routes';
+import { LANGS, SECTIONS, LETTERS, THEMES, path, wordsFor, type Lang, type Letter, type WordList } from '../../../../lib/routes';
 import { tileStyle } from '../../../../lib/color';
 import { splitAt } from '../../../../lib/text';
 
@@ -39,13 +39,26 @@ const pictures = [
   ...l.words.filter((w) => !l.word || !same(w.text, l.word)).map((w) => ({ text: display(w.text), src: `/img/words/${w.image}.webp` })),
 ].filter((p) => fs.existsSync('public' + p.src));
 
-const count = list.start.length + list.inside.length;
+// Themed groups replace the flat start list; start words missing from every theme go last.
+const T = W.themes;
+const themed = T && list.themes
+  ? (() => {
+      const groups = THEMES.filter((k) => list.themes![k]?.length).map((k) => ({ name: T.names[k], words: list.themes![k]! }));
+      const seen = new Set(groups.flatMap((g) => g.words.map((w) => w.toLocaleLowerCase(lang))));
+      const rest = list.start.filter((w) => !seen.has(w.toLocaleLowerCase(lang)));
+      return rest.length ? [...groups, { name: T.names.other, words: rest }] : groups;
+    })()
+  : null;
+const startWords = themed ? themed.flatMap((g) => g.words) : list.start;
+const short = themed ? startWords.filter((w) => w.replace(/-/g, '').length <= 4) : [];
+const count = startWords.length + list.inside.length;
 // Description examples: as many start words as fit in Google's ~160 characters.
 let examples = (list.start.length ? list.start : list.inside).slice(0, 5);
 while (examples.length > 1 && W.letterDescription(l, count, examples).length > 160) examples = examples.slice(0, -1);
-const title = W.letterTitle(l, list.start.length, count);
+const title = W.letterTitle(l, startWords.length, count);
 const description = W.letterDescription(l, count, examples);
 const faq = W.faq(l, list.start, list.inside);
+if (T && list.themes?.animals?.length) faq.splice(1, 0, T.animalsFaq(l, list.themes.animals));
 const highlight = (word: string) => splitAt(lang, word, l.lower);
 const others = LETTERS[lang].filter((x) => x.slug !== l.slug && wordsFor(lang, x.slug));
 const ink = `--c:${l.letterColor ?? l.color}`;
@@ -84,8 +97,8 @@ const jsonLd = {
           <span>{l.letter}</span>{l.letter !== l.lower && <small>{l.lower}</small>}
         </div>
         <div>
-          <h1>{W.letterH1(l, list.start.length)}</h1>
-          <p class="lead">{W.letterLead(l, list.start.length, list.inside.length)}</p>
+          <h1>{W.letterH1(l, startWords.length)}</h1>
+          <p class="lead">{W.letterLead(l, startWords.length, list.inside.length)}</p>
         </div>
       </div>
 
@@ -110,7 +123,35 @@ const jsonLd = {
 
   <section class="section">
     <div class="wrap">
-      {list.start.length > 0 && (
+      {themed && (
+        <>
+          <h2>{W.startTitle(l)}</h2>
+          {themed.map((g) => (
+            <>
+              <h3>{g.name}</h3>
+              <ul class="chips">
+                {g.words.map((w) => {
+                  const [a, b, c] = highlight(w);
+                  return <li>{a}<b style={ink}>{b}</b>{c}</li>;
+                })}
+              </ul>
+            </>
+          ))}
+          {short.length >= 3 && (
+            <>
+              <h2>{T!.short(l)}</h2>
+              <ul class="chips">
+                {short.map((w) => {
+                  const [a, b, c] = highlight(w);
+                  return <li>{a}<b style={ink}>{b}</b>{c}</li>;
+                })}
+              </ul>
+            </>
+          )}
+        </>
+      )}
+
+      {!themed && list.start.length > 0 && (
         <>
           <h2>{W.startTitle(l)}</h2>
           <ul class="chips">
@@ -208,6 +249,7 @@ const jsonLd = {
   .pics li { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; text-align: center; font-weight: 800; font-size: 1.1rem; }
   .pics img { width: 100%; aspect-ratio: 1; object-fit: contain; margin-bottom: 6px; }
   mark { background: none; color: inherit; text-decoration: underline 4px var(--c); text-underline-offset: 4px; }
+  h3 + .chips { margin-bottom: 20px; }
   .chips { list-style: none; padding: 0; margin: 12px 0 32px; display: flex; flex-wrap: wrap; gap: 10px; }
   .chips li { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 1.15rem; font-weight: 600; }
   .chips b { font-weight: 900; text-decoration: underline 4px var(--c); text-underline-offset: 4px; }

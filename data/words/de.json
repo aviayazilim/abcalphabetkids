@@ -24,7 +24,47 @@
    "Papa",
    "Nase"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Affe",
+    "Ameise",
+    "Adler",
+    "Aal",
+    "Alpaka",
+    "Amsel",
+    "Antilope"
+   ],
+   "food": [
+    "Apfel",
+    "Ananas",
+    "Aprikose",
+    "Avocado"
+   ],
+   "home": [
+    "Aquarium",
+    "Armband"
+   ],
+   "nature": [
+    "Ast",
+    "Ahorn",
+    "Abend"
+   ],
+   "body": [
+    "Arm",
+    "Auge",
+    "Anorak"
+   ],
+   "transport": [
+    "Auto",
+    "Ampel",
+    "Anker",
+    "Anhänger"
+   ],
+   "people": [
+    "Astronaut"
+   ]
+  }
  },
  "b": {
   "start": [
@@ -50,7 +90,68 @@
    "Schublade",
    "Abend"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Bär",
+    "Biene",
+    "Biber",
+    "Büffel",
+    "Blaumeise"
+   ],
+   "food": [
+    "Banane",
+    "Brot",
+    "Birne",
+    "Brezel",
+    "Butter",
+    "Bohne",
+    "Brombeere",
+    "Brötchen",
+    "Blaubeere",
+    "Bonbon"
+   ],
+   "home": [
+    "Ball",
+    "Buch",
+    "Bett",
+    "Becher",
+    "Bild",
+    "Badewanne",
+    "Bürste",
+    "Besen",
+    "Bauklotz",
+    "Bleistift"
+   ],
+   "nature": [
+    "Baum",
+    "Blume",
+    "Blatt",
+    "Berg",
+    "Bach",
+    "Blitz"
+   ],
+   "body": [
+    "Bein",
+    "Bauch",
+    "Bart",
+    "Bluse",
+    "Brille"
+   ],
+   "transport": [
+    "Bus",
+    "Boot",
+    "Bagger",
+    "Bahn",
+    "Brücke"
+   ],
+   "people": [
+    "Bäcker",
+    "Baby",
+    "Bruder",
+    "Bauer"
+   ]
+  }
  },
  "c": {
   "start": [
@@ -71,7 +172,32 @@
    "Schuh",
    "Koch"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Chamäleon",
+    "Chinchilla"
+   ],
+   "food": [
+    "Croissant",
+    "Cracker"
+   ],
+   "home": [
+    "Computer",
+    "Comic"
+   ],
+   "transport": [
+    "Café",
+    "Campingplatz",
+    "Cabrio"
+   ],
+   "people": [
+    "Clown",
+    "Cowboy",
+    "Cousin",
+    "Cousine"
+   ]
+  }
  },
  "d": {
   "start": [
@@ -94,7 +220,40 @@
    "Mond",
    "Wald"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Delfin",
+    "Dachs",
+    "Dinosaurier",
+    "Dackel"
+   ],
+   "food": [
+    "Dattel"
+   ],
+   "home": [
+    "Decke",
+    "Dose",
+    "Dusche",
+    "Deckel"
+   ],
+   "nature": [
+    "Donner"
+   ],
+   "body": [
+    "Daumen"
+   ],
+   "transport": [
+    "Dach",
+    "Dorf",
+    "Dampfer"
+   ],
+   "people": [
+    "Drache",
+    "Doktor",
+    "Detektiv"
+   ]
+  }
  },
  "e": {
   "start": [
@@ -119,7 +278,44 @@
    "Melone",
    "Besen"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Ente",
+    "Elefant",
+    "Esel",
+    "Eule",
+    "Eichhörnchen",
+    "Eidechse",
+    "Elch",
+    "Eisbär"
+   ],
+   "food": [
+    "Erdbeere",
+    "Ei",
+    "Eis",
+    "Erbse",
+    "Erdnuss"
+   ],
+   "home": [
+    "Eimer",
+    "Etui"
+   ],
+   "nature": [
+    "Erde",
+    "Eiche",
+    "Eiszapfen"
+   ],
+   "body": [
+    "Ellbogen"
+   ],
+   "transport": [
+    "Eisenbahn"
+   ],
+   "people": [
+    "Engel"
+   ]
+  }
  },
  "f": {
   "start": [
@@ -146,7 +342,53 @@
    "Ofen",
    "Löffel"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Fisch",
+    "Fuchs",
+    "Frosch",
+    "Fliege",
+    "Flamingo",
+    "Falke",
+    "Fledermaus",
+    "Faultier"
+   ],
+   "food": [
+    "Feige",
+    "Fischstäbchen"
+   ],
+   "home": [
+    "Fenster",
+    "Feder",
+    "Flasche",
+    "Fernseher",
+    "Farbe",
+    "Foto"
+   ],
+   "nature": [
+    "Feuer",
+    "Feld",
+    "Fluss",
+    "Felsen",
+    "Frühling"
+   ],
+   "body": [
+    "Finger",
+    "Fuß"
+   ],
+   "transport": [
+    "Fahrrad",
+    "Flugzeug",
+    "Feuerwehrauto",
+    "Fähre"
+   ],
+   "people": [
+    "Fee",
+    "Feuerwehrmann",
+    "Freund"
+   ]
+  }
  },
  "g": {
   "start": [
@@ -172,7 +414,46 @@
    "Berg",
    "Zug"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Giraffe",
+    "Gans",
+    "Gorilla",
+    "Gepard",
+    "Goldfisch",
+    "Grille"
+   ],
+   "food": [
+    "Gurke",
+    "Gemüse",
+    "Gummibärchen"
+   ],
+   "home": [
+    "Gabel",
+    "Geschenk",
+    "Glas",
+    "Gitarre",
+    "Glocke",
+    "Gießkanne"
+   ],
+   "nature": [
+    "Garten",
+    "Gras",
+    "Gewitter"
+   ],
+   "body": [
+    "Gesicht",
+    "Gürtel"
+   ],
+   "transport": [
+    "Garage"
+   ],
+   "people": [
+    "Gespenst",
+    "Gärtner"
+   ]
+  }
  },
  "h": {
   "start": [
@@ -198,7 +479,52 @@
    "Bahn",
    "Stuhl"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Hund",
+    "Hase",
+    "Huhn",
+    "Hummel",
+    "Hai",
+    "Hirsch",
+    "Hamster",
+    "Hahn",
+    "Heuschrecke"
+   ],
+   "food": [
+    "Honig",
+    "Himbeere",
+    "Haferflocken"
+   ],
+   "home": [
+    "Haus",
+    "Hammer",
+    "Heft"
+   ],
+   "nature": [
+    "Himmel",
+    "Herbst",
+    "Hügel",
+    "Heu"
+   ],
+   "body": [
+    "Hand",
+    "Hose",
+    "Hut",
+    "Haar",
+    "Hals",
+    "Hemd",
+    "Handschuh"
+   ],
+   "transport": [
+    "Hubschrauber",
+    "Hafen"
+   ],
+   "people": [
+    "Hexe"
+   ]
+  }
  },
  "i": {
   "start": [
@@ -219,7 +545,27 @@
    "Kirsche",
    "Zitrone"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Igel",
+    "Insekt"
+   ],
+   "food": [
+    "Ingwer"
+   ],
+   "home": [
+    "Iglu",
+    "Instrument",
+    "Inliner"
+   ],
+   "nature": [
+    "Insel"
+   ],
+   "people": [
+    "Imker"
+   ]
+  }
  },
  "j": {
   "start": [
@@ -241,7 +587,31 @@
    "Jan",
    "Julia",
    "Jonas"
-  ]
+  ],
+  "themes": {
+   "animals": [
+    "Jaguar"
+   ],
+   "food": [
+    "Joghurt",
+    "Johannisbeere"
+   ],
+   "home": [
+    "Jojo"
+   ],
+   "body": [
+    "Jacke",
+    "Jeans"
+   ],
+   "transport": [
+    "Jeep"
+   ],
+   "people": [
+    "Junge",
+    "Jäger",
+    "Jongleur"
+   ]
+  }
  },
  "k": {
   "start": [
@@ -268,7 +638,61 @@
    "Anker",
    "Wolke"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Katze",
+    "Kuh",
+    "Kamel",
+    "Känguru",
+    "Krokodil",
+    "Käfer",
+    "Kuckuck",
+    "Koala",
+    "Krebs",
+    "Küken",
+    "Kaninchen"
+   ],
+   "food": [
+    "Käse",
+    "Kuchen",
+    "Kirsche",
+    "Kartoffel",
+    "Keks",
+    "Kakao",
+    "Kiwi",
+    "Kürbis"
+   ],
+   "home": [
+    "Kerze",
+    "Krone",
+    "Koffer",
+    "Kissen",
+    "Kamm",
+    "Kanne",
+    "Kiste",
+    "Korb",
+    "Kühlschrank"
+   ],
+   "nature": [
+    "Kastanie",
+    "Klee"
+   ],
+   "body": [
+    "Kopf",
+    "Knie",
+    "Kleid"
+   ],
+   "transport": [
+    "Kran",
+    "Kutsche"
+   ],
+   "people": [
+    "Kind",
+    "König",
+    "Koch"
+   ]
+  }
  },
  "l": {
   "start": [
@@ -292,7 +716,46 @@
    "Schule",
    "Stuhl"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Löwe",
+    "Lama",
+    "Leopard",
+    "Libelle",
+    "Lamm",
+    "Luchs"
+   ],
+   "food": [
+    "Limonade",
+    "Lauch",
+    "Lebkuchen"
+   ],
+   "home": [
+    "Lampe",
+    "Laterne",
+    "Leiter",
+    "Löffel",
+    "Lineal",
+    "Licht"
+   ],
+   "nature": [
+    "Laub",
+    "Löwenzahn",
+    "Luft"
+   ],
+   "body": [
+    "Lippe"
+   ],
+   "transport": [
+    "Lastwagen",
+    "Lokomotive"
+   ],
+   "people": [
+    "Lehrer",
+    "Lehrerin"
+   ]
+  }
  },
  "m": {
   "start": [
@@ -319,7 +782,50 @@
    "Himmel",
    "Zimmer"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Maus",
+    "Marienkäfer",
+    "Muschel",
+    "Möwe",
+    "Maulwurf",
+    "Murmeltier",
+    "Meerschweinchen"
+   ],
+   "food": [
+    "Milch",
+    "Möhre",
+    "Melone",
+    "Mais",
+    "Marmelade",
+    "Mandarine",
+    "Müsli",
+    "Mango"
+   ],
+   "home": [
+    "Messer",
+    "Murmel"
+   ],
+   "nature": [
+    "Mond",
+    "Meer",
+    "Moos"
+   ],
+   "body": [
+    "Mund",
+    "Mütze",
+    "Mantel"
+   ],
+   "transport": [
+    "Motorrad"
+   ],
+   "people": [
+    "Mama",
+    "Mann",
+    "Maler"
+   ]
+  }
  },
  "n": {
   "start": [
@@ -344,7 +850,37 @@
    "Hand",
    "Zahn"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Nashorn",
+    "Nilpferd",
+    "Nachtigall"
+   ],
+   "food": [
+    "Nudel",
+    "Nuss",
+    "Nektarine"
+   ],
+   "home": [
+    "Nadel",
+    "Netz",
+    "Nagel"
+   ],
+   "nature": [
+    "Nest",
+    "Nacht",
+    "Nebel"
+   ],
+   "body": [
+    "Nase",
+    "Nacken"
+   ],
+   "people": [
+    "Nachbar",
+    "Nikolaus"
+   ]
+  }
  },
  "o": {
   "start": [
@@ -369,7 +905,32 @@
    "Brot",
    "Wolke"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Otter",
+    "Ochse",
+    "Oktopus",
+    "Orang-Utan"
+   ],
+   "food": [
+    "Obst",
+    "Orange",
+    "Olive"
+   ],
+   "home": [
+    "Ofen"
+   ],
+   "body": [
+    "Ohr",
+    "Ohrring"
+   ],
+   "people": [
+    "Oma",
+    "Opa",
+    "Onkel"
+   ]
+  }
  },
  "p": {
   "start": [
@@ -396,7 +957,52 @@
    "Kopf",
    "Zopf"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Pferd",
+    "Pinguin",
+    "Pudel",
+    "Papagei",
+    "Panda",
+    "Pfau",
+    "Pony"
+   ],
+   "food": [
+    "Pizza",
+    "Pflaume",
+    "Paprika",
+    "Pfannkuchen",
+    "Pudding",
+    "Popcorn"
+   ],
+   "home": [
+    "Puppe",
+    "Pinsel",
+    "Paket",
+    "Pflaster",
+    "Pfanne",
+    "Puzzle"
+   ],
+   "nature": [
+    "Pilz",
+    "Palme",
+    "Pfütze"
+   ],
+   "body": [
+    "Pullover"
+   ],
+   "transport": [
+    "Post",
+    "Polizeiauto"
+   ],
+   "people": [
+    "Papa",
+    "Pirat",
+    "Prinzessin",
+    "Polizist"
+   ]
+  }
  },
  "q": {
   "start": [
@@ -409,7 +1015,22 @@
   "inside": [
    "Aquarium"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Qualle"
+   ],
+   "food": [
+    "Quark",
+    "Quitte"
+   ],
+   "home": [
+    "Quartett"
+   ],
+   "nature": [
+    "Quelle"
+   ]
+  }
  },
  "r": {
   "start": [
@@ -436,7 +1057,47 @@
    "Tiger",
    "Zebra"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Raupe",
+    "Rabe",
+    "Reh",
+    "Robbe",
+    "Regenwurm",
+    "Rentier"
+   ],
+   "food": [
+    "Rübe",
+    "Rosine",
+    "Radieschen",
+    "Reis"
+   ],
+   "home": [
+    "Ring",
+    "Rucksack",
+    "Radiergummi",
+    "Regal"
+   ],
+   "nature": [
+    "Regen",
+    "Rose",
+    "Regenbogen"
+   ],
+   "body": [
+    "Rücken",
+    "Rock"
+   ],
+   "transport": [
+    "Rakete",
+    "Rad",
+    "Roller"
+   ],
+   "people": [
+    "Riese",
+    "Ritter"
+   ]
+  }
  },
  "s": {
   "start": [
@@ -462,7 +1123,62 @@
    "Fisch",
    "Esel"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Schaf",
+    "Schnecke",
+    "Schwein",
+    "Spinne",
+    "Storch",
+    "Schildkröte",
+    "Schmetterling",
+    "Seehund",
+    "Schlange",
+    "Specht"
+   ],
+   "food": [
+    "Salat",
+    "Suppe",
+    "Saft",
+    "Schokolade",
+    "Spaghetti",
+    "Salz"
+   ],
+   "home": [
+    "Sofa",
+    "Stuhl",
+    "Seife",
+    "Schere",
+    "Schaukel",
+    "Spiegel",
+    "Schrank",
+    "Schlüssel"
+   ],
+   "nature": [
+    "Sonne",
+    "Stern",
+    "Sand",
+    "Schnee",
+    "Sommer",
+    "Sturm"
+   ],
+   "body": [
+    "Schuh",
+    "Socke",
+    "Schal",
+    "Schulter"
+   ],
+   "transport": [
+    "Schiff",
+    "Straßenbahn",
+    "Schlitten",
+    "Schule"
+   ],
+   "people": [
+    "Schwester"
+   ]
+  }
  },
  "t": {
   "start": [
@@ -489,7 +1205,46 @@
    "Garten",
    "Butter"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Tiger",
+    "Truthahn",
+    "Taube",
+    "Tintenfisch"
+   ],
+   "food": [
+    "Tomate",
+    "Torte",
+    "Tee",
+    "Traube"
+   ],
+   "home": [
+    "Tisch",
+    "Tasse",
+    "Teller",
+    "Tür",
+    "Teppich",
+    "Teddy",
+    "Trommel",
+    "Taschenlampe",
+    "Tasche"
+   ],
+   "nature": [
+    "Tulpe",
+    "Tanne",
+    "Tal"
+   ],
+   "transport": [
+    "Traktor",
+    "Turm",
+    "Taxi",
+    "Tunnel"
+   ],
+   "people": [
+    "Tante"
+   ]
+  }
  },
  "u": {
   "start": [
@@ -509,7 +1264,27 @@
    "Schule",
    "Turm"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Uhu"
+   ],
+   "home": [
+    "Uhr"
+   ],
+   "nature": [
+    "Ufer",
+    "Unkraut"
+   ],
+   "body": [
+    "Unterhemd",
+    "Unterhose"
+   ],
+   "transport": [
+    "U-Bahn",
+    "Ufo"
+   ]
+  }
  },
  "v": {
   "start": [
@@ -527,7 +1302,28 @@
    "Lava",
    "Kurve"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Vogel"
+   ],
+   "food": [
+    "Vanilleeis"
+   ],
+   "home": [
+    "Vase",
+    "Vorhang"
+   ],
+   "nature": [
+    "Veilchen",
+    "Vulkan",
+    "Vollmond"
+   ],
+   "people": [
+    "Vater",
+    "Verkäufer"
+   ]
+  }
  },
  "w": {
   "start": [
@@ -551,7 +1347,46 @@
    "Zwerg",
    "Schwamm"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Wolf",
+    "Wal",
+    "Wurm",
+    "Wespe",
+    "Waschbär",
+    "Wildschwein",
+    "Walross"
+   ],
+   "food": [
+    "Wurst",
+    "Wasser",
+    "Waffel",
+    "Wassermelone",
+    "Weintraube"
+   ],
+   "home": [
+    "Würfel",
+    "Wecker",
+    "Waschmaschine",
+    "Wippe"
+   ],
+   "nature": [
+    "Wolke",
+    "Wald",
+    "Wind",
+    "Wiese",
+    "Welle",
+    "Winter"
+   ],
+   "body": [
+    "Wange"
+   ],
+   "transport": [
+    "Wagen",
+    "Wohnmobil"
+   ]
+  }
  },
  "x": {
   "start": [
@@ -567,7 +1402,12 @@
   "names": [
    "Xaver",
    "Xenia"
-  ]
+  ],
+  "themes": {
+   "home": [
+    "Xylophon"
+   ]
+  }
  },
  "y": {
   "start": [
@@ -584,7 +1424,18 @@
    "Pyjama",
    "Hobby"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Yak"
+   ],
+   "transport": [
+    "Yacht"
+   ],
+   "people": [
+    "Yeti"
+   ]
+  }
  },
  "z": {
   "start": [
@@ -611,7 +1462,43 @@
    "Mütze",
    "Kerze"
   ],
-  "names": []
+  "names": [],
+  "themes": {
+   "animals": [
+    "Zebra",
+    "Ziege"
+   ],
+   "food": [
+    "Zitrone",
+    "Zucker",
+    "Zwiebel",
+    "Zucchini",
+    "Zimt"
+   ],
+   "home": [
+    "Zange",
+    "Zelt",
+    "Zahnbürste",
+    "Zeitung"
+   ],
+   "nature": [
+    "Zweig"
+   ],
+   "body": [
+    "Zahn",
+    "Zeh"
+   ],
+   "transport": [
+    "Zug",
+    "Zoo",
+    "Zaun"
+   ],
+   "people": [
+    "Zwerg",
+    "Zauberer",
+    "Zwillinge"
+   ]
+  }
  },
  "ae": {
   "start": [
