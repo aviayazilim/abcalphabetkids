@@ -23,6 +23,16 @@
       "scan": "Наведите камеру телефона на код",
       "ogTitle": "Буква {letter}",
       "ogSub": "Пропись и раскраска · PDF"
+    },
+    "pin": {
+      "headline": "Буква {letter}",
+      "headline2": "пропись",
+      "sub": "Бесплатно · PDF",
+      "board": "Прописи букв для детей",
+      "title": "Пропись буквы {letter} – бесплатно распечатать (PDF)",
+      "description": "Бесплатная пропись буквы {letter}: обводим заглавную {letter} и строчную {lower}, слово «{word}» с картинкой{coloring}. Для детей 4–6 лет, подготовка к школе. PDF для печати, без регистрации.",
+      "coloring": ", и раскраска",
+      "keywords": "прописи для детей, пропись буквы {lower}, прописи распечатать, буквы для детей, подготовка к школе, учим буквы"
     }
   },
   "de": {
@@ -123,6 +133,16 @@
       "scan": "Telefon kamerasını koda tutun",
       "ogTitle": "{letter} harfi",
       "ogSub": "Yazma ve boyama sayfası · PDF"
+    },
+    "pin": {
+      "headline": "{letter} Harfi",
+      "headline2": "yazma çalışması",
+      "sub": "Ücretsiz etkinlik · PDF",
+      "board": "Harf yazma çalışmaları",
+      "title": "{letter} harfi yazma çalışması – ücretsiz yazdırılabilir etkinlik (PDF)",
+      "description": "{letter} harfi için ücretsiz çalışma sayfası: büyük {letter} ve küçük {lower} harfini noktalı çizgilerin üzerinden yaz, “{word}” kelimesini resimle öğren{coloring}. 4–6 yaş, okul öncesi. Yazdırılabilir PDF, üyelik gerekmez.",
+      "coloring": "; boyama sayfası da var",
+      "keywords": "harf yazma çalışması, {lower} harfi çalışma sayfası, okul öncesi etkinlik, ilk harfler, harf öğrenme, yazdırılabilir etkinlik"
     }
   },
   "es": {
@@ -150,6 +170,16 @@
       "scan": "Apunta la cámara del teléfono al código",
       "ogTitle": "Letra {letter}",
       "ogSub": "Ficha para repasar y colorear · PDF"
+    },
+    "pin": {
+      "headline": "Letra {letter}",
+      "headline2": "para repasar",
+      "sub": "Ficha gratis · PDF",
+      "board": "Fichas del abecedario para repasar",
+      "title": "Letra {letter} para repasar – ficha gratis para imprimir (PDF)",
+      "description": "Ficha gratis de la letra {letter}: repasa la {letter} mayúscula, la {lower} minúscula y la palabra «{word}» con dibujo{coloring}. Para niños de 4 a 6 años, infantil y preescolar. PDF para imprimir, sin registro.",
+      "coloring": ", y un dibujo para colorear",
+      "keywords": "letras para repasar, letra {lower} para repasar, fichas abecedario, fichas infantil, lectoescritura, preescolar, abecedario para niños"
     }
   },
   "pt": {
@@ -176,6 +206,16 @@
       "scan": "Aponte a câmera do celular para o código",
       "ogTitle": "Letra {letter}",
       "ogSub": "Atividade pontilhada e para colorir · PDF"
+    },
+    "pin": {
+      "headline": "Letra {letter}",
+      "headline2": "pontilhada",
+      "sub": "Atividade grátis · PDF",
+      "board": "Alfabeto pontilhado – atividades",
+      "title": "Letra {letter} pontilhada – atividade grátis para imprimir (PDF)",
+      "description": "Atividade grátis da letra {letter}: cubra a letra {letter} maiúscula, a {lower} minúscula e a palavra “{word}” com desenho{coloring}. Para crianças de 4 a 6 anos, educação infantil. PDF para imprimir, sem cadastro.",
+      "coloring": ", e um desenho para colorir",
+      "keywords": "letra pontilhada, letra {lower} pontilhada, alfabeto pontilhado, atividades educação infantil, alfabetização, atividades para imprimir"
     }
   },
   "pl": {
@@ -202,6 +242,16 @@
       "scan": "Skieruj aparat telefonu na kod",
       "ogTitle": "Litera {letter}",
       "ogSub": "Karta pracy do pisania i kolorowania · PDF"
+    },
+    "pin": {
+      "headline": "Litera {letter}",
+      "headline2": "po śladzie",
+      "sub": "Darmowa karta pracy · PDF",
+      "board": "Karty pracy – litery po śladzie",
+      "title": "Litera {letter} po śladzie – darmowa karta pracy do druku (PDF)",
+      "description": "Darmowa karta pracy z literą {letter}: pisz po śladzie wielką {letter} i małą {lower}, słowo „{word}” z obrazkiem{coloring}. Dla dzieci 4–6 lat, przedszkole. PDF do druku, bez rejestracji.",
+      "coloring": ", oraz kolorowanka",
+      "keywords": "karty pracy litery, litera {lower} po śladzie, nauka pisania, przedszkole karty pracy, alfabet dla dzieci, elementarz"
     }
   },
   "fr": {
@@ -229,6 +279,16 @@
       "scan": "Visez le code avec l’appareil photo du téléphone",
       "ogTitle": "Lettre {letter}",
       "ogSub": "Fiche d’écriture et coloriage · PDF"
+    },
+    "pin": {
+      "headline": "Lettre {letter}",
+      "headline2": "à tracer",
+      "sub": "Fiche gratuite · PDF",
+      "board": "Fiches alphabet à imprimer",
+      "title": "Lettre {letter} à tracer – fiche gratuite à imprimer (PDF)",
+      "description": "Fiche gratuite de la lettre {letter} : tracer le {letter} majuscule, le {lower} minuscule et le mot « {word} » avec son image{coloring}. Pour les enfants de 4 à 6 ans, maternelle. PDF à imprimer, sans inscription.",
+      "coloring": ", et un coloriage",
+      "keywords": "fiche alphabet, lettre {lower} à tracer, graphisme maternelle, écriture maternelle, fiches maternelle, apprendre l'alphabet"
     }
   }
 }
